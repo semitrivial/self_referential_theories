@@ -1,0 +1,2622 @@
+\documentclass[reqno]{article}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{pstricks}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{pictexwd,dcpic}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\L{\mathscr{L}}
+\def\M{\mathscr{M}}
+\def\T{\mathbf{T}}
+\def\S{\mathbf{S}}
+\def\U{\mathbf{U}}
+\def\V{\mathbf{V}}
+\def\O{\mathcal{O}}
+%\def\Pr{\T\mbox{\small${\vDash}$}}
+\def\gr{\mathrm{Gr}}
+\def\pow{\mathscr{P}}
+\def\smn{S\mbox{-}m\mbox{-}n}
+\def\gl{\mathrm{Gl}}
+\def\bl{\underline{\,\,\,}}
+\def\FV{\mathrm{FV}}
+\def\LPA{\L_{\mathrm{PA}}}
+\def\LPO{\L^{\mathcal{O}}_{\mathrm{PA}}}
+\def\LEA{\L_{\mathrm{EA}}}
+\def\Ord{\mathrm{Ord}}
+\def\epom{\epsilon_0\cdot\omega}
+\def\indset{\mathcal I}
+\def\onset{\mathrm{On}}
+\def\Tr{\mathrm{Tr}}
+\def\rest{\upharpoonright}
+\def\ctr{\cap\Tr}
+\renewcommand{\Pr}[1]{\T_{#1}\mbox{\small${\vDash}$}}
+\newcommand{\Prr}[2]{\T^{#1}_{#2}\mbox{\small${\vDash}$}}
+\newcommand{\ucl}[1]{\mathrm{ucl}(#1)}
+\newcommand{\nv}[1]{\mathrm{nv}(#1)}
+\newcommand{\case}[1]{\textbf{Case #1:}}
+\newcommand{\caseplural}[1]{\textbf{Cases #1:}}
+\newcommand{\subcase}[1]{\textbf{Subcase #1:}}
+\newcommand{\col}[2]{\mathrm{Col}_{#1}(#2)}
+\newcommand{\claim}[1]{\textbf{Claim #1:}}
+\def\claimnone{\textbf{Claim:}}
+\newcommand{\subclaim}[1]{\textbf{Subclaim #1:}}
+\newcommand{\str}[1]{\mathrm{Str}(#1)} \newcommand{\Str}[1]{\str{#1}}
+
+\begin{document}
+
+\title{Self-referential theories}
+\author{Samuel A.~Alexander\thanks{Email:
+alexander@math.ohio-state.edu}\\
+\emph{Department of Mathematics, the Ohio State University}}
+
+\maketitle
+
+\begin{abstract}
+We study the structure of families of theories in the language
+of arithmetic extended to allow these families to refer to
+one another and to themselves.
+If a theory contains schemata expressing its own truth and
+expressing a specific Turing index for itself,
+and contains some other mild axioms, then that theory
+is untrue. We exhibit some families of
+true self-referential theories that barely avoid this forbidden
+pattern.
+\end{abstract}
+
+
+\section{Introduction}
+
+This is a paper about families of r.e.~theories, each capable of referring to
+itself and the others.
+Many of this paper's results first appeared in the author's dissertation 
+\cite{alexanderdissert}.  There, they were stated in terms of families
+of interacting mechanical knowing agents.  Here, we will
+speak instead of families of self-referential r.e.~theories.  We hope this will
+more directly expose the underlying mathematics.
+
+In epistemology, it is well-known that a (suitably idealized) truthful knowing machine capable of
+arithmetic, logic, and self-reflection, cannot know its own truth and its own code.
+This is due, in various guises,
+to authors such as
+Lucas \cite{lucas},
+Benacerraf \cite{benacerraf}, Reinhardt \cite{reinhardt}, Penrose \cite{penrose},
+and Putnam \cite{putnam}.  In terms of self-referential
+theories, a true theory satisfying certain assumptions cannot contain schemata stating
+its own truth and its own G\"odel number
+(if such a theory did exist, we could program a machine knower that knows precisely
+its consequences).
+Reinhardt conjectured, and Carlson proved \cite{carlson2000}, a truthful machine knower
+can know (in a local sense, i.e., expressed by infinite schemata rather
+than a single axiom) that it is truthful and has some code, without knowing which.
+A true self-referential theory can (in a local sense) state its own truth and
+recursive enumerability.  We showed \cite{alexandercode} that, alternatively, a truthful
+machine can (in a local sense) exactly know its own code, if not required to know its own
+truth.  A true theory can state (in a local sense) its own G\"odel number.
+
+
+Our goal is to generalize the above consistency results to multiple theories.
+The paper contains five main findings.
+In the following list of promises, except where otherwise stated, $\prec$ is an r.e~well-founded partial-order
+on $\omega$, and \emph{expresses} is meant in the local (infinite schema) sense.
+\begin{enumerate}
+\item There are true theories $(T_i)_{i\in \omega}$
+such that $T_i$ expresses a G\"odel number of $T_j$ (all $i,j$)
+and $T_i$ expresses the truth of $T_j$ (all $j\prec i$).
+\item There are true theories $(T_i)_{i\in \omega}$
+such that $T_i$ expresses a G\"odel number of $T_j$ ($j\prec i$),
+the truth of $T_j$ ($j\preceq i$),
+and the fact that $T_j$ has some G\"odel number (all $i,j$).
+\item There are true theories $(T_i)_{i\in\omega}$
+such that $T_i$ expresses a G\"odel number of $T_j$ ($j\prec i$),
+truth of $T_j$ ($j\preceq i$),
+a weakened form of the truth of $T_j$ (all $i,j$),
+and that $T_j$ has some G\"odel number ($j\preceq i$).
+\item If $\prec$ is ill-founded, and if we extend
+the base language to include a predicate for computable
+ordinals and require the theories to include rudimentary facts about
+them, then 1--3 fail.
+\item Finally, if we do not extend the base language as in 4,
+then there do exist ill-founded r.e.~partial orders $\prec$ such that 1--3 hold.
+\end{enumerate}
+Our proofs of 1--3 are constructive, but the proof of 5 is
+nonconstructive.  In short, if 5 were false, any of 1--3 could be used
+to define the set $WF$ of r.e.~well-founded partial orders of $\omega$
+using nothing but arithmetic and a truth predicate $\Tr$ for arithmetic. 
+This is impossible since $WF$ is $\Pi^1_1$-complete and $\Tr$ is $\Delta^1_1$.
+
+
+\section{Preliminaries}
+\label{prelimsect}
+
+To us, \emph{theory} and \emph{schema} mean \emph{set of sentences}
+(a \emph{sentence}
+is a formula with no free variables).
+
+\begin{definition}
+\label{stddefn}
+(Standard Definitions)
+\begin{enumerate}
+\item When a first-order structure is clear from context, an \emph{assignment} is a 
+function $s$ mapping first-order variables into the universe of that structure.  If 
+$x$ is a variable and $u$ is an element of the universe, $s(x|u)$ is the 
+assignment that agrees with $s$ except that it maps $x$ to $u$.
+\item We write $\M\models\phi[s]$ to indicate that the first-order structure $\M$ 
+satisfies the formula $\phi$ relative to the assignment $s$.  We write 
+$\M\models \phi$ just in case $\M\models\phi[s]$ for every assignment $s$.
+If $T$ is a theory, $\M\models T$ means that $\M\models\phi$ for every 
+$\phi\in T$.
+\item We write $\FV(\phi)$ for the set of free variables of $\phi$.
+\item We write $\phi(x|t)$ for the result of substituting term $t$ for 
+variable $x$ in $\phi$.
+\item $\LPA$ is the language of Peano arithmetic, with constant 
+symbol $0$ and function symbols $S$, $+$, $\cdot$ with the usual arities.
+If $\L$ extends $\LPA$, an $\L$-structure \emph{has standard 
+first-order part} if it has universe $\N$ and interprets $0$, $S$, $+$ and 
+$\cdot$ as intended.
+\item We define $\LPA$-terms $\overline n$ ($n\in\N$), called 
+\emph{numerals}, so that $\overline 0 \equiv 0$ and $\overline{n+1}\equiv S(\overline 
+n)$.
+\item We fix a computable bijection 
+$\langle 
+\bullet,\bullet,\bullet\rangle:\N^3\to\N$.
+Being computable, this is $\LPA$-definable, so we may freely 
+act as if $\LPA$ contains a function symbol for this bijection. 
+Similarly we may act as if $\LPA$ contains a binary predicate symbol $\bullet\in 
+W_\bullet$ for membership in the $n$th r.e.~set $W_n$.
+\item Whenever a computable language is clear from context, 
+$\phi\mapsto\ulcorner\phi\urcorner$ denotes G\"odel numbering.
+\item A \emph{valid} formula is one that is true in every structure.
+\item A \emph{universal closure} of $\phi$ is a sentence $\forall 
+x_1\cdots \forall x_n\phi$ where $\FV(\phi)\subseteq\{x_1,\ldots,x_n\}$.
+We write $\ucl{\phi}$ to denote a generic universal closure of $\phi$.
+\end{enumerate}
+\end{definition}
+
+Note that if $\M$ is a structure and $\psi$ is a universal closure of 
+$\phi$, in order to prove $\M\models\psi$ it suffices to let $s$ be an 
+arbitrary assignment and show $\M\models\phi[s]$.
+
+To formalize self-referential theories, we employ an extension of
+first-order logic where languages may contain new unary connective symbols.
+This logic is borrowed from \cite{carlson2000}.
+
+\begin{definition}
+\label{baselogicdefn}
+(The Base Logic)
+A language $\L$ of the \emph{base logic} is a first-order language $\L_0$ together with
+a class of symbols called \emph{operators}.
+Formulas of $\L$ are defined as usual, with the clause that
+$\Pr{i}\phi$ is a formula whenever $\phi$ is a formula and $\Pr{i}$
+is an operator.
+Syntactic parts of Definition \ref{stddefn} extend to the base logic in obvious
+ways (we define $\FV(\Pr{i}\phi)=\FV(\phi)$).
+An $\L$-structure $\M$ is a first-order $\L_0$-structure $\M_0$
+together with a function that takes one operator $\Pr{i}$, one $\L$-formula
+$\phi$, and one assignment $s$, and outputs either True or False---in which case we
+write $\M\models\Pr{i}\phi[s]$ or $\M\not\models\Pr{i}\phi[s]$, respectively---satisfying
+the following three requirements.
+\begin{enumerate}
+\item Whether or not $\M\models\Pr{i}\phi[s]$ does not depend on $s(x)$ if $x\not\in \FV(\phi)$.
+\item If $\phi$ and $\psi$ are \emph{alphabetic variants}
+(meaning
+that one is obtained from the other by renaming bound variables so as to respect the binding of
+the quantifiers), then $\M\models\Pr{i}\phi[s]$ if and only if $\M\models\Pr{i}\psi[s]$.
+\item For variables $x$ and $y$ such that $y$ is substitutable for $x$
+in $\Pr{i}\phi$, $\M\models\Pr{i}\phi(x|y)[s]$ if and only if $\M\models \Pr{i}\phi[s(x|s(y))]$.
+\end{enumerate}
+The definition of $\M\models\phi[s]$ for arbitrary $\L$-formulas is obtained from this by induction.
+Semantic parts of Definition \ref{stddefn} extend to the base logic in obvious ways.
+\end{definition}
+
+\begin{theorem}
+\label{completecompact}
+(Completeness and compactness)  Suppose $\L$ is an r.e.~language in the base logic.
+\begin{enumerate}
+\item The set of valid $\L$-formulas is r.e.
+\item For any r.e. $\L$-theory $\Sigma$, $\{\phi\,:\,\Sigma\models\phi\}$ is r.e.
+\item There is an effective procedure, given (a G\"odel number of) an r.e.
+$\L$-theory $\Sigma$,
+to find (a G\"odel number of) $\{\phi\,:\,\Sigma\models\phi\}$.
+\item If $\Sigma$ is an $\L$-theory and $\Sigma\models\phi$, there
+are $\sigma_1,\ldots,\sigma_n\in\Sigma$ such that\footnote{We write
+$A\rightarrow B\rightarrow C$ for $A\rightarrow (B\rightarrow C)$, and likewise for longer
+chains.} $\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi$ is valid.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By interpreting the base logic within first-order logic (for details see \cite{alexanderdissert}).
+\end{proof}
+
+\begin{definition}
+\label{selfrefdefn}
+If $\L$ is a first-order language and $I$ is an index set, let $\L(I)$ be the
+language (in the base logic) consisting of $\L$ along with 
+operators $\Pr{i}$ for all $i\in I$.
+\end{definition}
+
+
+In case $I$ is a singleton, $\LPA(I)$ is a form of Shapiro's \cite{shapiro1985}
+language of Epistemic Arithmetic.
+
+
+\begin{definition}
+\label{sentencemaker}
+For any $\LPA(I)$-formula $\phi$ with $\FV(\phi)=\{x_1,\ldots,x_n\}$, and for
+assignment $s$ (into $\N$), let $\phi^s$ be the sentence
+\[
+\phi^s \equiv \phi(x_1|\overline{s(x_1)})\cdots(x_n|\overline{s(x_n)})
+\]
+obtained by replacing all free variables in $\phi$ by numerals for their
+$s$-values.
+\end{definition}
+
+For example, if $s(x)=0$ and $s(y)=2$ then $(\forall z(x=y+z))^s$ ${\equiv}$ $\forall z(0=S(S(0))+z)$.
+
+
+\begin{definition}
+If $\T=(T_i)_{i\in I}$ is an $I$-indexed family of $\LPA(I)$-theories
+and $\mathscr N$ is an $\LPA(I)$-structure, we say $\mathscr N\models\T$
+if $\mathscr N\models T_i$ for all $i\in I$.
+\end{definition}
+
+\begin{definition}
+\label{intendedstructdefn}
+Suppose $\T=(T_i)_{i\in I}$ is an $I$-indexed family of 
+$\LPA(I)$-theories.
+The \emph{intended structure} for $\T$ is the $\LPA(I)$-structure $\M_\T$
+with standard first-order part,
+interpreting the operators $\Pr{i}$ ($i\in I$) as follows:
+\[
+\mbox{$\M_\T\models\Pr{i}\phi[s]$ if and only if $T_i\models\phi^s$.}
+\]
+If $\M_\T\models\T$, we say $\T$ is \emph{true}.
+\end{definition}
+
+\begin{lemma}
+\label{howintendedworks}
+Let $\T=(T_i)_{i\in I}$ be a family of $\LPA(I)$-theories.
+For any $\LPA(I)$-formula $\phi$ and assignment $s$,
+$\M_\T\models\phi[s]$ if and only if $\M_\T\models\phi^s$.
+\end{lemma}
+
+\begin{proof}
+By induction.
+\end{proof}
+
+\begin{definition}
+By the \emph{axioms of Peano arithmetic for $\LPA(I)$} we mean the axioms of Peano arithmetic,
+with induction extended to $\LPA(I)$.
+\end{definition}
+
+\begin{lemma}
+\label{extendedpalemma}
+%
+%For any family $\T$ of $\LPA(I)$-theories,
+%$\M_\T$ satisfies the axioms of Peano arithmetic for $\LPA(I)$.
+%More strongly
+%
+Any $\LPA(I)$-structure
+with standard first-order part and satisfying the conclusion of Lemma \ref{howintendedworks}
+satisfies the axioms of Peano arithmetic for $\LPA(I)$.
+\end{lemma}
+
+\begin{proof}
+Let $\M$ be any $\LPA(I)$-structure
+with standard first-order part and satisfying the conclusion of Lemma \ref{howintendedworks}.
+Let $\sigma$ be an axiom of Peano arithmetic for $\LPA(I)$.  If $\sigma$ is not an instance
+of induction, then $\M\models\sigma$ since $\M$ has standard first-order part.
+But suppose $\sigma$ is $\ucl{\phi(x|0)\rightarrow \forall x(\phi\rightarrow\phi(x|S(x)))\rightarrow\forall x\phi}$.
+To see $\M\models\sigma$, let $s$ be an arbitrary assignment and assume
+$\M\models\phi(x|0)[s]$ and $\M\models\forall x(\phi\rightarrow \phi(x|S(x)))[s]$.
+By Lemma~\ref{howintendedworks}, $\M\models\phi^{s(x|0)}$ and $\forall m\in\N$,
+if $\M\models \phi^{s(x|m)}$ then $\M\models \phi(x|S(x))^{s(x|m)}$.
+Evidently $\phi(x|S(x))^{s(x|m)}\equiv\phi^{s(x|m+1)}$.
+%
+%In summary:
+%\begin{quote}
+%$\M\models\phi^{s(x|0)}$ and $\forall m\in\N$, if $\M\models\phi^{s(x|m)}$ then $\M\models\phi^{s(x|m+1)}$.
+%\end{quote}
+%
+By mathematical induction, $\forall m\in\N$, $\M\models\phi^{s(x|m)}$.
+By Lemma \ref{howintendedworks}, $\M\models \forall x\phi[s]$.
+\end{proof}
+
+
+\begin{definition}
+Suppose $\T=(T_i)_{i\in I}$ is a family $\LPA(I)$-theories.
+%
+%We write $\mathscr N\models\T$
+%to indicate that $\forall i\in I$, $\mathscr N\models T_i$.
+%We say $\T$ is 
+%\emph{true} if
+%$\M_\T\models\T$.
+%
+If $\T^+=(T^+_i)_{i\in I}$ is another such family, we say $\T\subseteq\T^+$
+if $T_i\subseteq T^+_i$ for every $i\in I$.
+If $T$ is a single $\LPA(I)$-theory,
+we say $T\subseteq\T$ if $T\subseteq T_i$ for all $i\in I$.
+If $\T^1=(T^1_i)_{i\in I}$ and $\T^2=(T^2_i)_{i\in I}$
+are families of $\LPA(I)$-theories, $\T^1\cup\T^2$
+is the family $\T'=(T'_i)_{i\in I}$ where each $T'_i=T^1_i\cup T^2_i$.
+Arbitrary unions $\bigcup_{n\in X}\T^n$ are defined similarly.
+\end{definition}
+
+
+\begin{definition}
+Suppose $\T=(T_i)_{i\in I}$ is a family of $\LPA(I)$-theories.
+For each $i\in I$, we say $T_i$ is \emph{$\Pr i$-closed} if
+$\Pr i\phi\in T_i$ whenever $\phi\in T_i$.
+We say $\T$ is \emph{closed} if each $T_i$ is $\Pr i$-closed.
+\end{definition}
+
+\begin{definition}
+If $I$ is an r.e.~index set, a family $\T=(T_i)_{i\in I}$ is \emph{r.e.}~just in case
+$\{(\phi,i)\,:\,\phi\in T_i\}$ is r.e.
+\end{definition}
+
+\section{Generic Axioms}
+
+
+If $\T$ is a family of
+theories whose truth was in doubt,
+and if we state a theorem removing that doubt,
+we often state more:
+that $\T\cup\S$
+is true,
+where $\S$ is some
+background theory of provability, including non-controversial things
+like Peano arithmetic or the schema $\ucl{\Pr i(\phi\rightarrow\psi)\rightarrow\Pr i\phi\rightarrow\Pr i\psi}$.
+The choice of $\S$ is somewhat arbitrary, or at best based on tradition.
+We will avoid this arbitrary choice by stating results in the form:
+``$\T$ is true together with any background theory of provability such that\ldots''
+
+
+\begin{definition}
+\label{closedregenericdefn}
+A family $\T$ of $\LPA(\omega)$-theories is
+\emph{closed-r.e.-generic}
+if $\T$ is r.e.~and
+$\M_{\T'}\models\T$ for every closed r.e.~family $\T'\supseteq\T$ of $\LPA(\omega)$-theories.
+\end{definition}
+
+
+\begin{lemma}
+\label{genericclosedreunion}
+If $\T$ is a union of closed-r.e.-generic families
+and $\T$ is r.e., then $\T$ is closed-r.e.-generic.
+\end{lemma}
+
+\begin{proof}
+Straightforward.
+\end{proof}
+
+\begin{definition}
+For $j\in I$ and for $T$ an $\LPA(I)$-theory,
+we write $[T]_j$ for the family $\T=(T_i)_{i\in I}$
+where $T_j=T$ and $T_i=\emptyset$ for all $i\not=j$.
+\end{definition}
+
+
+The following lemma provides building blocks
+that can be combined in diverse ways, via Lemma \ref{genericclosedreunion}, to
+form background theories of provability.
+
+
+\begin{lemma}
+\label{firstgrabbag}
+For any $i,j\in \omega$,
+each of the following families is closed-r.e.-generic.
+\begin{enumerate}
+\item $[S]_i$ where $S$ is: ($j$-Deduction) the schema $\ucl{\Pr 
+j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j\psi}$.
+\item $[S]_i$ where $S$ is: (Assigned Validity) the schema $\phi^s$ ($\phi$ valid, $s$ an assignment).
+\item $[\mbox{Assigned Validity}]_j\cup[S]_i$ where $S$ is: ($j$-Validity) $\ucl{\Pr j\phi}$ for $\phi$ valid.
+\item $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup [\mbox{$j$-Deduction}]_j\cup [S]_i$ where $S$ is:
+\[\mbox{($j$-Introspection) the schema $\ucl{\Pr j\phi\rightarrow\Pr j\Pr j\phi}$.}\]
+\item $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
+\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
+\item $[S]_i$ where $S$ is: ($j$-SMT) (See \cite{carlson2000} and \cite{reinhardt}) $\ucl{\exists e\forall x(\Pr 
+j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is closed-r.e.-generic and $S$ is the schema $\Pr j\phi$ ($\phi\in T_j$).
+\end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+Straightforward.
+We prove 3 and 4 to show why sometimes one schema comes packaged with others.
+
+\item
+(3)
+By Theorem \ref{completecompact}, $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_i$
+is r.e.
+Let $\T'=(T'_k)_{k\in \omega}$ be any closed r.e.~family
+of $\LPA(\omega)$-theories such that $T'_j$ contains Assigned Validity
+and $T'_i$ contains $j$-Validity.
+We must show $\M_{\T'}$ satisfies Assigned Validity and $j$-Validity.
+For Assigned Validity, let $\phi$ be valid and $s$ an assignment.
+Since $\phi$ is valid, $\M_{\T'}\models\phi[s]$, so by Lemma \ref{howintendedworks},
+$\M_{\T'}\models\phi^s$ as desired.  For $j$-Validity,
+let $\phi$ be valid and $s$ an assignment.
+Since $T'_j$ contains Assigned Validity, $T'_j\models\phi^s$, so
+by definition of $\M_{\T'}$, $\M_{\T'}\models \Pr j\phi[s]$.
+
+\item
+(4)
+Recursive enumerability is by Theorem \ref{completecompact}.
+%
+%By Theorem \ref{completecompact},
+%$[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup[\mbox{$j$-Deduction}]_j\cup[\mbox{$j$-Introspection}]_i$
+%is r.e.
+%
+Let $\T'=(T'_k)_{k\in\omega}$ be any closed r.e.~family
+of $\LPA(\omega)$-theories such that $T'_j$ contains Assigned Validity, $j$-Validity and $j$-Deduction,
+and $T'_i$ contains $j$-Introspection.
+That $\M_{\T'}$ satisfies Assigned Validity and $j$-Validity is as in (3).
+That $\M_{\T'}$ satisfies $j$-Deduction is straightforward.
+For $j$-Introspection, let $s$ be an assignment and assume
+$\M_{\T'}\models \Pr j\phi[s]$, we will show $\M_{\T'}\models\Pr j\Pr j\phi[s]$.
+Since $\M_{\T'}\models \Pr j\phi[s]$, $T'_j\models\phi^s$.
+By Theorem \ref{completecompact}, there are $\sigma_1,\ldots,\sigma_n\in T'_j$
+such that $\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s$
+is valid.
+Since $T'_j$ contains $j$-Validity,
+$T'_j\models \Pr j(\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s)$.
+By repeated applications of $j$-Deduction contained in $T'_j$,
+$T'_j\models \Pr j\sigma_1\rightarrow\cdots\rightarrow\Pr j\sigma_n\rightarrow \Pr j(\phi^s)$.
+Since $\T'$ is closed, $T'_j$ is $\Pr j$-closed and so contains $\Pr j\sigma_1,\ldots,\Pr j\sigma_n$.
+So $T'_j\models (\Pr j\phi)^s$ and $\M_{\T'}\models \Pr j\Pr j\phi[s]$.
+\end{proof}
+
+
+
+\section{First Consistency Result: Prioritizing Exact Codes}
+
+The following theorem fulfils the first promise from the introduction.
+
+
+\begin{theorem}
+\label{onethreethree}
+Suppose $\prec$ is an r.e.~well-founded
+partial order on $\omega$
+and $\T^0=(T^0_i)_{i\in \omega}$ is closed-r.e.-generic.
+For each $n\in\N$,
+let $\T(n)=(T_i(n))_{i\in \omega}$
+where each $T_i(n)$ is the smallest $\Pr i$-closed theory
+containing the following:
+\begin{itemize}
+\item The axioms in $T^0_i$.
+\item $\forall x(\Pr i\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
+whenever $j\in\omega$, 
+$\FV(\phi)\subseteq\{x\}$.
+\item $\ucl{\Pr j\phi\rightarrow\phi}$ whenever $j\prec i$.
+\end{itemize}
+There is some $n\in\N$ such that $\T(n)$ is true.
+\end{theorem}
+
+\begin{proof}
+By the $S$-$m$-$n$ Theorem, there is a total computable $f:\N\to\N$ such that $\forall n\in\N$,
+\[
+W_{f(n)}=\{\langle\ulcorner\phi\urcorner,i,m\rangle\,:\,
+\mbox{$\FV(\phi)\subseteq\{x\}$ and $T_i(n)\models \phi(x|\overline m)$}\}.\]
+Using the Recursion Theorem, fix $n\in\N$ such that
+$W_{f(n)}=W_n$.
+%
+%Fix this $n$ throughout the proof.
+%
+For brevity write $\T$ for $\T(n)$ and $T_i$ for $T_i(n)$.
+We will show $\M_\T\models\T$.
+Fix $i\in \omega$.
+%
+%By $\prec$-induction, we may assume $\M_\T\models T_j$ for all $j\prec i$.
+%
+Suppose $\sigma\in T_i$, we will show $\M_\T\models\sigma$.
+
+
+\item
+\case1
+$\sigma\in T^0_i$.
+Then $\M_\T\models\sigma$ because $\T^0$ is closed-r.e.-generic and
+$\T\supseteq\T^0$ is closed r.e.
+
+\item
+\case2
+$\sigma$ is $\forall x(\Pr i\phi\leftrightarrow
+\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
+for some $j\in\omega$, $\FV(\phi)\subseteq\{x\}$.
+Let $s$ be an assignment, $m\in\N$.
+The following are equivalent.
+\begin{align*}
+\M_{\T} &\models \Pr{j}\phi[s(x|m)]\\
+T_j &\models \phi^{s(x|m)}
+ &\mbox{(Definition of $\M_\T$)}\\
+T_j &\models \phi(x|\overline m)
+ &\mbox{(Since $\FV(\phi)\subseteq\{x\}$)}\\
+\langle \ulcorner\phi\urcorner,j,m\rangle &\in W_n
+ &\mbox{(By definition of $n$)}\\
+\M_{\T} &\models \langle\overline{\ulcorner\phi\urcorner},\overline j,\overline m\rangle\in W_{\overline n}
+ &\mbox{($\M_{\T}$ has standard first-order part)}\\
+\M_{\T} &\models \langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n}[s(x|m)].
+ &\mbox{(Lemma \ref{howintendedworks})}
+\end{align*}
+
+\item
+\case3
+$\sigma$ is $\ucl{\Pr j\phi\rightarrow\phi}$ for some $j\prec i$.
+Let $s$ be an assignment and assume $\M_\T\models\Pr j\phi[s]$.
+This means $T_j\models\phi^s$.
+By $\prec$-induction, 
+$\M_\T\models T_j$,
+so
+$\M_\T\models \phi^s$.  By Lemma \ref{howintendedworks},
+$\M_\T\models \phi[s]$.
+
+\item
+\case4
+$\sigma$ is only present in $T_i$ because of the clause that $T_i$
+is $\Pr i$-closed.
+Then $\sigma$ is $\Pr i\sigma_0$ for some $\sigma_0\in T_i$.
+Being in $T_i$, $\sigma_0$ is a sentence, so for any assignment $s$,
+$\sigma_0\equiv\sigma^s_0$, $T_i\models\sigma^s_0$,
+and finally $\M_\T\models \Pr i\sigma_0[s]$.
+
+\item
+By $\prec$-induction, $\M_\T\models T_i$ for all $i\in\omega$.
+This shows $\M_\T\models\T$, that is, $\T$ is true.
+\end{proof}
+
+The first promise from the introduction is met: for any
+r.e.~well-founded partial order $\prec$ on $\omega$, there are theories
+$(T_n)_{n\in\omega}$ such that $\forall i,j,k\in\omega$ with $j\prec i$, $T_i$ expresses
+the truth of $T_j$, and $T_i$ expresses a G\"odel number of $T_k$.
+In order to to fulfil the second and third promises
+we will extend Carlson's notion of \emph{stratification} to the case of multiple
+operators, and introduce \emph{stratifiers}, a tool used to deal with subtleties
+that arise when multiple self-referential theories refer to one another.
+
+In \cite{alexandercode} the technique behind Theorem \ref{onethreethree}
+was used to exhibit a machine that knows its own code.
+
+
+\section{Stratification}
+\label{stratificationsection}
+
+\begin{definition}
+We define a binary relation $\leq_1$ on $\mathrm{Ord}$ by transfinite recursion
+so that for all $\alpha,\beta\in\mathrm{Ord}$, $\alpha\leq_1\beta$ if and only if
+$\alpha\leq\beta$ and $(\alpha,\leq,\leq_1)$ is a $\Sigma_1$-elementary substructure
+of $(\beta,\leq,\leq_1)$.
+\end{definition}
+
+The following theorem is based on calculations from \cite{carlson1999}.
+It was used by Carlson to prove Reinhardt's conjecture \cite{carlson2000}.
+We state it here without proof.
+
+\setlength{\columnsep}{-1.25in}
+\begin{multicols}{2}
+
+
+\begin{theorem}
+\label{blackbox}
+\item
+\begin{enumerate}
+\item The binary relation $\leq_1$ is a recursive partial ordering on $\epom$.
+\item For all positive integers $m\leq n$, $\epsilon_0\cdot m\leq_1\epsilon_0\cdot n$.
+\item (See Figure 1) For any $\alpha\leq\beta\in\mathrm{Ord}$, $\alpha\leq_1\beta$ if and only if
+the following statement is true.  For every finite set $X\subseteq\alpha$
+and every finite set $Y\subseteq[\alpha,\beta)$, there is a set
+$X<\widetilde Y<\alpha$ such that $X\cup\widetilde Y\cong_{(\leq,\leq_1)}X\cup Y$.
+\end{enumerate}
+\end{theorem}
+
+\columnbreak
+
+%
+{
+\hspace{1in}
+\input{lessone.tex}
+
+\hspace{1.5in}
+\parbox[t][1in]{2in}{
+Figure 1:\\
+Illustration of Theorem \ref{blackbox} part 3.
+}
+}
+
+\end{multicols}
+
+\vspace{-.2in}
+The usefulness of Theorem \ref{blackbox} will first appear
+in Theorem \ref{collapsetheorem}, but first we need some machinery.
+
+
+\begin{definition}
+Let $\indset=((\epom)\times\omega)\sqcup\omega$.
+Thus $\LPA(\indset)$ contains operators $\Pr{(\alpha,i)}$ for all $\alpha\in\epom$, $i\in\omega$,
+along with operators $\Pr{i}$ for all $i\in\omega$.
+As abbreviation,
+we write $\Prr{\alpha}{i}$ for $\Pr{(\alpha,i)}$,
+and refer to $\alpha$ as its \emph{exponent}.
+\end{definition}
+
+\begin{definition}
+For any $\LPA(\indset)$-formula $\phi$, $\onset(\phi)\subseteq\epom$ denotes the set of exponents appearing in $\phi$.
+\end{definition}
+
+\begin{definition}
+Suppose $i\in\omega$.
+The \emph{$i$-stratified} formulas of $\LPA(\indset)$ are defined as follows (where $\phi$ ranges over $\LPA(\indset)$-formulas).
+\begin{enumerate}
+\item If $\phi$ is $\Pr j\phi_0$ for some $j\not=i$, then $\phi$ is $i$-stratified if and only if $\phi$ is an $\LPA(\omega)$-formula.
+\item If $\phi$ is $\Prr\alpha j\phi_0$ for some $j\not=i$, then $\phi$ is not $i$-stratified.
+\item If $\phi$ is $\Pr i\phi_0$, then $\phi$ is not $i$-stratified.
+\item If $\phi$ is $\Prr\alpha i\phi_0$, then $\phi$ is $i$-stratified if and only if $\phi_0$ is $i$-stratified and
+$\alpha>\onset(\phi_0)$.
+\item If $\phi$ is $\neg\phi_0$, $\phi_1\rightarrow\phi_2$, or $\forall x\phi_0$,
+then $\phi$ is $i$-stratified if and only if its immediate subformula(s) are.
+\item If $\phi$ is atomic, then $\phi$ is $i$-stratified.
+\end{enumerate}
+An $\LPA(\indset)$-theory $T$ is $i$-stratified if $\phi$ is $i$-stratified whenever $\phi\in T$.
+An $\LPA(\indset)$-formula $\phi$ is \emph{very $i$-stratified} if $\phi$ is $i$-stratified
+and $\onset(\phi)\subseteq\{\epsilon_0\cdot 1,\epsilon_0\cdot 2,\ldots\}$.
+\end{definition}
+
+For example:
+\begin{itemize}
+\item $K^{\omega}_7K^5_7(1=0)\rightarrow K_8(1=0)$ is $7$-stratified but not $6$- or $8$-stratified.
+\item $K^5_7K^\omega_7(1=0)$ is not $7$-stratified, nor is $K^5_7K_7(1=0)$.
+\item $K^5_7K_8K_7(1=0)$ is $7$-stratified but $K^5_7K_8K^4_7(1=0)$ is not.
+\end{itemize}
+
+
+\begin{definition}
+Suppose $X\subseteq\epom$ and $h:X\to \epom$ is order preserving.
+For each $\LPA(\indset)$-formula $\phi$,
+let $h(\phi)$ be the $\LPA(\indset)$-formula obtained by applying $h$ to every superscript in $\phi$
+that is in $X$.
+\end{definition}
+
+For example if $X=\{1,\omega\}$, $h(1)=0$, and $h(\omega)=\omega\cdot 2+1$,
+then
+\[
+h\left(\Prr0i(1=0)\rightarrow\Prr1i(1=0)\rightarrow\Prr{\omega} i(1=0)\right)
+\,\,\,\,\equiv\,\,\,\,
+\Prr0i(1=0)\rightarrow\Prr0i(1=0)\rightarrow\Prr{\omega\cdot 2+1}i(1=0).
+\]
+
+
+\begin{definition}
+Suppose $X\subseteq\epom$ and $h:X\to\epom$ is order preserving.
+For any $\LPA(\indset)$-structure $\mathscr N$,
+we define an $\LPA(\indset)$-structure $h(\mathscr N)$ that
+has the same universe as $\mathscr N$,
+agrees with $\mathscr N$ on $\LPA(\omega)$, and
+interprets $\LPA(\indset)\backslash\LPA(\omega)$
+so that
+\[
+\mbox{$h(\mathscr N)\models \Prr\alpha i\phi[s]$
+if and only if $\mathscr N\models h(\Prr\alpha i\phi)[s]$.}
+\]
+\end{definition}
+
+\setlength{\columnsep}{-.25in}
+\begin{multicols}{2}
+
+\vphantom a
+
+\begin{lemma}
+\label{hcommutativitylemma}
+Suppose $X\subseteq\epom$, $h:X\to\epom$ is order preserving,
+and $\mathscr N$ is an $\LPA(\indset)$-structure.
+For any $\LPA(\indset)$-formula $\phi$
+and assignment $s$,
+$h(\mathscr N)\models\phi[s]$
+if and only if $\mathscr N\models h(\phi)[s]$.
+\end{lemma}
+
+\begin{proof}
+By induction.
+\end{proof}
+
+\columnbreak
+
+\[
+\begindc{\commdiag}[5]
+%
+%\obj(-10,10)[aa]{$\LPA(\indset)\cap X$}
+%
+\obj(-10,10)[aa]{$\LPA(\indset)$}
+%
+%\obj(-10,10)[aaa]{\hphantom{$\LPA(\indset)$}}
+%
+\obj(-10,10)[aa]{\hphantom{$\LPA(\indset)$}}
+\obj(10,10)[bb]{$\LPA(\indset)$}
+\obj(0,3)[cc]{$\{\mathrm{T},\mathrm{F}\}$}
+\mor{aa}{bb}{$h$}
+\mor{aa}{cc}{$h(\mathscr N){\models}$}[\atright,\solidarrow]
+\mor{bb}{cc}{$\mathscr N{\models}$}
+\enddc\]
+
+%\vphantom{a}
+
+\end{multicols}
+
+\begin{corollary}
+\label{hpreserversvalidity}
+Suppose $X\subseteq\epom$ and $h:X\to\epom$ is order preserving.
+For any valid $\LPA(\indset)$-formula $\phi$,
+$h(\phi)$ is valid.
+\end{corollary}
+
+\begin{proof}
+For any $\LPA(\indset)$-structure $\mathscr N$ and assignment $s$,
+$h(\mathscr N)\models\phi[s]$ by validity, so $\mathscr N\models h(\phi)[s]$
+by Lemma \ref{hcommutativitylemma}.
+\end{proof}
+%
+%If $h(\phi)$ were not valid, there would be an $\LPA(\indset)$-structure
+%$\mathscr N$ and assignment $s$ such that $\mathscr N\not\models h(\phi)[s]$.
+%By Lemma \ref{hcommutativitylemma},
+%this would imply $h(\mathscr N)\not\models\phi[s]$,
+%absurd.
+%\end{proof}
+%
+
+\begin{definition}
+If $X\subseteq\Ord$ and $h:X\to\Ord$, we call $h$ a \emph{covering}
+if $h$ is order preserving and whenever $x,y\in X$
+and $x\leq_1 y$, $h(x)\leq_1 h(y)$.
+\end{definition}
+
+\begin{definition}
+Suppose $i\in\omega$.
+A set $T$ of $i$-stratified $\LPA(\indset)$-sentences is \emph{$i$-uniform}
+provided that whenever $\phi\in T$,
+$X\subseteq\epom$, $\onset(\phi)\subseteq X$, and $h:X\to\epom$ is a covering,
+then $h(\phi)\in T$.
+\end{definition}
+
+%
+%\begin{lemma}
+%\label{verystratifiableaxioms}
+%If $T$ is $i$-uniform then for every $\phi\in T$ there is some $\psi\in T$
+%such that $\psi$ is very $i$-stratified and $\psi^-\equiv\phi^-$.
+%\end{lemma}
+%
+%\begin{proof}
+%Let $X=\onset(\phi)=\{\alpha_1<\cdots<\alpha_n\}$, $Y=\{\epsilon_0\cdot 1,\ldots,\epsilon_0\cdot n\}$,
+%and define $h:X\to Y$ by $h(\alpha_j)=\epsilon_0\cdot j$.
+%Clearly $h$ is injective and order preserving; by Theorem \ref{blackbox}, $h$ is a covering.
+%Since $T$ is $i$-uniform, $T$ contains $\psi\equiv h(\phi)$.  Clearly $\psi$ is very $i$-stratified and
+%$\psi^-\equiv\phi^-$.
+%\end{proof}
+%
+
+\begin{definition}
+If $T$ is an $\LPA(\indset)$-theory and $\alpha\in\epom$,
+let $T\cap\alpha$ be the set $\{\phi\in T\,:\,\onset(\phi)\subseteq\alpha\}$ of sentences in $T$ that do not contain
+any superscripts $\geq\alpha$.
+\end{definition}
+
+
+
+\begin{theorem}
+\label{collapsetheorem}
+(The Collapse Theorem)
+Suppose $T$ is an $i$-uniform $i$-stratified $\LPA(\indset)$-theory.
+\begin{enumerate}
+\item If $n$ is a positive integer and $\onset(\phi)\subseteq\epsilon_0\cdot n$, then $T\models\phi$
+if and only if $T\cap(\epsilon_0\cdot n)\models\phi$.
+\item If $\alpha\leq_1\beta$ and $\onset(\phi)\subseteq\alpha$, then $T\cap\alpha\models\phi$
+if and only if $T\cap\beta\models\phi$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We prove (1), the proof of (2) is similar.
+\item
+($\Leftarrow$) Immediate since $T\cap(\epsilon_0\cdot n)\subseteq T$.
+
+\item
+($\Rightarrow$)
+Assume $T\models\phi$.
+By Theorem \ref{completecompact} there are $\sigma_1,\ldots,\sigma_k\in T$
+such that
+\[
+\Phi \,\equiv\, \sigma_1\rightarrow\cdots\rightarrow \sigma_k\rightarrow\phi
+\]
+is valid.
+Let $X=\onset(\Phi)\cap(\epsilon_0\cdot n)$, $Y=\onset(\Phi)\cap[\epsilon_0\cdot n,\infty)$, note $|X|,|Y|<\infty$.
+
+Since $Y$ is finite, there is some integer $n'>n$ such that $Y\subseteq\epsilon_0\cdot n'$.
+By Theorem \ref{blackbox} part 2, $\epsilon_0\cdot n\leq_1\epsilon_0\cdot n'$.
+By Theorem \ref{blackbox} part 3, there is some $X<\widetilde Y<\epsilon_0\cdot n$ such that
+$X\cup\widetilde Y\cong_{(\leq,\leq_1)}X\cup Y$.
+
+Let $h:X\cup Y\to X\cup\widetilde Y$ be a $(\leq,\leq_1)$-isomorphism.
+Since $\onset(\phi)\subseteq\epsilon_0\cdot n$, $h(\phi)=\phi$.
+By Corollary \ref{hpreserversvalidity},
+\[
+h(\Phi)\,\equiv\, h(\sigma_1)\rightarrow\cdots\rightarrow h(\sigma_k)\rightarrow \phi
+\]
+is valid.
+Since $T$ is $i$-uniform, $h(\sigma_1),\ldots,h(\sigma_k)\in T$.
+Finally since $\mathrm{range}(h)<\epsilon_0\cdot n$, $h(\sigma_1),\ldots,h(\sigma_k)\in T\cap(\epsilon_0\cdot n)$,
+showing $T\cap(\epsilon_0\cdot n)\models \phi$.
+\end{proof}
+
+
+\begin{definition}
+For every $i\in\omega$ we define the following $\LPA(\indset)$-schema:
+\begin{itemize}
+\item ($i$-Collapse) $\ucl{\Prr\alpha i\phi\leftrightarrow\Prr\beta i\phi}$ whenever $\phi$ is $i$-stratified and $\alpha\leq_1\beta$.
+\end{itemize}
+\end{definition}
+
+%
+%\begin{corollary}
+%\label{genericityofcollapse}
+%Suppose $\T=(T_i)_{i\in\indset}$ is a family of $\LPA(\indset)$-theories,
+%$i\in I$, and assume there is an $i$-uniform set $T$ of $i$-stratified $\LPA(\indset)$-sentences
+%such that $\forall\alpha\in\epom$, $T_{(\alpha,i)}=T\cap\alpha$.
+%Then $\M_\T\models\mbox{$i$-Collapse}$.
+%\end{corollary}
+%
+%\begin{proof}
+%Immediate by Theorem \ref{collapsetheorem} and the definition of $\M_\T$ (Definition \ref{intendedstructdefn}).
+%\end{proof}
+%
+%\begin{definition}
+%For $i\in\N$, an $i$-stratified $\LPA(\indset)$-formula $\phi$
+%is \emph{very $i$-stratified} if 
+%$\onset(\phi)\subseteq\{\epsilon_0\cdot 1,
+%\epsilon_0\cdot 2,\ldots\}$.
+%\end{definition}
+%
+
+\begin{definition}
+For any $\LPA(\indset)$-formula $\phi$, $\phi^-$ is the result of erasing 
+all superscripts from $\phi$.
+If $T$ is an $\LPA(\indset)$-theory, $T^-=\{\sigma^-\,:\,\sigma\in 
+T\}$.
+\end{definition}
+
+For example, if $\phi$ is $\Prr{\omega}{5}(1=0)\rightarrow\Prr{\omega+1}{5}\Prr{\omega}{5}(1=0)$,
+then $\phi^-$ is $\Pr{5}(1=0)\rightarrow\Pr{5}\Pr{5}(1=0)$.
+
+\begin{lemma}
+\label{verystratifiableaxioms}
+If $T$ is $i$-uniform then for every $\phi\in T$ there is some $\psi\in T$
+such that $\psi$ is very $i$-stratified and $\psi^-\equiv\phi^-$.
+\end{lemma}
+
+\begin{proof}
+Let $X=\onset(\phi)=\{\alpha_1<\cdots<\alpha_n\}$, $Y=\{\epsilon_0\cdot 1,\ldots,\epsilon_0\cdot n\}$,
+and define $h:X\to Y$ by $h(\alpha_j)=\epsilon_0\cdot j$.
+Clearly $h$ is injective and order preserving; by Theorem \ref{blackbox} part 2, $h$ is a covering.
+Since $T$ is $i$-uniform, $T$ contains $\psi\equiv h(\phi)$.  Clearly $\psi$ is very $i$-stratified and
+$\psi^-\equiv\phi^-$.
+\end{proof}
+
+\begin{definition}
+For any $\LPA(\omega)$-structure $\mathscr N$,
+we define an $\LPA(\indset)$-structure $\mathscr N^-$
+that has the same universe as $\mathscr N$, agrees with $\mathscr N$
+on $\LPA(\omega)$,
+and interprets $\LPA(\indset)\backslash\LPA(\omega)$ as follows.
+For any $\LPA(\indset)$-formula $\phi$, $\alpha\in\epom$, $i\in\N$, and assignment $s$,
+\[
+\mbox{
+$\mathscr N^- \models \Prr\alpha i\phi[s]$ if and only if $\mathscr N\models (\Prr\alpha i\phi)^-[s]$.}
+\]
+\end{definition}
+
+\setlength{\columnsep}{-.25in}
+\begin{multicols}{2}
+
+\vphantom{a}
+
+\begin{lemma}
+\label{structuregrowingmagic}
+Suppose $\mathscr N$ is an $\LPA(\omega)$-structure.
+For every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+$\mathscr N^-\models\phi[s]$ if and only if $\mathscr N\models\phi^-[s]$.
+\end{lemma}
+
+\columnbreak
+
+\[
+\begindc{\commdiag}[5]
+\obj(-10,10)[aa]{$\LPA(\indset)$}
+\obj(10,10)[bb]{$\LPA(\omega)$}
+\obj(9,10)[bbfake]{\hphantom{$\LPA(\omega)$}}
+\obj(0,3)[cc]{$\{\mathrm{T},\mathrm{F}\}$}
+\mor{aa}{bb}{$-$}
+\mor{aa}{bbfake}{}
+\mor{aa}{cc}{$\mathscr N^-{\models}$}[\atright,\solidarrow]
+\mor{bb}{cc}{$\mathscr N{\models}$}
+\enddc\]
+
+\vphantom{a}
+
+\end{multicols}
+\vspace{-10mm}
+
+\begin{proof}
+By induction.
+\end{proof}
+
+\begin{corollary}
+\label{minuspreservesvalidity}
+If $\phi$ is a valid $\LPA(\indset)$-formula, then $\phi^-$ is a valid $\LPA(\omega)$-formula.
+\end{corollary}
+
+\begin{proof}
+Similar to the proof of Corollary \ref{hpreserversvalidity}.
+\end{proof}
+
+A converse-like statement holds for Corollary \ref{minuspreservesvalidity} as well.
+
+\begin{lemma}
+\label{validitylevator}
+For any valid $\LPA(\omega)$-sentence $\phi$ and $i\in\omega$,
+there is a valid very $i$-stratified $\LPA(\indset)$-sentence $\psi$
+such that $\psi^-\equiv\phi$.
+\end{lemma}
+
+We postpone the proof of Lemma \ref{validitylevator} until Section
+\ref{stratifiersection}.
+
+\begin{definition}
+\label{stratschemasdefn}
+Let $i\in\omega$.
+We define the following $\LPA(\indset)$-schemas.
+\begin{itemize}
+\item ($i$-Strativalidity) $\ucl{\Prr\alpha i\phi}$ whenever $\phi$ is a valid $\LPA(\indset)$-formula
+and $\Prr\alpha i\phi$ is $i$-stratified.
+\item ($i$-Stratideduction) $\ucl{\Prr\alpha i(\phi\rightarrow\psi)\rightarrow\Prr\alpha i\phi\rightarrow \Prr\alpha i\psi}$
+whenever this formula is $i$-stratified.
+\end{itemize}
+\end{definition}
+
+The following theorem serves as an omnibus of results from Section 5 of \cite{carlson2000}.
+
+\begin{theorem}
+\label{proofstratification}
+(Proof Stratification)
+Suppose $T$ is an $i$-uniform $i$-stratified $\LPA(\indset)$-theory
+such that $T$ includes $i$-Strativalidity,
+$i$-Stratideduction and $i$-Collapse.
+Assume that whenever $\phi\in T$ and $\Prr\alpha i\phi$
+is $i$-stratified, $\Prr\alpha i\phi\in T$.
+%
+%Finally, assume that $\forall\phi\in T$, there is some very
+%$i$-stratified $\psi\in T$ such that $\psi^-\equiv\phi^-$.
+%
+Then:
+\begin{enumerate}
+\item Whenever $T\cap\alpha\models\phi$,
+$\Prr\alpha i\phi$ is an $i$-stratified sentence,
+and $\beta>\alpha$, then $T\cap\beta\models\Prr\alpha i\phi$.
+\item For any very $i$-stratified $\LPA(\indset)$-sentences $\rho$ and 
+$\sigma$, if $\rho^-\equiv\sigma^-$
+then $T\models \rho\leftrightarrow\sigma$.
+\item
+For any very $i$-stratified $\LPA(\indset)$-sentence $\phi$,
+$T\models\phi$ if and only if $T^-\models\phi^-$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\item
+\claim0
+Any time $T\models \Prr\alpha i(\rho\leftrightarrow\sigma)$
+and this is $i$-stratified, $T\models \Prr\alpha i\rho
+\leftrightarrow \Prr\alpha i\sigma$.
+
+\item
+Assume the hypotheses.  By $i$-Strativalidity,
+$T\models \Prr\alpha i((\rho\leftrightarrow\sigma)\rightarrow
+(\rho\rightarrow\sigma))$.
+By $i$-Stratideduction,
+\begin{align*}
+&T\models \Prr\alpha i((\rho\leftrightarrow\sigma)
+\rightarrow(\rho\rightarrow\sigma))\rightarrow
+\Prr\alpha i(\rho\leftrightarrow\sigma)\rightarrow
+\Prr\alpha i(\rho\rightarrow\sigma)\\
+\mbox{and }
+&T\models \Prr\alpha i(\rho\rightarrow\sigma)
+\rightarrow\Prr\alpha i\rho\rightarrow\Prr\alpha i\sigma.
+\end{align*}
+It follows that $T\models \Prr\alpha i\rho\rightarrow\Prr\alpha i\sigma$.
+The reverse implication is similar.
+
+
+\item
+\claim1
+If $T\cap\alpha\models \phi$, $\Prr\alpha i\phi$ is an $i$-stratified sentence,
+and $\beta>\alpha$,
+then $T\cap\beta\models\Prr\alpha i\phi$.
+
+\item
+Given $T\cap\alpha\models\phi$, there are 
+$\sigma_1,\ldots,\sigma_n\in T\cap\alpha$ such that
+$\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi$
+is valid.
+By instances of $i$-Strativalidity and $i$-Stratideduction
+contained in $T\cap\beta$,
+and by the last hypothesis of the theorem,
+$T\cap\beta\models \Prr\alpha i\phi$.
+
+\item
+\claim2
+If $\rho$ and $\sigma$ are very $i$-stratified $\LPA(\indset)$-sentences 
+and $\rho^-\equiv\sigma^-$, then $T\models\rho\leftrightarrow\sigma$.
+
+\item
+By induction on $\rho$.  Note that $\rho$ is not of the form 
+$\Prr\alpha j\rho_0$ (with $j\not=i$), as that is not $i$-stratified.
+If $\rho$ is $\Pr j\rho_0$ then $\rho\equiv\rho^-\equiv\sigma^-\equiv\sigma$ and
+the claim is immediate.
+
+The only nontrivial remaining case is when $\rho$ is $\Prr\alpha i\rho_0$.
+Since $\rho$ is very $i$-stratified, this implies $\alpha=\epsilon_0\cdot 
+n$ (some positive integer $n$) and $\rho_0$
+is very $i$-stratified.
+Since $\sigma^-\equiv\rho^-$
+and $\sigma$ is very stratified,
+this implies $\sigma\equiv \Prr{\epsilon_0\cdot m}i\sigma_0$
+for some positive integer $m$ and very $i$-stratified $\sigma_0$
+with $\sigma^-_0\equiv\rho^-_0$.
+Assume $m\leq n$, the other case is similar.
+
+By induction, $T\models\rho_0\leftrightarrow\sigma_0$.
+By compactness, there is a natural $\ell\geq n$
+such that $T\cap 
+(\epsilon_0\cdot\ell)\models\rho_0\leftrightarrow\sigma_0$.
+By Claim 1, $T\models 
+\Prr{\epsilon_0\cdot\ell}i(\rho_0\leftrightarrow\sigma_0)$;
+Claim 0 then gives $T\models \Prr{\epsilon_0\cdot\ell}i\rho_0
+\leftrightarrow \Prr{\epsilon_0\cdot\ell}i\sigma_0$.
+The claim now follows since $T$ contains $i$-Collapse
+and $\epsilon_0\cdot m\leq_1\epsilon_0\cdot n\leq_1 \epsilon_0\cdot \ell$ (Theorem \ref{blackbox} part 2).
+
+\item
+\claim3
+If $\phi$ is a very $i$-stratified $\LPA(\indset)$-sentence
+and $T\models\phi$, then $T^-\models\phi^-$.
+
+\item
+By compactness, find 
+$\sigma_1,\ldots,\sigma_n\in T$ such that
+$\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi$
+is valid.
+By Corollary \ref{minuspreservesvalidity},
+so is $\sigma^-_1\rightarrow\cdots\rightarrow\sigma^-_n\rightarrow\phi^-$,
+witnessing $T^-\models\phi^-$.
+
+\item
+\claim4
+If $\phi$ is a very $i$-stratified $\LPA(\indset)$-sentence
+and $T^-\models\phi^-$, then $T\models\phi$.
+
+\item
+By compactness,
+there is a valid sentence
+\[
+\Phi\,\equiv\,\sigma^-_1\rightarrow\cdots\rightarrow\sigma^-_n\rightarrow\phi^-\]
+where each $\sigma_j\in T$.
+By Lemma \ref{validitylevator},
+there is a valid very $i$-stratified $\LPA(\indset)$-sentence $\Psi$
+such that $\Psi^-\equiv\Phi$.
+And because $\Psi^-\equiv\Phi$, this implies
+\[
+\Psi\,\equiv\,\sigma^*_1\rightarrow\cdots\rightarrow\sigma^*_n\rightarrow\phi^*
+\]
+where each $(\sigma^*_j)^-\equiv\sigma^-_j$, $(\phi^*)^-\equiv\phi^-$,
+and $\sigma^*_1,\ldots,\sigma^*_n,\phi^*$ are very $i$-stratified.
+
+By Lemma \ref{verystratifiableaxioms},
+there are very $i$-stratified
+$\sigma^{**}_1,\ldots,\sigma^{**}_n\in T$ with each $(\sigma^{**}_j)^-\equiv \sigma^-_j\equiv (\sigma^*_j)^-$.
+By Claim 2, $T\models\phi^*\leftrightarrow\phi$, and for $j=1,\ldots,n$, $T\models \sigma^{**}_j\leftrightarrow \sigma^*_j$.
+Thus
+\[
+T\models (\sigma^{**}_1\rightarrow\cdots\rightarrow\sigma^{**}_n\rightarrow\phi)\leftrightarrow\Psi,
+\]
+and since $\Psi$ is valid and the $\sigma^{**}_j\in T$, this shows $T\models\phi$.
+\end{proof}
+
+
+\begin{definition}
+Suppose $\T=(T_i)_{i\in\omega}$ is a family of $\LPA(\indset)$-theories.
+We say $\T$ is \emph{stratifiable}
+if $\forall i\in\omega$, $T_i$ has the following properties.
+\begin{enumerate}
+\item $T_i$ is $i$-stratified.
+%
+%\item $\forall \phi\in T_i$, $\phi$ is $i$-stratified.
+%
+%
+%\item $\forall \phi\in T_i$, there is some very $i$-stratified $\psi\in T_i$ with $\psi^-\equiv\phi^-$.
+%
+\item Whenever $\phi\in T_i$ and $\Prr\beta i\phi$ is $i$-stratified, $\Prr\beta i\phi\in T_i$.
+\item $T_i$ is $i$-uniform.
+\item $T_i$ includes $i$-Strativalidity, $i$-Stratideduction, and $i$-Collapse.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+\label{stratdefn}
+If $\T=(T_i)_{i\in\omega}$ is a stratifiable family of $\LPA(\indset)$-theories,
+its
+\emph{stratification}, written $\str{\T}$,
+is the family $\str{\T}=(S_i)_{i\in\indset}$, where for every $i\in\omega$,
+$S_i=T^-_i$ and $\forall\alpha\in\epom$, $S_{(\alpha,i)}=T_i\cap\alpha$.
+\end{definition}
+
+
+\begin{theorem}
+\label{stratificationtheorem}
+(The Stratification Theorem)
+Suppose $\T=(T_i)_{i\in\omega}$ is a stratifiable family of $\LPA(\indset)$-theories.
+For any $i\in\omega$, any very $i$-stratified 
+$\LPA(\indset)$-formula $\phi$, and any assignment $s$,
+$\M_{\str{\T}}\models\phi[s]$
+if and only if $\M_{\str{\T}}\models\phi^-[s]$.
+\end{theorem}
+
+\begin{proof}
+By induction on $\phi$.  The only nontrivial case is
+when $\phi$ is $\Prr\alpha i\psi$.
+Since $\phi$ is very $i$-stratified, $\psi$ is very $i$-stratified and we may write
+$\alpha=\epsilon_0\cdot n$
+for some positive integer $n$,
+$\onset(\psi)\subseteq\epsilon_0\cdot n$.
+The following are equivalent.
+\begin{align*}
+\M_{\str{\T}} &\models \Prr{\epsilon_0\cdot n}i\psi[s]\\
+T_i\cap(\epsilon_0\cdot n) &\models \psi^s
+  &\mbox{(Definition of $\M_{\str{\T}}$)}\\
+T_i &\models \psi^s
+  &\mbox{(Theorem \ref{collapsetheorem})}\\
+T^-_i &\models (\psi^s)^-
+  &\mbox{(Theorem \ref{proofstratification})}\\
+T^-_i &\models (\psi^-)^s
+  &\mbox{(Clearly $(\psi^s)^-\equiv(\psi^-)^s$)}\\
+\M_{\str{\T}} &\models \Pr i\psi^-[s].
+  &\mbox{(Definition of $\M_{\str{\T}}$)}
+\end{align*}
+\end{proof}
+
+
+\section{Stratifiers}
+\label{stratifiersection}
+
+In order to apply theorems from the previous section, it is necessary to work
+with families $\T=(T_i)_{i\in\omega}$ where each $T_i$ is $i$-stratified.
+If we want $T^-_i$ to (locally) express the truthfulness of $T^-_j$, we cannot simply
+add a schema like $\ucl{\Pr j\phi\rightarrow\phi}$ to $T_i$, because this is not
+necessarily $i$-stratified:  for example, the particular instance
+$\Pr j\Pr i(1=0) \rightarrow \Pr i(1=0)$
+is not $i$-stratified.  But neither is, say, $\Pr j\Prr\alpha i(1=0)\rightarrow \Prr\alpha i(1=0)$,
+where $\Prr\alpha i$ occurs within the scope of $\Pr j$.
+%
+%We avoid this obstacle by using the
+%
+We will use a schema $\ucl{\Pr j\phi\rightarrow\phi^+}$,
+where $\bullet^+$ varies over what we call $i$-stratifiers.
+
+\begin{definition}
+\label{stratifierdefn}
+Suppose $X\subseteq\epom$, $|X|=\infty$, and $i\in\omega$.
+The \emph{$i$-stratifier given by $X$}
+is the function $\phi\mapsto\phi^+$ taking $\LPA(\omega)$-formulas to $\LPA(\indset)$-formulas
+as follows.
+\begin{enumerate}
+\item If $\phi$ is atomic or of the form $\Pr j\phi_0$ with $j\not=i$, then $\phi^+\equiv\phi$.
+\item If $\phi$ is $\Pr i\phi_0$ then $\phi^+\equiv \Prr\alpha i\phi^+_0$
+where
+$\alpha=\min\{x\in X\,:\,x>\onset(\phi^+_0)\}$.
+%
+%$\alpha=\max(\onset(\phi^+_0))+1$ (we define $\max(\emptyset)=0$).
+%
+\item If $\phi$ is $\neg\psi$, $\psi\rightarrow\rho$, or $\forall x\psi$, then
+$\phi^+$ is $\neg\psi^+$, $\psi^+\rightarrow\rho^+$ or $\forall x\psi^+$, respectively.
+%
+%\item If $\phi$ is $\neg\psi$ then $\phi^+$ is $\neg\psi^+$.
+%\item If $\phi$ is $\psi\rightarrow\rho$ then $\phi^+$ is $\psi^+\rightarrow\rho^+$.
+%\item If $\phi$ is $\forall x\psi$ then $\phi^+$ is $\forall x\psi^+$.
+%
+\end{enumerate}
+By an \emph{$i$-stratifier} we mean an $i$-stratifier given by some $X$.
+By the \emph{$i$-veristratifier} we mean the $i$-stratifier
+given by $X=\{\epsilon_0\cdot1,\epsilon_0\cdot2,\ldots\}$.
+\end{definition}
+
+For example, if $\bullet^+$ is the $i$-veristratifier and $j\not=i$ then
+\[(\Pr j\Pr i(1=0)\rightarrow \Pr i\Pr i(1=0))^+ \,\,\,\,\equiv\,\,\,\,
+\Pr j\Pr i(1=0)\rightarrow\Prr{\epsilon_0\cdot2}i\Prr{\epsilon_0} i(1=0).\]
+
+%
+%\setlength{\columnsep}{-.25in}
+%\begin{multicols}{2}
+%
+%
+%\begin{lemma}
+%\label{plusandscommute}
+%If $i\in\N$, $s$ is an assignment,
+%and $\bullet^+$ is an $i$-stratifier,
+%then \[\bullet^s\circ \bullet^+=\bullet^+\circ\bullet^s.\]
+%That is, for every $\LPA(\omega)$-formula $\phi$,
+%$(\phi^+)^s=(\phi^s)^+$.
+%\end{lemma}
+%
+%\begin{proof}
+%By induction.
+%\end{proof}
+%
+%\vphantom A
+%
+%\columnbreak
+%
+%\[
+%\begindc{\commdiag}[5]
+%\obj(-10,10)[aa]{$\LPA(\omega)$}
+%\obj(10,10)[bb]{$\LPA(\indset)$}
+%\obj(-10,0)[cc]{$\LPA(\omega)/\FV$}
+%\obj(10,0)[dd]{$\LPA(\indset)/\FV$}
+%\mor{aa}{bb}{$+$}
+%\mor{aa}{cc}{$s$}[\atright,\solidarrow]
+%\mor{bb}{dd}{$s$}
+%\mor{cc}{dd}{$+$}%[\atright,\solidarrow]
+%\enddc\]
+%
+%\end{multicols}
+%
+
+
+\begin{lemma}
+\label{stratifiermagic}
+Suppose $Z\subseteq\epom$,
+%
+%$|X|<\infty$,
+%
+$h:Z\to \epom$ is order preserving, $i\in\omega$,
+and $\bullet^+$ is an $i$-stratifier.
+For any $\LPA(\omega)$-formula $\theta$ with $\onset(\theta^+)\subseteq Z$,
+there is a computable $i$-stratifier $\bullet^*$ with $\theta^*\equiv h(\theta^+)$.
+\end{lemma}
+
+\begin{proof}
+Let $X_0=\{h(\alpha)\,:\,\alpha\in\onset(\theta^+)\}$,
+let $X=X_0\cup\{\alpha\in\epom\,:\,\alpha>X_0\}$,
+and let $\bullet^*$ be the $i$-stratifier given by $X$.
+By induction, for every subformula $\theta_0$ of $\theta$, $\theta^*_0\equiv h(\theta^+_0)$.
+\end{proof}
+
+
+\begin{definition}
+\label{moduloidefn}
+Suppose $\mathscr N$ is an $\LPA(\indset)$-structure
+and $\bullet^+$ is an $i$-stratifier.
+We define an $\LPA(\indset)$-structure $\mathscr N^+$
+as follows.
+The universe and interpretation of arithmetic of $\mathscr N^+$
+agree with those of $\mathscr N$,
+as do the interpretations of $\Pr j$ ($j\not=i$) and $\Prr\alpha j$ (any $\alpha$, $j$).
+As for $\Pr i$,
+for any $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+\[
+\mbox{$\mathscr N^+ \models \Pr i\phi[s]$
+ if and only if $\phi$ is an $\LPA(\omega)$-formula and $\mathscr N\models (\Pr i\phi)^+[s]$.}
+\]
+\end{definition}
+
+\setlength{\columnsep}{-.25in}
+\begin{multicols}{2}
+
+\vphantom{a}
+
+\begin{lemma}
+\label{structurecollapsingmagic}
+(Compare Lemma \ref{structuregrowingmagic})
+Suppose $\mathscr N$ is an $\LPA(\indset)$-structure, $i\in\omega$, and $\bullet^+$
+is an $i$-stratifier.
+For every $\LPA(\omega)$-formula $\phi$ and assignment $s$,
+$\mathscr N^+\models\phi[s]$ if and only if $\mathscr N\models\phi^+[s]$.
+\end{lemma}
+
+\begin{proof}
+By induction.
+\end{proof}
+
+\columnbreak
+
+\[
+\begindc{\commdiag}[5]
+\obj(-10,10)[aa]{$\LPA(\omega)$}
+\obj(10,10)[bb]{$\LPA(\indset)$}
+\obj(0,3)[cc]{$\{\mathrm{T},\mathrm{F}\}$}
+\mor{aa}{bb}{$+$}[\atleft,\injectionarrow]
+\mor{aa}{cc}{$\mathscr N^+{\models}$}[\atright,\solidarrow]
+\mor{bb}{cc}{$\mathscr N{\models}$}
+\enddc\]
+
+\vphantom{a}
+
+\end{multicols}
+
+\begin{lemma}
+\label{stratifiersrespectvalidity}
+For any $\LPA(\omega)$-formula $\phi$,
+any $i\in\omega$, and any $i$-stratifier $\bullet^+$,
+$\phi$ is valid if and only if $\phi^+$ is valid.
+\end{lemma}
+
+\begin{proof}
+\item
+($\Rightarrow$)
+Assume $\phi$ is valid.
+For any $\LPA(\indset)$-structure $\mathscr N$ and assignment $s$,
+$\mathscr N^+\models\phi[s]$ by validity, so $\mathscr N\models\phi^+[s]$ by
+Lemma \ref{structurecollapsingmagic}.
+%
+%If $\phi^+$ is not valid, there is an $\LPA(\indset)$-structure
+%$\mathscr N$ and assignment $s$ such that $\mathscr N\not\models\phi^+[s]$.
+%By Lemma \ref{structurecollapsingmagic}, $\mathscr N^+\not\models\phi[s]$,
+%absurd.
+%
+
+\item
+($\Leftarrow$)
+By Corollary \ref{minuspreservesvalidity}.
+%
+%Assume $\phi^+$ is valid.
+%For any $\LPA(\omega)$-structure $\mathscr N$ and assignment $s$, $\mathscr N^-\models \phi^+[s]$ by validity,
+%so by Lemma \ref{structuregrowingmagic}, $\mathscr N\models (\phi^+)^-[s]$, i.e., $\mathscr N\models\phi[s]$.
+%
+%Assume $\phi^+$ is valid.
+%If $\phi$ is not valid, there is an $\LPA(\omega)$-structure
+%$\mathscr N$ and assignment $s$ with $\mathscr N\not\models\phi[s]$.
+%In other words, $\mathscr N\not\models(\phi^+)^-[s]$.
+%By Lemma \ref{structuregrowingmagic}, $\mathscr N^-\not\models\phi^+[s]$,
+%absurd.
+%
+\end{proof}
+
+Given Lemma \ref{stratifiersrespectvalidity}, Lemma \ref{validitylevator} (which we promised to prove)
+is trivial.
+
+\begin{proof}[Proof of Lemma \ref{validitylevator}]
+By Lemma \ref{stratifiersrespectvalidity} with $\bullet^+$ taken to be the $i$-veristratifier.
+\end{proof}
+
+For the remainder of the section, fix a strict r.e.~well-founded partial-order $\prec$ on $\omega$.
+
+\begin{definition}
+\label{equividefn}
+Suppose $\M$, $\M'$ are $\LPA(\indset)$-structures, $i\in\omega$.
+We say $\M\equiv_i\M'$ if
+there is a sequence \[i_1,\bullet^1,i_2,\bullet^2,\ldots,i_n,\bullet^n,\]
+each $i_k\succ i$, each $\bullet^k$ a computable $i_k$-stratifier,
+such that $\M'=(\cdots(\M^1)^2)\cdots)^n$.
+\end{definition}
+
+\begin{lemma}
+\label{sequencelemma}
+Suppose $\M,\M',\M''$ are $\LPA(\indset)$-structures and $i,j,k\in\omega$.
+\begin{enumerate}
+\item
+$\M\equiv_i\M$.
+\item
+If $\M\equiv_i\M'$ then $\M$ and $\M'$ have the same universe and agree
+on all symbols of $\LPA(\indset)$ except possibly for some symbols $\Pr j$
+where $j\succ i$.
+\item
+If $\M\equiv_i\M'$ then for any $j\in\omega$, either $\M$ and $\M'$ agree on $\Pr j$,
+or there is some $j$-stratifier $\bullet^+$ such that $\M^+$ and $\M'$ agree on $\Pr j$.
+\item
+If $\M\equiv_i\M'$, $\M'\equiv_j\M''$, and $k\preceq i,j$, then $\M\equiv_k\M''$.
+\item
+If $\M\equiv_i\M'$ and $j\prec i$ then $\M\equiv_j\M'$.
+\item
+If $j\prec i$ and $\bullet^+$ is a computable $i$-stratifier,
+then $\M^+\equiv_j\M$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Straightforward.
+\end{proof}
+
+\begin{definition}
+\label{magicpreserver}
+If $\bullet^+$ is an $i$-stratifier, we extend the definition of $\phi^+$
+to all $\LPA(\indset)$-formulas $\phi$ 
+by adding the clause: $(\Prr\alpha j\phi_0)^+\equiv\Prr\alpha j\phi_0$ for every $\LPA(\indset)$-formula $\phi_0$.
+It is easy to check Lemma \ref{structurecollapsingmagic} extends to all $\LPA(\indset)$-formulas.
+\end{definition}
+
+\begin{lemma}
+\label{preservedintent}
+Suppose $\M,\M'$ are $\LPA(\indset)$-structures
+and $\M\equiv_i\M'$ for some $i\in\omega$.
+Further suppose $\M$ has the property that
+for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+$\M\models\phi[s]$ if and only if $\M\models\phi^s$.
+Then for all such $\phi$ and $s$,
+$\M'\models\phi[s]$ if and only if $\M'\models\phi^s$.
+\end{lemma}
+
+\begin{proof}
+By induction on sequence length,
+we may assume $\M'=\M^+$ for some computable $j$-stratifier $\bullet^+$,
+$j\succ i$.
+For any $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+the following are equivalent.
+\begin{align*}
+\M^+ &\models \phi[s]\\
+\M &\models \phi^+[s]
+  &\mbox{(Lemma \ref{structurecollapsingmagic} and Definition \ref{magicpreserver})}\\
+\M &\models (\phi^+)^s
+  &\mbox{(Hypothesis)}\\
+\M &\models (\phi^s)^+
+  &\mbox{(Clearly $(\phi^+)^s\equiv(\phi^s)^+$)}\\
+\M^+ &\models \phi^s.
+  &\mbox{(Lemma \ref{structurecollapsingmagic} and Definition \ref{magicpreserver})}
+\end{align*}
+\end{proof}
+
+\begin{lemma}
+\label{preservedintentspecialcase}
+Suppose the $\LPA(\indset)$-structure $\M$ is an instance of Definition \ref{intendedstructdefn}.
+For any $i\in\omega$, $\M'\equiv_i\M$, $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+$\M'\models\phi[s]$ if and only if $\M'\models\phi^s$.
+\end{lemma}
+
+\begin{proof}
+By Lemmas \ref{howintendedworks} and \ref{preservedintent}.
+\end{proof}
+
+\section[Second Consistency Result: Prioritizing Recursive Enumerability]{Second Consistency Result:\\Prioritizing Recursive Enumerability}
+
+In this section
+we fulfil the second promise from the introduction.
+Throughout, $\prec$ is an r.e.~well-founded partial-order of $\omega$.
+
+\begin{definition}
+\label{bootstrapclosedrestrat}
+(Compare Definition \ref{closedregenericdefn})
+Suppose $\T=(T_i)_{i\in\omega}$
+is an r.e.~family of $i$-uniform $i$-stratified $\LPA(\indset)$-theories.
+%
+%such that $\forall\phi\in T_i$ there is some very $i$-stratified $\psi\in T_i$
+%with $\psi^-\equiv\phi^-$.
+%
+We say $\T$ is \emph{stratified-r.e.-generic} if
+for every stratifiable r.e.~family $\U\supseteq\T$, every $i\in\omega$, and every $\M\equiv_i\M_{\str\U}$, $\M\models T_i$.
+\end{definition}
+
+%
+%The following two lemmas show that background theories of provability can be chosen
+%with some flexibility.
+%
+
+\begin{lemma}
+If the family $\T=(T_i)_{i\in\omega}$ of $\LPA(\indset)$-sets is r.e.~and is a union
+of stratified-r.e.-generic families, then $\T$ is stratified-r.e.-generic.
+\end{lemma}
+
+\begin{proof}
+Straightforward.
+\end{proof}
+
+\begin{lemma}
+\label{secondgrabbag}
+(Compare Lemma \ref{firstgrabbag})
+For any $i,j\in\N$, each of the following families
+is stratified-r.e.-generic.
+\begin{enumerate}
+\item $[\mbox{$i$-Stratideduction}]_i$.
+\item $[\mbox{$j$-Deduction}]_i$ (if $j\not\succeq i$).
+\item $[S]_i$ (if $j\not=i$) where $S$ is: (Weak $j$-Deduction) $\ucl{\Pr j(\phi\rightarrow\psi)\rightarrow\Pr j\phi\rightarrow \Pr 
+j(\psi\wedge(\phi\vee\neg\phi))}$.
+\item $[S]_i$ where $S$ is: ($i$-Assigned Strativalidity)
+the schema $\phi^s$ ($\phi$ valid and $i$-stratified, $s$ an assignment).
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i$.
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup
+[\mbox{$i$-Validity}]_j$ (if $j\not=i$).
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i \cup [\mbox{$i$-Stratideduction}]_i
+\cup [\mbox{$i$-Introspection}]_j$ ($j\not=i$).
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i \cup [\mbox{$i$-Stratideduction}]_i
+\cup [S]_i$ where $S$ is:
+\[\mbox{($i$-Stratrospection) $\ucl{\Prr\alpha i\phi\rightarrow \Prr\beta 
+i\Prr\alpha i\phi}$
+whenever this is $i$-stratified.}\]
+\item $[S]_i$ where $S$ is the set of those axioms of Peano arithmetic for 
+$\LPA(\indset)$ that are $i$-stratified.
+\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
+\item $[\mbox{$j$-SMT}]_i$ ($j\not=i$).
+\item $[S]_i$, where $S$ is: ($i$-Strati-SMT)
+$\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
+when this is $i$-stratified, $e\not\in\FV(\phi)$.
+%
+%\item $\T\cup [S]_j$ where $\T$ is stratified-r.e.-generic
+%and $S$ is the schema $\Pr i\phi^-$ ($\phi\in T_i$) ($j\not=i$).
+%
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is stratified-r.e.-generic
+and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
+\end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+Mostly straightforward.  For
+uniformity of 4--8,
+use Lemma \ref{hpreserversvalidity}.
+Uniformity of the other families is clear.
+Stratification is immediate in all cases.
+Recursive enumerability follows from the fact that $\prec$
+is r.e.
+We sketch 2, 3, and 6
+to
+highlight subtle points.
+In each
+case, let $\U=(U_k)_{k\in\omega}$ be a stratifiable r.e.~family extending the family
+in question.  For brevity let $\hat\U=\str\U$.
+
+\item
+(2) Let $\M\equiv_i \M_{\hat\U}$, we must show
+$\M\models \ucl{\Pr j(\phi\rightarrow\psi)
+\rightarrow\Pr j\phi\rightarrow\Pr j\psi}$.
+Let $s$ be an assignment and assume
+$\M\models \Pr j(\phi\rightarrow\psi)[s]$
+and $\M\models\Pr j\phi[s]$.
+Since $j\not\succeq i$, Lemma \ref{sequencelemma}
+says $\M$ and $\M_{\hat\U}$ agree on $\Pr j$.
+By definition of $\M_{\hat\U}$, $U^-_j\models\phi^s\rightarrow\psi^s$
+and $U^-_j\models\phi^s$, thus $U^-_j\models\psi^s$, so
+$\M_{\hat\U}\models \Pr j\psi[s]$ and so does $\M$.
+
+\item
+(3) Let $\M\equiv_i \M_{\hat\U}$,
+we must show
+$\M\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
+Let $s$ be an assignment and assume $\M\models \Pr j(\phi\rightarrow\psi)[s]$
+and $\M\models\Pr j\phi[s]$.
+If $\M$ and $\M_{\hat\U}$ agree on $\Pr j$, reason as in (2) above.
+If not, Lemma \ref{sequencelemma} says there is some $j$-stratifier $\bullet^+$ such that $\M$ and $\M^+_{\hat\U}$ agree
+on $\Pr j$.
+By definition of $\M^+_{\hat\U}$, $\M_{\hat\U}\models(\Pr j(\phi\rightarrow\psi))^+[s]$
+and $\M_{\hat\U}\models(\Pr j\phi)^+[s]$.
+Let $\alpha,\beta\in\epom$ be such that $(\Pr j(\phi\rightarrow\psi))^+\equiv\Prr\alpha j(\phi^+\rightarrow\psi^+)$
+and $(\Pr j\phi)^+\equiv\Prr\beta j\phi^+$.
+Then
+$\M_{\hat\U}\models\Prr\alpha j (\phi^+\rightarrow\psi^+)[s]$ and $\M_{\hat\U}\models\Prr\beta j\phi^+[s]$.
+This means $U_j\cap\alpha\models(\phi^+\rightarrow\psi^+)^s$ and $U_j\cap\beta\models(\phi^+)^s$.
+Since $\phi$ is a subformula of $\phi\rightarrow\psi$, it follows $\beta\leq\alpha$, thus
+$U_j\cap\alpha\models (\psi^+)^s$, and by tautology,
+$U_j\cap\alpha\models(\psi^+\wedge(\phi^+\vee\neg\phi^+))^s$.
+So $\M_{\hat\U}\models\Prr\alpha j(\psi^+\wedge(\phi^+\vee\neg\phi^+))[s]$.
+By Definition \ref{stratifierdefn},
+\[
+\Prr\alpha j(\psi^+\wedge(\phi^+\vee\neg\phi^+)) \,\equiv\, (\Pr j(\psi\wedge(\phi\vee\neg\phi)))^+
+\]
+(this is the reason for the $\phi\vee\neg\phi$ clause)
+and finally $\M^+_{\hat\U}\models \Pr j(\psi\wedge(\phi\vee\neg\phi))[s]$.
+
+
+\item
+(6)
+By (4), $\widetilde{\M}\models\mbox{$i$-Assigned Strativalidity}$
+whenever $\widetilde{\M}\equiv_i\M_{\hat\U}$.  Let $\M\equiv_j\M_{\hat\U}$,
+we will show $\M\models \mbox{$i$-Validity}$.
+Let $\phi$ be a valid $\LPA(\omega)$-formula, $s$
+an assignment.
+
+\item
+\case1
+$\M$ and $\M_{\hat\U}$ agree on $\Pr i$.
+Let $\bullet^+$ be an $i$-stratifier.
+Since $\phi$ is valid, so is $\phi^+$
+(by Lemma \ref{stratifiersrespectvalidity}),
+so $(\phi^+)^s\in U_i$ (since $[\mbox{$i$-Assigned Strativalidity}]_i$ is
+part of line 6).
+Clearly $((\phi^+)^s)^-\equiv\phi^s$, so $\phi^s\in U^-_i$,
+thus $\M_{\hat\U}\models \Pr i\phi[s]$, and so does $\M$.
+
+\item
+\case2
+$\M$ and $\M_{\hat\U}$ disagree on $\Pr i$.
+By Lemma \ref{sequencelemma} there is an $i$-stratifier
+$\bullet^+$ such that $\M$ and $\M^+_{\hat\U}$ agree on $\Pr i$.
+Let $\alpha\in\epom$ be such that
+$(\Pr i\phi)^+\equiv \Prr\alpha i\phi^+$.
+As in Case 1, $(\phi^+)^s\in U_i$.
+In fact by choice of $\alpha$, $(\phi^+)^s\in U_i\cap \alpha$,
+so $\M_{\hat\U}\models \Prr\alpha i\phi^+[s]$,
+that is, $\M_{\hat\U}\models (\Pr i\phi)^+[s]$.
+By Lemma \ref{structurecollapsingmagic},
+$\M^+_{\hat\U}\models\Pr i\phi[s]$.
+\end{proof}
+
+\begin{definition}
+If $\T^0=(T^0_i)_{i\in\omega}$ where each $T^0_i$ is an $\LPA(\omega)$-theory,
+we say $\T^0$ is \emph{stratifiable-r.e.-generic} if there is some stratified-r.e.-generic family $\T=(T_i)_{i\in\omega}$ of
+$\LPA(\indset)$-theories such that
+each $T^-_i=T^0_i$.
+\end{definition}
+
+
+\begin{theorem}
+\label{generalizedtwoonethree}
+Let $\T^0=(T^0_i)_{i\in\omega}$ be any
+stratifiable-r.e.-generic
+family of $\LPA(\omega)$-theories.
+For every $i\in\omega$ and $n\in\N$, let $T_i(n)$ be the smallest
+$\Pr i$-closed $\LPA(\omega)$-theory containing the following axioms.
+\begin{itemize}
+\item The axioms contained in $T^0_i$.
+\item Assigned Validity, $i$-Validity and $i$-Deduction.
+\item $\ucl{\Pr j\phi\rightarrow\phi}$ whenever $j\preceq i$.
+\item $\forall x(\Pr j\phi\leftrightarrow \langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
+whenever $j\prec i$, $\FV(\phi)\subseteq\{x\}$.
+\end{itemize}
+Let each $\T(n)=(T_i(n))_{i\in\omega}$.
+There is some $n\in\N$ such that $\T(n)$ is true.
+\end{theorem}
+
+\begin{proof}
+By the $S$-$m$-$n$ Theorem, there is a total computable $f:\N\to\N$ such that $\forall n\in\N$,
+\[
+W_{f(n)}=\{\langle\ulcorner\phi\urcorner,j,m\rangle\in\N\,:\,\mbox{$\phi$ is an $\LPA(\omega)$-formula,
+$\FV(\phi)\subseteq\{x\}$, and $T_j(n)\models\phi(x|\overline m)$}\}.
+\]
+By the Recursion Theorem, there is an $n\in\N$ such that $W_n=W_{f(n)}$.  Fix this $n$ for the rest of the proof
+and write $\T$ for $\T(n)$, $T_i$ for $T_i(n)$.
+
+Since $\T^0$ is stratifiable-r.e.-generic, there is 
+a stratified-r.e-generic
+family $\V=(V_i)_{i\in\omega}$ of $\LPA(\indset)$-theories such that each $V^-_i=T^0_i$.
+For every $i\in\N$, let $U_i$ be the smallest
+$i$-stratified $\LPA(\indset)$-theory such that the following hold.
+\begin{itemize}
+\item $U_i$ contains $V_i$.
+\item $U_i$ contains $i$-Assigned Strativalidity, $i$-Strativalidity, $i$-Stratideduction and $i$-Collapse.
+\item $U_i$ contains $\ucl{\Prr\alpha i\phi\rightarrow\phi}$ whenever $\Prr\alpha i\phi$ is $i$-stratified.
+\item $U_i$ contains $\ucl{\Pr j\phi\rightarrow\phi^+}$ for every $\LPA(\omega)$-formula $\phi$, $j\prec i$,
+and $i$-stratifier $\bullet^+$.
+\item $U_i$ contains $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
+whenever $j\prec i$, $\FV(\phi)\subseteq\{x\}$ and $\phi$ is an $\LPA(\omega)$-formula.
+\item Whenever $\phi\in U_i$ and $\Prr\alpha i\phi$ is $i$-stratified, $\Prr\alpha i\phi\in U_i$.
+\end{itemize}
+Let $\U=(U_i)_{i\in\omega}$.  Observe that $\U$ is stratifiable r.e.~(to see $\U$ is uniform, use
+Lemma \ref{stratifiermagic}, to see $\U$ is r.e., use Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
+$U_i^-=T_i$.
+
+
+Let $\S=(S_i)_{i\in\indset}=\str{\U}$.
+By definition this means that for all $i\in\omega$ and $\alpha\in\epom$,
+\[S_i=U_i^-=T_i\mbox{ and }S_{(\alpha,i)}=U_i\cap\alpha.
+\]
+
+In order to show $\M_\T\models\T$ and thus prove the theorem,
+we will show $\M_\S\models\S$, which is more than sufficient, since 
+$\M_\S$ and $\M_\T$ agree on $\LPA(\omega)$.
+But for sake of a stronger induction hypothesis, we will prove 
+more.  We will prove that for every $i\in\omega$, every $j\preceq i$,
+every $\M\equiv_i\M_\S$, and every $\alpha\in\epom$,
+$\M\models S_j\cup S_{(\alpha,j)}$.
+
+Fix $i\in\omega$.  Since $\prec$ is well-founded, we may assume the following:
+\begin{quote}
+($*$) For every $k\preceq j\prec i$,
+every $\M\equiv_j\M_\S$, and every $\alpha\in\epom$,
+$\M\models S_k\cup S_{(\alpha,k)}$.
+\end{quote}
+Fix $\M\equiv_i\M_\S$.
+For all $j\prec i$,
+Lemma \ref{sequencelemma} says $\M\equiv_j\M_\S$
+and therefore by ($*$) we already have $\M\models S_j\cup S_{(\alpha,j)}$.
+It remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
+
+\item
+\claim1
+$\forall \alpha\in\epom$, $\M\models S_{(\alpha,i)}$.
+
+\item
+By induction on $\alpha$.
+Let $\sigma\in S_{(\alpha,i)}$.
+This means $\sigma\in U_i\cap\alpha$.
+
+\item
+\case1
+$\sigma\in V_i$.
+Then $\M\models\sigma$ because
+$\V$ is stratified-r.e.-generic and $\U\supseteq\V$
+is stratifiable r.e.
+
+\item
+\case2
+$\sigma$ is an instance of $i$-Assigned Strativalidity, $i$-Strativalidity,
+or $i$-Stratideduction.  Then $\M\models\sigma$
+by Lemma \ref{secondgrabbag}.
+
+\item
+\case3
+$\sigma$ is $\ucl{\Prr{\alpha_0} i\phi\rightarrow\phi}$ for some
+$i$-stratified $\LPA(\indset)$-formula $\phi$ such that $\Prr{\alpha_0}i\phi$ is $i$-stratified.
+Since $\sigma\in U_i\cap\alpha$, this forces $\alpha_0<\alpha$.
+Let $s$ be an assignment and assume $\M\models\Prr{\alpha_0}i\phi[s]$, then:
+\begin{align*}
+\M &\models \Prr{\alpha_0} i\phi[s]
+  &\mbox{(Assumption)}\\
+\M_\S &\models \Prr{\alpha_0} i\phi[s]
+  &\mbox{($\M$ and $\M_\S$ agree on $\Prr{\alpha_0} i$ by Lemma \ref{sequencelemma})}\\
+S_{(\alpha_0,i)} &\models \phi^s
+  &\mbox{(Definition of $\M_\S$)}\\
+\M &\models \phi^s
+  &\mbox{(By induction, $\M\models S_{(\alpha_0,i)}$)}\\
+\M &\models \phi[s].
+  &\mbox{(By Lemma \ref{preservedintentspecialcase})}
+\end{align*}
+
+
+\item
+\case4
+$\sigma$ is $\ucl{\Pr j\phi\rightarrow\phi^+}$ for some $\LPA(\omega)$-formula $\phi$, $j\prec i$,
+and $i$-stratifier $\bullet^+$.
+By Lemma \ref{stratifiermagic} we may assume $\bullet^+$ is computable.
+Let $s$ be an assignment and assume $\M\models \Pr j\phi[s]$, then:
+\begin{align*}
+\M &\models \Pr j\phi[s]
+  &\mbox{(Assumption)}\\
+\M_\S &\models \Pr j\phi[s]
+  &\mbox{(Since $j\prec i$, $\M$ and $\M_\S$ agree on $\Pr j$ by Lemma \ref{sequencelemma})}\\
+T_j &\models \phi^s
+  &\mbox{(Definition of $\M_\S$)}\\
+\M^+ &\models \phi^s
+  &\mbox{(By Lemma \ref{sequencelemma}, $\M^+\equiv_j\M_\S$, so by ($*$), $\M^+\models T_j$)}\\
+\M &\models (\phi^s)^+
+  &\mbox{(Lemma \ref{structurecollapsingmagic})}\\
+\M &\models (\phi^+)^s
+  &\mbox{(Clearly $(\phi^s)^+\equiv(\phi^+)^s$)}\\
+\M &\models \phi^+[s].
+  &\mbox{(Lemma \ref{preservedintentspecialcase})}
+\end{align*}
+
+
+\item
+\case5
+$\sigma$ is $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,
+x\rangle\in W_{\overline n})$ for some $\LPA(\omega)$-formula $\phi$ with $\FV(\phi)\subseteq\{x\}$
+and $j\prec i$.
+Let $s$ be any assignment, say $s(x)=m$.
+The following biconditionals are equivalent:
+\begin{align*}
+\M \models \Pr j\phi&\leftrightarrow
+\langle\overline{\ulcorner\phi\urcorner}, \overline j,x\rangle\in W_{\overline n}[s]\\
+\M_\S \models \Pr j\phi&\leftrightarrow
+\langle\overline{\ulcorner\phi\urcorner}, \overline j,x\rangle\in W_{\overline n}[s]
+  &\mbox{($\M$ and $\M_\S$ agree on the symbols in question)}\\
+\M_\S \models \Pr j\phi[s]&\mbox{ iff }\M_\S\models
+\langle\overline{\ulcorner\phi\urcorner}, \overline j,\overline m\rangle\in W_{\overline n}
+  &\mbox{(Lemma \ref{preservedintentspecialcase})}\\
+\M_\S \models \Pr j\phi[s]&\mbox{ iff }
+\langle\ulcorner\phi\urcorner,j,m\rangle\in W_n
+  &\mbox{($\M_\S$ has standard first-order part)}\\
+T_j \models \phi^s&\mbox{ iff }
+\langle\ulcorner\phi\urcorner,j,m\rangle\in W_n
+  &\mbox{(Definition of $\M_\S$)}\\
+T_j \models \phi(x|\overline m)&\mbox{ iff }
+\langle\ulcorner\phi\urcorner,j,m\rangle\in W_n.
+  &\mbox{(Since $\FV(\phi)\subseteq\{x\}$)}
+\end{align*}
+The latter is true by definition of $n$.
+
+\item
+\case6
+$\sigma$ is an instance $\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi$
+of $i$-Collapse (so $\beta\leq_1\gamma$ and $\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi$ is
+$i$-stratified).
+Let $s$ be an assignment,
+since $\M$ and $\M_\S$ agree on $\Prr\beta i$ and $\Prr\gamma i$, we need only show
+$\M_\S\models\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi[s]$.
+In other words we must show $U_i\cap\beta\models\phi^s$ if and only if $U_i\cap\gamma\models\phi^s$.
+This is by Theorem \ref{collapsetheorem}.
+
+\item
+\case7
+$\sigma$ is $\Prr{\alpha_0}i\phi$ for some $\LPA(\indset)$-formula $\phi$
+such that $\Prr{\alpha_0}i\phi$ is $i$-stratified and $\phi\in U_i$.
+Since $\Prr{\alpha_0}i\phi$
+is $i$-stratified, $\onset(\phi)\subseteq\alpha_0$, so $\phi\in U_i\cap\alpha_0$.
+Thus $\M_\S\models \Prr{\alpha_0}i\phi$,
+so $\M\models \Prr{\alpha_0}i\phi$ since $\M$ and $\M_\S$ agree on $\Prr{\alpha_0}i$.
+
+\item
+Cases 1--7
+establish $\M\models S_{(\alpha,i)}$.
+By arbitrariness of $\alpha$, Claim 1 is proved.
+
+
+\item
+\claim2
+For any assignment $s$
+and any very $i$-stratified $\LPA(\indset)$-formula $\phi$,
+$\M\models\phi[s]$ if and only if $\M\models\phi^-[s]$.
+
+\item
+By induction on $\phi$.
+The only interesting cases are the following.
+
+\item
+\case1
+$\phi$ is $\Pr j\psi$ for some $j$.
+Then $\phi^-\equiv\phi$ and the claim is trivial.
+
+%
+%\item
+%\case2
+%$\phi$ is $\Pr j\psi$.  Impossible, this is not $j$-stratified.
+%
+
+\item
+\case2 $\phi$ is $\Prr \alpha j\psi$ for some $j\not=i$.  Impossible, this is not $i$-stratified.
+
+\item
+\case3
+$\phi$ is $\Prr\alpha i\psi$.
+The following are equivalent:
+\begin{align*}
+\M &\models (\Prr\alpha i\psi)^-[s]\\
+\M_\S &\models (\Prr\alpha i\psi)^-[s]
+  &\mbox{($\M$ and $\M_\S$ agree on $\Pr i$)}\\
+\M_\S &\models \Prr\alpha i\psi[s]
+  &\mbox{(Theorem \ref{stratificationtheorem})}\\
+\M &\models \Prr\alpha i\psi[s].
+  &\mbox{($\M$ and $\M_S$ agree on $\Prr\alpha i$)}
+\end{align*}
+
+
+\item
+\claim3
+$\M\models S_i$.
+
+\item
+For any $\sigma\in S_i$,
+there is some $\tau\in U_i$ such that $\tau^-\equiv\sigma$;
+since $U_i$ is $i$-uniform, we may take $\tau$ to be very $i$-stratified
+(Lemma \ref{verystratifiableaxioms}).
+By Claim 1, $\M\models U_i$,
+so $\M\models\tau$.
+By Claim 2, $\M\models\sigma$.
+\end{proof}
+
+
+This satisfies the second promise from the introduction:
+given a well-founded r.e.~partial order $\prec$ on $\omega$,
+we have exhibited true theories $(T_i)_{i\in\omega}$ such that $T_i$ expresses 
+a G\"odel number of $T_j$ ($j\prec i$) and the truth of $T_j$ ($j\preceq 
+i$).  These theories can further be taken so that $T_i$ expresses the fact 
+that $T_j$ has some G\"odel number (all $i,j$), by Lemma \ref{secondgrabbag} parts 11--12.
+
+
+\section{Third Consistency Result: Prioritizing Truth}
+
+
+In this section, $\prec$ remains a well-founded, r.e.~partial order on 
+$\omega$.
+
+
+\begin{definition}
+For any index set $I$ and $\LPA(I)$-structure
+$\M$, let $\M\cap\Tr$ be the $\LPA(I)$-structure that has
+the same first-order part as $\M$ and is otherwise
+defined recursively so that for every $i\in I$,
+every $\LPA(I)$-formula $\phi$,
+and every assignment $s$,
+\[
+\mbox{$\M\cap\Tr \models \Pr i\phi[s]$ if and only if
+$\M\models \Pr i\phi[s]$ and $\M\cap\Tr\models \phi[s]$.}
+\]
+\end{definition}
+
+\begin{lemma}
+\label{captruepreservesintent}
+Suppose 
+$I$ is an index set and $\M$ is an $\LPA(I)$-structure
+such that for every $\LPA(I)$-formula $\phi$ and assignment $s$,
+$\M\models\phi[s]$ if and only if $\M\models\phi^s$.
+Then for all such $\phi$ and $s$,
+$\M\cap\Tr\models\phi[s]$ if and only if $\M\cap\Tr\models\phi^s$.
+\end{lemma}
+
+\begin{proof}
+By induction on complexity of $\phi$.
+The interesting case is when $\phi$ is $\Pr i\psi$ for some $i\in I$.
+The following are equivalent.
+\begin{align*}
+\M\ctr &\models \Pr i\psi[s]\\
+\M \models \Pr i \psi[s] &\mathrel\& \M\ctr \models \psi[s]
+  &\mbox{(Definition of $\M\ctr$)}\\
+\M \models \Pr i\psi^s &\mathrel\& \M\ctr \models \psi^s
+  &\mbox{(Left: Hypothesis, Right: Induction)}\\
+\M \models \Pr i\psi^s[s] &\mathrel\& \M\ctr \models \psi^s[s]
+  &\mbox{($\psi^s$ is a sentence)}\\
+\M\ctr &\models \Pr i\psi^s[s]
+  &\mbox{(Definition of $\M\ctr$)}\\
+\M\ctr &\models \Pr i \psi^s.
+  &\mbox{($\psi^s$ is a sentence)}
+\end{align*}
+\end{proof}
+
+\begin{lemma}
+\label{captragrees}
+Suppose $I$ is an index set,
+$\T=(T_i)_{i\in I}$ is a family of $\LPA(I)$-theories,
+$\phi$ is an $\LPA(I)$-formula, $s$ is an assignment, and $i\in I$.
+Further, suppose $\M_\T\ctr\models T_i$.
+Then $\M_\T\ctr\models\Pr i\phi[s]$ if and only if $\M_\T\models\Pr i\phi[s]$.
+\end{lemma}
+
+\begin{proof}
+Assume the hypotheses.  The following are equivalent.
+\begin{align*}
+\M_\T\ctr &\models \Pr i\phi[s]\\
+\M_\T \models \Pr i\phi[s] &\mathrel\& \M_\T\ctr\models \phi[s]
+  &\mbox{(Definition of $\M_\T\ctr$)}\\
+T_i \models \phi^s &\mathrel\& \M_\T\ctr\models \phi[s]
+  &\mbox{(Definition of $\M_\T$)}\\
+T_i \models \phi^s &\mathrel\& \M_\T\ctr\models \phi^s
+  &\mbox{(Lemmas \ref{howintendedworks} and \ref{captruepreservesintent})}\\
+T_i &\models \phi^s
+  &\mbox{(By hypothesis, $\M_\T\ctr\models T_i$)}\\
+\M_\T &\models \Pr i\phi[s].
+  &\mbox{(Definition of $\M_\T$)}
+\end{align*}
+\end{proof}
+
+
+
+\begin{definition}
+(Compare Definition \ref{bootstrapclosedrestrat})
+Suppose $\T=(T_i)_{i\in\omega}$ is an r.e.~family of $\LPA(\indset)$-theories
+such that each $T_i$ is an $i$-uniform set of $i$-stratified $\LPA(\indset)$-sentences.
+We say $\T$ is \emph{stratified-true-generic} if for every stratifiable r.e.~family
+$\U\supseteq\T$, every $i\in\omega$, and every $\M\equiv_i\M_{\str\U}\ctr$, $\M\models T_i$.
+\end{definition}
+
+\begin{lemma}
+If the family $\T=(T_i)_{i\in\omega}$ of $\LPA(\indset)$-theories is r.e.~and is a union of stratified-true-generic families,
+then $\T$ is stratified-true-generic.
+\end{lemma}
+
+\begin{proof}
+Straightforward.
+\end{proof}
+
+\begin{definition}
+Suppose $\phi$ is an $\LPA(\indset)$-formula.
+By the \emph{exposed indices of $\phi$} we mean the set of those $i\in\omega$ such
+that there is an occurrence of $\Pr i$ in $\phi$ not within the scope of
+$\Pr j$ or $\Prr\alpha j$ for any $j,\alpha$.
+\end{definition}
+
+For example, the exposed indices of
+$\Pr 5(1=0) \wedge \Pr 6\Pr 7(1=0)\wedge \Prr\omega 8\Pr 9(1=0)$
+are $5$ and $6$.
+
+\begin{lemma}
+\label{thirdgrabbag}
+(Compare Lemmas \ref{firstgrabbag} and \ref{secondgrabbag})
+For any $i,j\in\omega$, each of the following families is statified-true-generic.
+\begin{enumerate}
+\item Any of the families from lines 1--10 of Lemma \ref{secondgrabbag}.
+\item $[S]_i$ ($j\not=i$) where $S$ is: ($i$-Weak $j$-Truth) $\ucl{\Pr j\phi\rightarrow\phi}$ for any $\LPA(\omega)$-formula $\phi$
+such that for every exposed index $k$ of $\phi$, $k\prec i$.
+\item $[S]_i$ where $S$ is: ($i$-Weak $i$-Stratotruth) $\ucl{\Prr\alpha i\phi\rightarrow\phi}$ for any $\LPA(\indset)$-formula $\phi$ such that 
+$\Prr\alpha i\phi$ is $i$-stratified and for every exposed index $k$ of $\phi$, $k\prec i$.
+%
+%\item $[S]_i$ where $S$ is: ($i$-Church's Thesis) (see Reinhardt \cite{reinhardt1985b})
+%$\ucl{(\forall x(\phi\rightarrow\Prr\alpha i\phi))\rightarrow \exists e\forall x(\phi\leftrightarrow x\in W_e)}$
+%whenever this is $i$-stratified.
+%
+%\item $\T\cup [S]_j$ where $\T$ is stratified-true-generic and $S$ is the schema $\phi^-\rightarrow\Pr i\phi^-$ ($\phi\in T_i$) 
+%($j\not=i$).
+%
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is stratified-true-generic and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that 
+$\Prr\alpha i \phi$ is $i$-stratified).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Mostly straightforward and similar to Lemma \ref{secondgrabbag}.
+We prove (2) for illustrative purposes.
+
+Let $\U$ be a stratifiable r.e.~family extending $[\mbox{$i$-Weak $j$-Truth}]_i$, $j\not=i$.
+For brevity let $\hat\U=\str{\U}$.
+Let $\phi$ be an $\LPA(\omega)$-formula such that all exposed indices of $\phi$ are $\prec i$.
+%
+%$\phi$ is $j$-stratified.
+%
+Assume $\M\equiv_i\M_{\hat\U}\ctr$, we will show $\M\models \ucl{\Pr j\phi\rightarrow\phi}$.
+Let $s$ be an assignment and assume $\M\models\Pr j\phi[s]$.
+
+\item\case1
+$\M$ and $\M_{\hat\U}\ctr$ agree on $\Pr j$.
+Then $\M_{\hat\U}\ctr\models \Pr j\phi[s]$.
+This means $\M_{\hat\U}\models \Pr j\phi[s]$ and $\M_{\hat\U}\ctr\models\phi[s]$.
+Since $\M$ and $\M_{\hat\U}\ctr$ agree on all $\Pr k$ with $k\prec i$,
+$\M$ and $\M_{\hat\U}\ctr$ agree on $\Pr k$ whenever $k$ is an exposed index of $\phi$,
+and it follows that, since $\M_{\hat\U}\ctr\models\phi[s]$, $\M\models\phi[s]$.
+
+\item\case2
+$\M$ and $\M_{\hat\U}\ctr$ disagree on $\Pr j$.
+By Lemma \ref{sequencelemma}, there is a $j$-stratifier $\bullet^+$
+such that $\M$ and $(\M_{\hat\U}\ctr)^+$ agree on $\Pr j$.
+Thus $(\M_{\hat\U}\ctr)^+\models\Pr j\phi[s]$.
+By Lemma \ref{structurecollapsingmagic}, $\M_{\hat\U}\ctr\models(\Pr j\phi)^+[s]$,
+so $\M_{\hat\U}\ctr\models\Prr\alpha j\phi^+[s]$ for some $\alpha\in\epom$.
+Since $i$ is not an exposed index in $\phi$, it follows that $\phi^+\equiv\phi$,
+so $\M_{\hat\U}\ctr\models\Prr\alpha j\phi[s]$.
+By definition this means $\M_{\hat\U}\models\Prr\alpha j\phi[s]$ and
+$\M_{\hat\U}\ctr\models\phi[s]$.
+From here the proof is as in Case 1.
+\end{proof}
+
+\begin{definition}
+If $\T^0=(T^0_i)_{i\in\omega}$ is a family of $\LPA(\omega)$-theories,
+we say $\T^0$ is \emph{stratifiable-true-generic} if there is some stratified-true-generic
+family $\T=(T_i)_{i\in\N}$ of $\LPA(\indset)$-theories such that each
+$T^-_i=T^0_i$.
+\end{definition}
+
+\begin{theorem}
+\label{generalizedthreeonetwo}
+Let $\T^0=(T^0_i)_{i\in\omega}$ be any stratifiable-true-generic family of $\LPA(\omega)$-theories.
+For every $i\in\omega$ and $n\in\N$, let $T_i(n)$ be the smallest $\Pr i$-closed $\LPA(\omega)$-theory containing the following axioms.
+\begin{itemize}
+\item The axioms contained in $\T^0_i$.
+\item Assigned Validity, $i$-Validity and $i$-Deduction.
+\item $\ucl{\Pr j\phi\rightarrow\phi}$ whenever $j\preceq i$.
+\item $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
+whenever $j\prec i$ and $\FV(\phi)\subseteq\{x\}$.
+\item $\ucl{\exists e\forall x(\Pr i\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
+\end{itemize}
+Let each $\T(n)=(T_i(n))_{i\in\omega}$.
+There is some $n\in\N$ such that $\T(n)$ is true.
+\end{theorem}
+
+\begin{proof}
+Let $n$ be obtained the same way as in the proof
+of Theorem \ref{generalizedtwoonethree}.
+Fix this $n$ and write $\T$ for $\T(n)$, $T_i$ for $T_i(n)$.
+
+Since $\T^0$ is stratifiable-true-generic, there is a stratified-true-generic family $\V=(V_i)_{i\in\omega}$ of $\LPA(\indset)$-theories
+such that each $V^-_i=T^0_i$.  For each $i\in\omega$, let $U_i$ be the smallest $\LPA(\indset)$-theory such that the following hold.
+\begin{itemize}
+\item $U_i$ contains $V_i$.
+\item $U_i$ contains $i$-Assigned Strativalidity, $i$-Strativalidity, $i$-Stratideduction and $i$-Collapse.
+\item $U_i$ contains $\ucl{\Pr j\phi\rightarrow\phi^+}$ for every $\LPA(\omega)$-formula $\phi$, $j\prec i$, and $i$-stratifier 
+  $\bullet^+$.
+\item $U_i$ contains $\ucl{\Prr\alpha i\phi\rightarrow\phi}$ for every $\LPA(\indset)$-formula $\phi$ such that this is $i$-stratified.
+\item $U_i$ contains $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in
+  W_{\overline n})$ whenever $j\prec i$, $\FV(\phi)\subseteq\{x\}$, and $\phi$ is an $\LPA(\omega)$-formula.
+\item $U_i$ contains
+$\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
+whenever this is $i$-stratified and $e\not\in\FV(\phi)$.
+\item $U_i$ contains $i$-Collapse.
+\item Whenever $\phi\in U_i$ and $\Prr\alpha i\phi$ is $i$-stratified, $\Prr\alpha i\phi\in U_i$.
+\end{itemize}
+Let $\U=(U_i)_{i\in\omega}$, note $\U$ is stratifiable r.e., $\U\supseteq\V$, and each $U^-_i=T_i$.
+
+Let $\S=(S_i)_{i\in\indset}=\str\U$.  This means that for all $i\in\omega$ and $\alpha\in\epom$,
+$S_i=U^-_i=T_i$ and $S_{(\alpha,i)}=U_i\cap\alpha$.
+
+To show $\M_\T\models\T$ (proving the theorem), we will first prove $\M_\S\ctr\models\S$.  Then we will argue that in fact
+$\M_\S\ctr=\M_\S$.  Having established this, we will be finished, since $\M_\S$ and $\M_\T$ agree on $\LPA(\omega)$.
+For sake of a strong induction hypothesis, we will prove more.
+We will prove that $\forall i\in\omega$, $\forall j\preceq i$, for every $\M\equiv_i\M_\S\ctr$ and every $\alpha\in\epom$,
+$\M\models S_j\cup S_{(\alpha,j)}$.
+
+Fix $i\in\omega$.  Since $\prec$ is well-founded we may assume:
+\[
+\mbox{($*$) For all $k\preceq j\prec i$, $\M\equiv_j\M_\S\ctr$ and $\alpha\in\epom$, $\M\models S_k\cup S_{(\alpha,k)}$.}
+\]
+Fix $\M\equiv_i\M_\S\ctr$.  For all $j\prec i$, $\M\equiv_j\M_\S\ctr$ and ($*$) already gives $\M\models S_j\cup U_j$,
+it remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
+
+\item
+\claim1
+For any $j\prec i$, any $\LPA(\omega)$-formula $\phi$, and any assignment $s$,
+$\M_\S\models\Pr j\phi[s]$ if and only if $\M_\S\ctr\models\Pr j\phi[s]$.
+
+\item
+By ($*$), $\M_\S\ctr\models S_j$.
+The claim now follows by Lemma \ref{captragrees}.
+
+\item
+\claim2
+$\forall \alpha\in\epom$, $\M\models S_{(\alpha,i)}$.
+
+\item
+By induction on $\alpha$.  Let $\sigma\in S_{(\alpha,i)}$.  This means $\sigma\in U_i\cap\alpha$.
+
+\item\case1
+$\sigma\in V_i$.  Then $\M\models \sigma$ because $\V$ is stratified-true-generic, $\U\supseteq\V$
+is stratifiable r.e., and $\M\equiv_i\M_{\str\U}\ctr$.
+
+\item\case2
+$\sigma$ is an instance of $i$-Assigned Strativalidity, $i$-Strativalidity, or $i$-Stratideduction.
+Then $\M\models\sigma$ by Lemma \ref{thirdgrabbag}.
+
+%
+%\item\case3
+%$\sigma$ is $\ucl{\Pr j\phi\rightarrow\phi^+}$ for some $\LPA(\omega)$-formula $\phi$, $j\prec i$, and $i$-stratifier $\bullet^+$.
+%Let $s$ be an assignment and assume $\M\models\Pr j\phi[s]$. Then:
+%\begin{align*}
+%\M_{\str\U}\ctr &\models \Pr j\phi[s]
+%  &\mbox{(Since $j\prec i$, $\M$ and $\M_{\str\U}\ctr$ agree on $\Pr j$)}\\
+%\M_{\str\U} &\models \Pr j\phi[s]
+%  &\mbox{(Part of the definition of $\M_{\str\U}\ctr\models\Pr j\phi[s]$)}\\
+%S_j &\models \phi^s
+%  &\mbox{(Definition of $\M_{\str\U}$)}\\
+%\M^+ &\models \phi^s
+%  &\mbox{(Since $\M^+\equiv_j\M_{\str\U}\ctr$, ($*$) says $\M^+\models S_j$)}\\
+%\M^+ &\models \phi[s]
+%  &\mbox{(Lemmas \ref{preservedintentspecialcase} and \ref{captruepreservesintent})}\\
+%\M &\models \phi^+[s]
+%  &\mbox{(Lemma \ref{structurecollapsingmagic})}
+%\end{align*}
+%
+%\item\case4
+%$\sigma$ is $\ucl{\Prr{\alpha_0} i\phi\rightarrow\phi}$ for some $\LPA(\indset)$-formula $\phi$ such that $\Prr{\alpha_0} 
+%i\phi\rightarrow\phi$
+%is $i$-stratified.
+%Since $\sigma\in U_{(\alpha,i)}$, $\alpha_0<\alpha$.
+%Let $s$ be an assignment and assume $\M\models\Prr\alpha i\phi[s]$, then:
+%\begin{align*}
+%\M_{\hat\U}\ctr &\models \Prr\alpha i\phi[s]
+%  &\mbox{($\M$ and $\M_{\hat\U}\ctr$ agree on $\Prr\alpha i$)}\\
+%\M_{\hat\U} &\models \Prr\alpha i\phi[s]
+%  &\mbox{(Part of the definition of $\M_{\hat\U}\ctr\models\Prr\alpha i\phi[s]$)}\\
+%U_{(\alpha_0,i)} &\models \phi^s
+%  &\mbox{(Definition of $\M_{\hat\U}$)}\\
+%\M &\models \phi^s
+%  &\mbox{(By induction, $\M \models U_{(\alpha_0,i)}$)}\\
+%\M &\models \phi[s].
+%  &\mbox{(Lemmas \ref{preservedintentspecialcase} and \ref{captruepreservesintent})}
+%\end{align*}
+%
+
+
+\item
+\caseplural{3--4}
+$\sigma$ is $\ucl{\Pr j\phi\rightarrow\phi^+}$ for some $\LPA(\omega)$-formula $\phi$, $j\prec i$,
+and $i$-stratifier $\bullet^+$, or $\sigma$
+is $\ucl{\Prr{\alpha_0} i\phi\rightarrow\phi}$ for some $\LPA(\indset)$-formula $\phi$
+such that $\Prr{\alpha_0}i\phi\rightarrow\phi$ is $i$-stratified.
+Either case is similar to the corresponding case from the proof of Theorem \ref{generalizedtwoonethree}.
+
+\item\case5
+$\sigma$ is $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle
+\in W_{\overline n})$ for some $j\prec i$ and some $\LPA(\omega)$-formula $\phi$ with $\FV(\phi)\subseteq\{x\}$.
+Similar to the corresponding case from Theorem \ref{generalizedtwoonethree}, using Claim 1
+to equate the interpretation of $\Pr j$ in $\M_\S\ctr$ with that in $\M_\S$.
+
+\item\case6
+$\sigma$ is $\ucl{\exists e\forall x(\Prr\beta i\phi\leftrightarrow x\in W_e)}$
+for some $\phi$ such that this formula is $i$-stratified, $e\not\in\FV(\phi)$.
+Since $\sigma\in S_{(\alpha,i)}$, $\beta<\alpha$.
+Thus by induction, $\M_\S\ctr\models S_{(\beta,i)}$, so by Lemma \ref{captragrees},
+$\M_\S$ and $\M_\S\ctr$ (and hence $\M$) agree on $\Prr\beta i$.
+Thus to see $\M\models\sigma$ it suffices to notice that for any assignment $s$,
+$\{m\in\N\,:\,U_i\cap\beta\models\phi(x|\overline m)^s\}$ is r.e.
+
+
+\item\case7
+$\sigma$ is an instance $\ucl{\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi}$ of $i$-Collapse.
+Since $\sigma\in S_{(\alpha,i)}$, $\beta,\gamma<\alpha$,
+so by induction, $\M\models S_{(\beta,i)}\cup S_{(\gamma,i)}$.
+Lemma \ref{captragrees} therefore says that $\M_\S\ctr$ and $\M_\S$
+agree on $\Prr\beta i$ and $\Prr\gamma i$.
+From here,
+the proof is
+similar to the corresponding case from Theorem \ref{generalizedtwoonethree}.
+
+\item\case8
+$\sigma$ is $\Prr{\alpha_0}i\phi$ for some $\phi\in U_i$ such that $\Prr{\alpha_0}i\phi$ is $i$-stratified.
+Since $\sigma\in S_{(\alpha,i)}$, $\alpha_0<\alpha$; since $\Prr{\alpha_0}i\phi$ is $i$-stratified,
+$\onset(\phi)\subseteq\alpha_0$ and so $\phi\in S_{(\alpha_0,i)}$.
+By induction, $\M_\S\ctr\models S_{(\alpha_0,i)}$, so $\M_\S\ctr\models\phi$.
+And certainly $\M_\S\models\Prr{\alpha_0} i\phi$.
+Together these show $\M_\S\ctr\models\Prr{\alpha_0}i\phi$.
+Since $\M$ and $\M_\S\ctr$ agree on $\Prr{\alpha_0}i$, $\M\models\Prr{\alpha_0}i\phi$.
+
+
+\item
+Cases 1--8 show that $\M\models S_{(\alpha,i)}$, proving Claim 2.
+
+
+\item
+\claim3
+For any very $i$-stratified $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+$\M\models\phi[s]$ if and only if $\M\models\phi^-[s]$.
+
+\item
+We'll prove more: for any $\M'\equiv_i \M_\S\ctr$, $\M'\models\phi[s]$ if and only if $\M'\models\phi^-[s]$.
+The proof is by induction on $\phi$.  The interesting cases are the following.
+
+\item
+\case1
+$\phi$ is $\Pr j\psi$ for some $j$.  Then $\phi^-\equiv \phi$ and the claim is trivial.
+
+\item\case2
+$\phi$ is $\Prr\alpha j\psi$ for some $j\not=i$, $\alpha\in\epom$.  Impossible, this is not $i$-stratified.
+
+\item\case3
+$\phi$ is $\Prr\alpha i\psi$ for some $\alpha\in\epom$.
+Then $\phi^-\equiv\Pr i\psi^-$.
+Since $\phi$ is very $i$-stratified, $\alpha=\epsilon_0\cdot n$ for some $n>0$.
+By Condition 2 of Definition \ref{stratifierdefn}, $\onset(\psi)\subseteq \epsilon_0\cdot n$.
+The following are equivalent.
+\begin{align*}
+\M' &\models \Prr{\epsilon_0\cdot n}i\psi[s]\\
+\M_\S\ctr &\models \Prr{\epsilon_0\cdot n}i\psi[s]
+  &\mbox{(Since $\M'\equiv_i\M_\S\ctr$, $\M'$ and $\M_\S\ctr$ agree on $\Prr{\epsilon_0\cdot n}i$)}\\
+\M_\S\models \Prr{\epsilon_0\cdot n}i\psi[s] &\mathrel\& \M_\S\ctr\models\psi[s]
+  &\mbox{(Definition of $\M_\S\ctr$)}\\
+\M_\S\models \Prr{\epsilon_0\cdot n}i\psi[s] &\mathrel\& \M_\S\ctr\models\psi^-[s]
+  &\mbox{(Induction)}\\
+\M_\S\models \Pr i\psi^-[s] &\mathrel\& \M_\S\ctr\models\psi^-[s]
+  &\mbox{(Theorems \ref{collapsetheorem} and \ref{proofstratification})}\\
+\M_\S\ctr &\models \Pr i\psi^-[s]
+  &\mbox{(Definition of $\M_\S\ctr$)}\\
+\M' &\models \Pr i\psi^-[s].
+  &\mbox{($\M'$ and $\M_\S\ctr$ agree on $\Pr i$)}
+\end{align*}
+
+\item
+\claim4
+$\M\models S_i$.
+
+\item
+Identical to Claim 3 of the proof of Theorem \ref{generalizedtwoonethree}.
+
+\item
+By Claims 2 and 4, $\M_\S\ctr\models \S$.
+By Lemma \ref{captragrees} it follows that in fact $\M_\S\ctr=\M_\S$, proving the theorem.
+\end{proof}
+
+
+This fulfils the third promise from the introduction:
+there are true theories $(T_i)_{i\in\omega}$ such that $T_i$ expresses
+the G\"odel number of $T_j$ ($j\prec i$), the truth of $T_j$ 
+($j\preceq i$), and the fact that $T_j$ has some G\"odel number ($j\preceq 
+i$); that $T_i$ can further be taken to express a weakened version of the 
+truth of $T_j$ (all $i,j$) is by Lemma \ref{thirdgrabbag} part 2.
+
+
+\section{Well-Foundation and Ill-Foundation}
+
+The following is a variation on Kleene's $\O$.
+
+\begin{definition}
+\label{kleeneodefn}
+Simultaneously define $\O\subseteq\N$
+and $|\bullet|:\O\to\mathrm{Ord}$ so that
+$\O\subseteq\N$
+is the smallest set such that:
+\begin{enumerate}
+\item $0\in\O$ (it represents the ordinal $|0|=0$).
+\item $\forall n\in\O$, $2^n\in \O$ (it represents the ordinal $|2^n|=|n|+1$).
+\item If $\varphi_e$ (the $e$th partial recursive function) is total
+and $\mathrm{range}(\varphi_e)\subseteq\O$,
+then $3\cdot 5^e\in\O$
+(it represents the ordinal $|3\cdot 5^e|=\sup\{|\varphi_e(0)|,|\varphi_e(1)|,\ldots\}$).
+\end{enumerate}
+\end{definition}
+
+To avoid technical complications,
+we have differed from the usual Kleene's $\O$ in the following way:
+in the usual definition, in order for $3\cdot5^e$ to lie in $\O$,
+it is also required that $|\varphi_e(0)|<|\varphi_e(1)|<\cdots$.
+
+
+\begin{definition}
+$\LPO$ is the language of Peano arithmetic extended by
+a unary predicate $\O$.
+%
+%intended to represent Kleene's $\mathcal O$.
+%
+The following notions are defined by analogy with Section \ref{prelimsect}:
+\begin{itemize}
+\item For any assignment $s$ and $\LPO(I)$-formula $\phi$ with $\FV(\phi){=}\{x_1,\ldots,x_n\}$,
+$\phi^s\equiv\phi(x_1|\overline{s(x_1)})\cdots(x_n|\overline{s(x_n)})$.
+\item If $\T=(T_i)_{i\in I}$ is an $I$-indexed family of $\LPO(I)$-theories,
+the \emph{intended structure} for $\T$ is the $\LPO(I)$-structure
+$\M_\T$ with universe $\N$, interpreting symbols of $\mathrm{PA}$ as usual
+and interpreting $\O$ as $\mathcal O$, and interpreting $\Pr i$ ($i\in I$)
+as in Definition \ref{intendedstructdefn}.
+For any $\LPO(I)$-structure $\mathscr N$, we write $\mathscr N\models \T$
+if $\forall i\in I$, $\mathscr N\models T_i$.
+We say $\T$ is \emph{true} if $\M_\T\models\T$.
+%
+%If $\T^+=(T^+_i)_{i\in I}$ is another such family, $\T\subseteq\T^+$
+%means $T_i\subseteq T^+_i$ for every $i\in I$.
+%If $T$ is a single set of $\LPO(I)$-sentences,
+%$T\subseteq\T$ means that $T\subseteq T_i$ for all $i\in I$.
+%We say $\T$ is \emph{$\Pr i$-closed} if $\Pr i\phi\in T_i$
+%whenever $\phi\in T_i$; $\T$ is \emph{closed} if it is $\Pr i$-closed
+%for all $i\in I$.  $\T$ is \emph{r.e.}~just in case $\{(\phi,i)\,:\,\phi\in T_i\}$
+%is r.e.
+%
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+If $I$ is an index set and 
+$\T=(T_i)_{i\in I}$ is a family of $\LPO(I)$-theories,
+then for any $i\in I$
+such that $\M_\T\models T_i$,
+we define the ordinal $\|T_i\|=\sup\{|m|+1\,:\,T_i\models\O(\overline m)\}$.
+\end{definition}
+
+The above definition makes sense:
+since $\M_\T\models T_i$
+and $\O^{\M_\T}=\O$,
+the supremands are defined.
+
+
+
+\begin{definition}
+\label{basicaxiomsofodefn}
+The \emph{basic axioms of $\O$} are the following $\LPO$-axioms.
+\begin{enumerate}
+\item $\O(0)$.
+\item $\O(\overline n)\rightarrow \O(\overline{2^n})$, for every $n\in\N$.
+\item $\forall x(\varphi_{\overline n}(x){\downarrow}\mathrel{\&}\O(\varphi_{\overline n}(x)))
+\rightarrow
+\O(\overline{3\cdot 5^n})$, for every $n\in\N$.
+\end{enumerate}
+\end{definition}
+
+We have written the last two lines using infinite schemata
+to strengthen the following result.
+
+\begin{theorem}
+\label{olanguagestructurethm}
+Let $I$ be an index set,
+$\prec$ a binary relation on $I$.
+Suppose $\T=(T_i)_{i\in I}$
+is a family of $\LPO(I)$-theories
+with the following properties:
+\begin{enumerate}
+\item $\forall i\in I$, $T_i$ contains the axioms of Peano arithmetic.
+\item $\forall i\in I$, $T_i$ contains the basic axioms of $\O$.
+\item $\forall i\in I$, $\forall j\prec i$, $\exists n\in\N$
+such that $T_i\models\forall x(\Pr j\O(x)\leftrightarrow x\in W_{\overline n})$.
+\item $\forall i\in I$, $\forall j\prec i$, $T_i\models \forall x(\Pr j\O(x)\rightarrow\O(x))$.
+\end{enumerate}
+If $\M_\T\models T_i\cup T_j$ (in particular if $\T$ is true)
+and $j\prec i$, then $\|T_j\|<\|T_i\|$.
+\end{theorem}
+
+\begin{proof}
+Assume $\M_\T\models T_i\cup T_j$ and $j\prec i$.
+By hypothesis
+there is some $n\in\N$ such that $T_i\models\forall x(\Pr j\O(x)\leftrightarrow x\in W_{\overline n})$
+and $T_i\models\forall x(\Pr j\O(x)\rightarrow\O(x))$.
+From these, $T_i\models\forall x(x\in W_{\overline n}\rightarrow \O(x))$.
+
+Since $\M_\T\models T_i$,
+in particular $\M_\T\models \forall x(\Pr j\O(x)\leftrightarrow x\in W_{\overline n})$.
+This means $W_n=\{m\in\N\,:\,T_j\models\O(\overline m)\}$.
+Since $T_j$ includes the axiom $\O(0)$,
+$W_n\not=\emptyset$.
+
+Since $W_n\not=\emptyset$,
+by computability theory
+there is some $k\in\N$ such that
+\[
+\mathrm{PA} \models (\mathrm{domain}(\varphi_{\overline k})=\N)\wedge (\mathrm{range}(\varphi_{\overline k})=W_{\overline n}). 
+\]
+Since $T_i$ includes $\mathrm{PA}$,
+$T_i$ also implies as much.
+Combined with
+$T_i\models\forall x(x\in W_{\overline n}\rightarrow\O(x))$,
+it follows that
+$T_i\models
+\forall x(\varphi_{\overline{k}}(x){\downarrow} \mathrel{\&} \O(\varphi_{\overline{k}}(x)))$.
+Since $T_i$ contains
+the basic axiom
+$\forall x(\varphi_{\overline k}(x){\downarrow}
+\mathrel\& \O(\varphi_{\overline k}(x)))\rightarrow\O(\overline{3\cdot 5^k})$,
+$T_i\models \O(\overline{3\cdot 5^k})$.
+
+To finish the proof, calculate
+\begin{align*}
+\|T_j\|
+&=
+\sup\{|m|+1\,:\,T_j\models\O(\overline m)\}\\
+&=
+\sup\{|m|\,:\,T_j\models\O(\overline m)\}
+  &\mbox{(Since $T_j$ contains $\O(\overline n)\rightarrow\O(\overline{2^n})$ for all $n\in\N$)}\\
+&=
+\sup\{|m|\,:\,m\in W_n\}
+  &\mbox{(Since $W_n=\{m\in\N\,:\,T_j\models O(\overline m)\}$)}\\
+&=
+\sup\{|\varphi_k(0)|,|\varphi_k(1)|,\ldots\}
+  &\mbox{(By choice of $k$)}\\
+&=
+|3\cdot 5^k|
+  &\mbox{(Definition \ref{kleeneodefn})}\\
+&<
+\sup\{|m|+1\,:\,T_i\models \O(\overline m)\}
+  &\mbox{(Since $T_i\models \O(\overline{3\cdot 5^k})$)}\\
+&=
+\|T_i\|.
+\end{align*}
+\end{proof}
+
+
+\begin{corollary}
+\label{olanguagewellfounded}
+(Well-Foundedness of True Self-Referential Theories)
+Let $I$, $\T$, $\prec$ be as in Theorem \ref{olanguagestructurethm}.
+If $\T$ is true then $\prec$ is well founded,
+by which we mean there is no infinite descending sequence
+$i_0\succ i_1\succ\cdots$.
+\end{corollary}
+
+%
+%\begin{proof}
+%By Theorem \ref{olanguagestructurethm}
+%and the well-foundedness of $\mathrm{Ord}$.
+%\end{proof}
+%
+
+In particular
+Corollary \ref{olanguagewellfounded} says that
+if $I$, $\T$, $\prec$ are as in Theorem \ref{olanguagestructurethm} and $\T$ is true
+then $\prec$ is strict: there is no $i$ with $i\prec i$.
+This gives a new form
+(under the additional new assumption of containing/knowing basic rudiments of computable ordinals)
+of the Lucas--Penrose--Reinhardt argument that a truthful theory (or machine)
+cannot state (or know) its own truth and its own G\"odel number.
+
+We could remove Peano arithmetic from Theorem \ref{olanguagestructurethm}
+if we further departed from Kleene and changed line 3 of Definition 
+\ref{kleeneodefn} to read:
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item If $W_e\subseteq\O$, then $3\cdot 5^e\in\O$ (and 
+$|3\cdot 5^e|=\sup\{|n|\,:\,n\in W_e\}$, or $|3\cdot 5^e|=0$
+if $W_e=\emptyset$)
+\end{enumerate}
+(and altered Definition \ref{basicaxiomsofodefn} accordingly).
+The previous paragraph would still stand, in fact giving a version
+of the Lucas--Penrose--Reinhardt argument in which the theory (machine)
+is not required to contain (know) arithmetic.
+
+
+We close the paper by showing that Corollary \ref{olanguagewellfounded}
+fails without $\O$.  Let $\mathrm{WF}$ be the set
+of all r.e.~well-founded partial orders on $\omega$
+and let $\Tr$ be the set of all
+true $\LPA$-sentences.
+It is well-known that $\mathrm{WF}$ is computability theoretically
+$\Pi^1_1$-complete and $\Tr$ is $\Delta^1_1$, so
+$\mathrm{WF}$ cannot be defined
+in $\LPA\cup\{\Tr\}$.
+
+\begin{theorem}
+(Ill-Foundedness of True Self-Referential Theories)
+\begin{enumerate}
+\item
+For any closed-r.e.-generic $\T^0=(T^0_i)_{i\in\omega}$,
+there is an r.e., ill-founded partial order $\prec$ on $\omega$
+and an $n\in\N$
+such that $\T(n)$ is true,
+where $\T(n)$ is as in Theorem \ref{onethreethree}.
+\item
+For any stratifiable-r.e.-generic $\T^0=(T^0_i)_{i\in\omega}$, there is an 
+r.e., ill-founded partial order $\prec$ on $\omega$ and an $n\in\N$ such that
+$\T(n)$ is true, where $\T(n)$ is as in Theorem \ref{generalizedtwoonethree}.
+\item
+For any stratifiable-true-generic $\T^0=(T^0_i)_{i\in\omega}$, there is an r.e., ill-founded partial order
+$\prec$ on $\omega$ and an $n\in\N$ such that
+$\T(n)$ is true, where $\T(n)$ is as in Theorem \ref{generalizedthreeonetwo}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We prove (1), the others are similar.
+Assume $\neg$(1).  If $\prec$ is any r.e.~partial order on $\omega$,
+then, combining $\neg(1)$ with Theorem \ref{onethreethree},
+$\prec$ is well founded if and only if the conclusion of Theorem \ref{onethreethree} holds for $\prec$.
+Thus it is possible to define $\mathrm{WF}$ in $\LPA\cup\{\Tr\}$.
+Absurd.
+\end{proof}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{alexanderdissert}
+Alexander, S. (2013).
+The Theory of Several Knowing Machines.  Doctoral dissertation, the Ohio State University.
+
+\bibitem{alexandercode}
+Alexander, S. (preprint).
+A machine that knows its own code.  To appear in \emph{Studia Logica}.\\
+arXiv: \url{http://arxiv.org/abs/1305.6080}
+
+\bibitem{benacerraf}
+Benacerraf, P. (1967).
+\newblock God, the Devil, and G\"{o}del.
+\newblock {\em The Monist}, \textbf{51}, 9--32.
+
+\bibitem{carlson1999}
+Carlson, T.J. (1999).  Ordinal arithmetic and $\Sigma_1$-elementarity.
+\emph{Archive for Mathematical Logic}, \textbf{38}, 449--460.
+
+\bibitem{carlson2000}
+Carlson, T.J. (2000). Knowledge, machines, and the consistency of Reinhardt's strong mechanistic thesis.
+\hspace{-2pt}\emph{Annals of Pure and Applied Logic}, \textbf{105}, 51--82.
+
+\bibitem{carlson2001}
+Carlson, T.J. (2001).  Elementary patterns of resemblance.
+\emph{Annals of Pure and Applied Logic}, \textbf{108}, 19--77.
+
+\bibitem{lucas}
+Lucas, J.R. (1961).
+\newblock Minds, machines, and G\"{o}del.
+\newblock {\em Philosophy}, \textbf{36}, 112--127.
+
+\bibitem{penrose}
+Penrose, R. (1989).
+\newblock {\em The Emperor's New Mind: Concerning Computers, Minds, and
+the Laws of Physics}. Oxford University Press.
+
+\bibitem{putnam}
+Putnam, H. (2006).
+\newblock After G\"{o}del.
+\newblock {\em Logic Journal of the IGPL}, \textbf{14}, 745--754.
+
+\bibitem{reinhardt}
+Reinhardt, W. (1985).
+\newblock Absolute versions of incompleteness theorems.
+\newblock {\em Nous}, \textbf{19}, 317--346.
+
+%
+%\bibitem{reinhardt1985b}
+%Reinhardt, W. (1985b).
+%\newblock The consistency of a variant of Church's thesis with an
+%axiomatic theory of an epistemic notion.
+%\newblock {\em Revista Colombiana de Matematicas}, \textbf{19}, 177--200.
+%
+
+\bibitem{shapiro1985}
+Shapiro, S. (1985).  Epistemic and Intuitionistic Arithmetic.  In: S.~Shapiro (ed.), \emph{Intensional Mathematics} (North-Holland, Amsterdam),
+pp.~11--46.
+
+\end{thebibliography}
+\end{document}
