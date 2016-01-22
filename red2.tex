@@ -1217,9 +1217,6 @@ necessarily $i$-stratified:  for example, the particular instance
 $\Pr j\Pr i(1=0) \rightarrow \Pr i(1=0)$
 is not $i$-stratified.  But neither is, say, $\Pr j\Prr\alpha i(1=0)\rightarrow \Prr\alpha i(1=0)$,
 where $\Prr\alpha i$ occurs within the scope of $\Pr j$.
-%
-%We avoid this obstacle by using the
-%
 We will use a schema $\ucl{\Pr j\phi\rightarrow\phi^+}$,
 where $\bullet^+$ varies over what we call $i$-stratifiers.
 
@@ -1227,23 +1224,17 @@ where $\bullet^+$ varies over what we call $i$-stratifiers.
 \label{stratifierdefn}
 Suppose $X\subseteq\epom$, $|X|=\infty$, and $i\in\omega$.
 The \emph{$i$-stratifier given by $X$}
-is the function $\phi\mapsto\phi^+$ taking $\LPA(\omega)$-formulas to $\LPA(\indset)$-formulas
+is the function $\phi\mapsto\phi^+$ taking $\LPA(\indset)$-formulas to $\LPA(\indset)$-formulas
 as follows.
 \begin{enumerate}
 \item If $\phi$ is atomic or of the form $\Pr j\phi_0$ with $j\not=i$, then $\phi^+\equiv\phi$.
-\item If $\phi$ is $\Pr i\phi_0$ then $\phi^+\equiv \Prr\alpha i\phi^+_0$
+\item If $\phi$ is $\Pr i\phi_0$ ($\phi_0\in \LPA(\omega)$) then $\phi^+\equiv \Prr\alpha i\phi^+_0$
 where
 $\alpha=\min\{x\in X\,:\,x>\onset(\phi^+_0)\}$.
-%
-%$\alpha=\max(\onset(\phi^+_0))+1$ (we define $\max(\emptyset)=0$).
-%
+\item If $\phi$ is $\Pr i\phi_0$ ($\phi_0\not\in \LPA(\omega)$) then $\phi^+\equiv
+\Pr i\phi_0$.
 \item If $\phi$ is $\neg\psi$, $\psi\rightarrow\rho$, or $\forall x\psi$, then
 $\phi^+$ is $\neg\psi^+$, $\psi^+\rightarrow\rho^+$ or $\forall x\psi^+$, respectively.
-%
-%\item If $\phi$ is $\neg\psi$ then $\phi^+$ is $\neg\psi^+$.
-%\item If $\phi$ is $\psi\rightarrow\rho$ then $\phi^+$ is $\psi^+\rightarrow\rho^+$.
-%\item If $\phi$ is $\forall x\psi$ then $\phi^+$ is $\forall x\psi^+$.
-%
 \end{enumerate}
 By an \emph{$i$-stratifier} we mean an $i$-stratifier given by some $X$.
 By the \emph{$i$-veristratifier} we mean the $i$-stratifier
@@ -1254,50 +1245,21 @@ For example, if $\bullet^+$ is the $i$-veristratifier and $j\not=i$ then
 \[(\Pr j\Pr i(1=0)\rightarrow \Pr i\Pr i(1=0))^+ \,\,\,\,\equiv\,\,\,\,
 \Pr j\Pr i(1=0)\rightarrow\Prr{\epsilon_0\cdot2}i\Prr{\epsilon_0} i(1=0).\]
 
-%
-%\setlength{\columnsep}{-.25in}
-%\begin{multicols}{2}
-%
-%
-%\begin{lemma}
-%\label{plusandscommute}
-%If $i\in\N$, $s$ is an assignment,
-%and $\bullet^+$ is an $i$-stratifier,
-%then \[\bullet^s\circ \bullet^+=\bullet^+\circ\bullet^s.\]
-%That is, for every $\LPA(\omega)$-formula $\phi$,
-%$(\phi^+)^s=(\phi^s)^+$.
-%\end{lemma}
-%
-%\begin{proof}
-%By induction.
-%\end{proof}
-%
-%\vphantom A
-%
-%\columnbreak
-%
-%\[
-%\begindc{\commdiag}[5]
-%\obj(-10,10)[aa]{$\LPA(\omega)$}
-%\obj(10,10)[bb]{$\LPA(\indset)$}
-%\obj(-10,0)[cc]{$\LPA(\omega)/\FV$}
-%\obj(10,0)[dd]{$\LPA(\indset)/\FV$}
-%\mor{aa}{bb}{$+$}
-%\mor{aa}{cc}{$s$}[\atright,\solidarrow]
-%\mor{bb}{dd}{$s$}
-%\mor{cc}{dd}{$+$}%[\atright,\solidarrow]
-%\enddc\]
-%
-%\end{multicols}
-%
-
+On the other hand, if $\bullet^+$ is the $i$-veristratifier and $\alpha\in\epom$, then
+\[(\Pr i \Prr \alpha i (1=0))^+ \,\,\,\,\equiv\,\,\,\,
+\Pr i \Prr \alpha i (1=0)\]
+because the formula $\Prr \alpha i (1=0)$ is $\not\in \LPA(\omega)$.
+Where Definition \ref{stratifierdefn} is concerned
+we are really interested in formulas where $\Pr i$ occurs but not
+$\Prr \alpha i$ for any $\alpha$; or where $\Prr \alpha i$ occurs for
+various $\alpha$ but $\Pr i$ does not occur.  It is technically simpler
+to use the single language $\LPA(\indset)$ for both, while bearing in
+mind that it also contains formulas such as $\Pr i \Prr\alpha i(1=0)$
+that we don't really care about.
 
 \begin{lemma}
 \label{stratifiermagic}
 Suppose $Z\subseteq\epom$,
-%
-%$|X|<\infty$,
-%
 $h:Z\to \epom$ is order preserving, $i\in\omega$,
 and $\bullet^+$ is an $i$-stratifier.
 For any $\LPA(\omega)$-formula $\theta$ with $\onset(\theta^+)\subseteq Z$,
@@ -1343,10 +1305,6 @@ For every $\LPA(\omega)$-formula $\phi$ and assignment $s$,
 $\mathscr N^+\models\phi[s]$ if and only if $\mathscr N\models\phi^+[s]$.
 \end{lemma}
 
-\begin{proof}
-By induction.
-\end{proof}
-
 \columnbreak
 
 \[
@@ -1362,6 +1320,13 @@ By induction.
 \vphantom{a}
 
 \end{multicols}
+
+\begin{proof}
+By induction.  Note that since $\phi\in \LPA(\omega)$, clause 3 of
+Definition \ref{stratifierdefn} plays no part in the definition of
+$\mathscr N{\models} \phi^+[s]$.
+\end{proof}
+
 
 \begin{lemma}
 \label{stratifiersrespectvalidity}
