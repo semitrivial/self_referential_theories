@@ -44,6 +44,7 @@
 \def\Tr{\mathrm{Tr}}
 \def\rest{\upharpoonright}
 \def\ctr{\cap\Tr}
+\def\myequiv{\equiv}
 \renewcommand{\Pr}[1]{\T_{#1}\mbox{\small${\vDash}$}}
 \newcommand{\Prr}[2]{\T^{#1}_{#2}\mbox{\small${\vDash}$}}
 \newcommand{\ucl}[1]{\mathrm{ucl}(#1)}
@@ -1378,7 +1379,7 @@ For the remainder of the section, fix a strict r.e.~well-founded partial-order $
 \begin{definition}
 \label{equividefn}
 Suppose $\M$, $\M'$ are $\LPA(\indset)$-structures, $i\in\omega$.
-We say $\M\equiv_i\M'$ if
+We say $\M\myequiv_i\M'$ if
 there is a sequence \[i_1,\bullet^1,i_2,\bullet^2,\ldots,i_n,\bullet^n,\]
 each $i_k\succ i$, each $\bullet^k$ a computable $i_k$-stratifier,
 such that $\M'=(\cdots(\M^1)^2)\cdots)^n$.
@@ -1389,21 +1390,21 @@ such that $\M'=(\cdots(\M^1)^2)\cdots)^n$.
 Suppose $\M,\M',\M''$ are $\LPA(\indset)$-structures and $i,j,k\in\omega$.
 \begin{enumerate}
 \item
-$\M\equiv_i\M$.
+$\M\myequiv_i\M$.
 \item
-If $\M\equiv_i\M'$ then $\M$ and $\M'$ have the same universe and agree
+If $\M\myequiv_i\M'$ then $\M$ and $\M'$ have the same universe and agree
 on all symbols of $\LPA(\indset)$ except possibly for some symbols $\Pr j$
 where $j\succ i$.
 \item
-If $\M\equiv_i\M'$ then for any $j\in\omega$, either $\M$ and $\M'$ agree on $\Pr j$,
+If $\M\myequiv_i\M'$ then for any $j\in\omega$, either $\M$ and $\M'$ agree on $\Pr j$,
 or there is some $j$-stratifier $\bullet^+$ such that $\M^+$ and $\M'$ agree on $\Pr j$.
 \item
-If $\M\equiv_i\M'$, $\M'\equiv_j\M''$, and $k\preceq i,j$, then $\M\equiv_k\M''$.
+If $\M\myequiv_i\M'$, $\M'\myequiv_j\M''$, and $k\preceq i,j$, then $\M\myequiv_k\M''$.
 \item
-If $\M\equiv_i\M'$ and $j\prec i$ then $\M\equiv_j\M'$.
+If $\M\myequiv_i\M'$ and $j\prec i$ then $\M\myequiv_j\M'$.
 \item
 If $j\prec i$ and $\bullet^+$ is a computable $i$-stratifier,
-then $\M^+\equiv_j\M$.
+then $\M^+\myequiv_j\M$.
 \end{enumerate}
 \end{lemma}
 
@@ -1424,7 +1425,7 @@ It is easy to check Lemma \ref{structurecollapsingmagic} extends to all $\LPA(\i
 \begin{lemma}
 \label{preservedintent}
 Suppose $\M,\M'$ are $\LPA(\indset)$-structures
-and $\M\equiv_i\M'$ for some $i\in\omega$.
+and $\M\myequiv_i\M'$ for some $i\in\omega$.
 Further suppose $\M$ has the property that
 for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 $\M\models\phi[s]$ if and only if $\M\models\phi^s$.
@@ -1454,7 +1455,7 @@ the following are equivalent.
 \begin{lemma}
 \label{preservedintentspecialcase}
 Suppose the $\LPA(\indset)$-structure $\M$ is an instance of Definition \ref{intendedstructdefn}.
-For any $i\in\omega$, $\M'\equiv_i\M$, $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+For any $i\in\omega$, $\M'\myequiv_i\M$, $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 $\M'\models\phi[s]$ if and only if $\M'\models\phi^s$.
 \end{lemma}
 
@@ -1478,7 +1479,7 @@ is an r.e.~family of $i$-uniform $i$-stratified $\LPA(\indset)$-theories.
 %with $\psi^-\equiv\phi^-$.
 %
 We say $\T$ is \emph{stratified-r.e.-generic} if
-for every stratifiable r.e.~family $\U\supseteq\T$, every $i\in\omega$, and every $\M\equiv_i\M_{\str\U}$, $\M\models T_i$.
+for every stratifiable r.e.~family $\U\supseteq\T$, every $i\in\omega$, and every $\M\myequiv_i\M_{\str\U}$, $\M\models T_i$.
 \end{definition}
 
 %
@@ -1550,7 +1551,7 @@ case, let $\U=(U_k)_{k\in\omega}$ be a stratifiable r.e.~family extending the fa
 in question.  For brevity let $\hat\U=\str\U$.
 
 \item
-(2) Let $\M\equiv_i \M_{\hat\U}$, we must show
+(2) Let $\M\myequiv_i \M_{\hat\U}$, we must show
 $\M\models \ucl{\Pr j(\phi\rightarrow\psi)
 \rightarrow\Pr j\phi\rightarrow\Pr j\psi}$.
 Let $s$ be an assignment and assume
@@ -1563,7 +1564,7 @@ and $U^-_j\models\phi^s$, thus $U^-_j\models\psi^s$, so
 $\M_{\hat\U}\models \Pr j\psi[s]$ and so does $\M$.
 
 \item
-(3) Let $\M\equiv_i \M_{\hat\U}$,
+(3) Let $\M\myequiv_i \M_{\hat\U}$,
 we must show
 $\M\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
 Let $s$ be an assignment and assume $\M\models \Pr j(\phi\rightarrow\psi)[s]$
@@ -1593,7 +1594,7 @@ and finally $\M^+_{\hat\U}\models \Pr j(\psi\wedge(\phi\vee\neg\phi))[s]$.
 \item
 (6)
 By (4), $\widetilde{\M}\models\mbox{$i$-Assigned Strativalidity}$
-whenever $\widetilde{\M}\equiv_i\M_{\hat\U}$.  Let $\M\equiv_j\M_{\hat\U}$,
+whenever $\widetilde{\M}\myequiv_i\M_{\hat\U}$.  Let $\M\myequiv_j\M_{\hat\U}$,
 we will show $\M\models \mbox{$i$-Validity}$.
 Let $\phi$ be a valid $\LPA(\omega)$-formula, $s$
 an assignment.
@@ -1689,18 +1690,18 @@ we will show $\M_\S\models\S$, which is more than sufficient, since
 $\M_\S$ and $\M_\T$ agree on $\LPA(\omega)$.
 But for sake of a stronger induction hypothesis, we will prove 
 more.  We will prove that for every $i\in\omega$, every $j\preceq i$,
-every $\M\equiv_i\M_\S$, and every $\alpha\in\epom$,
+every $\M\myequiv_i\M_\S$, and every $\alpha\in\epom$,
 $\M\models S_j\cup S_{(\alpha,j)}$.
 
 Fix $i\in\omega$.  Since $\prec$ is well-founded, we may assume the following:
 \begin{quote}
 ($*$) For every $k\preceq j\prec i$,
-every $\M\equiv_j\M_\S$, and every $\alpha\in\epom$,
+every $\M\myequiv_j\M_\S$, and every $\alpha\in\epom$,
 $\M\models S_k\cup S_{(\alpha,k)}$.
 \end{quote}
-Fix $\M\equiv_i\M_\S$.
+Fix $\M\myequiv_i\M_\S$.
 For all $j\prec i$,
-Lemma \ref{sequencelemma} says $\M\equiv_j\M_\S$
+Lemma \ref{sequencelemma} says $\M\myequiv_j\M_\S$
 and therefore by ($*$) we already have $\M\models S_j\cup S_{(\alpha,j)}$.
 It remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
 
@@ -1760,7 +1761,7 @@ Let $s$ be an assignment and assume $\M\models \Pr j\phi[s]$, then:
 T_j &\models \phi^s
   &\mbox{(Definition of $\M_\S$)}\\
 \M^+ &\models \phi^s
-  &\mbox{(By Lemma \ref{sequencelemma}, $\M^+\equiv_j\M_\S$, so by ($*$), $\M^+\models T_j$)}\\
+  &\mbox{(By Lemma \ref{sequencelemma}, $\M^+\myequiv_j\M_\S$, so by ($*$), $\M^+\models T_j$)}\\
 \M &\models (\phi^s)^+
   &\mbox{(Lemma \ref{structurecollapsingmagic})}\\
 \M &\models (\phi^+)^s
@@ -1969,7 +1970,7 @@ T_i &\models \phi^s
 Suppose $\T=(T_i)_{i\in\omega}$ is an r.e.~family of $\LPA(\indset)$-theories
 such that each $T_i$ is an $i$-uniform set of $i$-stratified $\LPA(\indset)$-sentences.
 We say $\T$ is \emph{stratified-true-generic} if for every stratifiable r.e.~family
-$\U\supseteq\T$, every $i\in\omega$, and every $\M\equiv_i\M_{\str\U}\ctr$, $\M\models T_i$.
+$\U\supseteq\T$, every $i\in\omega$, and every $\M\myequiv_i\M_{\str\U}\ctr$, $\M\models T_i$.
 \end{definition}
 
 \begin{lemma}
@@ -2025,7 +2026,7 @@ Let $\phi$ be an $\LPA(\omega)$-formula such that all exposed indices of $\phi$ 
 %
 %$\phi$ is $j$-stratified.
 %
-Assume $\M\equiv_i\M_{\hat\U}\ctr$, we will show $\M\models \ucl{\Pr j\phi\rightarrow\phi}$.
+Assume $\M\myequiv_i\M_{\hat\U}\ctr$, we will show $\M\models \ucl{\Pr j\phi\rightarrow\phi}$.
 Let $s$ be an assignment and assume $\M\models\Pr j\phi[s]$.
 
 \item\case1
@@ -2102,14 +2103,14 @@ $S_i=U^-_i=T_i$ and $S_{(\alpha,i)}=U_i\cap\alpha$.
 To show $\M_\T\models\T$ (proving the theorem), we will first prove $\M_\S\ctr\models\S$.  Then we will argue that in fact
 $\M_\S\ctr=\M_\S$.  Having established this, we will be finished, since $\M_\S$ and $\M_\T$ agree on $\LPA(\omega)$.
 For sake of a strong induction hypothesis, we will prove more.
-We will prove that $\forall i\in\omega$, $\forall j\preceq i$, for every $\M\equiv_i\M_\S\ctr$ and every $\alpha\in\epom$,
+We will prove that $\forall i\in\omega$, $\forall j\preceq i$, for every $\M\myequiv_i\M_\S\ctr$ and every $\alpha\in\epom$,
 $\M\models S_j\cup S_{(\alpha,j)}$.
 
 Fix $i\in\omega$.  Since $\prec$ is well-founded we may assume:
 \[
-\mbox{($*$) For all $k\preceq j\prec i$, $\M\equiv_j\M_\S\ctr$ and $\alpha\in\epom$, $\M\models S_k\cup S_{(\alpha,k)}$.}
+\mbox{($*$) For all $k\preceq j\prec i$, $\M\myequiv_j\M_\S\ctr$ and $\alpha\in\epom$, $\M\models S_k\cup S_{(\alpha,k)}$.}
 \]
-Fix $\M\equiv_i\M_\S\ctr$.  For all $j\prec i$, $\M\equiv_j\M_\S\ctr$ and ($*$) already gives $\M\models S_j\cup U_j$,
+Fix $\M\myequiv_i\M_\S\ctr$.  For all $j\prec i$, $\M\myequiv_j\M_\S\ctr$ and ($*$) already gives $\M\models S_j\cup U_j$,
 it remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
 
 \item
@@ -2130,7 +2131,7 @@ By induction on $\alpha$.  Let $\sigma\in S_{(\alpha,i)}$.  This means $\sigma\i
 
 \item\case1
 $\sigma\in V_i$.  Then $\M\models \sigma$ because $\V$ is stratified-true-generic, $\U\supseteq\V$
-is stratifiable r.e., and $\M\equiv_i\M_{\str\U}\ctr$.
+is stratifiable r.e., and $\M\myequiv_i\M_{\str\U}\ctr$.
 
 \item\case2
 $\sigma$ is an instance of $i$-Assigned Strativalidity, $i$-Strativalidity, or $i$-Stratideduction.
@@ -2148,7 +2149,7 @@ Then $\M\models\sigma$ by Lemma \ref{thirdgrabbag}.
 %S_j &\models \phi^s
 %  &\mbox{(Definition of $\M_{\str\U}$)}\\
 %\M^+ &\models \phi^s
-%  &\mbox{(Since $\M^+\equiv_j\M_{\str\U}\ctr$, ($*$) says $\M^+\models S_j$)}\\
+%  &\mbox{(Since $\M^+\myequiv_j\M_{\str\U}\ctr$, ($*$) says $\M^+\models S_j$)}\\
 %\M^+ &\models \phi[s]
 %  &\mbox{(Lemmas \ref{preservedintentspecialcase} and \ref{captruepreservesintent})}\\
 %\M &\models \phi^+[s]
@@ -2230,7 +2231,7 @@ For any very $i$-stratified $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 $\M\models\phi[s]$ if and only if $\M\models\phi^-[s]$.
 
 \item
-We'll prove more: for any $\M'\equiv_i \M_\S\ctr$, $\M'\models\phi[s]$ if and only if $\M'\models\phi^-[s]$.
+We'll prove more: for any $\M'\myequiv_i \M_\S\ctr$, $\M'\models\phi[s]$ if and only if $\M'\models\phi^-[s]$.
 The proof is by induction on $\phi$.  The interesting cases are the following.
 
 \item
@@ -2249,7 +2250,7 @@ The following are equivalent.
 \begin{align*}
 \M' &\models \Prr{\epsilon_0\cdot n}i\psi[s]\\
 \M_\S\ctr &\models \Prr{\epsilon_0\cdot n}i\psi[s]
-  &\mbox{(Since $\M'\equiv_i\M_\S\ctr$, $\M'$ and $\M_\S\ctr$ agree on $\Prr{\epsilon_0\cdot n}i$)}\\
+  &\mbox{(Since $\M'\myequiv_i\M_\S\ctr$, $\M'$ and $\M_\S\ctr$ agree on $\Prr{\epsilon_0\cdot n}i$)}\\
 \M_\S\models \Prr{\epsilon_0\cdot n}i\psi[s] &\mathrel\& \M_\S\ctr\models\psi[s]
   &\mbox{(Definition of $\M_\S\ctr$)}\\
 \M_\S\models \Prr{\epsilon_0\cdot n}i\psi[s] &\mathrel\& \M_\S\ctr\models\psi^-[s]
