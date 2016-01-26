@@ -522,8 +522,9 @@ $W_{f(n)}=W_n$.
 %Fix this $n$ throughout the proof.
 %
 For brevity write $\T$ for $\T(n)$ and $T_i$ for $T_i(n)$.
-We will show $\M_\T\models\T$.
-Fix $i\in \omega$.
+We will show, by $\prec$-induction on $i$, that $\M_\T\models T_i$
+for every $i\in\omega$.
+Fix $i\in \omega$ and assume $\M_\T\models T_j$ for all $j\prec i$.
 %
 %By $\prec$-induction, we may assume $\M_\T\models T_j$ for all $j\prec i$.
 %
@@ -562,7 +563,7 @@ T_j &\models \phi(x|\overline m)
 $\sigma$ is $\ucl{\Pr j\phi\rightarrow\phi}$ for some $j\prec i$.
 Let $s$ be an assignment and assume $\M_\T\models\Pr j\phi[s]$.
 This means $T_j\models\phi^s$.
-By $\prec$-induction, 
+By our $\prec$-induction hypothesis, 
 $\M_\T\models T_j$,
 so
 $\M_\T\models \phi^s$.  By Lemma \ref{howintendedworks},
