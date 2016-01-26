@@ -501,13 +501,13 @@ For each $n\in\N$,
 let $\T(n)=(T_i(n))_{i\in \omega}$
 where each $T_i(n)$ is the smallest $\Pr i$-closed theory
 containing the following:
-\begin{itemize}
+\begin{enumerate}
 \item The axioms in $T^0_i$.
 \item $\forall x(\Pr i\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
 whenever $j\in\omega$, 
 $\FV(\phi)\subseteq\{x\}$.
 \item $\ucl{\Pr j\phi\rightarrow\phi}$ whenever $j\prec i$.
-\end{itemize}
+\end{enumerate}
 There is some $n\in\N$ such that $\T(n)$ is true.
 \end{theorem}
 
@@ -988,12 +988,12 @@ We postpone the proof of Lemma \ref{validitylevator} until Section
 \label{stratschemasdefn}
 Let $i\in\omega$.
 We define the following $\LPA(\indset)$-schemas.
-\begin{itemize}
+\begin{enumerate}
 \item ($i$-Strativalidity) $\ucl{\Prr\alpha i\phi}$ whenever $\phi$ is a valid $\LPA(\indset)$-formula
 and $\Prr\alpha i\phi$ is $i$-stratified.
 \item ($i$-Stratideduction) $\ucl{\Prr\alpha i(\phi\rightarrow\psi)\rightarrow\Prr\alpha i\phi\rightarrow \Prr\alpha i\psi}$
 whenever this formula is $i$-stratified.
-\end{itemize}
+\end{enumerate}
 \end{definition}
 
 The following theorem serves as an omnibus of results from Section 5 of \cite{carlson2000}.
@@ -1640,13 +1640,13 @@ stratifiable-r.e.-generic
 family of $\LPA(\omega)$-theories.
 For every $i\in\omega$ and $n\in\N$, let $T_i(n)$ be the smallest
 $\Pr i$-closed $\LPA(\omega)$-theory containing the following axioms.
-\begin{itemize}
+\begin{enumerate}
 \item The axioms contained in $T^0_i$.
 \item Assigned Validity, $i$-Validity and $i$-Deduction.
 \item $\ucl{\Pr j\phi\rightarrow\phi}$ whenever $j\preceq i$.
 \item $\forall x(\Pr j\phi\leftrightarrow \langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
 whenever $j\prec i$, $\FV(\phi)\subseteq\{x\}$.
-\end{itemize}
+\end{enumerate}
 Let each $\T(n)=(T_i(n))_{i\in\omega}$.
 There is some $n\in\N$ such that $\T(n)$ is true.
 \end{theorem}
@@ -1665,7 +1665,7 @@ a stratified-r.e-generic
 family $\V=(V_i)_{i\in\omega}$ of $\LPA(\indset)$-theories such that each $V^-_i=T^0_i$.
 For every $i\in\N$, let $U_i$ be the smallest
 $i$-stratified $\LPA(\indset)$-theory such that the following hold.
-\begin{itemize}
+\begin{enumerate}
 \item $U_i$ contains $V_i$.
 \item $U_i$ contains $i$-Assigned Strativalidity, $i$-Strativalidity, $i$-Stratideduction and $i$-Collapse.
 \item $U_i$ contains $\ucl{\Prr\alpha i\phi\rightarrow\phi}$ whenever $\Prr\alpha i\phi$ is $i$-stratified.
@@ -1674,7 +1674,7 @@ and $i$-stratifier $\bullet^+$.
 \item $U_i$ contains $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
 whenever $j\prec i$, $\FV(\phi)\subseteq\{x\}$ and $\phi$ is an $\LPA(\omega)$-formula.
 \item Whenever $\phi\in U_i$ and $\Prr\alpha i\phi$ is $i$-stratified, $\Prr\alpha i\phi\in U_i$.
-\end{itemize}
+\end{enumerate}
 Let $\U=(U_i)_{i\in\omega}$.  Observe that $\U$ is stratifiable r.e.~(to see $\U$ is uniform, use
 Lemma \ref{stratifiermagic}, to see $\U$ is r.e., use Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
 $U_i^-=T_i$.
@@ -2062,14 +2062,14 @@ $T^-_i=T^0_i$.
 \label{generalizedthreeonetwo}
 Let $\T^0=(T^0_i)_{i\in\omega}$ be any stratifiable-true-generic family of $\LPA(\omega)$-theories.
 For every $i\in\omega$ and $n\in\N$, let $T_i(n)$ be the smallest $\Pr i$-closed $\LPA(\omega)$-theory containing the following axioms.
-\begin{itemize}
+\begin{enumerate}
 \item The axioms contained in $\T^0_i$.
 \item Assigned Validity, $i$-Validity and $i$-Deduction.
 \item $\ucl{\Pr j\phi\rightarrow\phi}$ whenever $j\preceq i$.
 \item $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,x\rangle\in W_{\overline n})$
 whenever $j\prec i$ and $\FV(\phi)\subseteq\{x\}$.
 \item $\ucl{\exists e\forall x(\Pr i\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
-\end{itemize}
+\end{enumerate}
 Let each $\T(n)=(T_i(n))_{i\in\omega}$.
 There is some $n\in\N$ such that $\T(n)$ is true.
 \end{theorem}
@@ -2081,7 +2081,7 @@ Fix this $n$ and write $\T$ for $\T(n)$, $T_i$ for $T_i(n)$.
 
 Since $\T^0$ is stratifiable-true-generic, there is a stratified-true-generic family $\V=(V_i)_{i\in\omega}$ of $\LPA(\indset)$-theories
 such that each $V^-_i=T^0_i$.  For each $i\in\omega$, let $U_i$ be the smallest $\LPA(\indset)$-theory such that the following hold.
-\begin{itemize}
+\begin{enumerate}
 \item $U_i$ contains $V_i$.
 \item $U_i$ contains $i$-Assigned Strativalidity, $i$-Strativalidity, $i$-Stratideduction and $i$-Collapse.
 \item $U_i$ contains $\ucl{\Pr j\phi\rightarrow\phi^+}$ for every $\LPA(\omega)$-formula $\phi$, $j\prec i$, and $i$-stratifier 
@@ -2094,7 +2094,7 @@ $\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
 whenever this is $i$-stratified and $e\not\in\FV(\phi)$.
 \item $U_i$ contains $i$-Collapse.
 \item Whenever $\phi\in U_i$ and $\Prr\alpha i\phi$ is $i$-stratified, $\Prr\alpha i\phi\in U_i$.
-\end{itemize}
+\end{enumerate}
 Let $\U=(U_i)_{i\in\omega}$, note $\U$ is stratifiable r.e., $\U\supseteq\V$, and each $U^-_i=T_i$.
 
 Let $\S=(S_i)_{i\in\indset}=\str\U$.  This means that for all $i\in\omega$ and $\alpha\in\epom$,
@@ -2317,7 +2317,7 @@ a unary predicate $\O$.
 %intended to represent Kleene's $\mathcal O$.
 %
 The following notions are defined by analogy with Section \ref{prelimsect}:
-\begin{itemize}
+\begin{enumerate}
 \item For any assignment $s$ and $\LPO(I)$-formula $\phi$ with $\FV(\phi){=}\{x_1,\ldots,x_n\}$,
 $\phi^s\equiv\phi(x_1|\overline{s(x_1)})\cdots(x_n|\overline{s(x_n)})$.
 \item If $\T=(T_i)_{i\in I}$ is an $I$-indexed family of $\LPO(I)$-theories,
@@ -2338,7 +2338,7 @@ We say $\T$ is \emph{true} if $\M_\T\models\T$.
 %for all $i\in I$.  $\T$ is \emph{r.e.}~just in case $\{(\phi,i)\,:\,\phi\in T_i\}$
 %is r.e.
 %
-\end{itemize}
+\end{enumerate}
 \end{definition}
 
 \begin{definition}
