@@ -908,24 +908,34 @@ We postpone the proof of Lemma \ref{validitylevator} until Section
 \label{stratschemasdefn}
 Let $i\in\omega$.
 We define the following $\LPA(\indset)$-schemas.
-\begin{enumerate}
+\begin{itemize}
 \item ($i$-Strativalidity) $\ucl{\Prr\alpha i\phi}$ whenever $\phi$ is a valid $\LPA(\indset)$-formula
 and $\Prr\alpha i\phi$ is $i$-stratified.
 \item ($i$-Stratideduction) $\ucl{\Prr\alpha i(\phi\rightarrow\psi)\rightarrow\Prr\alpha i\phi\rightarrow \Prr\alpha i\psi}$
 whenever this formula is $i$-stratified.
+\end{itemize}
+An $\LPA(\indset)$-theory $T$ is \emph{$i$-stratifiable} if
+the following conditions hold:
+\begin{enumerate}
+\item $T$ is $i$-uniform.
+\item $T$ includes $i$-Strativalidity, $i$-Stratideduction and $i$-Collapse.
+\item For every $\phi\in T$, if $\Prr\alpha i\phi$ is $i$-stratified then
+$\Prr\alpha i\phi\in T$.
 \end{enumerate}
+A family $\T=(T_i)_{i\in\omega}$ is \emph{stratifiable} if each $T_i$ is
+$i$-stratifiable.
 \end{definition}
+
+The reason for the word \emph{stratifiable} in Definition
+\ref{stratschemasdefn} will become clearer later on when we arrive
+at Definition \ref{stratdefn}.
 
 The following theorem serves as an omnibus of results from Section 5 of \cite{carlson2000}.
 
 \begin{theorem}
 \label{proofstratification}
 (Proof Stratification)
-Suppose $T$ is an $i$-uniform $\LPA(\indset)$-theory
-such that $T$ includes $i$-Strativalidity,
-$i$-Stratideduction and $i$-Collapse.
-Assume that whenever $\phi\in T$ and $\Prr\alpha i\phi$
-is $i$-stratified, $\Prr\alpha i\phi\in T$.
+Suppose $T$ is an $i$-stratifiable $\LPA(\indset)$-theory.
 Then:
 \begin{enumerate}
 \item Whenever $T\cap\alpha\models\phi$,
@@ -941,8 +951,8 @@ $T\models\phi$ if and only if $T^-\models\phi^-$.
 \end{theorem}
 
 \begin{proof}
-Note that since $T$ is $i$-uniform, in particular $T$
-is $i$-stratified.
+Note that since $T$ is $i$-stratifiable, in particular $T$
+is $i$-uniform and hance, $i$-stratified.
 
 \item
 \claim0
@@ -1065,6 +1075,7 @@ and since $\Psi$ is valid and the $\sigma^{**}_j\in T$, this shows $T\models\phi
 
 
 \begin{definition}
+((KILL))
 Suppose $\T=(T_i)_{i\in\omega}$ is a family of $\LPA(\indset)$-theories.
 We say $\T$ is \emph{stratifiable}
 if $\forall i\in\omega$, $T_i$ has the following properties.
