@@ -417,8 +417,27 @@ j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
 
 
 \begin{proof}
-Straightforward.
-We prove 3 and 4 to show why sometimes one schema comes packaged with others.
+\item
+(1)
+Let $\T'=(T'_k)_{k\in\omega}$ be any closed r.e.~family of $\LPA(\omega)$-theories
+such that $\T'\supseteq [S]_i$ where $S$ is $j$-Deduction.  We must show
+$\M_{\T'}\models [S]_i$.  In other words we must show
+$\M_{\T'}\models \ucl{\Pr j (\phi\rightarrow\psi)
+\rightarrow \Pr j\phi \rightarrow \Pr j \psi}$ for any $\phi,\psi$.
+Let $s$ be an assignment and assume $\M_{\T'}\models \Pr j (\phi\rightarrow\psi)[s]$
+and $\M_{\T'}\models \Pr j \phi[s]$, we must show $\M_{\T'}\models \Pr j \psi[s]$.
+By Definition of $\M_{\T'}$, $T'_j\models (\phi\rightarrow\psi)^s$ and
+$T'_j\models \phi^s$.  Clearly $(\phi\rightarrow\psi)^s\equiv
+\phi^s\rightarrow\psi^s$ so by modus ponens $T'_j\models\psi^s$, that is,
+$\M_{\T'}\models \psi[s]$.
+
+\item
+(2)
+Let $\T'=(T'_k)_{k\in\omega}$ be a closed r.e.~superset of $[S]_i$ where $S$
+is Assigned Validity.  We must show $\M_{\T'}\models [S]_i$.
+If $\phi\in [S]_i$ then $\phi$ is $\phi^s_0$ for some valid $\phi_0$ and
+some assignment $s$.  Since $\phi_0$ is valid, $\M_{\T'}\models \phi_0[s]$.
+By Lemma \ref{howintendedworks}, $\M_{\T'}\models \phi^s_0$.
 
 \item
 (3)
@@ -455,6 +474,42 @@ By repeated applications of $j$-Deduction contained in $T'_j$,
 $T'_j\models \Pr j\sigma_1\rightarrow\cdots\rightarrow\Pr j\sigma_n\rightarrow \Pr j(\phi^s)$.
 Since $\T'$ is closed, $T'_j$ is $\Pr j$-closed and so contains $\Pr j\sigma_1,\ldots,\Pr j\sigma_n$.
 So $T'_j\models (\Pr j\phi)^s$ and $\M_{\T'}\models \Pr j\Pr j\phi[s]$.
+
+\item
+(5)
+Follows from Lemma \ref{extendedpalemma}.
+
+\item
+(6)
+Trivial.
+
+\item
+(7)
+Item (7) shows the reason for the r.e.~constraint.
+Suppose $\T'=(T'_i)_{i\in\omega}$ is a closed r.e.~family of
+$\LPA(\omega)$-theories and $\T'\supseteq [S]_i$ where $S$ is $j$-SMT.
+We must show $\M_{\T'}\models [S]_i$.
+That is, given $\phi$ with $e\not\in\FV(\phi)$, we must show
+$\M_{\T'}\models \ucl{\exists e \forall x (\Pr j \phi \leftrightarrow x\in W_e)}$.
+Let $s$ be an assignment and let $x_1,\ldots,x_k=\FV(\phi)\backslash\{x\}$.
+Since $T_j$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$
+such that $W_n=\{m\,:\,T_j\models \phi(x|\overline{m})(x_1|\overline{s(x_1)})
+\cdots (x_k|\overline{s(x_k)})$.  Since $e\not\in\FV(\phi)$, and $\M_{\T'}$ has
+standard first-order part, it follows that
+$\M_{\T'}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
+
+\item
+(8)
+Suppose $\T'=(T'_i)_{i\in\omega}\supseteq \T\cup [S]_i$
+where $\T=(T_i)_{i\in\omega}$ is closed-r.e.-generic and $S$ is the schema
+$\Pr j \phi$ ($\phi\in T_j$).  Right away $\M_{\T'}\models \T$
+because $\T$ is closed-r.e.-generic.  It remains to show that
+$\M_{\T'}\models [S]_i$, i.e., that $\M_{\T'}\models S$.
+Fix $\phi\in T_j$ and let $s$ be any assignment.  Since $\phi$ is a sentence,
+$\phi\equiv\phi^s$ and thus
+$T_j\models\phi^s$.  Since $T'_j\supseteq T_j$, $T'_j\models\phi^s$.
+By definition of $\M_{\T'}$, $\M_{\T'}\models \Pr j\phi[s]$.  By arbitrariness
+of $s$, $\M_{\T'}\models \Pr j\phi$.
 \end{proof}
 
 
