@@ -219,6 +219,10 @@ The definition of $\M\models\phi[s]$ for arbitrary $\L$-formulas is obtained fro
 Semantic parts of Definition \ref{stddefn} extend to the base logic in obvious ways.
 \end{definition}
 
+Traditionally the operator $\Pr i$ would be written $K_i$, and the formula $K_i\phi$ would be
+read like ``agent $i$ knows $\phi$''.  For the present paper, the added intuition would not be
+worth the philosophical distraction.
+
 \begin{theorem}
 \label{completecompact}
 (Completeness and compactness)  Suppose $\L$ is an r.e.~language in the base logic.
@@ -393,7 +397,9 @@ where $T_j=T$ and $T_i=\emptyset$ for all $i\not=j$.
 
 The following lemma provides building blocks
 that can be combined in diverse ways, via Lemma \ref{genericclosedreunion}, to
-form background theories of provability.
+form background theories of provability.  In the following lemma, part 4 is the
+whole reason for the ``closed'' in ``closed-r.e.-generic'', and part 7 is
+part of the reason for the ``r.e.''.
 
 
 \begin{lemma}
@@ -485,7 +491,6 @@ Trivial.
 
 \item
 (7)
-Item (7) shows the reason for the r.e.~constraint.
 Suppose $\T'=(T'_i)_{i\in\omega}$ is a closed r.e.~family of
 $\LPA(\omega)$-theories and $\T'\supseteq [S]_i$ where $S$ is $j$-SMT.
 We must show $\M_{\T'}\models [S]_i$.
@@ -546,6 +551,11 @@ W_{f(n)}=\{\langle\ulcorner\phi\urcorner,i,m\rangle\,:\,
 Using the Recursion Theorem, fix $n\in\N$ such that
 $W_{f(n)}=W_n$.
 For brevity write $\T$ for $\T(n)$ and $T_i$ for $T_i(n)$.
+We will show $\M_\T\models \T$.  This is a self-referential statement: to show $T_i$
+is true includes
+showing $\M_\T\models \ucl{\Pr j\phi\rightarrow\phi}$, which is essentially the
+statement that $T_j$ is true.  Hence the restriction $j\prec i$, which allows induction
+since $\prec$ is well founded.
 We will show, by $\prec$-induction on $i$, that $\M_\T\models T_i$
 for every $i\in\omega$.
 Fix $i\in \omega$ and assume $\M_\T\models T_j$ for all $j\prec i$.
@@ -619,6 +629,19 @@ was used to exhibit a machine that knows its own code.
 
 \section{Stratification}
 \label{stratificationsection}
+
+For the second promise from the introduction, we need to prove a result
+like Theorem \ref{onethreethree} where $T_i$ includes
+$\ucl(\Pr j\phi\rightarrow\phi)$ for all $j\preceq i$, not just $j\prec i$.
+This rules out the direct induction
+used above.  Instead we will induct on formula complexity in a
+specific way.  Naive formula complexity will not work: we would need to show all of
+$T_i$ consistent just to show $\M_\T\models\Pr i(1=0)\rightarrow(1=0)$.
+So we will ``stratify'' theories $T_i$ into increasing families $T^alpha_i$
+($\alpha\in \Ord$),
+and show these stratified theories are true.  At large enough ordinals,
+the theories will repeat themselves (or
+\emph{collapse}) in a technical sense, allowing recovery of $T_i$.
 
 \begin{definition}
 We define a binary relation $\leq_1$ on $\mathrm{Ord}$ by transfinite recursion
@@ -793,7 +816,7 @@ and $x\leq_1 y$, $h(x)\leq_1 h(y)$.
 
 \begin{definition}
 Suppose $i\in\omega$.
-A set $T$ of $i$-stratified $\LPA(\indset)$-sentences is \emph{$i$-uniform}
+A set $T$ of $\LPA(\indset)$-sentences is \emph{$i$-uniform}
 if the following conditions hold:
 \begin{enumerate}
 \item $T$ is $i$-stratified.
@@ -857,6 +880,9 @@ Finally since $\mathrm{range}(h)<\epsilon_0\cdot n$, $h(\sigma_1),\ldots,h(\sigm
 showing $T\cap(\epsilon_0\cdot n)\models \phi$.
 \end{proof}
 
+Loosely speaking, what we have done in Theorem \ref{collapsetheorem} is we have
+taken a proof of $\phi$ and we have \emph{collapsed} the proof, shrinking its ordinals
+by using Theorem \ref{blackbox} part 3.
 
 \begin{definition}
 For every $i\in\omega$ we define the following $\LPA(\indset)$-schema:
@@ -1335,6 +1361,26 @@ By Lemma \ref{stratifiersrespectvalidity} with $\bullet^+$ taken to be the $i$-v
 \end{proof}
 
 For the remainder of the section, fix a strict r.e.~well-founded partial-order $\prec$ on $\omega$.
+
+The next definition needs motivation.  We seek
+a true stratified family $\T=(T_i)_{i\in\omega}$
+where $T_i$ declares the truth of $T_j$ ($j\preceq i$).
+By collapsing $\T$ we hope to fulfil the second promise from the
+introduction.  For $j\prec i$, $T_i$ cannot contain
+$\ucl{\Pr j\phi\rightarrow\phi}$: it is not $i$-stratified (e.g.~if
+$\phi$ is $\Pr i(1=0)$).  An alternative is
+$\ucl{\Pr j\phi\rightarrow\phi^+}$ where $\bullet^+$ ranges over
+$i$-stratifiers.  But imagine proving
+$\M_\T\models \ucl{\Pr j\phi\rightarrow\phi^+}$.  We would
+assume $T_j\models\phi^s$ and try to show $\M_\T\models\phi^+[s]$.
+Since $j\prec i$ we could assume $\M_\T\models T_j$, so
+$\M_\T\models \phi^s$, so $\M_\T\models\phi[s]$---not what we want.
+If only $\M^+_\T\models\phi[s]$, Lemma \ref{structurecollapsingmagic}
+would give $\M_\T\models\phi^+[s]$. In a sense, $\bullet^+$ is invisible
+to $T_j$ ($T_j$ can't see $T_i$ because $j\prec i$).  So our proof
+that $\M_\T\models T_j$ could've gone through for $\M^+_\T$.
+The following definition will allow the proof to go through
+for $\M^+_\T$ via strong induction hypothesis.
 
 \begin{definition}
 \label{equividefn}
