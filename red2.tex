@@ -1,15 +1,12 @@
 \documentclass[reqno]{article}
 \usepackage{hyperref}
 \usepackage{amsthm}
-\usepackage{pstricks}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage[margin=1in]{geometry}
 \usepackage{mathtools}
-\usepackage{multicol}
-\usepackage{pictexwd,dcpic}
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -654,9 +651,6 @@ The following theorem is based on calculations from \cite{carlson1999}.
 It was used by Carlson to prove Reinhardt's conjecture \cite{carlson2000}.
 We state it here without proof.
 
-\setlength{\columnsep}{-1.25in}
-\begin{multicols}{2}
-
 
 \begin{theorem}
 \label{blackbox}
@@ -671,23 +665,25 @@ $X<\widetilde Y<\alpha$ such that $X\cup\widetilde Y\cong_{(\leq,\leq_1)}X\cup Y
 \end{enumerate}
 \end{theorem}
 
-\columnbreak
 
 %
-{
-\hspace{1in}
-\input{lessone.tex}
+%{
+%\hspace{1in}
+%\input{lessone.tex}
 
-\hspace{1.5in}
-\parbox[t][1in]{2in}{
-Figure 1:\\
-Illustration of Theorem \ref{blackbox} part 3.
-}
-}
+%\hspace{1.5in}
+%\parbox[t][1in]{2in}{
+%Figure 1:\\
+%Illustration of Theorem \ref{blackbox} part 3.
+%}
+%}
 
-\end{multicols}
+%\end{multicols}
 
-\vspace{-.2in}
+%\vspace{-.2in}
+
+(Figure 1 here)
+
 The usefulness of Theorem \ref{blackbox} will first appear
 in Theorem \ref{collapsetheorem}, but first we need some machinery.
 
@@ -761,11 +757,6 @@ if and only if $\mathscr N\models h(\Prr\alpha i\phi)[s]$.}
 \]
 \end{definition}
 
-\setlength{\columnsep}{-.25in}
-\begin{multicols}{2}
-
-\vphantom a
-
 \begin{lemma}
 \label{hcommutativitylemma}
 Suppose $X\subseteq\epom$, $h:X\to\epom$ is order preserving,
@@ -775,12 +766,6 @@ and assignment $s$,
 $h(\mathscr N)\models\phi[s]$
 if and only if $\mathscr N\models h(\phi)[s]$.
 \end{lemma}
-
-\begin{proof}
-By induction.
-\end{proof}
-
-\columnbreak
 
 \[
 \begindc{\commdiag}[5]
@@ -793,7 +778,10 @@ By induction.
 \mor{bb}{cc}{$\mathscr N{\models}$}
 \enddc\]
 
-\end{multicols}
+
+\begin{proof}
+By induction.
+\end{proof}
 
 \begin{corollary}
 \label{hpreserversvalidity}
@@ -929,10 +917,6 @@ $\mathscr N^- \models \Prr\alpha i\phi[s]$ if and only if $\mathscr N\models (\P
 \]
 \end{definition}
 
-\setlength{\columnsep}{-.25in}
-\begin{multicols}{2}
-
-\vphantom{a}
 
 \begin{lemma}
 \label{structuregrowingmagic}
@@ -941,7 +925,6 @@ For every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 $\mathscr N^-\models\phi[s]$ if and only if $\mathscr N\models\phi^-[s]$.
 \end{lemma}
 
-\columnbreak
 
 \[
 \begindc{\commdiag}[5]
@@ -954,11 +937,6 @@ $\mathscr N^-\models\phi[s]$ if and only if $\mathscr N\models\phi^-[s]$.
 \mor{aa}{cc}{$\mathscr N^-{\models}$}[\atright,\solidarrow]
 \mor{bb}{cc}{$\mathscr N{\models}$}
 \enddc\]
-
-\vphantom{a}
-
-\end{multicols}
-\vspace{-10mm}
 
 \begin{proof}
 By induction.
@@ -1284,11 +1262,6 @@ for any $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 \]
 \end{definition}
 
-\setlength{\columnsep}{-.25in}
-\begin{multicols}{2}
-
-\vphantom{a}
-
 \begin{lemma}
 \label{structurecollapsingmagic}
 (Compare Lemma \ref{structuregrowingmagic})
@@ -1297,8 +1270,6 @@ is an $i$-stratifier.
 For every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 $\mathscr N^+\models\phi[s]$ if and only if $\mathscr N\models\phi^+[s]$.
 \end{lemma}
-
-\columnbreak
 
 \[
 \begindc{\commdiag}[5]
@@ -1309,10 +1280,6 @@ $\mathscr N^+\models\phi[s]$ if and only if $\mathscr N\models\phi^+[s]$.
 \mor{aa}{cc}{$\mathscr N^+{\models}$}[\atright,\solidarrow]
 \mor{bb}{cc}{$\mathscr N{\models}$}
 \enddc\]
-
-\vphantom{a}
-
-\end{multicols}
 
 \begin{proof}
 By induction.  Note that since $\phi\in \LPA(\omega)$, clause 3 of
