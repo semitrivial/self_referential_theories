@@ -1,6 +1,0 @@
-1. I modified Definition 44 to absorb Definition 51.  A new third clause has been
-   inserted for that purpose.  In order to clarify what's going on here, I added an
-   example (the paragraph after the paragraph after Definition 44).
-
-2. I added a remark in the proof of Lemma 47 I hope suffices to convince that
-   Definition 46 and Lemma 47 are okay modulo the change to Definition 44.
