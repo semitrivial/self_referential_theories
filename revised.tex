@@ -109,7 +109,7 @@ truth.  A true theory can state (in a local sense) its own G\"odel number.
 
 Our goal is to generalize the above consistency results to multiple theories.
 The paper contains four main findings.
-In the following list of promises, except where otherwise stated, $\prec$ is an r.e~well-founded partial-order
+In the following list of promises, except where otherwise stated, $\prec$ is an r.e.\ well-founded partial-order
 on $\omega$, and \emph{expresses} is meant in the local (infinite schema) sense.
 \begin{enumerate}
 \item There are true theories $(T_i)_{i\in \omega}$
@@ -496,7 +496,7 @@ $\M_{\T'}\models \ucl{\exists e \forall x (\Pr j \phi \leftrightarrow x\in W_e)}
 Let $s$ be an assignment and let $x_1,\ldots,x_k=\FV(\phi)\backslash\{x\}$.
 Since $T_j$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$
 such that $W_n=\{m\,:\,T_j\models \phi(x|\overline{m})(x_1|\overline{s(x_1)})
-\cdots (x_k|\overline{s(x_k)})$.  Since $e\not\in\FV(\phi)$, and $\M_{\T'}$ has
+\cdots (x_k|\overline{s(x_k)})\}$.  Since $e\not\in\FV(\phi)$, and $\M_{\T'}$ has
 standard first-order part, it follows that
 $\M_{\T'}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
 
@@ -510,8 +510,7 @@ $\M_{\T'}\models [S]_i$, i.e., that $\M_{\T'}\models S$.
 Fix $\phi\in T_j$ and let $s$ be any assignment.  Since $\phi$ is a sentence,
 $\phi\equiv\phi^s$ and thus
 $T_j\models\phi^s$.  Since $T'_j\supseteq T_j$, $T'_j\models\phi^s$.
-By definition of $\M_{\T'}$, $\M_{\T'}\models \Pr j\phi[s]$.  By arbitrariness
-of $s$, $\M_{\T'}\models \Pr j\phi$.
+By definition of $\M_{\T'}$, $\M_{\T'}\models \Pr j\phi[s]$.
 \end{proof}
 
 
@@ -684,7 +683,7 @@ $X<\widetilde Y<\alpha$ such that $X\cup\widetilde Y\cong_{(\leq,\leq_1)}X\cup Y
 
 (Figure 1 here)
 
-The usefulness of Theorem \ref{blackbox} will first appear
+The usefulness of Theorem \ref{blackbox} will appear
 in Theorem \ref{collapsetheorem}, but first we need some machinery.
 
 
@@ -899,7 +898,7 @@ such that $\psi$ is very $i$-stratified and $\psi^-\equiv\phi^-$.
 \begin{proof}
 Let $X=\onset(\phi)=\{\alpha_1<\cdots<\alpha_n\}$, $Y=\{\epsilon_0\cdot 1,\ldots,\epsilon_0\cdot n\}$,
 and define $h:X\to Y$ by $h(\alpha_j)=\epsilon_0\cdot j$.
-Clearly $h$ is injective and order preserving; by Theorem \ref{blackbox} part 2, $h$ is a covering.
+Clearly $h$ is order preserving; by Theorem \ref{blackbox} part 2, $h$ is a covering.
 Since $T$ is $i$-uniform, $T$ contains $\psi\equiv h(\phi)$.  Clearly $\psi$ is very $i$-stratified and
 $\psi^-\equiv\phi^-$.
 \end{proof}
@@ -960,8 +959,31 @@ there is a valid very $i$-stratified $\LPA(\indset)$-sentence $\psi$
 such that $\psi^-\equiv\phi$.
 \end{lemma}
 
-We postpone the proof of Lemma \ref{validitylevator} until Section
-\ref{stratifiersection}.
+\begin{proof}
+  Let $\psi\mapsto\psi^+$ be the function taking $\LPA(\omega)$-formulas to
+  $\LPA(\indset)$-formulas defined as follows.
+  \begin{enumerate}
+    \item If $\psi$ is atomic, or of the form $\Pr j\psi_0$ with $j\neq i$,
+    then $\psi^+\equiv\psi$.
+    \item If $\psi$ is $\Pr i\psi_0$, then $\psi^+ \equiv \Prr {\epsilon_0\cdot n} i \psi_0^+$,
+    where $n=\min\{m\in\N\,:\,\epsilon_0\cdot m > \onset(\psi_0^+)\}$.
+    \item If $\psi$ is $\neg\psi_0$, $\psi_0\rightarrow\psi_1$, or $\forall x \psi_0$,
+    then $\psi^+$ is $\neg\psi_0^+$, $\psi_1^+\rightarrow\psi_2^+$, or $\forall x \psi_0^+$,
+    respectively.
+  \end{enumerate}
+  It is straightforward to show $\phi^+$ is very $i$-stratified.
+  We claim $\phi^+$ is valid. Let $\mathscr M$ be any $\LPA(\indset)$-structure,
+  we will show $\mathscr M\models\phi^+$.  Let $\mathscr M^+$ be the $\LPA(\omega)$-structure
+  with the same universe as $\mathscr M$, which agrees with $\mathscr M$ on the interpretation
+  of arithmetic and of $\Pr j$ for $j\not=i$, and which interprets $\Pr i$ as follows:
+  \[
+    \mbox{
+      $\mathscr M^+\models \Pr i \psi[s]$ if and only if $\mathscr M\models (\Pr i\psi)^+[s]$.
+    }
+  \]
+  Since $\phi$ is valid, $\mathscr M^+\models\phi$.
+  It follows that $\mathscr M\models\phi^+$.
+\end{proof}
 
 \begin{definition}
 \label{stratschemasdefn}
@@ -1011,7 +1033,7 @@ $T\models\phi$ if and only if $T^-\models\phi^-$.
 
 \begin{proof}
 Note that since $T$ is $i$-stratifiable, in particular $T$
-is $i$-uniform and hance, $i$-stratified.
+is $i$-uniform and hence, $i$-stratified.
 
 \item
 \claim0
@@ -1050,7 +1072,6 @@ $\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi$
 is valid.
 By instances of $i$-Strativalidity and $i$-Stratideduction
 contained in $T\cap\beta$,
-and by the last hypothesis of the theorem,
 $T\cap\beta\models \Prr\alpha i\phi$.
 
 \item
@@ -1195,15 +1216,13 @@ where $\bullet^+$ varies over what we call $i$-stratifiers.
 \label{stratifierdefn}
 Suppose $X\subseteq\epom$, $|X|=\infty$, and $i\in\omega$.
 The \emph{$i$-stratifier given by $X$}
-is the function $\phi\mapsto\phi^+$ taking $\LPA(\indset)$-formulas to $\LPA(\indset)$-formulas
+is the function $\phi\mapsto\phi^+$ taking $\LPA(\omega)$-formulas to $\LPA(\indset)$-formulas
 as follows.
 \begin{enumerate}
 \item If $\phi$ is atomic or of the form $\Pr j\phi_0$ with $j\not=i$, then $\phi^+\equiv\phi$.
-\item If $\phi$ is $\Pr i\phi_0$ ($\phi_0\in \LPA(\omega)$) then $\phi^+\equiv \Prr\alpha i\phi^+_0$
+\item If $\phi$ is $\Pr i\phi_0$ then $\phi^+\equiv \Prr\alpha i\phi^+_0$
 where
 $\alpha=\min\{x\in X\,:\,x>\onset(\phi^+_0)\}$.
-\item If $\phi$ is $\Pr i\phi_0$ ($\phi_0\not\in \LPA(\omega)$) then $\phi^+\equiv
-\Pr i\phi_0$.
 \item If $\phi$ is $\neg\psi$, $\psi\rightarrow\rho$, or $\forall x\psi$, then
 $\phi^+$ is $\neg\psi^+$, $\psi^+\rightarrow\rho^+$ or $\forall x\psi^+$, respectively.
 \end{enumerate}
@@ -1215,18 +1234,6 @@ given by $X=\{\epsilon_0\cdot1,\epsilon_0\cdot2,\ldots\}$.
 For example, if $\bullet^+$ is the $i$-veristratifier and $j\not=i$ then
 \[(\Pr j\Pr i(1=0)\rightarrow \Pr i\Pr i(1=0))^+ \,\,\,\,\equiv\,\,\,\,
 \Pr j\Pr i(1=0)\rightarrow\Prr{\epsilon_0\cdot2}i\Prr{\epsilon_0} i(1=0).\]
-
-On the other hand, if $\bullet^+$ is the $i$-veristratifier and $\alpha\in\epom$, then
-\[(\Pr i \Prr \alpha i (1=0))^+ \,\,\,\,\equiv\,\,\,\,
-\Pr i \Prr \alpha i (1=0)\]
-because the formula $\Prr \alpha i (1=0)$ is $\not\in \LPA(\omega)$.
-Where Definition \ref{stratifierdefn} is concerned
-we are really interested in formulas where $\Pr i$ occurs but not
-$\Prr \alpha i$ for any $\alpha$; or where $\Prr \alpha i$ occurs for
-various $\alpha$ but $\Pr i$ does not occur.  It is technically simpler
-to use the single language $\LPA(\indset)$ for both, while bearing in
-mind that it also contains formulas such as $\Pr i \Prr\alpha i(1=0)$
-that we don't really care about.
 
 \begin{lemma}
 \label{stratifiermagic}
@@ -1256,18 +1263,26 @@ agree with those of $\mathscr N$,
 as do the interpretations of $\Pr j$ ($j\not=i$) and $\Prr\alpha j$ (any $\alpha$, $j$).
 As for $\Pr i$,
 for any $\LPA(\indset)$-formula $\phi$ and assignment $s$,
-\[
-\mbox{$\mathscr N^+ \models \Pr i\phi[s]$
- if and only if $\mathscr N\models (\Pr i\phi)^+[s]$.}
-\]
+we consider two cases.
+\begin{enumerate}
+  \item If $\phi$ is an $\LPA(\omega)$-formula, then
+  $\mathscr N^+ \models \Pr i\phi[s]$ if and only if $\mathscr N\models (\Pr i\phi)^+[s]$.
+  \item If $\phi$ is not an $\LPA(\omega)$-formula, then
+  $\mathscr N^+ \models \Pr i\phi[s]$ if and only if $\mathscr N\models \Pr i\phi[s]$.
+\end{enumerate}
 \end{definition}
+
+Case 2 in Definition \ref{moduloidefn} is somewhat arbitrary.
+We will only ever really care about whether
+$\mathscr N^+ \models \Pr i\phi[s]$ when $\Pr i\phi$ is $j$-stratified for some $j$.
+If $\phi$ is not an $\LPA(\omega)$-formula then $\Pr i\phi$ is not $j$-stratified for any $j$.
 
 \begin{lemma}
 \label{structurecollapsingmagic}
 (Compare Lemma \ref{structuregrowingmagic})
 Suppose $\mathscr N$ is an $\LPA(\indset)$-structure, $i\in\omega$, and $\bullet^+$
 is an $i$-stratifier.
-For every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+For every $\LPA(\omega)$-formula $\phi$ and assignment $s$,
 $\mathscr N^+\models\phi[s]$ if and only if $\mathscr N\models\phi^+[s]$.
 \end{lemma}
 
@@ -1282,9 +1297,7 @@ $\mathscr N^+\models\phi[s]$ if and only if $\mathscr N\models\phi^+[s]$.
 %\enddc\]
 
 \begin{proof}
-By induction.  Note that since $\phi\in \LPA(\omega)$, clause 3 of
-Definition \ref{stratifierdefn} plays no part in the definition of
-$\mathscr N{\models} \phi^+[s]$.
+By induction.
 \end{proof}
 
 
@@ -1306,13 +1319,6 @@ Lemma \ref{structurecollapsingmagic}.
 \item
 ($\Leftarrow$)
 By Corollary \ref{minuspreservesvalidity}.
-\end{proof}
-
-Given Lemma \ref{stratifiersrespectvalidity}, Lemma \ref{validitylevator} (which we promised to prove)
-is trivial.
-
-\begin{proof}[Proof of Lemma \ref{validitylevator}]
-By Lemma \ref{stratifiersrespectvalidity} with $\bullet^+$ taken to be the $i$-veristratifier.
 \end{proof}
 
 For the remainder of the section, fix a strict r.e.~well-founded partial-order $\prec$ on $\omega$.
@@ -1339,11 +1345,14 @@ for $\M^+_\T$ via strong induction hypothesis.
 
 \begin{definition}
 \label{equividefn}
-Suppose $\M$, $\M'$ are $\LPA(\indset)$-structures, $i\in\omega$.
-We say $\M\myequiv_i\M'$ if
-there is a sequence \[i_1,\bullet^1,i_2,\bullet^2,\ldots,i_n,\bullet^n,\]
-each $i_k\succ i$, each $\bullet^k$ a computable $i_k$-stratifier,
-such that $\M'=(\cdots(\M^1)^2)\cdots)^n$.
+For every $i\in\omega$,
+let $\bullet\myequiv_i\bullet$ be the smallest transitive binary relation on $\LPA(\indset)$-structures
+satisfying the following:
+\begin{enumerate}
+  \item For any $\LPA(\indset)$-structure $\M$, $\M\myequiv_i\M$.
+  \item For any $\LPA(\indset)$-structure $\M$, any $i\prec j$, and any computable $j$-stratifier $\bullet^+$,
+    $\M\myequiv_i \M^+$.
+\end{enumerate}
 \end{definition}
 
 \begin{lemma}
@@ -1351,11 +1360,9 @@ such that $\M'=(\cdots(\M^1)^2)\cdots)^n$.
 Suppose $\M,\M',\M''$ are $\LPA(\indset)$-structures and $i,j,k\in\omega$.
 \begin{enumerate}
 \item
-$\M\myequiv_i\M$.
-\item
 If $\M\myequiv_i\M'$ then $\M$ and $\M'$ have the same universe and agree
 on all symbols of $\LPA(\indset)$ except possibly for some symbols $\Pr j$
-where $j\succ i$.
+where $i\prec j$.
 \item
 If $\M\myequiv_i\M'$ then for any $j\in\omega$, either $\M$ and $\M'$ agree on $\Pr j$,
 or there is some $j$-stratifier $\bullet^+$ such that $\M^+$ and $\M'$ agree on $\Pr j$.
@@ -1365,7 +1372,7 @@ If $\M\myequiv_i\M'$, $\M'\myequiv_j\M''$, and $k\preceq i,j$, then $\M\myequiv_
 If $\M\myequiv_i\M'$ and $j\prec i$ then $\M\myequiv_j\M'$.
 \item
 If $j\prec i$ and $\bullet^+$ is a computable $i$-stratifier,
-then $\M^+\myequiv_j\M$.
+then $\M\myequiv_j\M^+$.
 \end{enumerate}
 \end{lemma}
 
@@ -1386,11 +1393,16 @@ $\M'\models\phi[s]$ if and only if $\M'\models\phi^s$.
 \end{lemma}
 
 \begin{proof}
-By induction on sequence length,
-we may assume $\M'=\M^+$ for some computable $j$-stratifier $\bullet^+$,
+We may assume $\M'=\M^+$ for some computable $j$-stratifier $\bullet^+$,
 $j\succ i$.
-For any $\LPA(\indset)$-formula $\phi$ and assignment $s$,
-the following are equivalent.
+We induct on $\phi$.
+By Definition \ref{equividefn}, $\M^+$ and $\M$ agree on all symbols
+except possibly $\Pr j$, and they agree on $\Pr j \phi_0$ when
+$\phi_0$ is not an $\LPA(\omega)$-formula.
+Thus the only nontrivial case is when $\phi$
+is of the form $\Pr j\phi_0$ for some $\LPA(\omega)$-formula $\phi_0$.
+Any such $\phi$ is itself an $\LPA(\omega)$-formula and thus susceptible to
+Lemma \ref{structurecollapsingmagic}.  The following are equivalent.
 \begin{align*}
 \M^+ &\models \phi[s]\\
 \M &\models \phi^+[s]
@@ -1407,7 +1419,9 @@ the following are equivalent.
 \begin{lemma}
 \label{preservedintentspecialcase}
 Suppose the $\LPA(\indset)$-structure $\M$ is an instance of Definition \ref{intendedstructdefn}.
-For any $i\in\omega$, $\M'\myequiv_i\M$, $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+For any $i\in\omega$,
+any $\LPA(\indset)$-structure $\M'$ such that $\M\myequiv_i\M'$,
+any $\LPA(\indset)$-formula $\phi$ and any assignment $s$,
 $\M'\models\phi[s]$ if and only if $\M'\models\phi^s$.
 \end{lemma}
 
@@ -1427,7 +1441,9 @@ Throughout, $\prec$ is an r.e.~well-founded partial-order of $\omega$.
 Suppose $\T=(T_i)_{i\in\omega}$
 is an r.e.~family of $i$-uniform $\LPA(\indset)$-theories.
 We say $\T$ is \emph{stratified-r.e.-generic} if
-for every stratifiable r.e.~family $\U\supseteq\T$, every $i\in\omega$, and every $\M\myequiv_i\M_{\str\U}$, $\M\models T_i$.
+for every stratifiable r.e.~family $\U\supseteq\T$, every $i\in\omega$,
+and every $\LPA(\indset)$-structure $\M$,
+if $\M_{\str\U}\myequiv_i\M$, then $\M\models T_i$.
 \end{definition}
 
 
@@ -1448,8 +1464,13 @@ is stratified-r.e.-generic.
 \begin{enumerate}
 \item $[\mbox{$i$-Stratideduction}]_i$.
 \item $[\mbox{$j$-Deduction}]_i$ (if $j\not\succeq i$).
-\item $[S]_i$ (if $j\not=i$) where $S$ is: (Weak $j$-Deduction) $\ucl{\Pr j(\phi\rightarrow\psi)\rightarrow\Pr j\phi\rightarrow \Pr 
-j(\psi\wedge(\phi\vee\neg\phi))}$.
+\item $[S]_i$ (if $j\not=i$) where $S$ is:
+\[
+  \mbox{
+    (Weak $j$-Deduction) $\ucl{\Pr j(\phi\rightarrow\psi)\rightarrow\Pr j\phi\rightarrow \Pr 
+    j(\psi\wedge(\phi\vee\neg\phi))}$ whenever this is $j$-stratified.
+  }
+\]
 \item $[S]_i$ where $S$ is: ($i$-Assigned Strativalidity)
 the schema $\phi^s$ ($\phi$ valid and $i$-stratified, $s$ an assignment).
 \item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i$.
@@ -1490,7 +1511,7 @@ in question.  For brevity let $\hat\U=\str\U$.
 (1) Similar to part 1 of Lemma \ref{firstgrabbag}.
 
 \item
-(2) Let $\M\myequiv_i \M_{\hat\U}$, we must show
+(2) Assume $\M_{\hat\U}\myequiv_i \M$, we must show
 $\M\models \ucl{\Pr j(\phi\rightarrow\psi)
 \rightarrow\Pr j\phi\rightarrow\Pr j\psi}$.
 Let $s$ be an assignment and assume
@@ -1503,7 +1524,7 @@ and $U^-_j\models\phi^s$, thus $U^-_j\models\psi^s$, so
 $\M_{\hat\U}\models \Pr j\psi[s]$ and so does $\M$.
 
 \item
-(3) Let $\M\myequiv_i \M_{\hat\U}$,
+(3) Assume $\M_{\hat\U}\myequiv_i\M$,
 we must show
 $\M\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
 Let $s$ be an assignment and assume $\M\models \Pr j(\phi\rightarrow\psi)[s]$
@@ -1539,8 +1560,8 @@ Similar to part 3 of Lemma \ref{firstgrabbag}.
 
 \item
 (6)
-By (4), $\widetilde{\M}\models\mbox{$i$-Assigned Strativalidity}$
-whenever $\widetilde{\M}\myequiv_i\M_{\hat\U}$.  Let $\M\myequiv_j\M_{\hat\U}$,
+By (4), $\M\models\mbox{$i$-Assigned Strativalidity}$
+whenever $\M_{\hat\U}\myequiv_i\M$.  Assume $\M_{\hat U}\myequiv_j\M$,
 we will show $\M\models \mbox{$i$-Validity}$.
 Let $\phi$ be a valid $\LPA(\omega)$-formula, $s$
 an assignment.
@@ -1586,7 +1607,7 @@ Trivial.
 \item
 (11--12)
 Similar to part 7 of Lemma \ref{firstgrabbag}.
-Use the fact that the stratifiers in Definiton \ref{equividefn}
+Use the fact that the stratifiers in Definition \ref{equividefn}
 are computable.
 
 \item
@@ -1659,18 +1680,19 @@ we will show $\M_\S\models\S$, which is more than sufficient, since
 $\M_\S$ and $\M_\T$ agree on $\LPA(\omega)$.
 But for sake of a stronger induction hypothesis, we will prove 
 more.  We will prove that for every $i\in\omega$, every $j\preceq i$,
-every $\M\myequiv_i\M_\S$, and every $\alpha\in\epom$,
-$\M\models S_j\cup S_{(\alpha,j)}$.
+every $\alpha\in\epom$ and every $\LPA(\indset)$-structure $\M$,
+if $\M_\S\myequiv_i\M$ then $\M\models S_j\cup S_{(\alpha,j)}$.
 
 Fix $i\in\omega$.  Since $\prec$ is well-founded, we may assume the following:
 \begin{quote}
 ($*$) For every $k\preceq j\prec i$,
-every $\M\myequiv_j\M_\S$, and every $\alpha\in\epom$,
-$\M\models S_k\cup S_{(\alpha,k)}$.
+every $\alpha\in\epom$,
+and every $\LPA(\indset)$-structure $\M$,
+if $\M_\S\myequiv_j\M$, then $\M\models S_k\cup S_{(\alpha,k)}$.
 \end{quote}
-Fix $\M\myequiv_i\M_\S$.
+Fix $\M$ and assume $\M_\S\myequiv_i\M$.
 For all $j\prec i$,
-Lemma \ref{sequencelemma} says $\M\myequiv_j\M_\S$
+Lemma \ref{sequencelemma} says $\M_\S\myequiv_j \M$,
 and therefore by ($*$) we already have $\M\models S_j\cup S_{(\alpha,j)}$.
 It remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
 
@@ -1730,7 +1752,7 @@ Let $s$ be an assignment and assume $\M\models \Pr j\phi[s]$, then:
 T_j &\models \phi^s
   &\mbox{(Definition of $\M_\S$)}\\
 \M^+ &\models \phi^s
-  &\mbox{(By Lemma \ref{sequencelemma}, $\M^+\myequiv_j\M_\S$, so by ($*$), $\M^+\models T_j$)}\\
+  &\mbox{(By Lemma \ref{sequencelemma}, $\M_\S\myequiv_j\M^+$, so by ($*$), $\M^+\models T_j$)}\\
 \M &\models (\phi^s)^+
   &\mbox{(Lemma \ref{structurecollapsingmagic})}\\
 \M &\models (\phi^+)^s
