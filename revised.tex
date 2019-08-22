@@ -265,8 +265,9 @@ obtained by replacing all free variables in $\phi$ by numerals for their
 $s$-values.
 \item
 For any language $\mathscr L$ extending $\LPA$, if $\mathscr M$ is an
-$\mathscr L$-structure with standard first-order part, then $\mathscr M$
-is said to \emph{interpret formulas by substitution} if the following
+$\mathscr L$-structure, then $\mathscr M$
+is said to \emph{interpret formulas by substitution} if $\mathscr M$ has
+standard first-order part and the following
 property holds: for any $\mathscr L$-formula $\phi$ and assignment $s$,
 $\mathscr M\models\phi[s]$ if and only if $\mathscr M\models\phi^s$.
 \end{itemize}
@@ -316,24 +317,27 @@ with induction extended to $\LPA(I)$.
 
 \begin{lemma}
 \label{extendedpalemma}
-Any $\LPA(I)$-structure
-with standard first-order part and satisfying the conclusion of Lemma \ref{howintendedworks}
-satisfies the axioms of Peano arithmetic for $\LPA(I)$.
+For any $\LPA(I)$-structure $\M$, if $\M$
+interprets formulas by substitution,
+then $\M$ satisfies the axioms of Peano arithmetic for $\LPA(I)$.
 \end{lemma}
 
 \begin{proof}
-Let $\M$ be any $\LPA(I)$-structure
-with standard first-order part and satisfying the conclusion of Lemma \ref{howintendedworks}.
+Let $\M$ be any $\LPA(I)$-structure which interprets formulas by substitution.
+This means $\M$ has standard-first order part and for every formula $\phi$
+and assignment $s$,
+$\M\models \phi[s]$ if and only if $\M\models\phi^s$.
+
 Let $\sigma$ be an axiom of Peano arithmetic for $\LPA(I)$.  If $\sigma$ is not an instance
 of induction, then $\M\models\sigma$ since $\M$ has standard first-order part.
 But suppose $\sigma$ is $\ucl{\phi(x|0)\rightarrow \forall x(\phi\rightarrow\phi(x|S(x)))\rightarrow\forall x\phi}$.
 To see $\M\models\sigma$, let $s$ be an arbitrary assignment and assume
 $\M\models\phi(x|0)[s]$ and $\M\models\forall x(\phi\rightarrow \phi(x|S(x)))[s]$.
-By Lemma~\ref{howintendedworks}, $\M\models\phi^{s(x|0)}$ and $\forall m\in\N$,
+By assumption, $\M\models\phi^{s(x|0)}$ and $\forall m\in\N$,
 if $\M\models \phi^{s(x|m)}$ then $\M\models \phi(x|S(x))^{s(x|m)}$.
 Evidently $\phi(x|S(x))^{s(x|m)}\equiv\phi^{s(x|m+1)}$.
 By mathematical induction, $\forall m\in\N$, $\M\models\phi^{s(x|m)}$.
-By Lemma \ref{howintendedworks}, $\M\models \forall x\phi[s]$.
+By assumption, $\M\models \forall x\phi[s]$.
 \end{proof}
 
 
@@ -1399,16 +1403,18 @@ Straightforward.
 \label{preservedintent}
 Suppose $\M,\M'$ are $\LPA(\indset)$-structures
 and $\M\myequiv_i\M'$ for some $i\in\omega$.
-Further suppose $\M$ has the property that
-for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
-$\M\models\phi[s]$ if and only if $\M\models\phi^s$.
-Then for all such $\phi$ and $s$,
-$\M'\models\phi[s]$ if and only if $\M'\models\phi^s$.
+If $\M$ interprets formulas by substitution, then
+$\M'$ interprets formulas by substitution.
 \end{lemma}
 
 \begin{proof}
 We may assume $\M'=\M^+$ for some computable $j$-stratifier $\bullet^+$,
 $j\succ i$.
+We are given that for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+$\M\models\phi[s]$ if and only if $\M\models\phi^s$.
+We must show that for every such $\phi$ and $s$, $\M'\models\phi[s]$ if and only
+if $\M'\models\phi^s$.
+
 We induct on $\phi$.
 By Definition \ref{equividefn}, $\M^+$ and $\M$ agree on all symbols
 except possibly $\Pr j$, and they agree on $\Pr j \phi_0$ when
@@ -1432,11 +1438,11 @@ Lemma \ref{structurecollapsingmagic}.  The following are equivalent.
 
 \begin{lemma}
 \label{preservedintentspecialcase}
-Suppose the $\LPA(\indset)$-structure $\M$ is an instance of Definition \ref{intendedstructdefn}.
+Suppose the $\LPA(\indset)$-structure $\M$ is an instance of
+Definition \ref{intendedstructdefn}.
 For any $i\in\omega$,
-any $\LPA(\indset)$-structure $\M'$ such that $\M\myequiv_i\M'$,
-any $\LPA(\indset)$-formula $\phi$ and any assignment $s$,
-$\M'\models\phi[s]$ if and only if $\M'\models\phi^s$.
+for any $\LPA(\indset)$-structure $\M'$ such that $\M\myequiv_i\M'$,
+$\M$ interprets formulas by substitution.
 \end{lemma}
 
 \begin{proof}
