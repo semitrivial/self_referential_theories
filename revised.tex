@@ -254,6 +254,8 @@ language of Epistemic Arithmetic.
 
 \begin{definition}
 \label{sentencemaker}
+\begin{itemize}
+\item
 For any $\LPA(I)$-formula $\phi$ with $\FV(\phi)=\{x_1,\ldots,x_n\}$, and for
 assignment $s$ (into $\N$), let $\phi^s$ be the sentence
 \[
@@ -261,9 +263,17 @@ assignment $s$ (into $\N$), let $\phi^s$ be the sentence
 \]
 obtained by replacing all free variables in $\phi$ by numerals for their
 $s$-values.
+\item
+For any language $\mathscr L$ extending $\LPA$, if $\mathscr M$ is an
+$\mathscr L$-structure with standard first-order part, then $\mathscr M$
+is said to \emph{interpret formulas by substitution} if the following
+property holds: for any $\mathscr L$-formula $\phi$ and assignment $s$,
+$\mathscr M\models\phi[s]$ if and only if $\mathscr M\models\phi^s$.
+\end{itemize}
 \end{definition}
 
-For example, if $s(x)=0$ and $s(y)=2$ then $(\forall z(x=y+z))^s$ ${\equiv}$ $\forall z(0=S(S(0))+z)$.
+For example, if $s(x)=0$ and $s(y)=2$
+then $(\forall z(x=y+z))^s$ ${\equiv}$ $\forall z(0=S(S(0))+z)$.
 
 
 \begin{definition}
@@ -287,13 +297,16 @@ If $\M_\T\models\T$, we say $\T$ is \emph{true}.
 
 \begin{lemma}
 \label{howintendedworks}
-Let $\T=(T_i)_{i\in I}$ be a family of $\LPA(I)$-theories.
-For any $\LPA(I)$-formula $\phi$ and assignment $s$,
-$\M_\T\models\phi[s]$ if and only if $\M_\T\models\phi^s$.
+For any family $\T=(T_i)_{i\in I}$ of $\LPA(I)$-theories,
+$\M_\T$ interprets formulas by substitution.
 \end{lemma}
 
 \begin{proof}
-By induction.
+In other words,
+we must show that
+for every $\LPA(I)$-formula $\phi$ and assignment $s$,
+$\M_\T\models\phi[s]$ if and only if $\M_\T\models\phi^s$.
+The proof is a straightforward induction.
 \end{proof}
 
 \begin{definition}
