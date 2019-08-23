@@ -1013,7 +1013,7 @@ and $\Prr\alpha i\phi$ is $i$-stratified.
 \item ($i$-Stratideduction) $\ucl{\Prr\alpha i(\phi\rightarrow\psi)\rightarrow\Prr\alpha i\phi\rightarrow \Prr\alpha i\psi}$
 whenever this formula is $i$-stratified.
 \end{itemize}
-An $\LPA(\indset)$-theory $T$ is \emph{$i$-stratifiable} if
+An $\LPA(\indset)$-theory $T$ is \emph{$i$-straticlosed} if
 the following conditions hold:
 \begin{enumerate}
 \item $T$ is $i$-unistratified.
@@ -1021,20 +1021,20 @@ the following conditions hold:
 \item For every $\phi\in T$, if $\Prr\alpha i\phi$ is $i$-stratified then
 $\Prr\alpha i\phi\in T$.
 \end{enumerate}
-A family $\T=(T_i)_{i\in\omega}$ is \emph{stratifiable} if each $T_i$ is
-$i$-stratifiable.
+A family $\T=(T_i)_{i\in\omega}$ is \emph{straticlosed} if each $T_i$ is
+$i$-straticlosed.
 \end{definition}
 
-The reason for the word \emph{stratifiable} in Definition
-\ref{stratschemasdefn} will become clearer later on when we arrive
-at Definition \ref{stratdefn}.
+% The reason for the word \emph{straticlosed} in Definition
+% \ref{stratschemasdefn} will become clearer later on when we arrive
+% at Definition \ref{stratdefn}.
 
 The following theorem serves as an omnibus of results from Section 5 of \cite{carlson2000}.
 
 \begin{theorem}
 \label{proofstratification}
 (Proof Stratification)
-Suppose $T$ is an $i$-stratifiable $\LPA(\indset)$-theory.
+Suppose $T$ is an $i$-straticlosed $\LPA(\indset)$-theory.
 Then:
 \begin{enumerate}
 \item Whenever $T\cap\alpha\models\phi$,
@@ -1050,7 +1050,7 @@ $T\models\phi$ if and only if $T^-\models\phi^-$.
 \end{theorem}
 
 \begin{proof}
-Note that since $T$ is $i$-stratifiable, in particular $T$
+Note that since $T$ is $i$-straticlosed, in particular $T$
 is $i$-unistratified and hence, $i$-stratified.
 
 \item
@@ -1174,7 +1174,7 @@ and since $\Psi$ is valid and the $\sigma^{**}_j\in T$, this shows $T\models\phi
 
 \begin{definition}
 \label{stratdefn}
-If $\T=(T_i)_{i\in\omega}$ is a stratifiable family of $\LPA(\indset)$-theories,
+If $\T=(T_i)_{i\in\omega}$ is a straticlosed family of $\LPA(\indset)$-theories,
 its
 \emph{stratification}, written $\str{\T}$,
 is the family $\str{\T}=(S_i)_{i\in\indset}$, where for every $i\in\omega$,
@@ -1185,7 +1185,7 @@ $S_i=T^-_i$ and $\forall\alpha\in\epom$, $S_{(\alpha,i)}=T_i\cap\alpha$.
 \begin{theorem}
 \label{stratificationtheorem}
 (The Stratification Theorem)
-Suppose $\T=(T_i)_{i\in\omega}$ is a stratifiable family of $\LPA(\indset)$-theories.
+Suppose $\T=(T_i)_{i\in\omega}$ is a straticlosed family of $\LPA(\indset)$-theories.
 For any $i\in\omega$, any very $i$-stratified 
 $\LPA(\indset)$-formula $\phi$, and any assignment $s$,
 $\M_{\str{\T}}\models\phi[s]$
@@ -1462,7 +1462,7 @@ Suppose $\T=(T_i)_{i\in\omega}$
 is an r.e.~family of $\LPA(\indset)$-theories
 and each $T_i$ is $i$-unistratified.
 We say $\T$ is \emph{stratified-r.e.-generic} if
-for every stratifiable r.e.~family $\U\supseteq\T$, every $i\in\omega$,
+for every straticlosed r.e.~family $\U\supseteq\T$, every $i\in\omega$,
 and every $\LPA(\indset)$-structure $\M$,
 if $\M_{\str\U}\myequiv_i\M$, then $\M\models T_i$.
 \end{definition}
@@ -1526,7 +1526,8 @@ Unistratifiedness of the other families is clear.
 Recursive enumerability follows from the fact that $\prec$
 is r.e.
 In each
-case below, let $\U=(U_k)_{k\in\omega}$ be a stratifiable r.e.~family extending the family
+case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
+extending the family
 in question.  For brevity let $\hat\U=\str\U$.
 
 \item
@@ -1645,7 +1646,8 @@ Similar to part 8 of Lemma \ref{firstgrabbag}; use part 3 of Definition \ref{str
 
 \begin{definition}
 If $\T^0=(T^0_i)_{i\in\omega}$ where each $T^0_i$ is an $\LPA(\omega)$-theory,
-we say $\T^0$ is \emph{stratifiable-r.e.-generic} if there is some stratified-r.e.-generic family $\T=(T_i)_{i\in\omega}$ of
+we say $\T^0$ is \emph{stratifiable-r.e.-generic} if there is
+some stratified-r.e.-generic family $\T=(T_i)_{i\in\omega}$ of
 $\LPA(\indset)$-theories such that
 each $T^-_i=T^0_i$.
 \end{definition}
@@ -1693,9 +1695,10 @@ and $i$-stratifier $\bullet^+$.
 whenever $j\prec i$, $\FV(\phi)\subseteq\{x\}$ and $\phi$ is an $\LPA(\omega)$-formula.
 \item Whenever $\phi\in U_i$ and $\Prr\alpha i\phi$ is $i$-stratified, $\Prr\alpha i\phi\in U_i$.
 \end{enumerate}
-Let $\U=(U_i)_{i\in\omega}$.  Observe that $\U$ is stratifiable r.e.~(to see $U_i$ is
+Let $\U=(U_i)_{i\in\omega}$.  Observe that $\U$ is straticlosed and r.e.~(to see $U_i$ is
 $i$-unistratified, use
-Lemma \ref{stratifiermagic}; to see $\U$ is r.e., use Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
+Lemma \ref{stratifiermagic}; to see $\U$ is r.e., use
+Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
 $U_i^-=T_i$.
 
 
@@ -1739,7 +1742,7 @@ This means $\sigma\in U_i\cap\alpha$.
 $\sigma\in V_i$.
 Then $\M\models\sigma$ because
 $\V$ is stratified-r.e.-generic and $\U\supseteq\V$
-is stratifiable r.e.
+is straticlosed and r.e.
 
 \item
 \case2
