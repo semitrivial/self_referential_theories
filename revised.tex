@@ -821,7 +821,7 @@ and $x\leq_1 y$, $h(x)\leq_1 h(y)$.
 
 \begin{definition}
 Suppose $i\in\omega$.
-A set $T$ of $\LPA(\indset)$-sentences is \emph{$i$-uniform}
+A set $T$ of $\LPA(\indset)$-sentences is \emph{$i$-unistratified}
 if the following conditions hold:
 \begin{enumerate}
 \item $T$ is $i$-stratified.
@@ -842,7 +842,7 @@ any superscripts $\geq\alpha$.
 \begin{theorem}
 \label{collapsetheorem}
 (The Collapse Theorem)
-Suppose $T$ is an $i$-uniform $\LPA(\indset)$-theory.
+Suppose $T$ is an $i$-unistratified $\LPA(\indset)$-theory.
 \begin{enumerate}
 \item If $n$ is a positive integer and $\onset(\phi)\subseteq\epsilon_0\cdot n$, then $T\models\phi$
 if and only if $T\cap(\epsilon_0\cdot n)\models\phi$.
@@ -852,7 +852,7 @@ if and only if $T\cap\beta\models\phi$.
 \end{theorem}
 
 \begin{proof}
-Note that since $T$ is $i$-uniform, in particular $T$ is $i$-stratified.
+Note that since $T$ is $i$-unistratified, in particular $T$ is $i$-stratified.
 We will prove (1), the proof of (2) is similar.
 \item
 ($\Leftarrow$) Immediate since $T\cap(\epsilon_0\cdot n)\subseteq T$.
@@ -880,7 +880,7 @@ By Corollary \ref{hpreserversvalidity},
 h(\Phi)\,\equiv\, h(\sigma_1)\rightarrow\cdots\rightarrow h(\sigma_k)\rightarrow \phi
 \]
 is valid.
-Since $T$ is $i$-uniform, $h(\sigma_1),\ldots,h(\sigma_k)\in T$.
+Since $T$ is $i$-unistratified, $h(\sigma_1),\ldots,h(\sigma_k)\in T$.
 Finally since $\mathrm{range}(h)<\epsilon_0\cdot n$, $h(\sigma_1),\ldots,h(\sigma_k)\in T\cap(\epsilon_0\cdot n)$,
 showing $T\cap(\epsilon_0\cdot n)\models \phi$.
 \end{proof}
@@ -909,7 +909,7 @@ then $\phi^-$ is $\Pr{5}(1=0)\rightarrow\Pr{5}\Pr{5}(1=0)$.
 
 \begin{lemma}
 \label{verystratifiableaxioms}
-If $T$ is $i$-uniform then for every $\phi\in T$ there is some $\psi\in T$
+If $T$ is $i$-unistratified then for every $\phi\in T$ there is some $\psi\in T$
 such that $\psi$ is very $i$-stratified and $\psi^-\equiv\phi^-$.
 \end{lemma}
 
@@ -917,7 +917,7 @@ such that $\psi$ is very $i$-stratified and $\psi^-\equiv\phi^-$.
 Let $X=\onset(\phi)=\{\alpha_1<\cdots<\alpha_n\}$, $Y=\{\epsilon_0\cdot 1,\ldots,\epsilon_0\cdot n\}$,
 and define $h:X\to Y$ by $h(\alpha_j)=\epsilon_0\cdot j$.
 Clearly $h$ is order preserving; by Theorem \ref{blackbox} part 2, $h$ is a covering.
-Since $T$ is $i$-uniform, $T$ contains $\psi\equiv h(\phi)$.  Clearly $\psi$ is very $i$-stratified and
+Since $T$ is $i$-unistratified, $T$ contains $\psi\equiv h(\phi)$.  Clearly $\psi$ is very $i$-stratified and
 $\psi^-\equiv\phi^-$.
 \end{proof}
 
@@ -1016,7 +1016,7 @@ whenever this formula is $i$-stratified.
 An $\LPA(\indset)$-theory $T$ is \emph{$i$-stratifiable} if
 the following conditions hold:
 \begin{enumerate}
-\item $T$ is $i$-uniform.
+\item $T$ is $i$-unistratified.
 \item $T$ includes $i$-Strativalidity, $i$-Stratideduction and $i$-Collapse.
 \item For every $\phi\in T$, if $\Prr\alpha i\phi$ is $i$-stratified then
 $\Prr\alpha i\phi\in T$.
@@ -1051,7 +1051,7 @@ $T\models\phi$ if and only if $T^-\models\phi^-$.
 
 \begin{proof}
 Note that since $T$ is $i$-stratifiable, in particular $T$
-is $i$-uniform and hence, $i$-stratified.
+is $i$-unistratified and hence, $i$-stratified.
 
 \item
 \claim0
@@ -1459,7 +1459,8 @@ Throughout, $\prec$ is an r.e.~well-founded partial-order of $\omega$.
 \label{bootstrapclosedrestrat}
 (Compare Definition \ref{closedregenericdefn})
 Suppose $\T=(T_i)_{i\in\omega}$
-is an r.e.~family of $i$-uniform $\LPA(\indset)$-theories.
+is an r.e.~family of $\LPA(\indset)$-theories
+and each $T_i$ is $i$-unistratified.
 We say $\T$ is \emph{stratified-r.e.-generic} if
 for every stratifiable r.e.~family $\U\supseteq\T$, every $i\in\omega$,
 and every $\LPA(\indset)$-structure $\M$,
@@ -1519,9 +1520,9 @@ and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-st
 
 \begin{proof}
 For
-uniformity of 4--8,
+unistratifiedness of 4--8,
 use Corollary \ref{hpreserversvalidity}.
-Uniformity of the other families is clear.
+Unistratifiedness of the other families is clear.
 Recursive enumerability follows from the fact that $\prec$
 is r.e.
 In each
@@ -1692,8 +1693,9 @@ and $i$-stratifier $\bullet^+$.
 whenever $j\prec i$, $\FV(\phi)\subseteq\{x\}$ and $\phi$ is an $\LPA(\omega)$-formula.
 \item Whenever $\phi\in U_i$ and $\Prr\alpha i\phi$ is $i$-stratified, $\Prr\alpha i\phi\in U_i$.
 \end{enumerate}
-Let $\U=(U_i)_{i\in\omega}$.  Observe that $\U$ is stratifiable r.e.~(to see $\U$ is uniform, use
-Lemma \ref{stratifiermagic}, to see $\U$ is r.e., use Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
+Let $\U=(U_i)_{i\in\omega}$.  Observe that $\U$ is stratifiable r.e.~(to see $U_i$ is
+$i$-unistratified, use
+Lemma \ref{stratifiermagic}; to see $\U$ is r.e., use Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
 $U_i^-=T_i$.
 
 
@@ -1883,7 +1885,7 @@ $\M\models S_i$.
 \item
 For any $\sigma\in S_i$,
 there is some $\tau\in U_i$ such that $\tau^-\equiv\sigma$;
-since $U_i$ is $i$-uniform, we may take $\tau$ to be very $i$-stratified
+since $U_i$ is $i$-unistratified, we may take $\tau$ to be very $i$-stratified
 (Lemma \ref{verystratifiableaxioms}).
 By Claim 1, $\M\models U_i$,
 so $\M\models\tau$.
