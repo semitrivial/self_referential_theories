@@ -1484,11 +1484,12 @@ is stratified-r.e.-generic.
 \begin{enumerate}
 \item $[\mbox{$i$-Stratideduction}]_i$.
 \item $[\mbox{$j$-Deduction}]_i$ (if $j\not\succeq i$).
-\item $[S]_i$ (if $j\not=i$) where $S$ is:
+\item $[S]_i$ (if $i\prec j$) where $S$ is the following schema ($\phi,\psi$
+    range over $\LPA(\omega)$-formulas):
 \[
   \mbox{
     (Weak $j$-Deduction) $\ucl{\Pr j(\phi\rightarrow\psi)\rightarrow\Pr j\phi\rightarrow \Pr 
-    j(\psi\wedge(\phi\vee\neg\phi))}$ whenever this is $j$-stratified.
+    j(\psi\wedge(\phi\vee\neg\phi))}$.
   }
 \]
 \item $[S]_i$ where $S$ is: ($i$-Assigned Strativalidity)
