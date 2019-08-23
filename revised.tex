@@ -1461,7 +1461,7 @@ Throughout, $\prec$ is an r.e.~well-founded partial-order of $\omega$.
 Suppose $\T=(T_i)_{i\in\omega}$
 is an r.e.~family of $\LPA(\indset)$-theories
 and each $T_i$ is $i$-unistratified.
-We say $\T$ is \emph{stratified-r.e.-generic} if
+We say $\T$ is \emph{straticlosed-r.e.-generic} if
 for every straticlosed r.e.~family $\U\supseteq\T$, every $i\in\omega$,
 and every $\LPA(\indset)$-structure $\M$,
 if $\M_{\str\U}\myequiv_i\M$, then $\M\models T_i$.
@@ -1470,7 +1470,7 @@ if $\M_{\str\U}\myequiv_i\M$, then $\M\models T_i$.
 
 \begin{lemma}
 If the family $\T=(T_i)_{i\in\omega}$ of $\LPA(\indset)$-sets is r.e.~and is a union
-of stratified-r.e.-generic families, then $\T$ is stratified-r.e.-generic.
+of straticlosed-r.e.-generic families, then $\T$ is straticlosed-r.e.-generic.
 \end{lemma}
 
 \begin{proof}
@@ -1481,7 +1481,7 @@ Straightforward.
 \label{secondgrabbag}
 (Compare Lemma \ref{firstgrabbag})
 For any $i,j\in\N$, each of the following families
-is stratified-r.e.-generic.
+is straticlosed-r.e.-generic.
 \begin{enumerate}
 \item $[\mbox{$i$-Stratideduction}]_i$.
 \item $[\mbox{$j$-Deduction}]_i$ (if $j\not\succeq i$).
@@ -1512,7 +1512,7 @@ $\LPA(\indset)$ that are $i$-stratified.
 \item $[S]_i$, where $S$ is: ($i$-Strati-SMT)
 $\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
 when this is $i$-stratified, $e\not\in\FV(\phi)$.
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is stratified-r.e.-generic
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
 and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
 \end{enumerate}
 \end{lemma}
@@ -1647,7 +1647,7 @@ Similar to part 8 of Lemma \ref{firstgrabbag}; use part 3 of Definition \ref{str
 \begin{definition}
 If $\T^0=(T^0_i)_{i\in\omega}$ where each $T^0_i$ is an $\LPA(\omega)$-theory,
 we say $\T^0$ is \emph{stratifiable-r.e.-generic} if there is
-some stratified-r.e.-generic family $\T=(T_i)_{i\in\omega}$ of
+some straticlosed-r.e.-generic family $\T=(T_i)_{i\in\omega}$ of
 $\LPA(\indset)$-theories such that
 each $T^-_i=T^0_i$.
 \end{definition}
@@ -1681,7 +1681,7 @@ By the Recursion Theorem, there is an $n\in\N$ such that $W_n=W_{f(n)}$.  Fix th
 and write $\T$ for $\T(n)$, $T_i$ for $T_i(n)$.
 
 Since $\T^0$ is stratifiable-r.e.-generic, there is 
-a stratified-r.e-generic
+a straticlosed-r.e-generic
 family $\V=(V_i)_{i\in\omega}$ of $\LPA(\indset)$-theories such that each $V^-_i=T^0_i$.
 For every $i\in\N$, let $U_i$ be the smallest
 $i$-stratified $\LPA(\indset)$-theory such that the following hold.
@@ -1741,7 +1741,7 @@ This means $\sigma\in U_i\cap\alpha$.
 \case1
 $\sigma\in V_i$.
 Then $\M\models\sigma$ because
-$\V$ is stratified-r.e.-generic and $\U\supseteq\V$
+$\V$ is straticlosed-r.e.-generic and $\U\supseteq\V$
 is straticlosed and r.e.
 
 \item
