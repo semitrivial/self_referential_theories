@@ -15,6 +15,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{convention}[theorem]{Convention}
 \def\N{\mathbb{N}}
 \def\R{\mathbb{R}}
 \def\L{\mathscr{L}}
@@ -24,6 +25,7 @@
 \def\U{\mathbf{U}}
 \def\V{\mathbf{V}}
 \def\O{\mathcal{O}}
+\def\indices{\mathrm{Indices}}
 %\def\Pr{\T\mbox{\small${\vDash}$}}
 \def\gr{\mathrm{Gr}}
 \def\pow{\mathscr{P}}
@@ -1271,6 +1273,27 @@ By induction, for every subformula $\theta_0$ of $\theta$, $\theta^*_0\equiv h(\
 
 For the remainder of the section, fix a strict r.e.~well-founded
 partial-order $\prec$ on $\omega$.
+
+\begin{definition}
+By a \emph{stratifier-set}, we mean a finite set
+\[
+    I=\{\bullet^{+_1},\ldots,\bullet^{+_k}\}
+\]
+where each $\bullet^{+_p}$ is an $i_p$-stratifier for some $i_p\in\omega$,
+and $i_1,\ldots,i_k$ are distinct.
+With $I$ as above, we write $\indices(I)$ for $\{i_1,\ldots,i_k\}$.
+\end{definition}
+
+For example, if $\bullet^{+_1}$ is a $1$-stratifier,
+$\bullet^{+_2}$ is a $5$-stratifier, and $\bullet^{+_3}$ is a $2$-stratifier,
+then $I=\{\bullet^{+_1},\bullet^{+_2},\bullet^{+_3}\}$ is a stratifier-set
+and $\indices(I)=\{1,5,2\}$.
+
+\begin{convention}
+For any particular $i\in\omega$, by convention, we will write $I(i)$ for
+a stratifier-set with the property that for each $j\in\indices(I(i))$,
+$i\prec j$.
+\end{convention}
 
 \begin{definition}
 \label{moduloidefn}
