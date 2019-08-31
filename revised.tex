@@ -1391,25 +1391,28 @@ Straightforward.
 
 \begin{lemma}
 \label{raisingMtotheIpreservesintent}
-If $\M$ is an $\LPA(\indset)$-structure and $I$ is a
-stratifier-set. If $\M$ interprets formulas by substitution,
-then $\M^I$ interprets formulas by substitution.
+Suppose $\LPA(\indset)$-structure $\M$ is an instance of
+Definition \ref{intendedstructdefn}, and suppose
+$I$ is a stratifier-set.
+Then $\M^I$ interprets formulas by substitution.
 \end{lemma}
 
 \begin{proof}
-By induction on $|I|$, using Lemma \ref{decomposingMtotheI},
-it suffices to show that if $\M$ interprets formulas by substitution and
-$\bullet^+$ is a computable $i$-stratifier, then $\M^+$ interprets
-formulas by substitution.
+By induction on $|I|$.
+If $|I|=0$, we are done by Lemma \ref{howintendedworks}.
+Otherwise, we may decompose $I$ as $I=I_0\cup\{\bullet^+\}$
+where $\bullet^+$ is a computable $i$-stratifier.
+By induction, $\M^{I_0}$ interprets formulas by substitution ($*$).
+By Lemma \ref{decomposingMtotheI}, $\M^I=(\M^{I_0})^+$.
 
 By definition of interpreting formulas by substitution,
-we are given that for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
-$\M\models\phi[s]$ if and only if $\M\models\phi^s$.
-We must show that for every such $\phi$ and $s$, $\M^+\models\phi[s]$ if and only
-if $\M^+\models\phi^s$.
+for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+$\M^{I_0}\models\phi[s]$ if and only if $\M^{I_0}\models\phi^s$.
+We must show that for every such $\phi$ and $s$, $(\M^{I_0})^+\models\phi[s]$ if and only
+if $(\M^{I_0})^+\models\phi^s$.
 
 We induct on $\phi$.
-By Definition \ref{moduloidefn}, $\M^+$ and $\M$ agree on all symbols
+By Definition \ref{moduloidefn}, $(\M^{I_0})$ and $(\M^{I_0})^+$ agree on all symbols
 except $\Pr i$, and they agree on $\Pr i \phi_0$ if $\phi_0$ is not an
 $\LPA(\omega)$-formula.
 Thus the only nontrivial case is when $\phi$
@@ -1417,14 +1420,14 @@ is of the form $\Pr i\phi_0$ for some $\LPA(\omega)$-formula $\phi_0$.
 Any such $\phi$ is itself an $\LPA(\omega)$-formula and thus susceptible to
 Lemma \ref{structurecollapsingmagic}.  The following are equivalent.
 \begin{align*}
-\M^+ &\models \phi[s]\\
-\M &\models \phi^+[s]
+(\M^{I_0})^+ &\models \phi[s]\\
+\M^{I_0} &\models \phi^+[s]
   &\mbox{(Lemma \ref{structurecollapsingmagic})}\\
-\M &\models (\phi^+)^s
-  &\mbox{(Hypothesis)}\\
-\M &\models (\phi^s)^+
+\M^{I_0} &\models (\phi^+)^s
+  &\mbox{(By ($*$))}\\
+\M^{I_0} &\models (\phi^s)^+
   &\mbox{(Clearly $(\phi^+)^s\equiv(\phi^s)^+$)}\\
-\M^+ &\models \phi^s.
+(\M^{I_0})^+ &\models \phi^s.
   &\mbox{(Lemma \ref{structurecollapsingmagic})}
 \end{align*}
 \end{proof}
