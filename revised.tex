@@ -1430,11 +1430,12 @@ In this section
 we fulfil the second promise from the introduction.
 Throughout, $\prec$ is an r.e.~well-founded partial-order of $\omega$.
 
-\begin{convention}
-For any particular $i\in\omega$, by convention, we will write $I(i)$ for
-a stratifier-set with the property that $\forall j\in\indices(I(i))$,
-$i\prec j$.
-\end{convention}
+\begin{definition}
+If $i\in\omega$, we say that a stratifier-set $I$ is \emph{above $i$}
+if $\forall j\in\indices(I)$, $i\prec j$. We adopt the following convention:
+if $I$ is above $i$ then we will write $I$ as $I(i)$ in order to remind
+ourselves of the fact that $I$ is above $i$.
+\end{definition}
 
 \begin{definition}
 \label{bootstrapclosedrestrat}
@@ -1444,7 +1445,7 @@ is an r.e.~family of $\LPA(\indset)$-theories
 and each $T_i$ is $i$-unistratified.
 We say $\T$ is \emph{straticlosed-r.e.-generic} if
 for every straticlosed r.e.~family $\U\supseteq\T$, every $i\in\omega$,
-and every stratifier-set $I(i)$ above $i$,
+and every computable stratifier-set $I(i)$ above $i$,
 $\M^{I(i)}_{\str\U}\models T_i$.
 \end{definition}
 
