@@ -1376,64 +1376,6 @@ Lemma \ref{structurecollapsingmagic}.
 By Corollary \ref{minuspreservesvalidity}.
 \end{proof}
 
-The next definition needs motivation.  We seek
-a true stratified family $\T=(T_i)_{i\in\omega}$
-where $T_i$ declares the truth of $T_j$ ($j\preceq i$).
-By collapsing $\T$ we hope to fulfil the second promise from the
-introduction.  For $j\prec i$, $T_i$ cannot contain
-$\ucl{\Pr j\phi\rightarrow\phi}$: it is not $i$-stratified (e.g.~if
-$\phi$ is $\Pr i(1=0)$).  An alternative is
-$\ucl{\Pr j\phi\rightarrow\phi^+}$ where $\bullet^+$ ranges over
-$i$-stratifiers.  But imagine proving
-$\M_\T\models \ucl{\Pr j\phi\rightarrow\phi^+}$.  We would
-assume $T_j\models\phi^s$ and try to show $\M_\T\models\phi^+[s]$.
-Since $j\prec i$ we could assume $\M_\T\models T_j$, so
-$\M_\T\models \phi^s$, so $\M_\T\models\phi[s]$---not what we want.
-If only $\M^+_\T\models\phi[s]$, Lemma \ref{structurecollapsingmagic}
-would give $\M_\T\models\phi^+[s]$. In a sense, $\bullet^+$ is invisible
-to $T_j$ ($T_j$ can't see $T_i$ because $j\prec i$).  So our proof
-that $\M_\T\models T_j$ could've gone through for $\M^+_\T$.
-The following definition will allow the proof to go through
-for $\M^+_\T$ via strong induction hypothesis.
-
-\begin{definition}
-\label{equividefn}
-For every $i\in\omega$,
-let $\bullet\myequiv_i\bullet$ be the smallest transitive binary relation on $\LPA(\indset)$-structures
-satisfying the following:
-\begin{enumerate}
-  \item For any $\LPA(\indset)$-structure $\M$, $\M\myequiv_i\M$.
-  \item For any $\LPA(\indset)$-structure $\M$, any $i\prec j$, and any computable $j$-stratifier $\bullet^+$,
-    $\M\myequiv_i \M^+$.
-\end{enumerate}
-\end{definition}
-
-\begin{lemma}
-\label{sequencelemma}
-Suppose $\M,\M',\M''$ are $\LPA(\indset)$-structures and $i,j,k\in\omega$.
-\begin{enumerate}
-\item
-If $\M\myequiv_i\M'$ then $\M$ and $\M'$ have the same universe and agree
-on all symbols of $\LPA(\indset)$ except possibly for some symbols $\Pr j$
-where $i\prec j$.
-\item
-If $\M\myequiv_i\M'$ then for any $j\in\omega$, either $\M$ and $\M'$ agree on $\Pr j$,
-or there is some $j$-stratifier $\bullet^+$ such that $\M^+$ and $\M'$ agree on $\Pr j$.
-\item
-If $\M\myequiv_i\M'$, $\M'\myequiv_j\M''$, and $k\preceq i,j$, then $\M\myequiv_k\M''$.
-\item
-If $\M\myequiv_i\M'$ and $j\prec i$ then $\M\myequiv_j\M'$.
-\item
-If $j\prec i$ and $\bullet^+$ is a computable $i$-stratifier,
-then $\M\myequiv_j\M^+$.
-\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-Straightforward.
-\end{proof}
-
-
 \begin{lemma}
 \label{preservedintent}
 Suppose $\M,\M'$ are $\LPA(\indset)$-structures
