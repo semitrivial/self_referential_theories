@@ -1377,27 +1377,43 @@ By Corollary \ref{minuspreservesvalidity}.
 \end{proof}
 
 \begin{lemma}
-\label{preservedintent}
-Suppose $\M,\M'$ are $\LPA(\indset)$-structures
-and $\M\myequiv_i\M'$ for some $i\in\omega$.
-If $\M$ interprets formulas by substitution, then
-$\M'$ interprets formulas by substitution.
+\label{decomposingMtotheI}
+Suppose $\M$ is an $\LPA(\indset)$-structure,
+$I_0$ is a stratifier-set, $i\in\omega$, $i\not\in\indices(I)$,
+and $\bullet^+$ is a computable $i$-stratifier.
+Let $I=I_0\cup\{\bullet^+\}$.
+Then $\M^I=(\M^{I_0})^+$.
 \end{lemma}
 
 \begin{proof}
-We may assume $\M'=\M^+$ for some computable $j$-stratifier $\bullet^+$,
-$j\succ i$.
-We are given that for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+Straightforward.
+\end{proof}
+
+\begin{lemma}
+\label{raisingMtotheIpreservesintent}
+If $\M$ is an $\LPA(\indset)$-structure and $I$ is a
+stratifier-set. If $\M$ interprets formulas by substitution,
+then $\M^I$ interprets formulas by substitution.
+\end{lemma}
+
+\begin{proof}
+By induction on $|I|$, using Lemma \ref{decomposingMtotheI},
+it suffices to show that if $\M$ interprets formulas by substitution and
+$\bullet^+$ is a computable $i$-stratifier, then $\M^+$ interprets
+formulas by substitution.
+
+By definition of interpreting formulas by substitution,
+we are given that for every $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 $\M\models\phi[s]$ if and only if $\M\models\phi^s$.
-We must show that for every such $\phi$ and $s$, $\M'\models\phi[s]$ if and only
-if $\M'\models\phi^s$.
+We must show that for every such $\phi$ and $s$, $\M^+\models\phi[s]$ if and only
+if $\M^+\models\phi^s$.
 
 We induct on $\phi$.
-By Definition \ref{equividefn}, $\M^+$ and $\M$ agree on all symbols
-except possibly $\Pr j$, and they agree on $\Pr j \phi_0$ when
-$\phi_0$ is not an $\LPA(\omega)$-formula.
+By Definition \ref{moduloidefn}, $\M^+$ and $\M$ agree on all symbols
+except $\Pr i$, and they agree on $\Pr i \phi_0$ if $\phi_0$ is not an
+$\LPA(\omega)$-formula.
 Thus the only nontrivial case is when $\phi$
-is of the form $\Pr j\phi_0$ for some $\LPA(\omega)$-formula $\phi_0$.
+is of the form $\Pr i\phi_0$ for some $\LPA(\omega)$-formula $\phi_0$.
 Any such $\phi$ is itself an $\LPA(\omega)$-formula and thus susceptible to
 Lemma \ref{structurecollapsingmagic}.  The following are equivalent.
 \begin{align*}
@@ -1411,19 +1427,6 @@ Lemma \ref{structurecollapsingmagic}.  The following are equivalent.
 \M^+ &\models \phi^s.
   &\mbox{(Lemma \ref{structurecollapsingmagic})}
 \end{align*}
-\end{proof}
-
-\begin{lemma}
-\label{preservedintentspecialcase}
-Suppose the $\LPA(\indset)$-structure $\M$ is an instance of
-Definition \ref{intendedstructdefn}.
-For any $i\in\omega$,
-for any $\LPA(\indset)$-structure $\M'$ such that $\M\myequiv_i\M'$,
-$\M$ interprets formulas by substitution.
-\end{lemma}
-
-\begin{proof}
-By Lemmas \ref{howintendedworks} and \ref{preservedintent}.
 \end{proof}
 
 \section[Second Consistency Result: Prioritizing Self-Truth]{Second Consistency Result:\\Prioritizing Self-Truth}
