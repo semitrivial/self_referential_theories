@@ -1299,6 +1299,8 @@ $i\prec j$.
 
 \begin{definition}
 \label{moduloidefn}
+\begin{enumerate}
+\item
 Suppose $\mathscr N$ is an $\LPA(\indset)$-structure
 and $I$ is a stratifier-set.
 We define an $\LPA(\indset)$-structure $\mathscr N^I$
@@ -1317,9 +1319,15 @@ we consider two cases.
   \item If $\phi$ is not an $\LPA(\omega)$-formula, then
   $\mathscr N^I \models \Pr i\phi[s]$ if and only if $\mathscr N\models \Pr i\phi[s]$.
 \end{enumerate}
+\item
+For any $i\in\omega$, any $i$-stratifier $\bullet^+$, and any
+$\LPA(\indset)$-structure $\mathscr N$,
+let $\mathscr N^+=\mathscr N^I$ where $I=\{\bullet^+\}$
+is the stratifier-set containing only $\bullet^+$.
+\end{enumerate}
 \end{definition}
 
-Case 2 in Definition \ref{moduloidefn} is somewhat arbitrary.
+Case 1b in Definition \ref{moduloidefn} is somewhat arbitrary.
 We will only ever really care about whether
 $\mathscr N^I \models \Pr i\phi[s]$ when $\Pr i\phi$ is $j$-stratified for some $j$.
 If $\phi$ is not an $\LPA(\omega)$-formula then $\Pr i\phi$ is not $j$-stratified for any $j$.
