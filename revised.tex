@@ -1300,26 +1300,28 @@ $i\prec j$.
 \begin{definition}
 \label{moduloidefn}
 Suppose $\mathscr N$ is an $\LPA(\indset)$-structure
-and $\bullet^+$ is an $i$-stratifier.
-We define an $\LPA(\indset)$-structure $\mathscr N^+$
+and $I$ is a stratifier-set.
+We define an $\LPA(\indset)$-structure $\mathscr N^I$
 as follows.
-The universe and interpretation of arithmetic of $\mathscr N^+$
+The universe and interpretation of arithmetic of $\mathscr N^I$
 agree with those of $\mathscr N$,
-as do the interpretations of $\Pr j$ ($j\not=i$) and $\Prr\alpha j$ (any $\alpha$, $j$).
-As for $\Pr i$,
-for any $\LPA(\indset)$-formula $\phi$ and assignment $s$,
+as do the interpretations of $\Pr i$ ($i\not\in\indices(I)$)
+and $\Prr\alpha i$ (any $\alpha$, $i$).
+For any $i\in\indices(I)$, let $\bullet^+\in I$ be the corresponding
+$i$-stratifier, and let $\mathscr N^I$ interpret $\Pr i$ as follows.
+For any $\LPA(\indset)$-formula $\phi$ and assignment $s$,
 we consider two cases.
 \begin{enumerate}
   \item If $\phi$ is an $\LPA(\omega)$-formula, then
-  $\mathscr N^+ \models \Pr i\phi[s]$ if and only if $\mathscr N\models (\Pr i\phi)^+[s]$.
+  $\mathscr N^I \models \Pr i\phi[s]$ if and only if $\mathscr N\models (\Pr i\phi)^+[s]$.
   \item If $\phi$ is not an $\LPA(\omega)$-formula, then
-  $\mathscr N^+ \models \Pr i\phi[s]$ if and only if $\mathscr N\models \Pr i\phi[s]$.
+  $\mathscr N^I \models \Pr i\phi[s]$ if and only if $\mathscr N\models \Pr i\phi[s]$.
 \end{enumerate}
 \end{definition}
 
 Case 2 in Definition \ref{moduloidefn} is somewhat arbitrary.
 We will only ever really care about whether
-$\mathscr N^+ \models \Pr i\phi[s]$ when $\Pr i\phi$ is $j$-stratified for some $j$.
+$\mathscr N^I \models \Pr i\phi[s]$ when $\Pr i\phi$ is $j$-stratified for some $j$.
 If $\phi$ is not an $\LPA(\omega)$-formula then $\Pr i\phi$ is not $j$-stratified for any $j$.
 
 \begin{lemma}
