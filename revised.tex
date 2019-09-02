@@ -1374,6 +1374,7 @@ $I_0$ is a stratifier-set, $i\in\omega$, $i\not\in\indices(I)$,
 and $\bullet^+$ is an $i$-stratifier.
 Let $I=I_0\cup\{\bullet^+\}$.
 Then $\M^I=(\M^{I_0})^+$.
+Furthermore, $\M^+$ and $\M^I$ agree on the interpretation of $\Pr i$.
 \end{lemma}
 
 \begin{proof}
@@ -1515,7 +1516,7 @@ in question.  For brevity let $\hat\U=\str\U$.
 (1) Similar to part 1 of Lemma \ref{firstgrabbag}.
 
 \item
-(2) Let $I(i)$ be any stratifier-set above $i$, we must show
+(2) Let $I(i)$ be any computable stratifier-set above $i$, we must show
 $\M^{I(i)}_{\hat\U}\models \ucl{\Pr j(\phi\rightarrow\psi)
 \rightarrow\Pr j\phi\rightarrow\Pr j\psi}$.
 
@@ -1529,14 +1530,17 @@ and $U^-_j\models\phi^s$, thus $U^-_j\models\psi^s$, so
 $\M_{\hat\U}\models \Pr j\psi[s]$ and thus so does $\M^{I(i)}_{\hat\U}$.
 
 \item
-(3) Assume $\M_{\hat\U}\myequiv_i\M$,
+(3) Let $I(i)$ be any computable stratifier-set above $i$,
 we must show
-$\M\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
-Let $s$ be an assignment and assume $\M\models \Pr j(\phi\rightarrow\psi)[s]$
-and $\M\models\Pr j\phi[s]$.
-If $\M$ and $\M_{\hat\U}$ agree on $\Pr j$, reason as in (2) above.
-If not, Lemma \ref{sequencelemma} says there is some $j$-stratifier $\bullet^+$ such that $\M$ and $\M^+_{\hat\U}$ agree
-on $\Pr j$.
+$\M^{I(i)}_{\hat\U}\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
+Let $s$ be an assignment and assume $\M^{I(i)}_{\hat\U}\models \Pr j(\phi\rightarrow\psi)[s]$
+and $\M^{I(i)}_{\hat\U}\models\Pr j\phi[s]$.
+If $j\not\in\indices(I(i))$, then $\M^{I(i)}_{\hat\U}$ and $\M_{\hat\U}$
+agree on $\Pr j$, so reason as in (2) above.
+If not, we can write $I=I_0\cup\{\bullet^+\}$ where $\bullet^+$ is a
+computable $j$-stratifier, and Lemma \ref{decomposingMtotheI} ensures that
+$\M^{I(i)}_{\hat\U}$ and $\M^+_{\hat\U}$ agree on $\Pr j$.
+%
 By definition of $\M^+_{\hat\U}$, $\M_{\hat\U}\models(\Pr j(\phi\rightarrow\psi))^+[s]$
 and $\M_{\hat\U}\models(\Pr j\phi)^+[s]$.
 Let $\alpha,\beta\in\epom$ be such that $(\Pr j(\phi\rightarrow\psi))^+\equiv\Prr\alpha j(\phi^+\rightarrow\psi^+)$
