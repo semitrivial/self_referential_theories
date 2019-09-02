@@ -1569,28 +1569,32 @@ Similar to part 3 of Lemma \ref{firstgrabbag}.
 
 \item
 (6)
-By (4), $\M\models\mbox{$i$-Assigned Strativalidity}$
-whenever $\M_{\hat\U}\myequiv_i\M$.  Assume $\M_{\hat U}\myequiv_j\M$,
-we will show $\M\models \mbox{$i$-Validity}$.
+By (4), $\M^{I(i)}_{\hat\U}\models\mbox{$i$-Assigned Strativalidity}$
+for every computable stratifier-set $I(i)$ above $i$.
+Let $I(j)$ be a computable stratifier-set above $j$, we must
+show $\M^{I(j)}_{\hat\U}\models \mbox{$i$-Validity}$.
 Let $\phi$ be a valid $\LPA(\omega)$-formula, $s$
 an assignment.
 
 \item
 \case1
-$\M$ and $\M_{\hat\U}$ agree on $\Pr i$.
+$i\not\in\indices(I(j))$.
+Then $\M^{I(j)}_{\hat\U}$ and $\M_{\hat\U}$ agree on $\Pr i$.
 Let $\bullet^+$ be an $i$-stratifier.
 Since $\phi$ is valid, so is $\phi^+$
 (by Lemma \ref{stratifiersrespectvalidity}),
 so $(\phi^+)^s\in U_i$ (since $[\mbox{$i$-Assigned Strativalidity}]_i$ is
 part of line 6).
 Clearly $((\phi^+)^s)^-\equiv\phi^s$, so $\phi^s\in U^-_i$,
-thus $\M_{\hat\U}\models \Pr i\phi[s]$, and so does $\M$.
+thus $\M_{\hat\U}\models \Pr i\phi[s]$, and so does $\M^{I(j)}_{\hat\U}$.
 
 \item
 \case2
-$\M$ and $\M_{\hat\U}$ disagree on $\Pr i$.
-By Lemma \ref{sequencelemma}, $j\prec i$ and there is an $i$-stratifier
-$\bullet^+$ such that $\M$ and $\M^+_{\hat\U}$ agree on $\Pr i$.
+$i\in\indices(I(j))$.
+Thus $j\prec i$ and we can write $I(j)=I_0\cup\{\bullet^+\}$
+for some computable $i$-stratifier $\bullet^+$.
+By Lemma \ref{decomposingMtotheI}, $\M^{I(j)}_{\hat\U}$ and
+$\M^+_{\hat\U}$ agree on $\Pr i$.
 Let $\alpha\in\epom$ be such that
 $(\Pr i\phi)^+\equiv \Prr\alpha i\phi^+$.
 As in Case 1, $(\phi^+)^s$ is an instance of
@@ -1603,8 +1607,8 @@ so $\M_{\hat\U}\models \Prr\alpha i\phi^+[s]$,
 that is, $\M_{\hat\U}\models (\Pr i\phi)^+[s]$.
 By Lemma \ref{structurecollapsingmagic},
 $\M^+_{\hat\U}\models\Pr i\phi[s]$.
-Since $\M$ and $\M_{\hat\U}$ agree on $\Pr i$,
-$\M\models\Pr i\phi[s]$.
+Since $\M^{I(j)}_{\hat\U}$ and $\M^+_{\hat\U}$ agree on $\Pr i$,
+$\M^{I(j)}_{\hat\U}\models\Pr i\phi[s]$.
 
 \item
 (7--8)
