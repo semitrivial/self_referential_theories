@@ -1728,11 +1728,22 @@ $j$, $\M^{J(j)}_{\str{\U}}\models U_j\cup T_j$.
 % and every $\LPA(\indset)$-structure $\M$,
 % if $\M_\S\myequiv_j\M$, then $\M\models S_k\cup S_{(\alpha,k)}$.
 % \end{quote}
-Fix $\M$ and assume $\M_\S\myequiv_i\M$.
-For all $j\prec i$,
-Lemma \ref{sequencelemma} says $\M_\S\myequiv_j \M$,
-and therefore by ($*$) we already have $\M\models S_j\cup S_{(\alpha,j)}$.
-It remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
+Let $I(i)$ be any computable stratifier-set above $i$.
+We must show $\M^{I(i)}_{\str{\U}}\models U_i\cup T_i$.
+
+\item
+\claim0
+$\forall j\prec i$, $\M^{I(i)}_{\str{\U}}\models U_j\cup T_j$.
+
+\item
+For any such $j$, by transitivity of $\prec$, since $I(i)$ is above $i$,
+$I(i)$ is above $j$. Therefore the claim is immediate by ($*$).
+
+% Fix $\M$ and assume $\M_\S\myequiv_i\M$.
+% For all $j\prec i$,
+% Lemma \ref{sequencelemma} says $\M_\S\myequiv_j \M$,
+% and therefore by ($*$) we already have $\M\models S_j\cup S_{(\alpha,j)}$.
+% It remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
 
 \item
 \claim1
