@@ -1811,26 +1811,28 @@ T_j &\models \phi^s
 
 \item
 \case5
-$\sigma$ is $\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,
-x\rangle\in W_{\overline n})$ for some $\LPA(\omega)$-formula $\phi$ with $\FV(\phi)\subseteq\{x\}$
+$\sigma$ is
+$\forall x(\Pr j\phi\leftrightarrow\langle\overline{\ulcorner\phi\urcorner},\overline j,
+x\rangle\in W_{\overline n})$
+for some $\LPA(\omega)$-formula $\phi$ with $\FV(\phi)\subseteq\{x\}$
 and $j\prec i$.
 Let $s$ be any assignment, say $s(x)=m$.
 The following biconditionals are equivalent:
 \begin{align*}
-\M \models \Pr j\phi&\leftrightarrow
+\M^{I(i)}_{\str{\U}} \models \Pr j\phi&\leftrightarrow
 \langle\overline{\ulcorner\phi\urcorner}, \overline j,x\rangle\in W_{\overline n}[s]\\
-\M_\S \models \Pr j\phi&\leftrightarrow
+\M_{\str{\U}} \models \Pr j\phi&\leftrightarrow
 \langle\overline{\ulcorner\phi\urcorner}, \overline j,x\rangle\in W_{\overline n}[s]
-  &\mbox{($\M$ and $\M_\S$ agree on the symbols in question)}\\
-\M_\S \models \Pr j\phi[s]&\mbox{ iff }\M_\S\models
+  &\mbox{($\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$ agree on the symbols in question)}\\
+\M_{\str{\U}} \models \Pr j\phi[s]&\mbox{ iff }\M_\S\models
 \langle\overline{\ulcorner\phi\urcorner}, \overline j,\overline m\rangle\in W_{\overline n}
-  &\mbox{(Lemma \ref{preservedintentspecialcase})}\\
-\M_\S \models \Pr j\phi[s]&\mbox{ iff }
+  &\mbox{(Lemma \ref{raisingMtotheIpreservesintent})}\\
+\M_{\str{\U}} \models \Pr j\phi[s]&\mbox{ iff }
 \langle\ulcorner\phi\urcorner,j,m\rangle\in W_n
-  &\mbox{($\M_\S$ has standard first-order part)}\\
+  &\mbox{($\M_{\str{\U}}$ has standard first-order part)}\\
 T_j \models \phi^s&\mbox{ iff }
 \langle\ulcorner\phi\urcorner,j,m\rangle\in W_n
-  &\mbox{(Definition of $\M_\S$)}\\
+  &\mbox{(Definition of $\M_{\str{\U}}$)}\\
 T_j \models \phi(x|\overline m)&\mbox{ iff }
 \langle\ulcorner\phi\urcorner,j,m\rangle\in W_n.
   &\mbox{(Since $\FV(\phi)\subseteq\{x\}$)}
