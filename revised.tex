@@ -1747,24 +1747,24 @@ $I(i)$ is above $j$. Therefore the claim is immediate by ($*$).
 
 \item
 \claim1
-$\forall \alpha\in\epom$, $\M\models S_{(\alpha,i)}$.
+%$\forall \alpha\in\epom$, $\M\models S_{(\alpha,i)}$.
+$\forall \alpha\in\epom$, $\M^{I(i)}_{\str{\U}}\models U_i\cap\alpha$.
 
 \item
 By induction on $\alpha$.
-Let $\sigma\in S_{(\alpha,i)}$.
-This means $\sigma\in U_i\cap\alpha$.
+Let $\sigma\in U_i\cap\alpha$.
 
 \item
 \case1
 $\sigma\in V_i$.
-Then $\M\models\sigma$ because
+Then $\M^{I(i)}_{\str{\U}}\models\sigma$ because
 $\V$ is straticlosed-r.e.-generic and $\U\supseteq\V$
 is straticlosed and r.e.
 
 \item
 \case2
 $\sigma$ is an instance of $i$-Assigned Strativalidity, $i$-Strativalidity,
-or $i$-Stratideduction.  Then $\M\models\sigma$
+or $i$-Stratideduction.  Then $\M^{I(i)}_{\str{\U}}\models\sigma$
 by Lemma \ref{secondgrabbag}.
 
 \item
@@ -1772,18 +1772,20 @@ by Lemma \ref{secondgrabbag}.
 $\sigma$ is $\ucl{\Prr{\alpha_0} i\phi\rightarrow\phi}$ for some
 $i$-stratified $\LPA(\indset)$-formula $\phi$ such that $\Prr{\alpha_0}i\phi$ is $i$-stratified.
 Since $\sigma\in U_i\cap\alpha$, this forces $\alpha_0<\alpha$.
-Let $s$ be an assignment and assume $\M\models\Prr{\alpha_0}i\phi[s]$, then:
+Let $s$ be an assignment and
+assume $\M^{I(i)}_{\str{\U}}\models\Prr{\alpha_0}i\phi[s]$, then:
 \begin{align*}
-\M &\models \Prr{\alpha_0} i\phi[s]
+\M^{I(i)}_{\str{\U}} &\models \Prr{\alpha_0} i\phi[s]
   &\mbox{(Assumption)}\\
-\M_\S &\models \Prr{\alpha_0} i\phi[s]
-  &\mbox{($\M$ and $\M_\S$ agree on $\Prr{\alpha_0} i$ by Lemma \ref{sequencelemma})}\\
-S_{(\alpha_0,i)} &\models \phi^s
-  &\mbox{(Definition of $\M_\S$)}\\
-\M &\models \phi^s
-  &\mbox{(By induction, $\M\models S_{(\alpha_0,i)}$)}\\
-\M &\models \phi[s].
-  &\mbox{(By Lemma \ref{preservedintentspecialcase})}
+\M_{\str{\U}} &\models \Prr{\alpha_0} i\phi[s]
+  &\mbox{($\M_{\str{\U}}$ and $\M^{I(i)}_{\str{\U}}$ agree on $\Prr{\alpha_0} i$
+  by Definition \ref{moduloidefn})}\\
+U_i\cap \alpha_0 &\models \phi^s
+  &\mbox{(Definition of $\M_{\str{\U}})}\\
+\M^{I(i)}_{\str{\U}} &\models \phi^s
+  &\mbox{(By $\alpha$-induction, $\M^{I(i)}_{\str{\U}}\models U_i\cap \alpha_0$)}\\
+\M^{I(i)}_{\str{\U}} &\models \phi[s].
+  &\mbox{(By Lemma \ref{raisingMtotheIpreservesintent})}
 \end{align*}
 
 
