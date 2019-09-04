@@ -1794,22 +1794,29 @@ U_i\cap \alpha_0 &\models \phi^s
 $\sigma$ is $\ucl{\Pr j\phi\rightarrow\phi^+}$ for some $\LPA(\omega)$-formula $\phi$, $j\prec i$,
 and $i$-stratifier $\bullet^+$.
 By Lemma \ref{stratifiermagic} we may assume $\bullet^+$ is computable.
-Let $s$ be an assignment and assume $\M\models \Pr j\phi[s]$, then:
+Let $J(j)$ be the stratifier-set $J(j)=I(i)\cup\{\bullet^+\}$, which is above $j$
+since $j\prec i$ and $I(i)$ is above $i$.
+Let $s$ be an assignment and assume $\M^{I(i)}_{\str{\U}}\models \Pr j\phi[s]$, then:
 \begin{align*}
-\M &\models \Pr j\phi[s]
+\M^{I(i)}_{\str{\U}} &\models \Pr j\phi[s]
   &\mbox{(Assumption)}\\
-\M_\S &\models \Pr j\phi[s]
-  &\mbox{(Since $j\prec i$, $\M$ and $\M_\S$ agree on $\Pr j$ by Lemma \ref{sequencelemma})}\\
+\M_{\str{\U}} &\models \Pr j\phi[s]
+  &\mbox{(Since $j\prec i$, $\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$ agree
+  on $\Pr j$ since $I(i)$ is above $i$)}\\
+U^-_j &\models \phi^s
+  &\mbox{(Definition of $\M_{\str{\U}}$)}\\
 T_j &\models \phi^s
-  &\mbox{(Definition of $\M_\S$)}\\
-\M^+ &\models \phi^s
-  &\mbox{(By Lemma \ref{sequencelemma}, $\M_\S\myequiv_j\M^+$, so by ($*$), $\M^+\models T_j$)}\\
-\M &\models (\phi^s)^+
+  &\mbox{(Since $U^-_j=T_j$)}\\
+\M^{J(j)}_{\str{\U}} &\models \phi^s
+  &\mbox{(Because $\M^{J(j)}_{\str{\U}}\models T_j$ by ($*$))}\\
+(\M^{I(i)}_{\str{\U}})^+ &\models \phi^s
+  &\mbox{(Lemma \ref{decomposingMtotheI})}\\
+\M^{I(i)}_{\str{\U}} &\models (\phi^s)^+
   &\mbox{(Lemma \ref{structurecollapsingmagic})}\\
-\M &\models (\phi^+)^s
+\M^{I(i)}_{\str{\U}} &\models (\phi^+)^s
   &\mbox{(Clearly $(\phi^s)^+\equiv(\phi^+)^s$)}\\
-\M &\models \phi^+[s].
-  &\mbox{(Lemma \ref{preservedintentspecialcase})}
+\M^{I(i)}_{\str{\U}} &\models \phi^+[s].
+  &\mbox{(Lemma \ref{raisingMtotheIpreservesintent})}
 \end{align*}
 
 
