@@ -1871,7 +1871,8 @@ By arbitrariness of $\alpha$, Claim 1 is proved.
 \claim2
 For any assignment $s$
 and any very $i$-stratified $\LPA(\indset)$-formula $\phi$,
-$\M\models\phi[s]$ if and only if $\M\models\phi^-[s]$.
+$\M^{I(i)}_{\str{\U}}\models\phi[s]$ if and only if
+$\M^{I(i)}_{\str{\U}}\models\phi^-[s]$.
 
 \item
 By induction on $\phi$.
@@ -1883,20 +1884,23 @@ $\phi$ is $\Pr j\psi$ for some $j$.
 Then $\phi^-\equiv\phi$ and the claim is trivial.
 
 \item
-\case2 $\phi$ is $\Prr \alpha j\psi$ for some $j\not=i$.  Impossible, this is not $i$-stratified.
+\case2 $\phi$ is $\Prr \alpha j\psi$ for
+some $j\not=i$.  Impossible, this is not $i$-stratified.
 
 \item
 \case3
 $\phi$ is $\Prr\alpha i\psi$.
 The following are equivalent:
 \begin{align*}
-\M &\models (\Prr\alpha i\psi)^-[s]\\
-\M_\S &\models (\Prr\alpha i\psi)^-[s]
-  &\mbox{($\M$ and $\M_\S$ agree on $\Pr i$)}\\
-\M_\S &\models \Prr\alpha i\psi[s]
+\M^{I(i)}_{\str{\U}} &\models (\Prr\alpha i\psi)^-[s]\\
+\M_{\str{\U}} &\models (\Prr\alpha i\psi)^-[s]
+  &\mbox{(Since $I(i)$ is above $i$, $\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$
+  agree on $\Pr i$)}\\
+\M_{\str{\U}} &\models \Prr\alpha i\psi[s]
   &\mbox{(Theorem \ref{stratificationtheorem})}\\
-\M &\models \Prr\alpha i\psi[s].
-  &\mbox{($\M$ and $\M_S$ agree on $\Prr\alpha i$)}
+\M^{I(i)}_{\str{\U}} &\models \Prr\alpha i\psi[s].
+  &\mbox{($\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$
+  agree on $\Prr \alpha i$)}
 \end{align*}
 
 
