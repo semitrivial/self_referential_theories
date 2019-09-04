@@ -1691,27 +1691,43 @@ Lemma \ref{stratifiermagic}; to see $\U$ is r.e., use
 Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
 $U_i^-=T_i$.
 
-
-Let $\S=(S_i)_{i\in\indset}=\str{\U}$.
-By definition this means that for all $i\in\omega$ and $\alpha\in\epom$,
-\[S_i=U_i^-=T_i\mbox{ and }S_{(\alpha,i)}=U_i\cap\alpha.
-\]
+% Let $\S=(S_i)_{i\in\indset}=\str{\U}$.
+% By definition this means that for all $i\in\omega$ and $\alpha\in\epom$,
+% \[S_i=U_i^-=T_i\mbox{ and }S_{(\alpha,i)}=U_i\cap\alpha.
+% \]
 
 In order to show $\M_\T\models\T$ and thus prove the theorem,
-we will show $\M_\S\models\S$, which is more than sufficient, since 
-$\M_\S$ and $\M_\T$ have the same universe and agree on $\LPA(\omega)$.
-But for sake of a stronger induction hypothesis, we will prove 
-more.  We will prove that for every $i\in\omega$, every $j\preceq i$,
-every $\alpha\in\epom$ and every $\LPA(\indset)$-structure $\M$,
-if $\M_\S\myequiv_i\M$ then $\M\models S_j\cup S_{(\alpha,j)}$.
+we will show $\M_{\str{\U}}\models \str{\U}$, which I claim is more
+than sufficient. To see why this is more than sufficient, recall that
+$\str{\U}$ is the $\LPA(\indset)$ family $(S_i)_{i\in\indset}$
+where $\forall i\in\omega$ and $\alpha\in\epom$, $S_i=U^-_i=T_i$ and
+$S_{(\alpha,i)}=U_i\cap \alpha$.
+So if we can show that $\M_{\str{\U}}\models \str{\U}$ then in particular
+for every $i\in\omega$, $\M_{\str{\U}}\models T_i$, in other words,
+that $\M_{\str{\U}}\models\T$; this would yield $\M_\T\models\T$ because
+$\M_\T$ and $\M_{\str{\U}}$ have the same universe and agree on $\LPA(\omega)$.
 
-Fix $i\in\omega$.  Since $\prec$ is well-founded, we may assume the following:
+But in fact we will show even more than $\M_{\str{\U}}\models\str{\U}$.
+For the sake of a stronger induction hypothesis, we will prove that for
+every $i\in\omega$, for every computable stratifier-set $I(i)$ above $i$,
+$\M^{I(i)}_{\str{\U}}\models U_i\cup T_i$.
+This is more than enough because $\M^{I(i)}_{\str{\U}}=\M_{\str{\U}}$ when
+$I(i)=\emptyset$, and as $i$ varies over $\omega$, $U_i\cup T_i$ includes
+all of $\str{\U}$.
+
+Fix $i\in\omega$. By $\prec$-induction, we have the following:
 \begin{quote}
-($*$) For every $k\preceq j\prec i$,
-every $\alpha\in\epom$,
-and every $\LPA(\indset)$-structure $\M$,
-if $\M_\S\myequiv_j\M$, then $\M\models S_k\cup S_{(\alpha,k)}$.
+($*$) For every $j\prec i$, for every computable stratifier-set $J(j)$ above
+$j$, $\M^{J(j)}_{\str{\U}}\models U_j\cup T_j$.
 \end{quote}
+
+% Fix $i\in\omega$.  Since $\prec$ is well-founded, we may assume the following:
+% \begin{quote}
+% ($*$) For every $k\preceq j\prec i$,
+% every $\alpha\in\epom$,
+% and every $\LPA(\indset)$-structure $\M$,
+% if $\M_\S\myequiv_j\M$, then $\M\models S_k\cup S_{(\alpha,k)}$.
+% \end{quote}
 Fix $\M$ and assume $\M_\S\myequiv_i\M$.
 For all $j\prec i$,
 Lemma \ref{sequencelemma} says $\M_\S\myequiv_j \M$,
