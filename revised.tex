@@ -1698,27 +1698,34 @@ So if we can show that $\M_{\str{\U}}\models \str{\U}$ then in particular
 for every $i\in\omega$, $\M_{\str{\U}}\models T_i$, in other words,
 that $\M_{\str{\U}}\models\T$; this would yield $\M_\T\models\T$ because
 $\M_\T$ and $\M_{\str{\U}}$ have the same universe and agree on $\LPA(\omega)$.
+For brevity, let $\M=\M_{\str\U}$.
+For the reader's convenience, we recall how $\M=\M_{\str\U}$ interprets $\Pr i$ and
+$\Prr \alpha i$ for all $i\in\omega$, $\alpha\in\epom$:
+\begin{align*}
+    \M\models \Pr i \phi[s] &\mbox{ iff } T_i\models \phi^s,\\
+    \M\models \Prr \alpha i \phi[s] &\mbox{ iff } U_i\cap \alpha\models\phi^s.
+\end{align*}
 
-But in fact we will show even more than $\M_{\str{\U}}\models\str{\U}$.
+In fact we will show even more than $\M\models\str{\U}$.
 For the sake of a stronger induction hypothesis, we will prove that for
 every $i\in\omega$, for every computable stratifier-set $I(i)$ above $i$,
-$\M^{I(i)}_{\str{\U}}\models U_i\cup T_i$.
-This is more than enough because $\M^{I(i)}_{\str{\U}}=\M_{\str{\U}}$ when
+$\M^{I(i)}\models U_i\cup T_i$.
+This is more than enough because $\M^{I(i)}=\M$ when
 $I(i)=\emptyset$, and as $i$ varies over $\omega$, $U_i\cup T_i$ includes
 all of $\str{\U}$.
 
 Fix $i\in\omega$. By $\prec$-induction, we have the following:
 \begin{quote}
 ($*$) For every $j\prec i$, for every computable stratifier-set $J(j)$ above
-$j$, $\M^{J(j)}_{\str{\U}}\models U_j\cup T_j$.
+$j$, $\M^{J(j)}\models U_j\cup T_j$.
 \end{quote}
 
 Let $I(i)$ be any computable stratifier-set above $i$.
-We must show $\M^{I(i)}_{\str{\U}}\models U_i\cup T_i$.
+We must show $\M^{I(i)}\models U_i\cup T_i$.
 
 \item
 \claim1
-$\forall \alpha\in\epom$, $\M^{I(i)}_{\str{\U}}\models U_i\cap\alpha$.
+$\forall \alpha\in\epom$, $\M^{I(i)}\models U_i\cap\alpha$.
 
 \item
 By induction on $\alpha$.
@@ -1727,14 +1734,14 @@ Let $\sigma\in U_i\cap\alpha$.
 \item
 \case1
 $\sigma\in V_i$.
-Then $\M^{I(i)}_{\str{\U}}\models\sigma$ because
+Then $\M^{I(i)}\models\sigma$ because
 $\V$ is straticlosed-r.e.-generic and $\U\supseteq\V$
 is straticlosed and r.e.
 
 \item
 \case2
 $\sigma$ is an instance of $i$-Assigned Strativalidity, $i$-Strativalidity,
-or $i$-Stratideduction.  Then $\M^{I(i)}_{\str{\U}}\models\sigma$
+or $i$-Stratideduction.  Then $\M^{I(i)}\models\sigma$
 by Lemma \ref{secondgrabbag}.
 
 \item
@@ -1743,18 +1750,18 @@ $\sigma$ is $\ucl{\Prr{\alpha_0} i\phi\rightarrow\phi}$ for some
 $i$-stratified $\LPA(\indset)$-formula $\phi$ such that $\Prr{\alpha_0}i\phi$ is $i$-stratified.
 Since $\sigma\in U_i\cap\alpha$, this forces $\alpha_0<\alpha$.
 Let $s$ be an assignment and
-assume $\M^{I(i)}_{\str{\U}}\models\Prr{\alpha_0}i\phi[s]$, then:
+assume $\M^{I(i)}\models\Prr{\alpha_0}i\phi[s]$, then:
 \begin{align*}
-\M^{I(i)}_{\str{\U}} &\models \Prr{\alpha_0} i\phi[s]
+\M^{I(i)} &\models \Prr{\alpha_0} i\phi[s]
   &\mbox{(Assumption)}\\
-\M_{\str{\U}} &\models \Prr{\alpha_0} i\phi[s]
-  &\mbox{($\M_{\str{\U}}$ and $\M^{I(i)}_{\str{\U}}$ agree on $\Prr{\alpha_0} i$
-  by Definition \ref{moduloidefn})}\\
+\M &\models \Prr{\alpha_0} i\phi[s]
+  &\mbox{($\M$ and $\M^{I(i)}$ agree on $\Prr{\alpha_0} i$
+  by Def.\ \ref{moduloidefn})}\\
 U_i\cap \alpha_0 &\models \phi^s
-  &\mbox{(Definition of $\M_{\str{\U}}$)}\\
-\M^{I(i)}_{\str{\U}} &\models \phi^s
-  &\mbox{(By $\alpha$-induction, $\M^{I(i)}_{\str{\U}}\models U_i\cap \alpha_0$)}\\
-\M^{I(i)}_{\str{\U}} &\models \phi[s].
+  &\mbox{(Definition of $\M$)}\\
+\M^{I(i)} &\models \phi^s
+  &\mbox{(By $\alpha$-induction, $\M^{I(i)}\models U_i\cap \alpha_0$)}\\
+\M^{I(i)} &\models \phi[s].
   &\mbox{(By Lemma \ref{raisingMtotheIpreservesintent})}
 \end{align*}
 
@@ -1766,26 +1773,26 @@ and $i$-stratifier $\bullet^+$.
 By Lemma \ref{stratifiermagic} we may assume $\bullet^+$ is computable.
 Let $J(j)$ be the computable stratifier-set $J(j)=I(i)\cup\{\bullet^+\}$, which is above $j$
 since $j\prec i$ and $I(i)$ is above $i$.
-Let $s$ be an assignment and assume $\M^{I(i)}_{\str{\U}}\models \Pr j\phi[s]$, then:
+Let $s$ be an assignment and assume $\M^{I(i)}\models \Pr j\phi[s]$, then:
 \begin{align*}
-\M^{I(i)}_{\str{\U}} &\models \Pr j\phi[s]
+\M^{I(i)} &\models \Pr j\phi[s]
   &\mbox{(Assumption)}\\
-\M_{\str{\U}} &\models \Pr j\phi[s]
-  &\mbox{(Since $j\prec i$, $\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$ agree
-  on $\Pr j$ since $I(i)$ is above $i$)}\\
+\M &\models \Pr j\phi[s]
+  &\mbox{(Since $j\prec i$ and $I(i)$ is above $i$, $\M^{I(i)}$ and $\M$ agree
+  on $\Pr j$}\\
 U^-_j &\models \phi^s
-  &\mbox{(Definition of $\M_{\str{\U}}$)}\\
+  &\mbox{(Definition of $\M$)}\\
 T_j &\models \phi^s
   &\mbox{(Since $U^-_j=T_j$)}\\
-\M^{J(j)}_{\str{\U}} &\models \phi^s
-  &\mbox{(Because $\M^{J(j)}_{\str{\U}}\models T_j$ by ($*$))}\\
-(\M^{I(i)}_{\str{\U}})^+ &\models \phi^s
+\M^{J(j)} &\models \phi^s
+  &\mbox{(Since $\M^{J(j)}\models T_j$ by ($*$))}\\
+(\M^{I(i)})^+ &\models \phi^s
   &\mbox{(Lemma \ref{decomposingMtotheI})}\\
-\M^{I(i)}_{\str{\U}} &\models (\phi^s)^+
+\M^{I(i)} &\models (\phi^s)^+
   &\mbox{(Lemma \ref{structurecollapsingmagic})}\\
-\M^{I(i)}_{\str{\U}} &\models (\phi^+)^s
+\M^{I(i)} &\models (\phi^+)^s
   &\mbox{(Clearly $(\phi^s)^+\equiv(\phi^+)^s$)}\\
-\M^{I(i)}_{\str{\U}} &\models \phi^+[s].
+\M^{I(i)} &\models \phi^+[s].
   &\mbox{(Lemma \ref{raisingMtotheIpreservesintent})}
 \end{align*}
 
@@ -1799,20 +1806,20 @@ and $j\prec i$.
 Let $s$ be any assignment, say $s(x)=m$.
 The following biconditionals are equivalent:
 \begin{align*}
-\M^{I(i)}_{\str{\U}} \models \Pr j\phi&\leftrightarrow
+\M^{I(i)} \models \Pr j\phi&\leftrightarrow
 \langle\overline{\ulcorner\phi\urcorner}, \overline j,x\rangle\in W_{\overline n}[s]\\
-\M_{\str{\U}} \models \Pr j\phi&\leftrightarrow
+\M \models \Pr j\phi&\leftrightarrow
 \langle\overline{\ulcorner\phi\urcorner}, \overline j,x\rangle\in W_{\overline n}[s]
-  &\mbox{($\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$ agree on the symbols in question)}\\
-\M_{\str{\U}} \models \Pr j\phi[s]&\mbox{ iff }\M_\S\models
+  &\mbox{($\M^{I(i)}$ and $\M$ agree on the symbols in question)}\\
+\M \models \Pr j\phi[s]&\mbox{ iff }\M\models
 \langle\overline{\ulcorner\phi\urcorner}, \overline j,\overline m\rangle\in W_{\overline n}
   &\mbox{(Lemma \ref{raisingMtotheIpreservesintent})}\\
-\M_{\str{\U}} \models \Pr j\phi[s]&\mbox{ iff }
+\M \models \Pr j\phi[s]&\mbox{ iff }
 \langle\ulcorner\phi\urcorner,j,m\rangle\in W_n
-  &\mbox{($\M_{\str{\U}}$ has standard first-order part)}\\
+  &\mbox{($\M$ has standard first-order part)}\\
 T_j \models \phi^s&\mbox{ iff }
 \langle\ulcorner\phi\urcorner,j,m\rangle\in W_n
-  &\mbox{(Definition of $\M_{\str{\U}}$)}\\
+  &\mbox{(Definition of $\M$)}\\
 T_j \models \phi(x|\overline m)&\mbox{ iff }
 \langle\ulcorner\phi\urcorner,j,m\rangle\in W_n.
   &\mbox{(Since $\FV(\phi)\subseteq\{x\}$)}
@@ -1825,9 +1832,9 @@ $\sigma$ is an instance $\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi$
 of $i$-Collapse (so $\beta\leq_1\gamma$ and $\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi$ is
 $i$-stratified).
 Let $s$ be an assignment,
-since $\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$ agree
+since $\M^{I(i)}$ and $\M$ agree
 on $\Prr\beta i$ and $\Prr\gamma i$, we need only show
-$\M_{\str{\U}}\models\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi[s]$.
+$\M\models\Prr\beta i\phi\leftrightarrow\Prr\gamma i\phi[s]$.
 In other words we must show $U_i\cap\beta\models\phi^s$
 if and only if $U_i\cap\gamma\models\phi^s$.
 This is by Theorem \ref{collapsetheorem}.
@@ -1838,21 +1845,21 @@ $\sigma$ is $\Prr{\alpha_0}i\phi$ for some $\LPA(\indset)$-formula $\phi$
 such that $\Prr{\alpha_0}i\phi$ is $i$-stratified and $\phi\in U_i$.
 Since $\Prr{\alpha_0}i\phi$
 is $i$-stratified, $\onset(\phi)\subseteq\alpha_0$, so $\phi\in U_i\cap\alpha_0$.
-Thus $\M_{\str{\U}}\models \Prr{\alpha_0}i\phi$,
-so $\M^{I(i)}_{\str{\U}}\models \Prr{\alpha_0}i\phi$ since
-$\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$ agree on $\Prr{\alpha_0}i$.
+Thus $\M\models \Prr{\alpha_0}i\phi$,
+so $\M^{I(i)}\models \Prr{\alpha_0}i\phi$ since
+$\M^{I(i)}$ and $\M$ agree on $\Prr{\alpha_0}i$.
 
 \item
 Cases 1--7
-establish $\M^{I(i)}_{\str{\U}}\models U_i\cap\alpha$.
+establish $\M^{I(i)}\models U_i\cap\alpha$.
 By arbitrariness of $\alpha$, Claim 1 is proved.
 
 \item
 \claim2
 For any assignment $s$
 and any very $i$-stratified $\LPA(\indset)$-formula $\phi$,
-$\M^{I(i)}_{\str{\U}}\models\phi[s]$ if and only if
-$\M^{I(i)}_{\str{\U}}\models\phi^-[s]$.
+$\M^{I(i)}\models\phi[s]$ if and only if
+$\M^{I(i)}\models\phi^-[s]$.
 
 \item
 By induction on $\phi$.
@@ -1872,29 +1879,29 @@ some $j\not=i$.  Impossible, this is not $i$-stratified.
 $\phi$ is $\Prr\alpha i\psi$.
 The following are equivalent:
 \begin{align*}
-\M^{I(i)}_{\str{\U}} &\models (\Prr\alpha i\psi)^-[s]\\
-\M_{\str{\U}} &\models (\Prr\alpha i\psi)^-[s]
-  &\mbox{(Since $I(i)$ is above $i$, $\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$
+\M^{I(i)} &\models (\Prr\alpha i\psi)^-[s]\\
+\M &\models (\Prr\alpha i\psi)^-[s]
+  &\mbox{(Since $I(i)$ is above $i$, $\M^{I(i)}$ and $\M$
   agree on $\Pr i$)}\\
-\M_{\str{\U}} &\models \Prr\alpha i\psi[s]
+\M &\models \Prr\alpha i\psi[s]
   &\mbox{(Theorem \ref{stratificationtheorem})}\\
-\M^{I(i)}_{\str{\U}} &\models \Prr\alpha i\psi[s].
-  &\mbox{($\M^{I(i)}_{\str{\U}}$ and $\M_{\str{\U}}$
+\M^{I(i)} &\models \Prr\alpha i\psi[s].
+  &\mbox{($\M^{I(i)}$ and $\M$
   agree on $\Prr \alpha i$)}
 \end{align*}
 
 \item
 \claim3
-$\M^{I(i)}_{\str{\U}}\models T_i$.
+$\M^{I(i)}\models T_i$.
 
 \item
 For any $\sigma\in T_i$,
 there is some $\tau\in U_i$ such that $\tau^-\equiv\sigma$;
 since $U_i$ is $i$-unistratified, we may take $\tau$ to be very $i$-stratified
 (Lemma \ref{verystratifiableaxioms}).
-By Claim 1, $\M^{I(i)}_{\str{\U}}\models U_i$,
-so $\M^{I(i)}_{\str{\U}}\models\tau$.
-By Claim 2, $\M^{I(i)}_{\str{\U}}\models\sigma$.
+By Claim 1, $\M^{I(i)}\models U_i$,
+so $\M^{I(i)}\models\tau$.
+By Claim 2, $\M^{I(i)}\models\sigma$.
 \end{proof}
 
 
