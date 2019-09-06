@@ -1511,7 +1511,6 @@ case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
 extending the family
 in question.
 For bravity, let $\M=\M_{\str\U}$.
-%For brevity let $\hat\U=\str\U$.
 
 \item
 (1) Similar to part 1 of Lemma \ref{firstgrabbag}.
@@ -1541,7 +1540,6 @@ agree on $\Pr j$, so reason as in (2) above.
 If not, we can write $I=I_0\cup\{\bullet^+\}$ where $\bullet^+$ is a
 computable $j$-stratifier, and Lemma \ref{decomposingMtotheI} ensures that
 $\M^{I(i)}$ and $\M^+$ agree on $\Pr j$.
-%
 By definition of $\M^+$, $\M\models(\Pr j(\phi\rightarrow\psi))^+[s]$
 and $\M\models(\Pr j\phi)^+[s]$.
 Let $\alpha,\beta\in\epom$ be such that $(\Pr j(\phi\rightarrow\psi))^+\equiv\Prr\alpha j(\phi^+\rightarrow\psi^+)$
@@ -1691,11 +1689,6 @@ Lemma \ref{stratifiermagic}; to see $\U$ is r.e., use
 Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
 $U_i^-=T_i$.
 
-% Let $\S=(S_i)_{i\in\indset}=\str{\U}$.
-% By definition this means that for all $i\in\omega$ and $\alpha\in\epom$,
-% \[S_i=U_i^-=T_i\mbox{ and }S_{(\alpha,i)}=U_i\cap\alpha.
-% \]
-
 In order to show $\M_\T\models\T$ and thus prove the theorem,
 we will show $\M_{\str{\U}}\models \str{\U}$, which I claim is more
 than sufficient. To see why this is more than sufficient, recall that
@@ -1721,25 +1714,11 @@ Fix $i\in\omega$. By $\prec$-induction, we have the following:
 $j$, $\M^{J(j)}_{\str{\U}}\models U_j\cup T_j$.
 \end{quote}
 
-% Fix $i\in\omega$.  Since $\prec$ is well-founded, we may assume the following:
-% \begin{quote}
-% ($*$) For every $k\preceq j\prec i$,
-% every $\alpha\in\epom$,
-% and every $\LPA(\indset)$-structure $\M$,
-% if $\M_\S\myequiv_j\M$, then $\M\models S_k\cup S_{(\alpha,k)}$.
-% \end{quote}
 Let $I(i)$ be any computable stratifier-set above $i$.
 We must show $\M^{I(i)}_{\str{\U}}\models U_i\cup T_i$.
 
-% Fix $\M$ and assume $\M_\S\myequiv_i\M$.
-% For all $j\prec i$,
-% Lemma \ref{sequencelemma} says $\M_\S\myequiv_j \M$,
-% and therefore by ($*$) we already have $\M\models S_j\cup S_{(\alpha,j)}$.
-% It remains to show $\forall \alpha\in\epom$, $\M\models S_i\cup S_{(\alpha,i)}$.
-
 \item
 \claim1
-%$\forall \alpha\in\epom$, $\M\models S_{(\alpha,i)}$.
 $\forall \alpha\in\epom$, $\M^{I(i)}_{\str{\U}}\models U_i\cap\alpha$.
 
 \item
