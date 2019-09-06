@@ -1522,7 +1522,7 @@ $\M^{I(i)}\models \ucl{\Pr j(\phi\rightarrow\psi)
 Let $s$ be an assignment and assume
 $\M^{I(i)}\models \Pr j(\phi\rightarrow\psi)[s]$
 and $\M^{I(i)}\models\Pr j\phi[s]$.
-Since $I(i)$ is above $i$, $\M^{I(i)}$ and $\M$
+Since $I(i)$ is above $i$ and $j\not\succeq i$, $\M^{I(i)}$ and $\M$
 agree on $\Pr j$.
 By definition of $\M=\M_{\str\U}$, $U^-_j\models\phi^s\rightarrow\psi^s$
 and $U^-_j\models\phi^s$, thus $U^-_j\models\psi^s$, so
@@ -1536,7 +1536,7 @@ Let $s$ be an assignment and assume $\M^{I(i)}\models \Pr j(\phi\rightarrow\psi)
 and $\M^{I(i)}\models\Pr j\phi[s]$.
 If $j\not\in\indices(I(i))$, then $\M^{I(i)}$ and $\M$
 agree on $\Pr j$, so reason as in (2) above.
-If not, we can write $I=I_0\cup\{\bullet^+\}$ where $\bullet^+$ is a
+If not, we can write $I(i)=I_0\cup\{\bullet^+\}$ where $\bullet^+$ is a
 computable $j$-stratifier, and Lemma \ref{decomposingMtotheI} ensures that
 $\M^{I(i)}$ and $\M^+$ agree on $\Pr j$.
 By definition of $\M^+$, $\M\models(\Pr j(\phi\rightarrow\psi))^+[s]$
