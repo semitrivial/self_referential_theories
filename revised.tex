@@ -1509,54 +1509,56 @@ is r.e.
 In each
 case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
 extending the family
-in question.  For brevity let $\hat\U=\str\U$.
+in question.
+For bravity, let $\M=\M_{\str\U}$.
+%For brevity let $\hat\U=\str\U$.
 
 \item
 (1) Similar to part 1 of Lemma \ref{firstgrabbag}.
 
 \item
 (2) Let $I(i)$ be any computable stratifier-set above $i$, we must show
-$\M^{I(i)}_{\hat\U}\models \ucl{\Pr j(\phi\rightarrow\psi)
+$\M^{I(i)}\models \ucl{\Pr j(\phi\rightarrow\psi)
 \rightarrow\Pr j\phi\rightarrow\Pr j\psi}$.
 
 Let $s$ be an assignment and assume
-$\M^{I(i)}_{\hat\U}\models \Pr j(\phi\rightarrow\psi)[s]$
-and $\M^{I(i)}_{\hat\U}\models\Pr j\phi[s]$.
-Since $I(i)$ is above $i$, $\M^{I(i)}_{\hat\U}$ and $\M_{\hat\U}$
+$\M^{I(i)}\models \Pr j(\phi\rightarrow\psi)[s]$
+and $\M^{I(i)}\models\Pr j\phi[s]$.
+Since $I(i)$ is above $i$, $\M^{I(i)}$ and $\M$
 agree on $\Pr j$.
-By definition of $\M_{\hat\U}$, $U^-_j\models\phi^s\rightarrow\psi^s$
+By definition of $\M=\M_{\str\U}$, $U^-_j\models\phi^s\rightarrow\psi^s$
 and $U^-_j\models\phi^s$, thus $U^-_j\models\psi^s$, so
-$\M_{\hat\U}\models \Pr j\psi[s]$ and thus so does $\M^{I(i)}_{\hat\U}$.
+$\M\models \Pr j\psi[s]$ and thus so does $\M^{I(i)}$.
 
 \item
 (3) Let $I(i)$ be any computable stratifier-set above $i$,
 we must show
-$\M^{I(i)}_{\hat\U}\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
-Let $s$ be an assignment and assume $\M^{I(i)}_{\hat\U}\models \Pr j(\phi\rightarrow\psi)[s]$
-and $\M^{I(i)}_{\hat\U}\models\Pr j\phi[s]$.
-If $j\not\in\indices(I(i))$, then $\M^{I(i)}_{\hat\U}$ and $\M_{\hat\U}$
+$\M^{I(i)}\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
+Let $s$ be an assignment and assume $\M^{I(i)}\models \Pr j(\phi\rightarrow\psi)[s]$
+and $\M^{I(i)}\models\Pr j\phi[s]$.
+If $j\not\in\indices(I(i))$, then $\M^{I(i)}$ and $\M$
 agree on $\Pr j$, so reason as in (2) above.
 If not, we can write $I=I_0\cup\{\bullet^+\}$ where $\bullet^+$ is a
 computable $j$-stratifier, and Lemma \ref{decomposingMtotheI} ensures that
-$\M^{I(i)}_{\hat\U}$ and $\M^+_{\hat\U}$ agree on $\Pr j$.
+$\M^{I(i)}$ and $\M^+$ agree on $\Pr j$.
 %
-By definition of $\M^+_{\hat\U}$, $\M_{\hat\U}\models(\Pr j(\phi\rightarrow\psi))^+[s]$
-and $\M_{\hat\U}\models(\Pr j\phi)^+[s]$.
+By definition of $\M^+$, $\M\models(\Pr j(\phi\rightarrow\psi))^+[s]$
+and $\M\models(\Pr j\phi)^+[s]$.
 Let $\alpha,\beta\in\epom$ be such that $(\Pr j(\phi\rightarrow\psi))^+\equiv\Prr\alpha j(\phi^+\rightarrow\psi^+)$
 and $(\Pr j\phi)^+\equiv\Prr\beta j\phi^+$.
 Then
-$\M_{\hat\U}\models\Prr\alpha j (\phi^+\rightarrow\psi^+)[s]$ and $\M_{\hat\U}\models\Prr\beta j\phi^+[s]$.
+$\M\models\Prr\alpha j (\phi^+\rightarrow\psi^+)[s]$ and $\M\models\Prr\beta j\phi^+[s]$.
 This means $U_j\cap\alpha\models(\phi^+\rightarrow\psi^+)^s$ and $U_j\cap\beta\models(\phi^+)^s$.
 Since $\phi$ is a subformula of $\phi\rightarrow\psi$, it follows $\beta\leq\alpha$, thus
 $U_j\cap\alpha\models (\psi^+)^s$, and by tautology,
 $U_j\cap\alpha\models(\psi^+\wedge(\phi^+\vee\neg\phi^+))^s$.
-So $\M_{\hat\U}\models\Prr\alpha j(\psi^+\wedge(\phi^+\vee\neg\phi^+))[s]$.
+So $\M\models\Prr\alpha j(\psi^+\wedge(\phi^+\vee\neg\phi^+))[s]$.
 By Definition \ref{stratifierdefn},
 \[
 \Prr\alpha j(\psi^+\wedge(\phi^+\vee\neg\phi^+)) \,\equiv\, (\Pr j(\psi\wedge(\phi\vee\neg\phi)))^+
 \]
 (this is the reason for the $\phi\vee\neg\phi$ clause)
-and finally $\M^+_{\hat\U}\models \Pr j(\psi\wedge(\phi\vee\neg\phi))[s]$.
+and finally $\M^+\models \Pr j(\psi\wedge(\phi\vee\neg\phi))[s]$.
 
 \item
 (4)
@@ -1568,32 +1570,32 @@ Similar to part 3 of Lemma \ref{firstgrabbag}.
 
 \item
 (6)
-By (4), $\M^{I(i)}_{\hat\U}\models\mbox{$i$-Assigned Strativalidity}$
+By (4), $\M^{I(i)}\models\mbox{$i$-Assigned Strativalidity}$
 for every computable stratifier-set $I(i)$ above $i$.
-Let $I(j)$ be a computable stratifier-set above $j$, we must
-show $\M^{I(j)}_{\hat\U}\models \mbox{$i$-Validity}$.
+Let $J(j)$ be a computable stratifier-set above $j$, we must
+show $\M^{J(j)}_{\hat\U}\models \mbox{$i$-Validity}$.
 Let $\phi$ be a valid $\LPA(\omega)$-formula, $s$
 an assignment.
 
 \item
 \case1
-$i\not\in\indices(I(j))$.
-Then $\M^{I(j)}_{\hat\U}$ and $\M_{\hat\U}$ agree on $\Pr i$.
+$i\not\in\indices(J(j))$.
+Then $\M^{J(j)}$ and $\M$ agree on $\Pr i$.
 Let $\bullet^+$ be an $i$-stratifier.
 Since $\phi$ is valid, so is $\phi^+$
 (by Lemma \ref{stratifiersrespectvalidity}),
 so $(\phi^+)^s\in U_i$ (since $[\mbox{$i$-Assigned Strativalidity}]_i$ is
 part of line 6).
 Clearly $((\phi^+)^s)^-\equiv\phi^s$, so $\phi^s\in U^-_i$,
-thus $\M_{\hat\U}\models \Pr i\phi[s]$, and so does $\M^{I(j)}_{\hat\U}$.
+thus $\M\models \Pr i\phi[s]$, and so does $\M^{J(j)}$.
 
 \item
 \case2
-$i\in\indices(I(j))$.
-Thus $j\prec i$ and we can write $I(j)=I_0\cup\{\bullet^+\}$
+$i\in\indices(J(j))$.
+Thus $j\prec i$ and we can write $J(j)=I_0\cup\{\bullet^+\}$
 for some computable $i$-stratifier $\bullet^+$.
-By Lemma \ref{decomposingMtotheI}, $\M^{I(j)}_{\hat\U}$ and
-$\M^+_{\hat\U}$ agree on $\Pr i$.
+By Lemma \ref{decomposingMtotheI}, $\M^{J(j)}$ and
+$\M^+$ agree on $\Pr i$.
 Let $\alpha\in\epom$ be such that
 $(\Pr i\phi)^+\equiv \Prr\alpha i\phi^+$.
 As in Case 1, $(\phi^+)^s$ is an instance of
@@ -1602,12 +1604,12 @@ so $(\phi^+)^s\in U_i$
 (since $[\mbox{$i$-Assigned Strativalidity}]_i$ is
 part of line 6).
 In fact by choice of $\alpha$, $(\phi^+)^s\in U_i\cap \alpha$,
-so $\M_{\hat\U}\models \Prr\alpha i\phi^+[s]$,
-that is, $\M_{\hat\U}\models (\Pr i\phi)^+[s]$.
+so $\M\models \Prr\alpha i\phi^+[s]$,
+that is, $\M\models (\Pr i\phi)^+[s]$.
 By Lemma \ref{structurecollapsingmagic},
-$\M^+_{\hat\U}\models\Pr i\phi[s]$.
-Since $\M^{I(j)}_{\hat\U}$ and $\M^+_{\hat\U}$ agree on $\Pr i$,
-$\M^{I(j)}_{\hat\U}\models\Pr i\phi[s]$.
+$\M^+\models\Pr i\phi[s]$.
+Since $\M^{J(j)}$ and $\M^+$ agree on $\Pr i$,
+$\M^{J(j)}\models\Pr i\phi[s]$.
 
 \item
 (7--8)
