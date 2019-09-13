@@ -643,18 +643,75 @@ was used to exhibit a machine that knows its own code.
 \section{Stratification}
 \label{stratificationsection}
 
+\subsection{Motivation}
+
 For the second promise from the introduction, we need to prove a result
 like Theorem \ref{onethreethree} where $T_i$ includes
 $\ucl{\Pr j\phi\rightarrow\phi}$ for all $j\preceq i$, not just $j\prec i$.
-This rules out the direct induction
-used above.  Instead we will induct on formula complexity in a
-specific way.  Naive formula complexity will not work: we would need to show all of
+This rules out the direct $\prec$-induction
+of the type used above.  Induction on formula complexity will not work either:
+we would need to show all of
 $T_i$ consistent just to show $\M_\T\models\Pr i(1=0)\rightarrow(1=0)$.
-So we will ``stratify'' theories $T_i$ into increasing families $T^\alpha_i$
-($\alpha\in \Ord$),
-and show these stratified theories are true.  At large enough ordinals,
-the theories will repeat themselves (or
-\emph{collapse}) in a technical sense, allowing recovery of $T_i$.
+Instead, we will induct on ordinals (namely, ordinals up to $\epom$).
+There are no ordinal numbers in sight so far, and in order to make ordinal
+induction relevant, we will do the following.
+We will extend the background language to contain not only
+the operators $\Pr i$ ($i\in\omega$), but also operators $\Prr \alpha i$
+($i\in\omega$, $\alpha$ an ordinal). And instead of focusing directly on $T_i$,
+we will focus on theories $T^\alpha_i$ (the intended interpretation
+of $\Prr \alpha i \phi$ will be that
+$T^\alpha_i\models\phi$).
+Each $T^\alpha_i$ will contain copies of axioms of $T_i$, except that these
+axiom-copies will have exponents $<\alpha$ inserted strategically.
+Conversely, every axiom in $T_i$ will have such a copy in $T^\alpha_i$ for
+some sufficiently large $\alpha$.
+For large enough ordinals $\alpha$, we will show that these theories $T^\alpha_i$
+\emph{collapse} in a technical sense: loosely speaking, beyond a certain point,
+increasing $\alpha$ will not increase the consequences of $T^\alpha_i$, except in
+the trivial sense of increasing the exponents of those consequences.
+By proving (using induction on $\alpha$) that the $T^\alpha_i$
+hold, we will be able to conclude that the corresponding $T_i$ also hold.
+All the exact details of this process will be spelled out below, but for now we
+will motivate informally.
+
+Suppose we desire $T_i$ to contain the axiom $\Pr i(1+1=2)$.
+Then, as we carry out the procedure in the above paragraph, we will ensure that
+for every $\alpha$, $T^\alpha_i$ shall contain all sentences of the form
+$\Prr {\alpha_0} i (1+1=2)$ with $\alpha_0<\alpha$.
+The reason for the limitation $\alpha_0<\alpha$ is to avoid putting axioms
+into $T^\alpha_i$ that involve exponents $\geq \alpha$.
+The intuition is that we are forming an increasing family of theories $T^\alpha_i$ which
+gradually grow into a union which resembles $T_i$ (but with added exponents).
+Since $1+1=2$ is non-controversial, it makes sense to include it from
+the very beginning in the increasing family of theories $T^\alpha_i$.
+
+Next, suppose that for every arithmetical sentence $\phi$,
+we would like $T_i$ to include
+$\Pr i\phi\rightarrow \Pr i\Pr i\phi$. Then we will arrange that for
+all $\alpha_0<\alpha_1<\alpha$, $T^\alpha_i$ will contain
+$\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$.
+The intended interpretation of $\Prr {\alpha_0} i \phi$ shall be
+$T^{\alpha_0}_i\models \phi$. Thus, it would make no sense for us to put
+the axiom
+$\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_0} i \Prr {\alpha_0} i \phi$
+into $T^\alpha_i$: the fact that $T^{\alpha_0}_i\models \phi$
+does not necessarily imply that $T^{\alpha_0}_i\models \Prr \alpha_0 i \phi$,
+especially since $T^{\alpha_0}_i$ is limited to formulas in which all exponents
+are $<\alpha_0$. At least
+$\Prr {\alpha_1} i\phi \rightarrow \Prr {\alpha_0} i \Prr {\alpha_0} i \phi$
+is plausible (it could be satisfied by $T^{\alpha_1}_i$ containing some basic
+axioms about $\Prr {\alpha_0} i$, axioms which $T^{\alpha_0}_i$ cannot itself
+contain if $T^{\alpha_0}_i$ is restricted to exponents $<\alpha_0$).
+
+Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
+$\Pr i(\Pr j (1=0)\rightarrow (1=0)) \rightarrow \Pr i(\Pr j(1=0)) \rightarrow \Pr i(1=0)$.
+We will arrange
+that for each $\alpha$, the family $T^\alpha_i$ will contain (for each $\alpha_0<\alpha$):
+$\Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0))
+\rightarrow \Prr {\alpha_0} i(\Pr j (1=0)) \rightarrow \Prr {\alpha_0} i (1=0)$.
+
+
+\subsection{Details}
 
 \begin{definition}
 We define a binary relation $\leq_1$ on $\mathrm{Ord}$ by transfinite recursion
