@@ -706,33 +706,39 @@ Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
 \Pr i(\Pr j (1=0)\rightarrow (1=0)) \rightarrow \Pr i(\Pr j(1=0)) \rightarrow \Pr i(1=0).
 \]
 We will arrange
-that for each $\alpha$, the family $T^\alpha_i$ will contain (for each $\alpha_0<\alpha$):
+that for each $\alpha$, $T^\alpha_i$ will contain (for each $\alpha_0<\alpha$):
 \[
 \Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0))
 \rightarrow \Prr {\alpha_0} i(\Pr j (1=0)) \rightarrow \Prr {\alpha_0} i (1=0).
 \]
 Note the lack of exponents on $\Pr j$.
 The intuition is that $\cup_\alpha T^\alpha_i$ should be thought of as a
-version of $T_i$ which has somehow become more self-aware and realized
-something about its own structure (namely, that said structure arises from an
-increasing family of theories), but it has only gained such insight about itself,
-not about $T_j$. (There is a good technical reason for this. We would like
-$T_i$ to contain axioms specifying G\"odel numbers for $T_j$ for $j\prec i$.
-Such an axiom, e.g.\ ``$W_n$ is the set of naturals $k$ such that $T_j$ proves
-the $k$th Turing machine runs forever'', would presumably become false if exponents
-were added, as in, ``$W_n$ is the set of naturals $k$ such that $T^\alpha_j$ proves
-the $k$th Turing machine runs forever''. The former and the latter cannot both be
-true in general, since the number $n$ is the same.)
+version of $T_i$ together with extra information about the structure of
+$T_i$ (namely, that said structure arises from an
+increasing family of theories), but without any additional information
+about the structure of $T_j$.
+% (There is a good technical reason for this. We would like
+% $T_i$ to contain axioms specifying G\"odel numbers for $T_j$ for $j\prec i$.
+% Such an axiom, e.g.\ ``$W_n$ is the set of naturals $k$ such that $T_j$ proves
+% the $k$th Turing machine runs forever'', would presumably become false if exponents
+% were added, as in, ``$W_n$ is the set of naturals $k$ such that $T^\alpha_j$ proves
+% the $k$th Turing machine runs forever''. The former and the latter cannot both be
+% true in general, since the number $n$ is the same.)
 
 Similarly, suppose we would like $T_i$ to include
-$\Pr j(\Pr i (1=0))\rightarrow \Pr i(1=0)$.
-We will arrange that for each $\alpha$, the family $T^\alpha_i$ will contain
-(for each $\alpha_0<\alpha$): $\Pr j(\Pr i(1=0))\rightarrow \Prr \alpha i(1=0)$.
+\[
+\Pr j(\Pr i (1=0))\rightarrow \Pr i(1=0).
+\]
+We will arrange that for each $\alpha$, $T^\alpha_i$ will contain
+(for each $\alpha_0<\alpha$):
+\[
+\Pr j(\Pr i(1=0))\rightarrow \Prr {\alpha_0} i(1=0).
+\]
 Note the lack of exponent on the $\Pr i$ within the scope of $\Pr j$.
-The intuition is just as in the previous paragraph. We think of $\cup_\alpha T^\alpha i$
-as an awakened version of $T_i$ which has gained further insight into the structure of
-$T_i$. But the structure of $T_i$ is quite divorced from that of $T_j$, even
-from what $T_j$ says about $T_i$.
+The intuition is as in the previous paragraph. We think of $\cup_\alpha T^\alpha_i$
+as a version of $T_i$ with extra information about the structure of
+$T_i$. It does not have any such extra information about the
+structure of $T_j$, not even regarding what $T_j$ says about $T_i$.
 % This is perhaps best understood by an
 % aphorism: ``When a man is enlightened, his friends still know the unenlightened
 % man.''
