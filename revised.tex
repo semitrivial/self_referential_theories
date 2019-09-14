@@ -682,8 +682,6 @@ The reason for the limitation $\alpha_0<\alpha$ is to avoid putting axioms
 into $T^\alpha_i$ that involve exponents $\geq \alpha$.
 The intuition is that we are forming an increasing family of theories $T^\alpha_i$ which
 gradually grow into a union which resembles $T_i$ (but with added exponents).
-Since $1+1=2$ is non-controversial, it makes sense to include it from
-the very beginning in the increasing family of theories $T^\alpha_i$.
 
 Next, suppose that for every arithmetical sentence $\phi$,
 we would like $T_i$ to include
@@ -700,16 +698,18 @@ $T^{\alpha_0}_i\models \Prr {\alpha_0} i \phi$,
 especially since $T^{\alpha_0}_i$ is limited to formulas in which all exponents
 are $<\alpha_0$. At least
 $\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$
-is plausible (it could be satisfied by $T^{\alpha_1}_i$ containing some basic
-axioms about $\Prr {\alpha_0} i$, axioms which $T^{\alpha_0}_i$ cannot itself
-contain if $T^{\alpha_0}_i$ is restricted to exponents $<\alpha_0$).
+is plausible.
 
 Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
-$\Pr i(\Pr j (1=0)\rightarrow (1=0)) \rightarrow \Pr i(\Pr j(1=0)) \rightarrow \Pr i(1=0)$.
+\[
+\Pr i(\Pr j (1=0)\rightarrow (1=0)) \rightarrow \Pr i(\Pr j(1=0)) \rightarrow \Pr i(1=0).
+\]
 We will arrange
 that for each $\alpha$, the family $T^\alpha_i$ will contain (for each $\alpha_0<\alpha$):
-$\Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0))
-\rightarrow \Prr {\alpha_0} i(\Pr j (1=0)) \rightarrow \Prr {\alpha_0} i (1=0)$.
+\[
+\Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0))
+\rightarrow \Prr {\alpha_0} i(\Pr j (1=0)) \rightarrow \Prr {\alpha_0} i (1=0).
+\]
 Note the lack of exponents on $\Pr j$.
 The intuition is that $\cup_\alpha T^\alpha_i$ should be thought of as a
 version of $T_i$ which has somehow become more self-aware and realized
