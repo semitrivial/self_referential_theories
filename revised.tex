@@ -644,8 +644,6 @@ was used to exhibit a machine that knows its own code.
 \section{Stratification}
 \label{stratificationsection}
 
-\subsection{Motivation}
-
 For the second promise from the introduction, we need to prove a result
 like Theorem \ref{onethreethree} where $T_i$ includes
 $\ucl{\Pr j\phi\rightarrow\phi}$ for all $j\preceq i$, not just $j\prec i$.
@@ -653,8 +651,19 @@ This rules out the direct $\prec$-induction
 of the type used above.  Induction on formula complexity will not work either:
 we would need to show all of
 $T_i$ consistent just to show $\M_\T\models\Pr i(1=0)\rightarrow(1=0)$.
-Instead, we will induct on ordinals (namely, ordinals up to $\epom$).
-There are no ordinal numbers in sight so far, and in order to make ordinal
+Instead, we will use ordinal induction.
+But there are no ordinals anywhere in sight. In order to obtain ordinals
+to induct on, we will modify the theories we care about, in a process we
+call \emph{stratification}. The technical details are somewhat complicated,
+so we will start with some informal motivational remarks. Readers who
+would like to advance directly to the formal definitions can safely
+skip to Subsection \ref{StratificationDetailsSection}.
+
+\subsection{Motivation for Stratification}
+
+As explained above, we would like to invoke ordinal induction, but there
+are no ordinals in sight.
+In order to make ordinal
 induction relevant, we will do the following.
 We will extend the background language to contain not only
 the operators $\Pr i$ ($i\in\omega$), but also operators $\Prr \alpha i$
@@ -743,7 +752,8 @@ structure of $T_j$, not even regarding what $T_j$ says about $T_i$.
 % aphorism: ``When a man is enlightened, his friends still know the unenlightened
 % man.''
 
-\subsection{Details}
+\subsection{Stratification Formal Details}
+\label{StratificationDetailsSection}
 
 \begin{definition}
 We define a binary relation $\leq_1$ on $\mathrm{Ord}$ by transfinite recursion
