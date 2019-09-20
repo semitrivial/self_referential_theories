@@ -670,21 +670,18 @@ the operators $\Pr i$ ($i\in\omega$), but also operators $\Prr \alpha i$
 we will focus on theories $T^\alpha_i$ (the intended interpretation
 of $\Prr \alpha i \phi$ will be that
 $T^\alpha_i\models\phi$).
-Each $T^\alpha_i$ will contain copies of axioms of $T_i$, except that these
-axiom-copies will have exponents $<\alpha$ inserted strategically.
+Each $T^\alpha_i$ will contain copies of certain axioms of $T_i$, except that these
+axiom-copies will have exponents $<\alpha$ added strategically.
 Conversely, every axiom in $T_i$ will have such a copy in $T^\alpha_i$ for
 some sufficiently large $\alpha$.
-For large enough ordinals $\alpha$, we will show that these theories $T^\alpha_i$
-\emph{collapse} in a technical sense: loosely speaking, beyond a certain point,
+Loosely speaking, we will show that, beyond a certain point,
 increasing $\alpha$ will not increase the consequences of $T^\alpha_i$, except in
 the trivial sense of increasing the exponents of those consequences.
-By proving (using induction on $\alpha$) that the $T^\alpha_i$
+By proving (by induction on $\alpha$) that the $T^\alpha_i$
 hold, we will be able to conclude that the corresponding $T_i$ also hold.
-All the exact details of this process will be spelled out below, but for now we
-will motivate informally.
 
 Suppose we desire $T_i$ to contain the axiom $\Pr i(1+1=2)$.
-Then, as we carry out the procedure in the above paragraph, we will ensure that
+Then, as we carry out the procedure in the above paragraph, we would ensure that
 for every $\alpha$, $T^\alpha_i$ shall contain all sentences of the form
 $\Prr {\alpha_0} i (1+1=2)$ with $\alpha_0<\alpha$.
 The reason for the limitation $\alpha_0<\alpha$ is to avoid putting axioms
@@ -694,17 +691,17 @@ gradually grow into a union which resembles $T_i$ (but with added exponents).
 
 Next, suppose that for every arithmetical sentence $\phi$,
 we would like $T_i$ to include
-$\Pr i\phi\rightarrow \Pr i\Pr i\phi$. Then we will arrange that for
-all $\alpha_0<\alpha_1<\alpha$, $T^\alpha_i$ will contain
+$\Pr i\phi\rightarrow \Pr i\Pr i\phi$. Then we would arrange that for
+all $\alpha_0<\alpha_1<\alpha$, $T^\alpha_i$ contain
 $\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$.
 The intended interpretation of $\Prr {\alpha_0} i \phi$ shall be
-$T^{\alpha_0}_i\models \phi$. Thus, it would make no sense for us to put
+$T^{\alpha_0}_i\models \phi$. Thus, it would make no sense to put
 the axiom
 $\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_0} i \Prr {\alpha_0} i \phi$
 into $T^\alpha_i$: the fact that $T^{\alpha_0}_i\models \phi$
-does not necessarily imply that
+does not generally imply that
 $T^{\alpha_0}_i\models \Prr {\alpha_0} i \phi$,
-especially since $T^{\alpha_0}_i$ is limited to formulas in which all exponents
+since $T^{\alpha_0}_i$ is limited to formulas in which all exponents
 are $<\alpha_0$. At least
 $\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$
 is plausible.
@@ -713,14 +710,14 @@ Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
 \[
 \Pr i(\Pr j (1=0)\rightarrow (1=0)) \rightarrow \Pr i(\Pr j(1=0)) \rightarrow \Pr i(1=0).
 \]
-We will arrange
-that for each $\alpha$, $T^\alpha_i$ will contain (for each $\alpha_0<\alpha$):
+We would arrange
+that for each $\alpha$, $T^\alpha_i$ contain (for each $\alpha_0<\alpha$):
 \[
 \Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0))
 \rightarrow \Prr {\alpha_0} i(\Pr j (1=0)) \rightarrow \Prr {\alpha_0} i (1=0).
 \]
 Note the lack of exponents on $\Pr j$.
-The intuition is that $\cup_\alpha T^\alpha_i$ should be thought of as a
+The intuition is that $\cup_\alpha T^\alpha_i$ is a
 version of $T_i$ together with extra information about the structure of
 $T_i$ (namely, that said structure arises from an
 increasing family of theories), but without any additional information
@@ -737,15 +734,15 @@ Similarly, suppose we would like $T_i$ to include
 \[
 \Pr j(\Pr i (1=0))\rightarrow \Pr i(1=0).
 \]
-We will arrange that for each $\alpha$, $T^\alpha_i$ will contain
+We would arrange that for each $\alpha$, $T^\alpha_i$ contain
 (for each $\alpha_0<\alpha$):
 \[
 \Pr j(\Pr i(1=0))\rightarrow \Prr {\alpha_0} i(1=0).
 \]
 Note the lack of exponent on the $\Pr i$ within the scope of $\Pr j$.
-The intuition is as in the previous paragraph. We think of $\cup_\alpha T^\alpha_i$
-as a version of $T_i$ with extra information about the structure of
-$T_i$. It does not have any such extra information about the
+As above, the intuition is that $\cup_\alpha T^\alpha_i$
+is a version of $T_i$ with extra information about the structure of
+$T_i$. It does not have any extra information about the
 structure of $T_j$, not even regarding what $T_j$ says about $T_i$.
 % This is perhaps best understood by an
 % aphorism: ``When a man is enlightened, his friends still know the unenlightened
