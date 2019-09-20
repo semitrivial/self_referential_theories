@@ -826,6 +826,7 @@ the set of superscripts appearing in $\phi$.
 \end{definition}
 
 \begin{definition}
+\label{IStratifiedDefinition}
 Suppose $i\in\omega$.
 The \emph{$i$-stratified} formulas of $\LPA(\indset)$ are defined as follows (where $\phi$ ranges over $\LPA(\indset)$-formulas).
 \begin{enumerate}
@@ -850,6 +851,32 @@ For example:
 \item $\Prr 5 7 \Pr 8 \Pr 7(1=0)$ is $7$-stratified but $\Prr 5 7 \Pr 8 \Prr 4 7(1=0)$ is not.
 \end{itemize}
 
+We will not make use of the following lemma, but we state it to further illuminate
+Definition \ref{IStratifiedDefinition}.
+
+\begin{lemma}
+Suppose $\phi$ is an $\LPA(\indset)$-formula, $i\in\omega$.
+Then $\phi$ is $i$-stratified if and only if all of the following conditions hold.
+\begin{enumerate}
+    \item
+    For any $j\in\omega$ and $\alpha\in\epom$, if $\Prr\alpha j$ occurs in $\phi$,
+    then $j=i$.
+    \item
+    Every occurrence of $\Pr i$ in $\phi$ is inside the scope of $\Pr j$ for some
+    $j\not=i$.
+    \item
+    $\Prr\alpha i$ never occurs in $\phi$ inside the scope of $\Pr j$, for any
+    $\alpha\in\epom$ or any $j\in\omega$.
+    \item
+    For all $\alpha,\beta\in\epom$,
+    if $\Prr\alpha i$ occurs in $\phi$ inside the scope of $\Prr\beta i$,
+    then $\beta>\alpha$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Straightforward.
+\end{proof}
 
 \begin{definition}
 Suppose $X\subseteq\epom$ and $h:X\to \epom$ is order preserving.
