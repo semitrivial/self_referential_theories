@@ -685,7 +685,7 @@ hold, we will be able to conclude that the corresponding $T_i$ also hold.
 
 Suppose we would like $T_i$ to contain the axiom $\Pr i(1+1=2)$.
 Then, as we carry out the procedure in the above paragraph, we would ensure that
-for every $\alpha$, $T^\alpha_i$ shall contain all sentences of the form
+each $T^\alpha_i$ contain all sentences of the form
 $\Prr {\alpha_0} i (1+1=2)$ with $\alpha_0<\alpha$.
 The reason for the limitation $\alpha_0<\alpha$ is to avoid putting axioms
 into $T^\alpha_i$ that involve exponents $\geq \alpha$.
@@ -694,9 +694,10 @@ gradually grow into a union which resembles $T_i$ (but with added exponents).
 
 Next, suppose that for every arithmetical sentence $\phi$,
 we would like $T_i$ to include
-$\Pr i\phi\rightarrow \Pr i\Pr i\phi$. Then we would arrange that for
-all $\alpha_0<\alpha_1<\alpha$, $T^\alpha_i$ contain
-$\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$.
+$\Pr i\phi\rightarrow \Pr i\Pr i\phi$. Then we would arrange that
+each $T^\alpha_i$ contain
+$\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$
+(whenever $\alpha_0<\alpha_1<\alpha$).
 The intended interpretation of $\Prr {\alpha_0} i \phi$ shall be
 $T^{\alpha_0}_i\models \phi$. Thus, it would make no sense to put
 the axiom
@@ -714,7 +715,7 @@ Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
 \Pr i(\Pr j (1=0)\rightarrow (1=0)).
 \]
 We would arrange
-that for each $\alpha$, $T^\alpha_i$ contain (for each $\alpha_0<\alpha$):
+that each $T^\alpha_i$ contain (for all $\alpha_0<\alpha$):
 \[
 \Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0)).
 \]
@@ -736,7 +737,7 @@ Similarly, suppose we would like $T_i$ to include
 \[
 \Pr j(\Pr i (1=0))\rightarrow \Pr i(1=0).
 \]
-We would arrange that for each $\alpha$, $T^\alpha_i$ contain
+We would arrange that each $T^\alpha_i$ contain
 (for each $\alpha_0<\alpha$):
 \[
 \Pr j(\Pr i(1=0))\rightarrow \Prr {\alpha_0} i(1=0).
@@ -745,7 +746,7 @@ Note the lack of exponent on the $\Pr i$ within the scope of $\Pr j$.
 As above, the intuition is that $\cup_\alpha T^\alpha_i$
 is a version of $T_i$ with extra information about the structure of
 $T_i$. It does not have any extra information about the
-structure of $T_j$, not even regarding what $T_j$ says about $T_i$.
+structure of $T_j$---not even regarding what $T_j$ says about $T_i$.
 % This is perhaps best understood by an
 % aphorism: ``When a man is enlightened, his friends still know the unenlightened
 % man.''
