@@ -1804,37 +1804,43 @@ For the rest of the proof, we write $\T$ for $\T(n)$, $T_i$ for $T_i(n)$.
 The structure of the proof is as follows.
 \begin{itemize}
 \item
-We will consider a carefully-chosen
-family $\U=(U_i)_{i\in\omega}$ of $\LPA(\indset)$-theories such that each
-$U^-_i=T_i$. We will argue that the truth of $\str{\U}$ implies the truth of $\T$,
-and then we will show the truth of $\str{\U}$.
+First, we will aim the following preliminary result.
+For a certain carefully-chosen
+family $\U=(U_i)_{i\in\omega}$ of $\LPA(\indset)$-theories
+(with each $U^-_i=T_i$)
+and the $\LPA(\indset)$-structure $\M=\M_{\str{\U}}$,
+we will prove that $\forall i\in\omega$, $\M\models U_i\cup T_i$.
 \item
-To deal with the difficulty mentioned at the beginning of Section \ref{stratifiersection},
+To prove the preliminary result,
+in order to deal with the difficulty mentioned at
+the beginning of Section \ref{stratifiersection},
 we will prove more than necessary, to obtain a strong induction hypothesis.
 Namely, we will prove, by $\prec$-induction, that $\forall i\in\omega$,
 for every stratifier-set $I(i)$ above $i$,
-$\M_{\str{\U}}^{I(i)}\models U_i\cup T_i$.
+$\M^{I(i)}\models U_i\cup T_i$.
     \begin{itemize}
     \item
-    Part of proving $\M_{\str{\U}}^{I(i)}\models U_i$ will be proving
-    $\M_{\str{\U}}^{I(i)}\models\ucl{\Prr\alpha i\phi\rightarrow\phi}$
+    Part of proving $\M^{I(i)}\models U_i$ will be proving
+    $\M^{I(i)}\models\ucl{\Prr\alpha i\phi\rightarrow\phi}$
     whenever this is $i$-stratified.
     This, at last, is where we will use induction on $\alpha$ (enabled by our careful
     development of stratification in Section \ref{stratificationsection}).
     \item
-    Part of proving $\M_{\str{\U}}^{I(i)}\models U_i$ will be proving
-    $\M_{\str{\U}}^{I(i)}\models\ucl{\Prr j\phi\rightarrow\phi^+}$
+    Part of proving $\M^{I(i)}\models U_i$ will be proving
+    $\M^{I(i)}\models\ucl{\Prr j\phi\rightarrow\phi^+}$
     whenever $j\prec i$, $\phi$ is an $\LPA(\omega)$-formula,
     and $\bullet^+$ is an $i$-stratifier. This is where we will take advantage
     of our strong induction hypothesis.
     \item
-    Once we establish $\M_{\str{\U}}^{I(i)}\models U_i$, we will essentially
+    Once we establish $\M^{I(i)}\models U_i$, we will essentially
     be able to conclude
-    $\M_{\str{\U}}^{I(i)}\models T_i$ using Theorem \ref{stratificationtheorem}.
+    $\M^{I(i)}\models T_i$ using Theorem \ref{stratificationtheorem}.
     To do so, we will induct on formula complexity.
     \end{itemize}
+\item
+Having established that $\forall i\in\omega$, $\M\models U_i\cup T_i$,
+we will use that to prove that $\M_\T\models\T$, i.e., that $\T$ is true.
 \end{itemize}
-
 
 Since $\T^0$ is stratifiable-r.e.-generic, there is 
 a straticlosed-r.e-generic
@@ -1857,31 +1863,25 @@ Lemma \ref{stratifiermagic}; to see $\U$ is r.e., use
 Theorem \ref{blackbox} part 1); $\U\supseteq\V$; and for each $i\in\omega$,
 $U_i^-=T_i$.
 
-In order to show $\M_\T\models\T$ and thus prove the theorem,
-we will show $\M_{\str{\U}}\models \str{\U}$, which I claim is more
-than sufficient. To see why this is more than sufficient, recall that
+Let $\M=\M_{\str{\U}}$.
+Recall that
 $\str{\U}$ is the $\LPA(\indset)$ family $(S_i)_{i\in\indset}$
 where $\forall i\in\omega$ and $\alpha\in\epom$, $S_i=U^-_i=T_i$ and
 $S_{(\alpha,i)}=U_i\cap \alpha$.
-So if we can show that $\M_{\str{\U}}\models \str{\U}$ then in particular
-for every $i\in\omega$, $\M_{\str{\U}}\models T_i$, or altogether,
-that $\M_{\str{\U}}\models\T$; this would yield $\M_\T\models\T$ because
-$\M_\T$ and $\M_{\str{\U}}$ have the same universe and agree on $\LPA(\omega)$.
-For brevity, let $\M=\M_{\str\U}$.
-For the reader's convenience, we recall how $\M=\M_{\str\U}$ interprets $\Pr i$ and
-$\Prr \alpha i$ for all $i\in\omega$, $\alpha\in\epom$:
+For the reader's convenience, here is how (by definition)
+$\M$ interprets $\Pr i$ and $\Prr \alpha i$ for all $i\in\omega$, $\alpha\in\epom$:
 \begin{align*}
     \M\models \Pr i \phi[s] &\mbox{ iff } T_i\models \phi^s,\\
     \M\models \Prr \alpha i \phi[s] &\mbox{ iff } U_i\cap \alpha\models\phi^s.
 \end{align*}
 
-In fact we will show even more than $\M\models\str{\U}$.
-For the sake of a stronger induction hypothesis, we will prove that for
-every $i\in\omega$, for every computable stratifier-set $I(i)$ above $i$,
+We would like to prove the following intermediate result:
+$\forall i\in\omega$, $\M\models U_i\cup T_i$.
+For the sake of a stronger induction hypothesis, we will prove that
+$\forall i\in\omega$, for every computable stratifier-set $I(i)$ above $i$,
 $\M^{I(i)}\models U_i\cup T_i$.
 This is more than enough because $\M^{I(i)}=\M$ when
-$I(i)=\emptyset$, and as $i$ varies over $\omega$, $U_i\cup T_i$ includes
-all of $\str{\U}$.
+$I(i)=\emptyset$.
 
 Fix $i\in\omega$. By $\prec$-induction, we have the following:
 \begin{quote}
@@ -2069,6 +2069,17 @@ since $U_i$ is $i$-unistratified, we may take $\tau$ to be very $i$-stratified
 By Claim 1, $\M^{I(i)}\models U_i$,
 so $\M^{I(i)}\models\tau$.
 By Claim 2, $\M^{I(i)}\models\sigma$.
+
+By Claims 1--3, we have established that $\forall i\in\omega$,
+$\M\models U_i\cup T_i$.
+In particular, $\M\models \T$.
+Now, for every $i\in\omega$, $\M_\T$ interprets $\Pr i$ as follows:
+\[
+\M_\T\models \Pr i [s] \mbox{ iff } T_i\models \phi^s.
+\]
+This is exactly the same way that $\M$ interprets $\Pr i$.
+It follows that $\M$ and $\M_\T$ agree on $\LPA(\omega)$-formulas.
+Thus, since $\M\models\T$, $\M_\T\models \T$, i.e., $\T$ is true.
 \end{proof}
 
 
