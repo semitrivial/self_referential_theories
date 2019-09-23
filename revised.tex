@@ -1797,8 +1797,37 @@ By the $S$-$m$-$n$ Theorem, there is a total computable $f:\N\to\N$ such that $\
 W_{f(n)}=\{\langle\ulcorner\phi\urcorner,j,m\rangle\in\N\,:\,\mbox{$\phi$ is an $\LPA(\omega)$-formula,
 $\FV(\phi)\subseteq\{x\}$, and $T_j(n)\models\phi(x|\overline m)$}\}.
 \]
-By the Recursion Theorem, there is an $n\in\N$ such that $W_n=W_{f(n)}$.  Fix this $n$ for the rest of the proof
-and write $\T$ for $\T(n)$, $T_i$ for $T_i(n)$.
+By the Recursion Theorem, there is an $n\in\N$ such that $W_n=W_{f(n)}$.
+We will show $\T(n)$ is true.
+For the rest of the proof, we write $\T$ for $\T(n)$, $T_i$ for $T_i(n)$.
+
+The structure of the proof is as follows.
+\begin{itemize}
+\item
+We will consider a carefully-chosen
+family $\U=(U_i)_{i\in\omega}$ of $\LPA(\indset)$-theories such that each
+$U^-_i=T_i$. We will argue that the truth of $\str{\U}$ implies the truth of $\T$,
+and then we will show the truth of $\str{\U}$.
+\item
+To deal with the difficulty mentioned at the beginning of Section \ref{stratifiersection},
+we will prove more than necessary, to obtain a strong induction hypothesis.
+Namely, we will prove, by $\prec$-induction, that $\forall i\in\omega$,
+for every stratifier-set $I(i)$ above $i$,
+$\M_{\str{\U}}^{I(i)}\models U_i\cup T_i$.
+    \begin{itemize}
+    \item
+    Part of proving $\M_{\str{\U}}^{I(i)}\models U_i$ will be proving
+    $\M_{\str{\U}}^{I(i)}$ satisfies axioms stating that $\Prr\alpha i\phi\rightarrow\phi$.
+    This, at long last, is where we will use induction on $\alpha$ (enabled by our careful
+    development of stratification in Section \ref{stratificationsection}).
+    \item
+    Once we establish $\M_{\str{\U}}^{I(i)}\models U_i$, we will essentially
+    be able to conclude
+    $\M_{\str{\U}}^{I(i)}\models T_i$ using Theorem \ref{stratificationtheorem}.
+    To do so, we will induct on formula complexity.
+    \end{itemize}
+\end{itemize}
+
 
 Since $\T^0$ is stratifiable-r.e.-generic, there is 
 a straticlosed-r.e-generic
