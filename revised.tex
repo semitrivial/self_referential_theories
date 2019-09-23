@@ -677,11 +677,13 @@ Each $T^\alpha_i$ will contain copies of certain axioms of $T_i$, except that th
 axiom-copies will have exponents $<\alpha$ added strategically.
 Conversely, every axiom in $T_i$ will have such a copy in $T^\alpha_i$ for
 all sufficiently large $\alpha$.
-Loosely speaking, we will show that, beyond a certain point,
-increasing $\alpha$ will not increase the consequences of $T^\alpha_i$, except in
-the trivial sense of increasing the exponents of those consequences.
-By proving (by induction on $\alpha$) that the $T^\alpha_i$
-hold, we will be able to conclude that the corresponding $T_i$ also hold.
+We will show that for all naturals $m>n>0$,
+$T^{\epsilon_0\cdot m}_i$ and $T^{\epsilon_0\cdot n}_i$
+have essentially the same consequences, except for the exponents
+occurring in those consequences.
+We will use this, after proving by induction on $\alpha$ that
+the $T^\alpha_i$ all hold,
+to conclude that the $T_i$ also hold.
 
 Suppose we would like $T_i$ to contain the axiom $\Pr i(1+1=2)$.
 Then, as we carry out the procedure in the above paragraph, we would ensure that
@@ -698,6 +700,7 @@ $\Pr i\phi\rightarrow \Pr i\Pr i\phi$. Then we would arrange that
 each $T^\alpha_i$ contain
 $\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$
 (whenever $\alpha_0<\alpha_1<\alpha$).
+The reason for the $\alpha_1$ is as follows.
 The intended interpretation of $\Prr {\alpha_0} i \phi$ shall be
 $T^{\alpha_0}_i\models \phi$. Thus, it would make no sense to put
 the axiom
