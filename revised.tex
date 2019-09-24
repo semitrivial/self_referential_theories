@@ -1814,29 +1814,32 @@ we will prove that $\forall i\in\omega$, $\M\models U_i\cup T_i$.
 To prove the preliminary result,
 in order to deal with the difficulty mentioned at
 the beginning of Section \ref{stratifiersection},
-we will prove more than necessary, to obtain a strong induction hypothesis.
+we will prove more than necessary, to obtain a strong $\prec$-induction hypothesis.
 Namely, we will prove, by $\prec$-induction, that $\forall i\in\omega$,
 for every stratifier-set $I(i)$ above $i$,
 $\M^{I(i)}\models U_i\cup T_i$.
     \begin{itemize}
     \item
-    Part of proving $\M^{I(i)}\models U_i$ will be proving
-    $\M^{I(i)}\models\ucl{\Prr\alpha i\phi\rightarrow\phi}$
-    whenever this is $i$-stratified.
-    This, at last, is where we will use induction on $\alpha$ (enabled by our careful
-    development of stratification in Section \ref{stratificationsection}).
+    In order to prove $\M^{I(i)}\models U_i$, we will
+    use induction on $\alpha$ to show that $\M^{I(i)}\models U_i\cap\alpha$
+    for all $\alpha\in\epom$.
     \item
-    Part of proving $\M^{I(i)}\models U_i$ will be proving
+    Part of proving $\M^{I(i)}\models U_i\cap\alpha$ will be proving
+    $\M^{I(i)}\models\ucl{\Prr{\alpha_0} i\phi\rightarrow\phi}$
+    whenever this is $i$-stratified, $\alpha_0<\alpha$.
+    This is where we will use the $\alpha$-induction hypothesis.
+    \item
+    Part of proving $\M^{I(i)}\models U_i\cap\alpha$ will be proving
     $\M^{I(i)}\models\ucl{\Pr j\phi\rightarrow\phi^+}$
     whenever $j\prec i$, $\phi$ is an $\LPA(\omega)$-formula,
     and $\bullet^+$ is an $i$-stratifier. This is where we will take advantage
-    of our strong induction hypothesis.
-    \item
-    Once we establish $\M^{I(i)}\models U_i$, we will essentially
-    be able to conclude
-    $\M^{I(i)}\models T_i$ using Theorem \ref{stratificationtheorem}.
-    To do so, we will induct on formula complexity.
+    of our strong $\prec$-induction hypothesis.
     \end{itemize}
+\item
+Once we've established $\M^{I(i)}\models U_i$, we will essentially
+be able to conclude
+$\M^{I(i)}\models T_i$ using Theorem \ref{stratificationtheorem}.
+To do so, we will induct on formula complexity.
 \item
 Having established that $\forall i\in\omega$, $\M\models U_i\cup T_i$,
 we will use that to prove that $\M_\T\models\T$, i.e., that $\T$ is true.
