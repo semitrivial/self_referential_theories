@@ -1506,6 +1506,45 @@ Straightforward.
 \end{proof}
 
 \begin{lemma}
+\label{technicalLemmaToShortenMainProof}
+    Suppose $i\in\omega$ and suppose $\M$ is an $\LPA(\indset)$-structure
+    with the property that for every very $i$-stratified $\LPA(\indset)$-formula
+    $\phi$ and assignment $s$, $\M\models\phi[s]$ if and only if $\M\models\phi^-[s]$.
+    Suppose $I$ is a stratifier-set such that $i\not\in\indices(I)$.
+    Then for every very $i$-stratified $\LPA(\indset)$-formula $\phi$ and assignment
+    $s$, $\M^I\models\phi[s]$ if and only if $\M^I\models\phi^-[s]$.
+\end{lemma}
+
+\begin{proof}
+    By induction on $\phi$. Let $s$ be an assignment.
+    The only interesting cases are the following.
+
+    \item
+    \case1
+    $\phi$ is $\Pr j\psi$ for some $j$. Then $\phi^-\equiv\phi$ and the claim
+    is trivial.
+
+    \item
+    \case2
+    $\phi$ has the form $\Prr \alpha j\psi$ for some $j\not=i$. Impossible, this is
+    not $i$-stratified.
+
+    \item
+    \case3
+    $\phi$ has the form $\Prr \alpha i \psi$. The following are equivalent:
+
+    \begin{align*}
+        \M^I &\models \Prr \alpha i \psi[s]\\
+        \M &\models \Prr \alpha i \psi[s]
+            &\mbox{($\M$ and $\M^I$ agree on $\Prr \alpha i$)}\\
+        \M &\models (\Prr \alpha i \psi)^-[s]
+            &\mbox{(By hypothesis)}\\
+        \M^I &\models (\Prr \alpha i\psi)^-[s].
+            &\mbox{(Since $i\not\in\indices(I)$, $\M$ and $\M^I$ agree on $\Pr i$)}
+    \end{align*}
+\end{proof}
+
+\begin{lemma}
 \label{raisingMtotheIpreservesintent}
 Suppose $\LPA(\indset)$-structure $\M$ is an instance of
 Definition \ref{intendedstructdefn}, and suppose
@@ -1838,8 +1877,8 @@ $\M^{I(i)}\models U_i\cup T_i$.
 \item
 Once we've established $\M^{I(i)}\models U_i$, we will essentially
 be able to conclude
-$\M^{I(i)}\models T_i$ using Theorem \ref{stratificationtheorem}.
-To do so, we will induct on formula complexity.
+$\M^{I(i)}\models T_i$ using the Stratification Theorem
+(Theorem \ref{stratificationtheorem}).
 \item
 Having established that $\forall i\in\omega$, $\M\models U_i\cup T_i$,
 we will use that to prove that $\M_\T\models\T$, i.e., that $\T$ is true.
@@ -2032,33 +2071,10 @@ $\M^{I(i)}\models\phi[s]$ if and only if
 $\M^{I(i)}\models\phi^-[s]$.
 
 \item
-By induction on $\phi$.
-The only interesting cases are the following.
-
-\item
-\case1
-$\phi$ is $\Pr j\psi$ for some $j$.
-Then $\phi^-\equiv\phi$ and the claim is trivial.
-
-\item
-\case2 $\phi$ is $\Prr \alpha j\psi$ for
-some $j\not=i$.  Impossible, this is not $i$-stratified.
-
-\item
-\case3
-$\phi$ is $\Prr\alpha i\psi$.
-The following are equivalent:
-\begin{align*}
-\M^{I(i)} &\models (\Prr\alpha i\psi)^-[s]\\
-\M &\models (\Prr\alpha i\psi)^-[s]
-  &\mbox{(Since $I(i)$ is above $i$, $\M^{I(i)}$ and $\M$
-  agree on $\Pr i$)}\\
-\M &\models \Prr\alpha i\psi[s]
-  &\mbox{(Theorem \ref{stratificationtheorem})}\\
-\M^{I(i)} &\models \Prr\alpha i\psi[s].
-  &\mbox{($\M^{I(i)}$ and $\M$
-  agree on $\Prr \alpha i$)}
-\end{align*}
+By Theorem \ref{stratificationtheorem}, for all such $s$ and $\phi$,
+$\M\models\phi[s]$ if and only if $\M\models\phi^-[s]$.
+The claim now follows from Lemma \ref{technicalLemmaToShortenMainProof}
+($i\not\in\indices(I(i))$ because $I(i)$ is above $i$).
 
 \item
 \claim3
@@ -2073,6 +2089,7 @@ By Claim 1, $\M^{I(i)}\models U_i$,
 so $\M^{I(i)}\models\tau$.
 By Claim 2, $\M^{I(i)}\models\sigma$.
 
+\item
 By Claims 1--3, we have established that $\forall i\in\omega$,
 $\M\models U_i\cup T_i$.
 In particular, $\M\models \T$.
