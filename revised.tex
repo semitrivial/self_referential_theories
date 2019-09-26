@@ -674,12 +674,12 @@ The intended interpretation
 of $\Prr \alpha i \phi$ will be that
 $T^\alpha_i\models\phi$.
 Each $T^\alpha_i$ will contain copies of certain axioms of $T_i$, except that these
-axiom-copies will have exponents $<\alpha$ added strategically.
+axiom-copies will have superscripts $<\alpha$ added strategically.
 Conversely, every axiom in $T_i$ will have such a copy in $T^\alpha_i$ for
 all sufficiently large $\alpha$.
 We will show that for all naturals $m>n>0$,
 $T^{\epsilon_0\cdot m}_i$ and $T^{\epsilon_0\cdot n}_i$
-have essentially the same consequences, except for the exponents
+have essentially the same consequences, except for the superscripts
 occurring in those consequences.
 We will use this, after proving by induction on $\alpha$ that
 the $T^\alpha_i$ all hold,
@@ -690,9 +690,9 @@ Then, as we carry out the procedure in the above paragraph, we would ensure that
 each $T^\alpha_i$ contain all sentences of the form
 $\Prr {\alpha_0} i (1+1=2)$ with $\alpha_0<\alpha$.
 The reason for the limitation $\alpha_0<\alpha$ is to avoid putting axioms
-into $T^\alpha_i$ that involve exponents $\geq \alpha$.
+into $T^\alpha_i$ that involve superscripts $\geq \alpha$.
 The intuition is that we are forming an increasing family of theories $T^\alpha_i$ which
-gradually grow into a union which resembles $T_i$ (but with added exponents).
+gradually grow into a union which resembles $T_i$ (but with added superscripts).
 
 Next, suppose that for every arithmetical sentence $\phi$,
 we would like $T_i$ to include
@@ -709,7 +709,7 @@ $\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_0} i \Prr {\alpha_0} i \phi$
 into $T^\alpha_i$: the fact that $T^{\alpha_0}_i\models \phi$
 does not generally imply that
 $T^{\alpha_0}_i\models \Prr {\alpha_0} i \phi$,
-since $T^{\alpha_0}_i$ is limited to formulas in which all exponents
+since $T^{\alpha_0}_i$ is limited to formulas in which all superscripts
 are $<\alpha_0$. At least
 $\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$
 is plausible.
@@ -723,7 +723,7 @@ that each $T^\alpha_i$ contain (for all $\alpha_0<\alpha$):
 \[
 \Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0)).
 \]
-Note the lack of exponent on $\Pr j$.
+Note the lack of superscript on $\Pr j$.
 The intuition is that $\cup_\alpha T^\alpha_i$ is a
 version of $T_i$ together with extra information about the structure of
 $T_i$ (namely, that said structure arises from an
@@ -732,7 +732,7 @@ about the structure of $T_j$.
 % (There is a good technical reason for this. We would like
 % $T_i$ to contain axioms specifying G\"odel numbers for $T_j$ for $j\prec i$.
 % Such an axiom, e.g.\ ``$W_n$ is the set of naturals $k$ such that $T_j$ proves
-% the $k$th Turing machine runs forever'', would presumably become false if exponents
+% the $k$th Turing machine runs forever'', would presumably become false if superscripts
 % were added, as in, ``$W_n$ is the set of naturals $k$ such that $T^\alpha_j$ proves
 % the $k$th Turing machine runs forever''. The former and the latter cannot both be
 % true in general, since the number $n$ is the same.)
@@ -746,7 +746,7 @@ We would arrange that each $T^\alpha_i$ contain
 \[
 \Pr j(\Pr i(1=0))\rightarrow \Prr {\alpha_0} i(1=0).
 \]
-Note the lack of exponent on the $\Pr i$ within the scope of $\Pr j$.
+Note the lack of superscript on the $\Pr i$ within the scope of $\Pr j$.
 As above, the intuition is that $\cup_\alpha T^\alpha_i$
 is a version of $T_i$ with extra information about the structure of
 $T_i$. It does not have any extra information about the
