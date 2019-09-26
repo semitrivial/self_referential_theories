@@ -667,51 +667,51 @@ In order to make ordinal
 induction relevant, we will do the following.
 We will extend the background language to contain not only
 the operators $\Pr i$ ($i\in\omega$), but also operators $\Prr \alpha i$
-($i\in\omega$, $\alpha$ an ordinal). And instead of focusing directly on $T_i$,
-we will focus (Definition \ref{stratdefn})
-on theories $T^\alpha_i$, where $T^\alpha_i\subseteq T^\beta_i$ whenever $\beta>\alpha$.
+($i\in\omega$, $\alpha\in\epom$). And instead of focusing directly on $T_i$,
+we will focus
+%(Definition \ref{stratdefn})
+on a theory $U_i$ such that the result $U^-_i$ of erasing superscripts from
+operators in $U_i$ is $U^-_i=T_i$.
 The intended interpretation
-of $\Prr \alpha i \phi$ will be that
+of $\Prr \alpha i \phi[s]$ will be that
+$U_i\cap\alpha\models\phi^s$,
+where $U_i\cap\alpha$ is the set of axioms of $U_i$ whose superscripts are
+$<\alpha$.
 $T^\alpha_i\models\phi$.
-Each $T^\alpha_i$ will contain copies of certain axioms of $T_i$, except that these
-axiom-copies will have superscripts $<\alpha$ added strategically.
-Conversely, every axiom in $T_i$ will have such a copy in $T^\alpha_i$ for
-all sufficiently large $\alpha$.
 We will show that for all naturals $m>n>0$,
-$T^{\epsilon_0\cdot m}_i$ and $T^{\epsilon_0\cdot n}_i$
+$U_i\cap(\epsilon_0\cdot m)$ and $U_i\cap(\epsilon_0\cdot n)$
 have essentially the same consequences, except for the superscripts
 occurring in those consequences.
-We will use this, after proving by induction on $\alpha$ that
-the $T^\alpha_i$ all hold,
-to conclude that the $T_i$ also hold.
+We will use this, after proving that $U_i$ holds, to conclude that
+$T_i$ also holds.
 
 Suppose we would like $T_i$ to contain the axiom $\Pr i(1+1=2)$.
 Then, as we carry out the procedure in the above paragraph, we would ensure that
-each $T^\alpha_i$ contain all sentences of the form
-$\Prr {\alpha_0} i (1+1=2)$ with $\alpha_0<\alpha$.
-The reason for the limitation $\alpha_0<\alpha$ is to avoid putting axioms
-into $T^\alpha_i$ that involve superscripts $\geq \alpha$.
-The intuition is that we are forming an increasing family of theories $T^\alpha_i$ which
-gradually grow into a union which resembles $T_i$ (but with added superscripts).
+$U_i$ contain all sentences of the form $\Prr \alpha i (1+1=2)$.
+This would have the side effect that for any $\alpha'>\alpha$,
+$U_i\cap\alpha'\models\Prr \alpha i (1+1=2)$,
+so that $\Prr {\alpha'} i \Prr \alpha i (1+1=2)$
+would hold in structures with the intended interpretation.
 
 Next, suppose that for every arithmetical sentence $\phi$,
 we would like $T_i$ to include
 \[\Pr i\phi\rightarrow \Pr i\Pr i\phi.\]
 Then we would arrange that
-each $T^\alpha_i$ contain
-\[\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi\]
-(whenever $\alpha_0<\alpha_1<\alpha$).
-The reason for the $\alpha_1$ is as follows.
-The intended interpretation of $\Prr {\alpha_0} i \phi$ shall be
-$T^{\alpha_0}_i\models \phi$. Thus, it would make no sense to put
+$U_i$ contain
+\[\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha'} i \Prr {\alpha} i \phi\]
+(whenever $\alpha'>\alpha$).
+The reason for the $\alpha'$ is as follows.
+The intended interpretation of $\Prr {\alpha} i \phi$ shall be
+$U_i\cap\alpha\models \phi$. Thus, it would make no sense to put
 the axiom
-$\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_0} i \Prr {\alpha_0} i \phi$
-into $T^\alpha_i$: the fact that $T^{\alpha_0}_i\models \phi$
+$\Prr {\alpha} i\phi \rightarrow \Prr {\alpha} i \Prr {\alpha} i \phi$
+into $U_i$: the fact that $U_i\cap\alpha\models \phi$
 does not generally imply that
-$T^{\alpha_0}_i\models \Prr {\alpha_0} i \phi$,
-since $T^{\alpha_0}_i$ is limited to formulas in which all superscripts
-are $<\alpha_0$. At least
-$\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha_1} i \Prr {\alpha_0} i \phi$
+$U_i\cap\alpha\models\Prr \alpha i\phi$,
+since $U_i\cap\alpha$ is limited to formulas in which all superscripts
+are $<\alpha$.
+At least
+$\Prr {\alpha} i\phi \rightarrow \Prr {\alpha'} i \Prr {\alpha} i \phi$
 is plausible.
 
 Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
@@ -719,38 +719,31 @@ Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
 \Pr i(\Pr j (1=0)\rightarrow (1=0)).
 \]
 We would arrange
-that each $T^\alpha_i$ contain (for all $\alpha_0<\alpha$):
+that $U_i$ contain (for all $\alpha$):
 \[
-\Prr {\alpha_0} i(\Pr j (1=0)\rightarrow (1=0)).
+\Prr {\alpha} i(\Pr j (1=0)\rightarrow (1=0)).
 \]
 Note the lack of superscript on $\Pr j$.
-The intuition is that $\cup_\alpha T^\alpha_i$ is a
-version of $T_i$ together with extra information about the structure of
+The intuition is that $U_i$ is a
+version of $T_i$ with extra information about the structure of
 $T_i$ (namely, that said structure arises from an
 increasing family of theories), but without any additional information
 about the structure of $T_j$.
-% (There is a good technical reason for this. We would like
-% $T_i$ to contain axioms specifying G\"odel numbers for $T_j$ for $j\prec i$.
-% Such an axiom, e.g.\ ``$W_n$ is the set of naturals $k$ such that $T_j$ proves
-% the $k$th Turing machine runs forever'', would presumably become false if superscripts
-% were added, as in, ``$W_n$ is the set of naturals $k$ such that $T^\alpha_j$ proves
-% the $k$th Turing machine runs forever''. The former and the latter cannot both be
-% true in general, since the number $n$ is the same.)
 
 Similarly, suppose we would like $T_i$ to include
 \[
 \Pr j(\Pr i (1=0))\rightarrow \Pr i(1=0).
 \]
-We would arrange that each $T^\alpha_i$ contain
-(for each $\alpha_0<\alpha$):
+We would arrange that $U_i$ contain
+(for each $\alpha$):
 \[
-\Pr j(\Pr i(1=0))\rightarrow \Prr {\alpha_0} i(1=0).
+\Pr j(\Pr i(1=0))\rightarrow \Prr {\alpha} i(1=0).
 \]
 Note the lack of superscript on the $\Pr i$ within the scope of $\Pr j$.
-As above, the intuition is that $\cup_\alpha T^\alpha_i$
+As above, the intuition is that $U_i$
 is a version of $T_i$ with extra information about the structure of
 $T_i$. It does not have any extra information about the
-structure of $T_j$---not even regarding what $T_j$ says about $T_i$.
+structure of $T_j$---not even about what $T_j$ says about $T_i$.
 This is important because, when $j\prec i$, we would like $T_i$ to
 contain axioms declaring, essentially, the G\"odel number of
 $T_j$. This G\"odel number would be hardcoded into such axioms,
