@@ -677,6 +677,8 @@ of $\Prr \alpha i \phi[s]$ will be
 $U_i\cap\alpha\models\phi^s$,
 where $U_i\cap\alpha$ is the set of axioms of $U_i$ whose superscripts are
 $<\alpha$.
+Thus, we may think of $U_i$ as a version of $T_i$ with extra information about
+the structure of $T_i$.
 We will show that for all naturals $m>n>0$,
 $U_i\cap(\epsilon_0\cdot m)$ and $U_i\cap(\epsilon_0\cdot n)$
 have essentially the same consequences, except for the superscripts
@@ -687,9 +689,9 @@ $T_i$ also holds.
 Suppose we would like $T_i$ to contain the axiom $\Pr i(1+1=2)$.
 Then, as we carry out the procedure in the above paragraph, we would ensure that
 $U_i$ contain all sentences of the form $\Prr \alpha i (1+1=2)$.
-This would have the side effect that for any $\alpha'>\alpha$,
-$U_i\cap\alpha'\models\Prr \alpha i (1+1=2)$,
-so that $\Prr {\alpha'} i \Prr \alpha i (1+1=2)$
+This would have the side effect that for any $\beta>\alpha$,
+$U_i\cap\beta\models\Prr \alpha i (1+1=2)$,
+so that $\Prr {\beta} i \Prr \alpha i (1+1=2)$
 would hold in structures with the intended interpretation.
 
 Next, suppose that for every arithmetical sentence $\phi$,
@@ -697,9 +699,9 @@ we would like $T_i$ to include
 \[\Pr i\phi\rightarrow \Pr i\Pr i\phi.\]
 Then we would arrange that
 $U_i$ contain
-\[\Prr {\alpha_0} i\phi \rightarrow \Prr {\alpha'} i \Prr {\alpha} i \phi\]
-(whenever $\alpha'>\alpha$).
-The reason for the $\alpha'$ is as follows.
+\[\Prr {\alpha} i\phi \rightarrow \Prr {\beta} i \Prr {\alpha} i \phi\]
+(whenever $\beta>\alpha$).
+The reason for the $\beta$ is as follows.
 The intended interpretation of $\Prr {\alpha} i \phi$ shall be
 $U_i\cap\alpha\models \phi$. Thus, it would make no sense to put
 the axiom
@@ -710,7 +712,7 @@ $U_i\cap\alpha\models\Prr \alpha i\phi$,
 since $U_i\cap\alpha$ is limited to formulas in which all superscripts
 are $<\alpha$.
 At least
-$\Prr {\alpha} i\phi \rightarrow \Prr {\alpha'} i \Prr {\alpha} i \phi$
+$\Prr {\alpha} i\phi \rightarrow \Prr {\beta} i \Prr {\alpha} i \phi$
 is plausible.
 
 Again, suppose that for some $j\prec i$, we would like for $T_i$ to include
