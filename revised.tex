@@ -389,9 +389,8 @@ We will avoid this arbitrary choice by stating results in the form:
 A family $\T$ of $\LPA(\omega)$-theories is
 \emph{closed-r.e.-generic}
 if $\T$ is r.e.~and
-$\M_{\T'}\models\T$ for every closed r.e.~family $\T'\supseteq\T$ of $\LPA(\omega)$-theories.
+$\M_{\U}\models\T$ for every closed r.e.~family $\U\supseteq\T$ of $\LPA(\omega)$-theories.
 \end{definition}
-
 
 \begin{lemma}
 \label{genericclosedreunion}
@@ -440,61 +439,62 @@ j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
 \begin{proof}
 \item
 (1)
-Let $\T'=(T'_k)_{k\in\omega}$ be any closed r.e.~family of $\LPA(\omega)$-theories
-such that $\T'\supseteq [S]_i$ where $S$ is $j$-Deduction.  We must show
-$\M_{\T'}\models [S]_i$.  In other words we must show
-$\M_{\T'}\models \ucl{\Pr j (\phi\rightarrow\psi)
+Let $\U=(U_k)_{k\in\omega}$ be any closed r.e.~family of $\LPA(\omega)$-theories
+such that $\U\supseteq [S]_i$ where $S$ is $j$-Deduction.  We must show
+$\M_{\U}\models [S]_i$.  In other words we must show
+$\M_{\U}\models \ucl{\Pr j (\phi\rightarrow\psi)
 \rightarrow \Pr j\phi \rightarrow \Pr j \psi}$ for any $\phi,\psi$.
-Let $s$ be an assignment and assume $\M_{\T'}\models \Pr j (\phi\rightarrow\psi)[s]$
-and $\M_{\T'}\models \Pr j \phi[s]$, we must show $\M_{\T'}\models \Pr j \psi[s]$.
-By Definition of $\M_{\T'}$, $T'_j\models (\phi\rightarrow\psi)^s$ and
-$T'_j\models \phi^s$.  Clearly $(\phi\rightarrow\psi)^s\equiv
-\phi^s\rightarrow\psi^s$ so by modus ponens $T'_j\models\psi^s$, that is,
-$\M_{\T'}\models \psi[s]$.
+Let $s$ be an assignment and assume $\M_{\U}\models \Pr j (\phi\rightarrow\psi)[s]$
+and $\M_{\U}\models \Pr j \phi[s]$, we must show $\M_{\U}\models \Pr j \psi[s]$.
+By Definition of $\M_{\U}$, $U_j\models (\phi\rightarrow\psi)^s$ and
+$U_j\models \phi^s$.  Clearly $(\phi\rightarrow\psi)^s\equiv
+\phi^s\rightarrow\psi^s$ so by modus ponens $U_j\models\psi^s$, that is,
+$\M_{\U}\models \psi[s]$.
 
 \item
 (2)
-Let $\T'=(T'_k)_{k\in\omega}$ be a closed r.e.~superset of $[S]_i$ where $S$
-is Assigned Validity.  We must show $\M_{\T'}\models [S]_i$.
+Let $\U=(U_k)_{k\in\omega}$ be a closed r.e.~superset of $[S]_i$ where $S$
+is Assigned Validity.  We must show $\M_{\U}\models [S]_i$.
 If $\phi\in [S]_i$ then $\phi$ is $\phi^s_0$ for some valid $\phi_0$ and
-some assignment $s$.  Since $\phi_0$ is valid, $\M_{\T'}\models \phi_0[s]$.
-By Lemma \ref{howintendedworks}, $\M_{\T'}\models \phi^s_0$.
+some assignment $s$.  Since $\phi_0$ is valid, $\M_{\U}\models \phi_0[s]$.
+By Lemma \ref{howintendedworks}, $\M_{\U}\models \phi^s_0$.
 
 \item
 (3)
 By Theorem \ref{completecompact}, $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_i$
 is r.e.
-Let $\T'=(T'_k)_{k\in \omega}$ be any closed r.e.~family
-of $\LPA(\omega)$-theories such that $T'_j$ contains Assigned Validity
-and $T'_i$ contains $j$-Validity.
-We must show $\M_{\T'}$ satisfies Assigned Validity and $j$-Validity.
+Let $\U=(U_k)_{k\in \omega}$ be any closed r.e.~family
+of $\LPA(\omega)$-theories such that $U_j$ contains Assigned Validity
+and $U_i$ contains $j$-Validity.
+We must show $\M_{\U}$ satisfies Assigned Validity and $j$-Validity.
 For Assigned Validity, let $\phi$ be valid and $s$ an assignment.
-Since $\phi$ is valid, $\M_{\T'}\models\phi[s]$, so by Lemma \ref{howintendedworks},
-$\M_{\T'}\models\phi^s$ as desired.  For $j$-Validity,
+Since $\phi$ is valid, $\M_{\U}\models\phi[s]$, so by Lemma \ref{howintendedworks},
+$\M_{\U}\models\phi^s$ as desired.  For $j$-Validity,
 let $\phi$ be valid and $s$ an assignment.
-Since $T'_j$ contains Assigned Validity, $T'_j\models\phi^s$, so
-by definition of $\M_{\T'}$, $\M_{\T'}\models \Pr j\phi[s]$.
+Since $U_j$ contains Assigned Validity, $U_j\models\phi^s$, so
+by definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
 
 \item
 (4)
 Recursive enumerability is by Theorem \ref{completecompact}.
-Let $\T'=(T'_k)_{k\in\omega}$ be any closed r.e.~family
-of $\LPA(\omega)$-theories such that $T'_j$ contains Assigned Validity, $j$-Validity and $j$-Deduction,
-and $T'_i$ contains $j$-Introspection.
-That $\M_{\T'}$ satisfies Assigned Validity and $j$-Validity is as in (3).
-That $\M_{\T'}$ satisfies $j$-Deduction is straightforward.
+Let $\U=(U_k)_{k\in\omega}$ be any closed r.e.~family
+of $\LPA(\omega)$-theories such that $U_j$ contains Assigned Validity, $j$-Validity and $j$-Deduction,
+and $U_i$ contains $j$-Introspection.
+That $\M_{\U}$ satisfies Assigned Validity and $j$-Validity is as in (3).
+That $\M_{\U}$ satisfies $j$-Deduction is straightforward.
 For $j$-Introspection, let $s$ be an assignment and assume
-$\M_{\T'}\models \Pr j\phi[s]$, we will show $\M_{\T'}\models\Pr j\Pr j\phi[s]$.
-Since $\M_{\T'}\models \Pr j\phi[s]$, $T'_j\models\phi^s$.
-By Theorem \ref{completecompact}, there are $\sigma_1,\ldots,\sigma_n\in T'_j$
+$\M_{\U}\models \Pr j\phi[s]$, we will show $\M_{\U}\models\Pr j\Pr j\phi[s]$.
+Since $\M_{\U}\models \Pr j\phi[s]$, $U_j\models\phi^s$.
+By Theorem \ref{completecompact}, there are $\sigma_1,\ldots,\sigma_n\in U_j$
 such that $\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s$
 is valid.
-Since $T'_j$ contains $j$-Validity,
-$T'_j\models \Pr j(\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s)$.
-By repeated applications of $j$-Deduction contained in $T'_j$,
-$T'_j\models \Pr j\sigma_1\rightarrow\cdots\rightarrow\Pr j\sigma_n\rightarrow \Pr j(\phi^s)$.
-Since $\T'$ is closed, $T'_j$ is $\Pr j$-closed and so contains $\Pr j\sigma_1,\ldots,\Pr j\sigma_n$.
-So $T'_j\models (\Pr j\phi)^s$ and $\M_{\T'}\models \Pr j\Pr j\phi[s]$.
+Since $U_j$ contains $j$-Validity,
+$U_j\models \Pr j(\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s)$.
+By repeated applications of $j$-Deduction contained in $U_j$,
+$U_j\models \Pr j\sigma_1\rightarrow\cdots\rightarrow\Pr j\sigma_n\rightarrow \Pr j(\phi^s)$.
+Since $\U$ is closed, $U_j$ is $\Pr j$-closed and
+so contains $\Pr j\sigma_1,\ldots,\Pr j\sigma_n$.
+So $U_j\models (\Pr j\phi)^s$ and $\M_{\U}\models \Pr j\Pr j\phi[s]$.
 
 \item
 (5)
@@ -506,29 +506,29 @@ Trivial.
 
 \item
 (7)
-Suppose $\T'=(T'_i)_{i\in\omega}$ is a closed r.e.~family of
-$\LPA(\omega)$-theories and $\T'\supseteq [S]_i$ where $S$ is $j$-SMT.
-We must show $\M_{\T'}\models [S]_i$.
+Suppose $\U=(U_i)_{i\in\omega}$ is a closed r.e.~family of
+$\LPA(\omega)$-theories and $\U\supseteq [S]_i$ where $S$ is $j$-SMT.
+We must show $\M_{\U}\models [S]_i$.
 That is, given $\phi$ with $e\not\in\FV(\phi)$, we must show
-$\M_{\T'}\models \ucl{\exists e \forall x (\Pr j \phi \leftrightarrow x\in W_e)}$.
+$\M_{\U}\models \ucl{\exists e \forall x (\Pr j \phi \leftrightarrow x\in W_e)}$.
 Let $s$ be an assignment and let $x_1,\ldots,x_k=\FV(\phi)\backslash\{x\}$.
-Since $T'_j$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$
-such that $W_n=\{m\,:\,T'_j\models \phi(x|\overline{m})(x_1|\overline{s(x_1)})
-\cdots (x_k|\overline{s(x_k)})\}$.  Since $e\not\in\FV(\phi)$, and $\M_{\T'}$ has
+Since $U_j$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$
+such that $W_n=\{m\,:\,U_j\models \phi(x|\overline{m})(x_1|\overline{s(x_1)})
+\cdots (x_k|\overline{s(x_k)})\}$.  Since $e\not\in\FV(\phi)$, and $\M_{\U}$ has
 standard first-order part, it follows that
-$\M_{\T'}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
+$\M_{\U}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
 
 \item
 (8)
-Suppose $\T'=(T'_i)_{i\in\omega}\supseteq \T\cup [S]_i$
+Suppose $\U=(U_i)_{i\in\omega}\supseteq \T\cup [S]_i$
 where $\T=(T_i)_{i\in\omega}$ is closed-r.e.-generic and $S$ is the schema
-$\Pr j \phi$ ($\phi\in T_j$).  Right away $\M_{\T'}\models \T$
+$\Pr j \phi$ ($\phi\in T_j$).  Right away $\M_{\U}\models \T$
 because $\T$ is closed-r.e.-generic.  It remains to show that
-$\M_{\T'}\models [S]_i$, i.e., that $\M_{\T'}\models S$.
+$\M_{\U}\models [S]_i$, i.e., that $\M_{\U}\models S$.
 Fix $\phi\in T_j$ and let $s$ be any assignment.  Since $\phi$ is a sentence,
 $\phi\equiv\phi^s$ and thus
-$T_j\models\phi^s$.  Since $T'_j\supseteq T_j$, $T'_j\models\phi^s$.
-By definition of $\M_{\T'}$, $\M_{\T'}\models \Pr j\phi[s]$.
+$T_j\models\phi^s$.  Since $U_j\supseteq T_j$, $U_j\models\phi^s$.
+By definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
 \end{proof}
 
 
