@@ -1780,7 +1780,8 @@ By (1), $\M^{I(i)}\models \mbox{$i$-Stratideduction}$ for every computable
 stratifier-set $I(i)$ above $i$.
 Let $J(j)$ be a computable stratifier-set above $j$, we must show
 $\M^{J(j)}\models \mbox{$i$-Introspection}$.
-In other words, we must show $\M^{J(j)}\models \ucl{\Pr i\phi\rightarrow \Pr i\Pr i\phi}$.
+In other words, we must show $\M^{J(j)}\models \ucl{\Pr i\phi\rightarrow \Pr i\Pr i\phi}$
+for any $\LPA(\omega)$-formula $\phi$.
 Let $s$ be any assignment and assume $\M^{J(j)}\models \Pr i\phi[s]$.
 
 \item
@@ -1812,7 +1813,27 @@ $\M^{J(j)}\models \Pr i\Pr i\phi[s]$, as desired.
 \item
 \case2
 $i\in\indices(J(j))$.
-Finish this.
+Thus $j\prec i$ and we can write $J(j)=I_0\cup\{\bullet^+\}$
+for some computable $i$-stratifier $\bullet^+$.
+By Lemma \ref{decomposingMtotheI}, $\M^{J(j)}$ and
+$\M^+$ agree on $\Pr i$.
+Thus $\M^+\models \Pr i\phi[s]$.
+By Lemma \ref{structurecollapsingmagic},
+$\M\models (\Pr i\phi)^+[s]$.
+Let $\alpha$ be such that $(\Pr i\phi)^+\equiv \Prr\alpha i\phi^+$,
+so $\M\models\Prr\alpha i\phi^+[s]$.
+By definition of $\M$, this means
+$U_i\cap\alpha\models(\phi^+)^s$.
+Let $\beta$ be such that $(\Pr i \Pr i\phi)^+\equiv \Prr\beta i\Prr\alpha i\phi^+$,
+so $\beta>\alpha$.
+By Part 1 of Proof Stratification (Theorem \ref{proofstratification}),
+$U_i\cap\beta\models\Prr\alpha i(\phi^+)^s$.
+Thus $\M\models\Prr\beta i\Prr\alpha i\phi^+[s]$.
+In other words, $\M\models (\Pr i\Pr i\phi)^+[s]$.
+By Lemma \ref{structurecollapsingmagic},
+$\M^+\models \Pr i\Pr i\phi[s]$.
+Since $\M^+$ and $\M^{J(j)}$ agree on $\Pr i$,
+$\M^{J(j)}\models \Pr i\Pr i\phi[s]$, as desired.
 
 \item
 (8)
