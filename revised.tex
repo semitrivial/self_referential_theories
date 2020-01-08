@@ -1833,8 +1833,18 @@ $\M^{J(j)}\models \Pr i\Pr i\phi[s]$, as desired.
 
 \item
 (8)
-Similar to part 4 of Lemma \ref{firstgrabbag}.  Use
-part 3 of Definition \ref{straticloseddefn}.
+Let $I(i)$ be any computable stratifier-set above $i$,
+we must show $\M^{I(i)}\models
+\ucl{\Prr\alpha i\phi\rightarrow\Prr\beta i\Prr\alpha i\phi}$
+assuming this is $i$-stratified (so $\beta>\alpha$).
+Let $s$ be any assignment and assume $\M^{I(i)}\models\Prr\alpha i\phi[s]$.
+By Definition \ref{moduloidefn}, $\M^{I(i)}$ and $\M$ agree on $\Prr\alpha i$,
+so $\M\models\Prr\alpha i\phi[s]$.
+By definition of $\M$, this means $U_i\cap\alpha\models \phi^s$.
+By Part 1 of Theorem \ref{proofstratification},
+$U_i\cap\beta\models \Prr\alpha i\phi^s$.
+Thus, $\M\models \Prr\beta i\Prr\alpha i\phi[s]$,
+and thus so does $\M^{I(i)}$ since it agrees with $\M$ on $\Prr\beta i$.
 
 \item
 (9)
