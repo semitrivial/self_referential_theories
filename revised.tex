@@ -1673,7 +1673,23 @@ in question.
 For brevity, let $\M=\M_{\str\U}$.
 
 \item
-(1) Similar to part 1 of Lemma \ref{firstgrabbag}.
+(1) Let $I(i)$ be any computable stratifier-set above $i$, we must show
+$\M^{I(i)}\models \ucl{\Prr\alpha i(\phi\rightarrow\psi)
+\rightarrow\Prr\alpha i\phi\rightarrow\Prr\alpha i\psi}$ assuming this
+formula is $i$-stratified.
+Let $s$ be an assignment and assume
+$\M^{I(i)}\models \Prr\alpha i(\phi\rightarrow\psi)[s]$
+and $\M^{I(i)}\models\Prr\alpha i\phi[s]$.
+By Definition \ref{moduloidefn}, $\M^{I(i)}$ and $\M$ agree on $\Prr\alpha i$,
+so $\M\models\Prr\alpha i(\phi\rightarrow\psi)[s]$.
+By definition of $\M$, this means $U_i\cap\alpha\models (\phi\rightarrow\psi)^s$.
+Clearly $(\phi\rightarrow\psi)^s\equiv \phi^s\rightarrow\psi^s$,
+so $U_i\cap\alpha\models \phi^s\rightarrow\psi^s$.
+By similar reasoning, $U_i\cap\alpha\models\phi^s$.
+By modus ponens, $U_i\cap\alpha\models\psi^s$, which means
+$\M\models \Prr \alpha i \psi[s]$.
+Since $\M$ and $\M^{I(i)}$ agree on $\Prr\alpha i$,
+$\M^{I(i)}\models \Prr\alpha i\psi[s]$, as desired.
 
 \item
 (2) Let $I(i)$ be any computable stratifier-set above $i$, we must show
