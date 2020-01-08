@@ -1789,25 +1789,20 @@ Let $s$ be any assignment and assume $\M^{J(j)}\models \Pr i\phi[s]$.
 $i\not\in\indices(J(j))$.
 Then $\M^{J(j)}$ and $\M$ agree on $\Pr i$.
 Thus $\M\models \Pr i\phi[s]$.
-This means $U^-_i\models \phi^s$.
-By compactness, there are $\sigma_1,\ldots,\sigma_k\in U_i$
-such that $\sigma^-_1\rightarrow\cdots\rightarrow\sigma^-_k\rightarrow\phi^s$
-is valid.
-Let $\alpha>\onset(\sigma^-_1\rightarrow\cdots\rightarrow\sigma^-_k\rightarrow\phi^s)$.
-Since $U_i$ contains $i$-Strativalidity, in particular
-$U^-_i$ contains $(\Prr\alpha i (\sigma^-_1\rightarrow\cdots\rightarrow\sigma^-_k\rightarrow\phi^s))^-$.
-In other words, $U^-_i$ contains
-$\Pr i(\sigma^-_1\rightarrow\cdots\rightarrow\sigma^-_k\rightarrow\phi^s)$.
-By repeated application of $(\mbox{$i$-Stratideduction})^-$ contained in
-$U^-_i$,
-$U^-_i\models \Pr i\sigma^-_1\rightarrow\cdots\rightarrow\Pr i\sigma^-_k\rightarrow
-\Pr i\phi^s$.
-Since $\U$ is straticlosed, it follows that $U_i$ contains
-$\Prr\alpha i \sigma_1,\ldots,\Prr\alpha i \sigma_k$.
-Thus $U^-_i$ contains $\Pr i\sigma^-_1,\ldots,\Pr i\sigma^-_k$,
-so $U^-_i\models \Pr i\phi^s$.
-Thus $\M\models \Pr i\Pr i\phi[s]$,
-and since $\M$ and $\M^{J(j)}$ agree on $\Pr i$, this shows
+Let $\bullet^+$ be the veristratifier.
+By the Stratification Theorem (Theorem \ref{stratificationtheorem}),
+$\M\models (\Pr i\phi)^+[s]$.
+Let $\alpha$ be such that $(\Pr i\phi)^+\equiv \Prr\alpha i\phi^+$,
+so $\M\models\Prr\alpha i\phi^+[s]$.
+By definition, this means $U_i\cap\alpha\models (\phi^+)^s$.
+Let $\beta$ be such that $(\Pr i\Pr i\phi)^+\equiv \Prr\beta i \Prr\alpha i\phi^+$,
+so $\beta>\alpha$.
+By Part 1 of Proof Stratification (Theorem \ref{proofstratification}),
+$U_i\cap\beta\models\Prr\alpha i (\phi^+)^s$.
+Thus $\M\models \Prr\beta i\Prr\alpha i \phi^+[s]$.
+By the Stratification Theorem (Theorem \ref{stratificationtheorem}),
+$\M\models (\Prr\beta i\Prr\alpha i\phi^+)^-[s]$, that is,
+$\M\models \Pr i\Pr i\phi[s]$. Since $\M$ and $\M^{J(j)}$ agree on $\Pr i$,
 $\M^{J(j)}\models \Pr i\Pr i\phi[s]$, as desired.
 
 \item
