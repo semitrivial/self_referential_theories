@@ -1746,7 +1746,18 @@ as desired.
 
 \item
 (5)
-Similar to part 3 of Lemma \ref{firstgrabbag}.
+Let $I(i)$ be any computable stratifier-set above $i$.
+By (4), $\M^{I(i)}\models \mbox{$i$-Assigned Strativalidity}$.
+We must show $\M^{I(i)}\models \ucl{\Prr\alpha i\phi}$, where $\phi$
+is any valid $\LPA(\indset)$-formula and $\alpha<\epom$ is any ordinal
+such that $\Prr\alpha i\phi$ is $i$-stratified.
+Let $s$ be any assignment. Since $U_i$ contains
+$i$-Assigned Strativalidity, in particular $U_i$ contains $\phi^s$.
+Since $\Prr\alpha i\phi$ is $i$-stratified, $\alpha$ exceeds all the
+superscripts in $\phi$ (hence in $\phi^s$), so $U_i\cap\alpha\models \phi^s$.
+By definition of $\M$, this means $\M\models\Prr\alpha i\phi[s]$.
+By Definition \ref{moduloidefn}, $\M$ and $\M^{I(i)}$ agree on $\Prr\alpha i$,
+so $\M^{I(i)}\models\Prr\alpha i\phi[s]$, as desired.
 
 \item
 (6)
