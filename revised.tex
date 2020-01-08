@@ -1889,7 +1889,53 @@ of Peano Arithmetic for $\LPA(\indset)$, as desired.
 Trivial.
 
 \item
-(11--12)
+(11)
+Let $I(i)$ be any computable stratifier-set above $i$.
+We must show $\M^{I(i)}\models\ucl{\exists e\forall x(\Pr j\phi \leftrightarrow
+x\in W_e)}$ for every $\LPA(\omega)$-formula $\phi$ with $e\not\in\FV(\phi)$.
+Let $s$ be an assignment and let $x_1,\ldots,x_k=\FV(\phi)\backslash \{x\}$.
+
+
+\item
+\case1
+$j\not\in \indices(I(i))$.
+Then $\M^{I(i)}$ and $\M$ agree on $\Pr j$.
+Since $U^-_j$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$ such that
+$W_n=\{m\,:\,U^-_j\models \phi(x|\overline m)(x_1|\overline{s(x_1)})\cdots
+(x_k|\overline{s(x_k)})\}$.
+Since $e\not\in\FV(\phi)$ and $\M$ has standard first-order part, it follows
+that $\M\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
+By first-order semantics,
+$\M\models \exists e\forall x(\Pr j\phi\leftrightarrow x\in W_e)[s]$.
+Since $\M$ and $\M^{I(i)}$ agree on $\Pr j$,
+$\M^{I(i)}\models \exists e\forall x(\Pr j\phi\leftrightarrow x\in W_e)[s]$,
+as desired.
+
+\case2
+$j\in\Indices(I(i))$.
+Thus $i\prec j$ and we can write $I(i)=I_0\cup\{\bullet^+\}$
+for some computable $j$-stratifier $\bullet^+$.
+By Lemma \ref{decomposingMtotheI}, $\M^{I(i)}$ and
+$\M^+$ agree on $\Pr j$.
+Let $\alpha$ be such that $(\Pr j\phi)^+\equiv \Prr\alpha j\phi^+$.
+Since $U_j\cap\alpha$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$ such that
+$W_n=\{m\,:\,U_j\cap\alpha\models\phi^+(x|\overline m)(x_1|\overline{s(x_1)})\cdots
+(x_k|\overline{s(x_k)})\}$.
+Since $e\not\in\FV(\phi)$ (thus $e\not\in\FV(\phi^+)$), and since $\M$ has standard
+first-order part, it follows that
+$\M\models \forall x(\Prr\alpha j\phi^+\leftrightarrow x\in W_e)[s(e|n)]$.
+By first-order semantics,
+$\M\models\exists e\forall x(\Prr\alpha j\phi^+\leftrightarrow x\in W_e)[s]$.
+In other words,
+$\M\models(\exists e\forall x(\Pr j\phi\leftrightarrow x\in W_e))^+[s]$.
+By Lemma \ref{structurecollapsingmagic},
+$\M^+\models \exists e\forall x(\Pr j\phi\leftrightarrow x\in W_e)[s]$.
+Since $\M^+$ and $\M^{I(i)}$ agree on $\Pr j$,
+$\M^{I(i)}\models \exists e\forall x(\Pr j\phi\leftrightarrow x\in W_e)[s]$,
+as desired.
+
+\item
+(12)
 Similar to part 7 of Lemma \ref{firstgrabbag}.
 Use the fact that the stratifier-sets in Definition \ref{bootstrapclosedrestrat}
 are computable.
