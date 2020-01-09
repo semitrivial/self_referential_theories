@@ -2525,6 +2525,26 @@ then, combining $\neg(1)$ with Theorem \ref{onethreethree},
 $\prec$ is well founded if and only if the conclusion of Theorem \ref{onethreethree} holds for $\prec$.
 We will argue that this means it is possible to define $\mathrm{WF}$ in
 $\LPA\cup\{\Tr\}$, which would be absurd and thus would conclude the proof.
+
+For any (G\"odel number of an) r.e.\ partial order $\omega$
+on $\omega$, the conclusion of Theorem \ref{onethreethree}, except for its requirement
+that $\prec$ be well-founded, is equivalent to the following:
+\begin{itemize}
+    For any (G\"odel number of an) r.e.\ family $\T^0=(T^0_i)_{i\in\omega}$,
+    if $\T^0$ is closed-r.e.-generic, then there is some $n\in\mathbb N$
+    such that $\T(n)$ is true, where $\T(n)=(T_i(n))_{i\in\omega}$ is the smallest
+    $\Pr i$-closed theory containing the following:
+    \begin{enumerate}
+        \item
+        The axioms in $T^0_i$.
+        \item
+        $\forall x (\Pr j \phi \leftrightarrow \langle \overline{\langle \phi\rangle},
+        \overline j, x\rangle\in W_{\overline n})$ whenever $j\in\omega$,
+        $\FV(\phi)\subseteq\{x\}$.
+        \item
+        $\ucl(\Pr j \phi\rightarrow\phi)$ whenever $j\prec i$.
+    \end{enumerate}
+\end{itemize}
 \end{proof}
 
 
