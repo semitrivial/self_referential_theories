@@ -1656,6 +1656,8 @@ $\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
 when this is $i$-stratified, $e\not\in\FV(\phi)$.
 \item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
 and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
+and $S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\not \succeq i$).
 \end{enumerate}
 \end{lemma}
 
@@ -1958,7 +1960,8 @@ as desired.
 \item
 (13)
 Since $\T$ is straticlosed-r.e.-generic and $\U\supseteq \T$ is straticlosed and r.e.,
-immediately $\M^{I(i)}\models\T$ (by Definition \ref{bootstrapclosedrestrat}).
+immediately $\M^{J(j)}\models\T$ (by Definition \ref{bootstrapclosedrestrat})
+for all $j\in\omega$ and any computable stratifier-set $J(j)$ above $j$.
 Let $I(i)$ be any computable stratifier-set above $i$.
 Suppose $\phi\in T_i$ and $\alpha\in\epom$ are such that $\Prr\alpha i\phi$
 is $i$-stratified, and let $s$ be any assignment.
@@ -1968,6 +1971,27 @@ $\phi\equiv \phi^s$, and so
 $U_i\cap\alpha\models\phi^s$, and so $\M\models \Prr\alpha i\phi[s]$.
 By Definition \ref{moduloidefn}, $\M^{I(i)}$ agrees with $\M$ on $\Prr \alpha i$,
 so $\M^{I(i)}\models \Prr\alpha i\phi[s]$, as desired.
+
+\item
+(14)
+Since $\T$ is straticlosed-r.e.-generic and $\U\supseteq \T$ is straticlosed and r.e.,
+immediately $\M^{K(k)}\models\T$ (by Definition \ref{bootstrapclosedrestrat})
+for all $k\in\omega$ and any computable stratifier-set $K(k)$ above $k$.
+Let $I(i)$ be any computable stratifier-set above $i$.
+Suppose $\phi\in T_j$ where $j\not\succeq i$. Let $s$ be any assignment.
+Since $U_j\supseteq T_j$, $\phi\in U_j$.
+By Lemma \ref{verystratifiableaxioms}, there is some very $j$-stratified
+$\psi\in U_j$ such that $\psi^-\equiv\phi^-$.
+Clearly since $\phi$ is a sentence, so is $\psi$.
+By compactness, there is some positive integer multiple $\alpha$ of $\epsilon_0$
+such that $U_j\cap\alpha\models \psi$. Since $\psi$ is a sentence,
+$\psi\equiv \psi^s$ and thus
+$U_j\cap\alpha\models \psi^s$.
+Thus, $\M\models\Prr\alpha j \psi[s]$.
+By Theorem \ref{stratificationtheorem},
+$\M\models\Pr j\psi^-[s]$, so by choice of $\psi$, $\M\models\Pr j\phi^-[s]$.
+Since $I(i)$ is above $i$ and $j\not\succeq i$, $\M$ and $\M^{I(i)}$
+agree on $\Pr j$, so $\M^{I(i)}\models \Pr j\phi^-[s]$, as desired.
 \end{proof}
 
 \begin{definition}
