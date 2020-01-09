@@ -2551,6 +2551,25 @@ that $\prec$ be well-founded, is equivalent to the following:
 \end{itemize}
 Every part of the above is manifestly expressible in $\LPA$ except for the clauses
 $\M_\U\models T^0$ and $\M_{\T(n)}\models \T(n)$.
+We will show that ``$\M_\U\models T^0$ is expressible in $\LPA\cup\{\Tr\}$;
+the expressibility of ``$\M_{\T(n)}\models \T(n)$ is similar.
+
+Define an operator $F_\U$ which takes an $\LPA(\omega)$-formula $\phi$ and outputs
+an $\LPA$-formula $F_\U(\phi)$ as follows:
+\begin{itemize}
+    \item
+    If $\phi$ is atomic, let $F_\U(\phi)\equiv \phi$.
+    \item
+    If $\phi$ is $\neg\phi_0$, $\phi_1\rightarrow\phi_2$,
+    or $\forall x\phi_0$, let $F_\U(\phi)$
+    be $\neg F_\U(\phi_0)$, $F_\U(\phi_1)\rightarrow F_\U(\phi_2)$,
+    or $\forall x F_\U(\phi_0)$, respectively.
+    \item
+    Suppose $\phi$ is $\Pr i \psi$ and $\FV(\psi)=\{x_1,\ldots,x_k\}$.
+    Let $\dot x_1,\ldots \dot x_k$ be additional variables.
+    Let $F_\U(\psi)$ be
+\end{itemize}
+
 \end{proof}
 
 
