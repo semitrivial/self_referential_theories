@@ -2573,7 +2573,12 @@ an $\LPA$-formula $F_\U(\phi)$ as follows:
     the formula with G\"odel number $f(x_1,\ldots,x_k)$''
     (so $\FV(F_\U(\psi))=\{x_1,\ldots,x_k\}$).
 \end{itemize}
-
+It is easy to check that for every formula $\phi$ and assignment $s$,
+$\M_\U\models\phi[s]$ if and only if $\mathbb N\models F_\U(\phi)[s]$.
+In particular, for every sentence $\phi$, $\M_\U\models\phi$
+if and only if $\mathbb N\models F_\U(\phi)$. Thus,
+the clause ``$\M_\U\models T^0$'' can be expressed
+in $\LPA\cup\{\Tr\}$ as follows: $\forall \phi(\phi\in T^0\rightarrow \Tr(F_\U(\phi)))$.
 \end{proof}
 
 
