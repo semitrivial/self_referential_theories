@@ -2566,8 +2566,12 @@ an $\LPA$-formula $F_\U(\phi)$ as follows:
     or $\forall x F_\U(\phi_0)$, respectively.
     \item
     Suppose $\phi$ is $\Pr i \psi$ and $\FV(\psi)=\{x_1,\ldots,x_k\}$.
-    Let $\dot x_1,\ldots \dot x_k$ be additional variables.
-    Let $F_\U(\psi)$ be
+    Let $f:\mathbb N^k\to\mathbb N$ be defined so that
+    $f(m_1,\ldots,m_k)$ is a G\"odel number of
+    the sentence $\psi(x_1|\overline{m_1})\cdots (x_k|\overline{m_k})$.
+    Let $F_\U(\psi)$ be: ``$U_i$ proves
+    the formula with G\"odel number $f(x_1,\ldots,x_k)$''
+    (so $\FV(F_\U(\psi))=\{x_1,\ldots,x_k\}$).
 \end{itemize}
 
 \end{proof}
