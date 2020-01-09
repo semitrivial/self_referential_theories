@@ -1937,9 +1937,23 @@ as desired.
 
 \item
 (12)
-Similar to part 7 of Lemma \ref{firstgrabbag}.
-Use the fact that the stratifier-sets in Definition \ref{bootstrapclosedrestrat}
-are computable.
+Let $I(i)$ be any computable stratifier-set above $i$,
+we must show $\M^{I(i)}\models\ucl{\exists e\forall x(\Prr\alpha i \phi)\leftrightarrow
+x\in W_e)}$ for every $\LPA(\indset)$-formula $\phi$ such that
+$\phi$ is $i$-stratified and $e\not\in\FV(\phi)$.
+Let $s$ be any assignment
+and let $x_1,\ldots,x_k=\FV(\phi)\backslash \{x\}$.
+Since $U_i\cap\alpha$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$
+such that
+$W_n=\{m\,:\,U_i\cap\alpha\models \phi(x|\overline m)(x_1|\overline{s(x_1)})\cdots
+(x_k|\overline{s(x_k)})\}$.
+Since $e\not\in\FV(\phi)$, and since $\M$ has standard first-order part,
+it follows that
+$\M\models \exists e\forall x(\Prr\alpha i\phi \leftrightarrow x\in W_e)[s]$.
+By Definition \ref{moduloidefn}, $\M$ and $\M^{I(i)}$ agree on $\Prr\alpha i$,
+so $\M^{I(i)}\models \exists e\forall x(\Prr\alpha i\phi \leftrightarrow x\in W_e)[s]$,
+as desired.
+
 
 \item
 (13)
