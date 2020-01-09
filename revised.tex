@@ -1957,8 +1957,17 @@ as desired.
 
 \item
 (13)
-Similar to part 8 of Lemma \ref{firstgrabbag}; use
-part 3 of Definition \ref{straticloseddefn}.
+Since $\T$ is straticlosed-r.e.-generic and $\U\supseteq \T$ is straticlosed and r.e.,
+immediately $\M^{I(i)}\models\T$ (by Definition \ref{bootstrapclosedrestrat}).
+Let $I(i)$ be any computable stratifier-set above $i$.
+Suppose $\phi\in T_i$ and $\alpha\in\epom$ are such that $\Prr\alpha i\phi$
+is $i$-stratified, and let $s$ be any assignment.
+Since $U_i\supseteq T_i$, $\phi\in U_i$, in fact since $\Prr\alpha i\phi$ is $i$-stratified,
+it follows that $\phi\in U_i\cap\alpha$. Since $\phi$ is a sentence,
+$\phi\equiv \phi^s$, and so
+$U_i\cap\alpha\models\phi^s$, and so $\M\models \Prr\alpha i\phi[s]$.
+By Definition \ref{moduloidefn}, $\M^{I(i)}$ agrees with $\M$ on $\Prr \alpha i$,
+so $\M^{I(i)}\models \Prr\alpha i\phi[s]$, as desired.
 \end{proof}
 
 \begin{definition}
