@@ -2087,52 +2087,6 @@ Since $I(i)$ is above $i$ and $j\not\succeq i$, $\M$ and $\M^{I(i)}$
 agree on $\Pr j$, so $\M^{I(i)}\models \Pr j\phi^-[s]$, as desired.
 \end{proof}
 
-\begin{lemma}
-\label{secondgrabbag}
-(Compare Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure})
-For any $i,j\in\N$, each of the following families
-is straticlosed-r.e.-generic.
-\begin{enumerate}
-\item 1=secondutilbagdeduction part 1
-\item 2=secondutilbagdeduction part 2
-\item 3=secondutilbagdeduction part 3
-\item 4=secondutilbagvalidity part 1
-\item 5=secondutilbagvalidity part 2
-\item 6=secondutilbagvalidity part 3
-\item 7=secondutilbagintrospection part 1
-\item 8=secondutilbagintrospection part 2
-\item 9=secondutilbagarithmetic part 1
-\item 10=secondutilbagarithmetic part 2
-\item 11=secondutilbagsmt part 1
-\item 12=secondutilbagsmt part 2
-\item 13=secondutilbagclosure part 1
-\item 14=secondutilbagclosure part 2
-\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-For unistratifiedness of 4--8, use Corollary \ref{hpreserversvalidity}.
-Unistratifiedness of the other families is clear.
-Recursive enumerability follows from the fact that $\prec$ is r.e.
-In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
-extending the family in question. For brevity, let $\M=\M_{\str\U}$.
-
-\item (1) secondutilbagdeduction part 1
-\item (2) secondutilbagdeduction part 2
-\item (3) secondutilbagdeduction part 3
-\item (4) secondutilbagvalidity part 1
-\item (5) secondutilbagvalidity part 2
-\item (6) secondutilbagvalidity part 3
-\item (7) secondutilbagintrospection part 1
-\item (8) secondutilbagintrospection part 2
-\item (9) secondutilbagarithmetic part 1
-\item (10)secondutilbagarithmetic part 2
-\item (11)secondutilbagsmt part 1
-\item (12)secondutilbagsmt part 2
-\item (13)secondutilbagclosure part 1
-\item (14)secondutilbagclosure part 2
-\end{proof}
-
 \begin{definition}
 If $\T^0=(T^0_i)_{i\in\omega}$ where each $T^0_i$ is an $\LPA(\omega)$-theory,
 we say $\T^0$ is \emph{stratifiable-r.e.-generic} if there is
@@ -2145,7 +2099,7 @@ The following theorem will satisfy the second promise from the introduction:
 it will exhibit true theories $(T_i)_{i\in\omega}$ such that $T_i$ expresses 
 a G\"odel number of $T_j$ ($j\prec i$) and the truth of $T_j$ ($j\preceq 
 i$).  These theories can further be taken so that $T_i$ expresses the fact 
-that $T_j$ has some G\"odel number (all $i,j$), by Lemma \ref{secondgrabbag} parts 11--12.
+that $T_j$ has some G\"odel number (all $i,j$), by Lemma \ref{secondutilbagsmt}.
 
 \begin{theorem}
 \label{generalizedtwoonethree}
@@ -2296,7 +2250,7 @@ is straticlosed and r.e.
 \case2
 $\sigma$ is an instance of $i$-Assigned Strativalidity, $i$-Strativalidity,
 or $i$-Stratideduction.  Then $\M^{I(i)}\models\sigma$
-by Lemma \ref{secondgrabbag}.
+by Lemma \ref{secondutilbagvalidity} or Lemma \ref{secondutilbagdeduction}.
 
 \item
 \case3
