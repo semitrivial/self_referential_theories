@@ -1655,10 +1655,8 @@ Straightforward.
 \end{proof}
 
 \begin{lemma}
-\label{secondgrabbag}
-(Compare Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure})
-For any $i,j\in\N$, each of the following families
-is straticlosed-r.e.-generic.
+\label{secondutilbagdeduction}
+For any $i,j\in\omega$, each of the following families is straticlosed-r.e.-generic.
 \begin{enumerate}
 \item $[\mbox{$i$-Stratideduction}]_i$.
 \item $[\mbox{$j$-Deduction}]_i$ (if $j\not\succeq i$).
@@ -1670,43 +1668,13 @@ is straticlosed-r.e.-generic.
     j(\psi\wedge(\phi\vee\neg\phi))}$.
   }
 \]
-\item $[S]_i$ where $S$ is: ($i$-Assigned Strativalidity)
-the schema $\phi^s$ ($\phi$ valid and $i$-stratified, $s$ an assignment).
-\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i$.
-\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup
-[\mbox{$i$-Validity}]_j$ (if $j\not=i$).
-\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i \cup [\mbox{$i$-Stratideduction}]_i
-\cup [\mbox{$i$-Introspection}]_j$ ($j\not=i$).
-\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i \cup [\mbox{$i$-Stratideduction}]_i
-\cup [S]_i$ where $S$ is:
-\[\mbox{($i$-Stratrospection) $\ucl{\Prr\alpha i\phi\rightarrow \Prr\beta 
-i\Prr\alpha i\phi}$
-whenever this is $i$-stratified.}\]
-\item $[S]_i$ where $S$ is the set of those axioms of Peano arithmetic for 
-$\LPA(\indset)$ that are $i$-stratified.
-\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
-\item $[\mbox{$j$-SMT}]_i$ ($j\not=i$).
-\item $[S]_i$, where $S$ is: ($i$-Strati-SMT)
-$\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
-when this is $i$-stratified, $e\not\in\FV(\phi)$.
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
-and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
-and $S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\not \succeq i$).
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-For
-unistratifiedness of 4--8,
-use Corollary \ref{hpreserversvalidity}.
-Unistratifiedness of the other families is clear.
-Recursive enumerability follows from the fact that $\prec$
-is r.e.
-In each
-case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
-extending the family
-in question.
+Clearly these families are unistratified and r.e.
+In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
+extending the family in question.
 For brevity, let $\M=\M_{\str\U}$.
 
 \item
@@ -1772,6 +1740,53 @@ By Definition \ref{stratifierdefn},
 \]
 (this is the reason for the $\phi\vee\neg\phi$ clause)
 and finally $\M^+\models \Pr j(\psi\wedge(\phi\vee\neg\phi))[s]$.
+\end{proof}
+
+\begin{lemma}
+\label{secondgrabbag}
+(Compare Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure})
+For any $i,j\in\N$, each of the following families
+is straticlosed-r.e.-generic.
+\begin{enumerate}
+\item secondutilbagdeduction part 1
+\item secondutilbagdeduction part 2
+\item secondutilbagdeduction part 3
+\item $[S]_i$ where $S$ is: ($i$-Assigned Strativalidity)
+the schema $\phi^s$ ($\phi$ valid and $i$-stratified, $s$ an assignment).
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i$.
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup
+[\mbox{$i$-Validity}]_j$ (if $j\not=i$).
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i \cup [\mbox{$i$-Stratideduction}]_i
+\cup [\mbox{$i$-Introspection}]_j$ ($j\not=i$).
+\item $[\mbox{$i$-Assigned Strativalidity}]_i \cup [\mbox{$i$-Strativalidity}]_i \cup [\mbox{$i$-Stratideduction}]_i
+\cup [S]_i$ where $S$ is:
+\[\mbox{($i$-Stratrospection) $\ucl{\Prr\alpha i\phi\rightarrow \Prr\beta
+i\Prr\alpha i\phi}$
+whenever this is $i$-stratified.}\]
+\item $[S]_i$ where $S$ is the set of those axioms of Peano arithmetic for
+$\LPA(\indset)$ that are $i$-stratified.
+\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
+\item $[\mbox{$j$-SMT}]_i$ ($j\not=i$).
+\item $[S]_i$, where $S$ is: ($i$-Strati-SMT)
+$\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
+when this is $i$-stratified, $e\not\in\FV(\phi)$.
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
+and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
+and $S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\not \succeq i$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For unistratifiedness of 4--8, use Corollary \ref{hpreserversvalidity}.
+Unistratifiedness of the other families is clear.
+Recursive enumerability follows from the fact that $\prec$ is r.e.
+In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
+extending the family in question. For brevity, let $\M=\M_{\str\U}$.
+
+\item (1) secondutilbagdeduction part 1
+\item (2) secondutilbagdeduction part 2
+\item (3) secondutilbagdeduction part 3
 
 \item
 (4)
