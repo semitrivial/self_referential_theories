@@ -2033,6 +2033,61 @@ as desired.
 \end{proof}
 
 \begin{lemma}
+\label{secondutilbagclosure}
+Let $i,j\in\omega$ and suppose $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic.
+Then each of the following families is straticlosed-r.e.-generic.
+\begin{enumerate}
+\item $\T\cup [S]_i$ where
+$S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
+\item $\T\cup [S]_i$ where
+$S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\not \succeq i$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Unistratifiedness is clear.
+Recursive enumerability follows from the fact that $\prec$ is r.e.
+In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
+extending the family in question. For brevity, let $\M=\M_{\str\U}$.
+
+\item
+(1)
+Since $\T$ is straticlosed-r.e.-generic and $\U\supseteq \T$ is straticlosed and r.e.,
+immediately $\M^{J(j)}\models\T$ (by Definition \ref{bootstrapclosedrestrat})
+for all $j\in\omega$ and any computable stratifier-set $J(j)$ above $j$.
+Let $I(i)$ be any computable stratifier-set above $i$.
+Suppose $\phi\in T_i$ and $\alpha\in\epom$ are such that $\Prr\alpha i\phi$
+is $i$-stratified, and let $s$ be any assignment.
+Since $U_i\supseteq T_i$, $\phi\in U_i$, in fact since $\Prr\alpha i\phi$ is $i$-stratified,
+it follows that $\phi\in U_i\cap\alpha$. Since $\phi$ is a sentence,
+$\phi\equiv \phi^s$, and so
+$U_i\cap\alpha\models\phi^s$, and so $\M\models \Prr\alpha i\phi[s]$.
+By Definition \ref{moduloidefn}, $\M^{I(i)}$ agrees with $\M$ on $\Prr \alpha i$,
+so $\M^{I(i)}\models \Prr\alpha i\phi[s]$, as desired.
+
+\item
+(2)
+Since $\T$ is straticlosed-r.e.-generic and $\U\supseteq \T$ is straticlosed and r.e.,
+immediately $\M^{K(k)}\models\T$ (by Definition \ref{bootstrapclosedrestrat})
+for all $k\in\omega$ and any computable stratifier-set $K(k)$ above $k$.
+Let $I(i)$ be any computable stratifier-set above $i$.
+Suppose $\phi\in T_j$ where $j\not\succeq i$. Let $s$ be any assignment.
+Since $U_j\supseteq T_j$, $\phi\in U_j$.
+By Lemma \ref{verystratifiableaxioms}, there is some very $j$-stratified
+$\psi\in U_j$ such that $\psi^-\equiv\phi^-$.
+Clearly since $\phi$ is a sentence, so is $\psi$.
+By compactness, there is some positive integer multiple $\alpha$ of $\epsilon_0$
+such that $U_j\cap\alpha\models \psi$. Since $\psi$ is a sentence,
+$\psi\equiv \psi^s$ and thus
+$U_j\cap\alpha\models \psi^s$.
+Thus, $\M\models\Prr\alpha j \psi[s]$.
+By Theorem \ref{stratificationtheorem},
+$\M\models\Pr j\psi^-[s]$, so by choice of $\psi$, $\M\models\Pr j\phi^-[s]$.
+Since $I(i)$ is above $i$ and $j\not\succeq i$, $\M$ and $\M^{I(i)}$
+agree on $\Pr j$, so $\M^{I(i)}\models \Pr j\phi^-[s]$, as desired.
+\end{proof}
+
+\begin{lemma}
 \label{secondgrabbag}
 (Compare Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure})
 For any $i,j\in\N$, each of the following families
@@ -2050,10 +2105,8 @@ is straticlosed-r.e.-generic.
 \item 10=secondutilbagarithmetic part 2
 \item 11=secondutilbagsmt part 1
 \item 12=secondutilbagsmt part 2
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
-and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
-and $S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\not \succeq i$).
+\item 13=secondutilbagclosure part 1
+\item 14=secondutilbagclosure part 2
 \end{enumerate}
 \end{lemma}
 
@@ -2076,42 +2129,8 @@ extending the family in question. For brevity, let $\M=\M_{\str\U}$.
 \item (10)secondutilbagarithmetic part 2
 \item (11)secondutilbagsmt part 1
 \item (12)secondutilbagsmt part 2
-
-\item
-(13)
-Since $\T$ is straticlosed-r.e.-generic and $\U\supseteq \T$ is straticlosed and r.e.,
-immediately $\M^{J(j)}\models\T$ (by Definition \ref{bootstrapclosedrestrat})
-for all $j\in\omega$ and any computable stratifier-set $J(j)$ above $j$.
-Let $I(i)$ be any computable stratifier-set above $i$.
-Suppose $\phi\in T_i$ and $\alpha\in\epom$ are such that $\Prr\alpha i\phi$
-is $i$-stratified, and let $s$ be any assignment.
-Since $U_i\supseteq T_i$, $\phi\in U_i$, in fact since $\Prr\alpha i\phi$ is $i$-stratified,
-it follows that $\phi\in U_i\cap\alpha$. Since $\phi$ is a sentence,
-$\phi\equiv \phi^s$, and so
-$U_i\cap\alpha\models\phi^s$, and so $\M\models \Prr\alpha i\phi[s]$.
-By Definition \ref{moduloidefn}, $\M^{I(i)}$ agrees with $\M$ on $\Prr \alpha i$,
-so $\M^{I(i)}\models \Prr\alpha i\phi[s]$, as desired.
-
-\item
-(14)
-Since $\T$ is straticlosed-r.e.-generic and $\U\supseteq \T$ is straticlosed and r.e.,
-immediately $\M^{K(k)}\models\T$ (by Definition \ref{bootstrapclosedrestrat})
-for all $k\in\omega$ and any computable stratifier-set $K(k)$ above $k$.
-Let $I(i)$ be any computable stratifier-set above $i$.
-Suppose $\phi\in T_j$ where $j\not\succeq i$. Let $s$ be any assignment.
-Since $U_j\supseteq T_j$, $\phi\in U_j$.
-By Lemma \ref{verystratifiableaxioms}, there is some very $j$-stratified
-$\psi\in U_j$ such that $\psi^-\equiv\phi^-$.
-Clearly since $\phi$ is a sentence, so is $\psi$.
-By compactness, there is some positive integer multiple $\alpha$ of $\epsilon_0$
-such that $U_j\cap\alpha\models \psi$. Since $\psi$ is a sentence,
-$\psi\equiv \psi^s$ and thus
-$U_j\cap\alpha\models \psi^s$.
-Thus, $\M\models\Prr\alpha j \psi[s]$.
-By Theorem \ref{stratificationtheorem},
-$\M\models\Pr j\psi^-[s]$, so by choice of $\psi$, $\M\models\Pr j\phi^-[s]$.
-Since $I(i)$ is above $i$ and $j\not\succeq i$, $\M$ and $\M^{I(i)}$
-agree on $\Pr j$, so $\M^{I(i)}\models \Pr j\phi^-[s]$, as desired.
+\item (13)secondutilbagclosure part 1
+\item (14)secondutilbagclosure part 2
 \end{proof}
 
 \begin{definition}
