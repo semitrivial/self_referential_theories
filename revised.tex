@@ -415,14 +415,36 @@ form background theories of provability.  In the following lemma, part 4 is the
 whole reason for the ``closed'' in ``closed-r.e.-generic'', and part 7 is
 part of the reason for the ``r.e.''.
 
+\begin{lemma}
+For any $i,j\in\omega$, the following family is closed-r.e.-generic:
+\begin{itemize}
+    \item
+    $[S]_i$ where $S$ is: ($j$-Deduction) the schema
+    $\ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow\Pr j\psi}$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+Let $\U=(U_k)_{k\in\omega}$ be any closed r.e.~family of $\LPA(\omega)$-theories
+such that $\U\supseteq [S]_i$ where $S$ is $j$-Deduction.  We must show
+$\M_{\U}\models [S]_i$.  In other words we must show
+$\M_{\U}\models \ucl{\Pr j (\phi\rightarrow\psi)
+\rightarrow \Pr j\phi \rightarrow \Pr j \psi}$ for any $\phi,\psi$.
+Let $s$ be an assignment and assume $\M_{\U}\models \Pr j (\phi\rightarrow\psi)[s]$
+and $\M_{\U}\models \Pr j \phi[s]$, we must show $\M_{\U}\models \Pr j \psi[s]$.
+By Definition of $\M_{\U}$, $U_j\models (\phi\rightarrow\psi)^s$ and
+$U_j\models \phi^s$.  Clearly $(\phi\rightarrow\psi)^s\equiv
+\phi^s\rightarrow\psi^s$ so by modus ponens $U_j\models\psi^s$, that is,
+$\M_{\U}\models \psi[s]$.
+\end{proof}
+
 
 \begin{lemma}
 \label{firstgrabbag}
 For any $i,j\in \omega$,
 each of the following families is closed-r.e.-generic.
 \begin{enumerate}
-\item $[S]_i$ where $S$ is: ($j$-Deduction) the schema $\ucl{\Pr 
-j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j\psi}$.
+\item Obsoleted.
 \item $[S]_i$ where $S$ is: (Assigned Validity) the schema $\phi^s$ ($\phi$ valid, $s$ an assignment).
 \item $[\mbox{Assigned Validity}]_j\cup[S]_i$ where $S$ is: ($j$-Validity) $\ucl{\Pr j\phi}$ for $\phi$ valid.
 \item $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup [\mbox{$j$-Deduction}]_j\cup [S]_i$ where $S$ is:
@@ -439,17 +461,7 @@ j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
 \begin{proof}
 \item
 (1)
-Let $\U=(U_k)_{k\in\omega}$ be any closed r.e.~family of $\LPA(\omega)$-theories
-such that $\U\supseteq [S]_i$ where $S$ is $j$-Deduction.  We must show
-$\M_{\U}\models [S]_i$.  In other words we must show
-$\M_{\U}\models \ucl{\Pr j (\phi\rightarrow\psi)
-\rightarrow \Pr j\phi \rightarrow \Pr j \psi}$ for any $\phi,\psi$.
-Let $s$ be an assignment and assume $\M_{\U}\models \Pr j (\phi\rightarrow\psi)[s]$
-and $\M_{\U}\models \Pr j \phi[s]$, we must show $\M_{\U}\models \Pr j \psi[s]$.
-By Definition of $\M_{\U}$, $U_j\models (\phi\rightarrow\psi)^s$ and
-$U_j\models \phi^s$.  Clearly $(\phi\rightarrow\psi)^s\equiv
-\phi^s\rightarrow\psi^s$ so by modus ponens $U_j\models\psi^s$, that is,
-$\M_{\U}\models \psi[s]$.
+Obsoleted.
 
 \item
 (2)
