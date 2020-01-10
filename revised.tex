@@ -527,6 +527,30 @@ For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
 \end{proof}
 
 \begin{lemma}
+\label{firstutilbagsmt}
+For any $i,j\in\omega$, the following family is closed-r.e.-generic.
+\begin{itemize}
+\item $[S]_i$ where $S$ is: ($j$-SMT)
+(See \cite{carlson2000} and \cite{reinhardt}) $\ucl{\exists e\forall x(\Pr 
+j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+Suppose $\U=(U_i)_{i\in\omega}$ is a closed r.e.~family of
+$\LPA(\omega)$-theories and $\U\supseteq [S]_i$ where $S$ is $j$-SMT.
+We must show $\M_{\U}\models [S]_i$.
+That is, given $\phi$ with $e\not\in\FV(\phi)$, we must show
+$\M_{\U}\models \ucl{\exists e \forall x (\Pr j \phi \leftrightarrow x\in W_e)}$.
+Let $s$ be an assignment and let $x_1,\ldots,x_k=\FV(\phi)\backslash\{x\}$.
+Since $U_j$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$
+such that $W_n=\{m\,:\,U_j\models \phi(x|\overline{m})(x_1|\overline{s(x_1)})
+\cdots (x_k|\overline{s(x_k)})\}$.  Since $e\not\in\FV(\phi)$, and $\M_{\U}$ has
+standard first-order part, it follows that
+$\M_{\U}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
+\end{proof}
+
+\begin{lemma}
 \label{firstgrabbag}
 For any $i,j\in \omega$,
 each of the following families is closed-r.e.-generic.
@@ -537,8 +561,7 @@ each of the following families is closed-r.e.-generic.
 \item Obsoleted.
 \item Obsoleted.
 \item Obsoleted.
-\item $[S]_i$ where $S$ is: ($j$-SMT) (See \cite{carlson2000} and \cite{reinhardt}) $\ucl{\exists e\forall x(\Pr 
-j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
+\item Obsoleted.
 \item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is closed-r.e.-generic and $S$ is the schema $\Pr j\phi$ ($\phi\in T_j$).
 \end{enumerate}
 \end{lemma}
@@ -551,20 +574,7 @@ j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
 \item (4) Obsoleted. firstutilbagintrospection
 \item (5) Obsoleted. firstutilbagarithmetic part 1
 \item (6) Obsoleted. firstutilbagarithmetic part 2
-
-\item
-(7)
-Suppose $\U=(U_i)_{i\in\omega}$ is a closed r.e.~family of
-$\LPA(\omega)$-theories and $\U\supseteq [S]_i$ where $S$ is $j$-SMT.
-We must show $\M_{\U}\models [S]_i$.
-That is, given $\phi$ with $e\not\in\FV(\phi)$, we must show
-$\M_{\U}\models \ucl{\exists e \forall x (\Pr j \phi \leftrightarrow x\in W_e)}$.
-Let $s$ be an assignment and let $x_1,\ldots,x_k=\FV(\phi)\backslash\{x\}$.
-Since $U_j$ is r.e., by the $S$-$m$-$n$ theorem there is some $n$
-such that $W_n=\{m\,:\,U_j\models \phi(x|\overline{m})(x_1|\overline{s(x_1)})
-\cdots (x_k|\overline{s(x_k)})\}$.  Since $e\not\in\FV(\phi)$, and $\M_{\U}$ has
-standard first-order part, it follows that
-$\M_{\U}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
+\item (7) Obsoleted. firstutilbagsmt
 
 \item
 (8)
