@@ -438,33 +438,21 @@ $U_j\models \phi^s$.  Clearly $(\phi\rightarrow\psi)^s\equiv
 $\M_{\U}\models \psi[s]$.
 \end{proof}
 
-
 \begin{lemma}
-\label{firstgrabbag}
-For any $i,j\in \omega$,
-each of the following families is closed-r.e.-generic.
+For any $i,j\in\omega$, the following families are closed-r.e.-generic:
 \begin{enumerate}
-\item Obsoleted.
-\item $[S]_i$ where $S$ is: (Assigned Validity) the schema $\phi^s$ ($\phi$ valid, $s$ an assignment).
-\item $[\mbox{Assigned Validity}]_j\cup[S]_i$ where $S$ is: ($j$-Validity) $\ucl{\Pr j\phi}$ for $\phi$ valid.
-\item $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup [\mbox{$j$-Deduction}]_j\cup [S]_i$ where $S$ is:
-\[\mbox{($j$-Introspection) the schema $\ucl{\Pr j\phi\rightarrow\Pr j\Pr j\phi}$.}\]
-\item $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
-\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
-\item $[S]_i$ where $S$ is: ($j$-SMT) (See \cite{carlson2000} and \cite{reinhardt}) $\ucl{\exists e\forall x(\Pr 
-j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is closed-r.e.-generic and $S$ is the schema $\Pr j\phi$ ($\phi\in T_j$).
+    \item
+    $[S]_i$ where $S$ is: (Assigned Validity) the schema $\phi^s$ ($\phi$ valid,
+    $s$ an assignment).
+    \item
+    $[\mbox{Assigned Validity}]_j\cup [S]_i$
+    where $S$ is: ($j$-Validity) $\ucl{\Pr j \phi}$ for $\phi$ valid.
 \end{enumerate}
 \end{lemma}
-
 
 \begin{proof}
 \item
 (1)
-Obsoleted.
-
-\item
-(2)
 Let $\U=(U_k)_{k\in\omega}$ be a closed r.e.~superset of $[S]_i$ where $S$
 is Assigned Validity.  We must show $\M_{\U}\models [S]_i$.
 If $\phi\in [S]_i$ then $\phi$ is $\phi^s_0$ for some valid $\phi_0$ and
@@ -472,7 +460,7 @@ some assignment $s$.  Since $\phi_0$ is valid, $\M_{\U}\models \phi_0[s]$.
 By Lemma \ref{howintendedworks}, $\M_{\U}\models \phi^s_0$.
 
 \item
-(3)
+(2)
 By Theorem \ref{completecompact}, $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_i$
 is r.e.
 Let $\U=(U_k)_{k\in \omega}$ be any closed r.e.~family
@@ -485,6 +473,31 @@ $\M_{\U}\models\phi^s$ as desired.  For $j$-Validity,
 let $\phi$ be valid and $s$ an assignment.
 Since $U_j$ contains Assigned Validity, $U_j\models\phi^s$, so
 by definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
+\end{proof}
+
+\begin{lemma}
+\label{firstgrabbag}
+For any $i,j\in \omega$,
+each of the following families is closed-r.e.-generic.
+\begin{enumerate}
+\item Obsoleted.
+\item Obsoleted.
+\item Obsoleted.
+\item $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup [\mbox{$j$-Deduction}]_j\cup [S]_i$ where $S$ is:
+\[\mbox{($j$-Introspection) the schema $\ucl{\Pr j\phi\rightarrow\Pr j\Pr j\phi}$.}\]
+\item $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
+\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
+\item $[S]_i$ where $S$ is: ($j$-SMT) (See \cite{carlson2000} and \cite{reinhardt}) $\ucl{\exists e\forall x(\Pr 
+j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is closed-r.e.-generic and $S$ is the schema $\Pr j\phi$ ($\phi\in T_j$).
+\end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+\item (1) Obsoleted.
+\item (2) Obsoleted.
+\item (3) Obsoleted.
 
 \item
 (4)
