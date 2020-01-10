@@ -1926,6 +1926,31 @@ and thus so does $\M^{I(i)}$ since it agrees with $\M$ on $\Prr\beta i$.
 \end{proof}
 
 \begin{lemma}
+\label{secondutilbagarithmetic}
+For any $i\in\omega$, each of the following families is straticlosed-r.e.-generic.
+\begin{enumerate}
+\item $[S]_i$ where $S$ is the set of those axioms of Peano arithmetic for
+$\LPA(\indset)$ that are $i$-stratified.
+\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\item
+(9)
+Unistratifiedness and recursive enumerability are clear.
+Let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
+extending $[S]_i$.
+By Lemma \ref{raisingMtotheIpreservesintent}, $\M^{I(i)}_{\str\U}$ interprets formulas
+by substitution. By Lemma \ref{extendedpalemma}, $\M^{I(i)}_{\str\U}$ satisfies the axioms
+of Peano Arithmetic for $\LPA(\indset)$, as desired.
+
+\item
+(10)
+Trivial.
+\end{proof}
+
+\begin{lemma}
 \label{secondgrabbag}
 (Compare Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure})
 For any $i,j\in\N$, each of the following families
@@ -1939,9 +1964,8 @@ is straticlosed-r.e.-generic.
 \item 6=secondutilbagvalidity part 3
 \item 7=secondutilbagintrospection part 1
 \item 8=secondutilbagintrospection part 2
-\item $[S]_i$ where $S$ is the set of those axioms of Peano arithmetic for
-$\LPA(\indset)$ that are $i$-stratified.
-\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
+\item 9=secondutilbagarithmetic part 1
+\item 10=secondutilbagarithmetic part 2
 \item $[\mbox{$j$-SMT}]_i$ ($j\not=i$).
 \item $[S]_i$, where $S$ is: ($i$-Strati-SMT)
 $\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
@@ -1968,17 +1992,8 @@ extending the family in question. For brevity, let $\M=\M_{\str\U}$.
 \item (6) secondutilbagvalidity part 3
 \item (7) secondutilbagintrospection part 1
 \item (8) secondutilbagintrospection part 2
-
-\item
-(9)
-Let $I(i)$ be any computable stratifier-set above $i$.
-By Lemma \ref{raisingMtotheIpreservesintent}, $\M^{I(i)}$ interprets formulas
-by substitution. By Lemma \ref{extendedpalemma}, $\M^{I(i)}$ satisfies the axioms
-of Peano Arithmetic for $\LPA(\indset)$, as desired.
-
-\item
-(10)
-Trivial.
+\item (9) secondutilbagarithmetic part 1
+\item (10)secondutilbagarithmetic part 2
 
 \item
 (11)
