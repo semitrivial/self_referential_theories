@@ -2533,7 +2533,7 @@ that $\prec$ be well-founded, is equivalent to the following:
     \item
     For any (G\"odel number of an) r.e.\ family $\T^0=(T^0_i)_{i\in\omega}$,
     if $\T^0$ is closed-r.e.-generic
-    (i.e., if $\M_\U\models\T^0$ for every closed r.e.\ family $\U\supseteq\T$
+    (i.e., if $\M_\U\models\T^0$ for every closed r.e.\ family $\U\supseteq\T^0$
     of $\LPA(\omega)$-theories), then there is some $n\in\mathbb N$
     such that $\T(n)$ is true
     (i.e., such that $\M_{\T(n)}\models\T(n)$), where
@@ -2543,17 +2543,17 @@ that $\prec$ be well-founded, is equivalent to the following:
         \item
         The axioms in $T^0_i$.
         \item
-        $\forall x (\Pr j \phi \leftrightarrow \langle \overline{\langle \phi\rangle},
+        $\forall x (\Pr j \phi \leftrightarrow \langle \overline{\ulcorner \phi\urcorner},
         \overline j, x\rangle\in W_{\overline n})$ whenever $j\in\omega$,
         $\FV(\phi)\subseteq\{x\}$.
         \item
-        $\ucl(\Pr j \phi\rightarrow\phi)$ whenever $j\prec i$.
+        $\ucl{\Pr j \phi\rightarrow\phi}$ whenever $j\prec i$.
     \end{enumerate}
 \end{itemize}
 Every part of the above is manifestly expressible in $\LPA$ except for the clauses
 $\M_\U\models T^0$ and $\M_{\T(n)}\models \T(n)$.
-We will show that ``$\M_\U\models T^0$ is expressible in $\LPA\cup\{\Tr\}$;
-the expressibility of ``$\M_{\T(n)}\models \T(n)$ is similar.
+We will show that ``$\M_\U\models T^0$'' is expressible in $\LPA\cup\{\Tr\}$;
+the expressibility of ``$\M_{\T(n)}\models \T(n)$'' is similar.
 
 Define an operator $F_\U$ which takes an $\LPA(\omega)$-formula $\phi$ and outputs
 an $\LPA$-formula $F_\U(\phi)$ as follows:
@@ -2580,7 +2580,7 @@ $\M_\U\models\phi[s]$ if and only if $\mathbb N\models F_\U(\phi)[s]$.
 In particular, for every sentence $\phi$, $\M_\U\models\phi$
 if and only if $\mathbb N\models F_\U(\phi)$. Thus,
 the clause ``$\M_\U\models T^0$'' can be expressed
-in $\LPA\cup\{\Tr\}$ as follows: $\forall \phi(\phi\in T^0\rightarrow \Tr(F_\U(\phi)))$.
+in $\LPA\cup\{\Tr\}$ as follows: $\forall \phi(\phi\in \T^0\rightarrow \Tr(F_\U(\phi)))$.
 \end{proof}
 
 
