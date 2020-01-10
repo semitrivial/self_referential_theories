@@ -551,6 +551,24 @@ $\M_{\U}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
 \end{proof}
 
 \begin{lemma}
+\label{firstutilbagclosure}
+For any $i,j\in\omega$ and any closed-r.e.-generic family $\T=(T_k)_{k\in\omega}$,
+$\T\cup [S]_i$ is closed-r.e.-generic,
+where $S$ is the schema: $\Pr j\phi$ ($\phi\in T_j$).
+\end{lemma}
+
+\begin{proof}
+Suppose $\U=(U_i)_{i\in\omega}\supseteq \T\cup [S]_i$.
+Right away $\M_{\U}\models \T$
+because $\T$ is closed-r.e.-generic.  It remains to show that
+$\M_{\U}\models [S]_i$, i.e., that $\M_{\U}\models S$.
+Fix $\phi\in T_j$ and let $s$ be any assignment.  Since $\phi$ is a sentence,
+$\phi\equiv\phi^s$ and thus
+$T_j\models\phi^s$.  Since $U_j\supseteq T_j$, $U_j\models\phi^s$.
+By definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
+\end{proof}
+
+\begin{lemma}
 \label{firstgrabbag}
 For any $i,j\in \omega$,
 each of the following families is closed-r.e.-generic.
@@ -562,7 +580,7 @@ each of the following families is closed-r.e.-generic.
 \item Obsoleted.
 \item Obsoleted.
 \item Obsoleted.
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is closed-r.e.-generic and $S$ is the schema $\Pr j\phi$ ($\phi\in T_j$).
+\item Obsoleted.
 \end{enumerate}
 \end{lemma}
 
@@ -575,18 +593,7 @@ each of the following families is closed-r.e.-generic.
 \item (5) Obsoleted. firstutilbagarithmetic part 1
 \item (6) Obsoleted. firstutilbagarithmetic part 2
 \item (7) Obsoleted. firstutilbagsmt
-
-\item
-(8)
-Suppose $\U=(U_i)_{i\in\omega}\supseteq \T\cup [S]_i$
-where $\T=(T_i)_{i\in\omega}$ is closed-r.e.-generic and $S$ is the schema
-$\Pr j \phi$ ($\phi\in T_j$).  Right away $\M_{\U}\models \T$
-because $\T$ is closed-r.e.-generic.  It remains to show that
-$\M_{\U}\models [S]_i$, i.e., that $\M_{\U}\models S$.
-Fix $\phi\in T_j$ and let $s$ be any assignment.  Since $\phi$ is a sentence,
-$\phi\equiv\phi^s$ and thus
-$T_j\models\phi^s$.  Since $U_j\supseteq T_j$, $U_j\models\phi^s$.
-By definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
+\item (8) Obsoleted. firstutilbagclosure
 \end{proof}
 
 
