@@ -1951,57 +1951,27 @@ Trivial.
 \end{proof}
 
 \begin{lemma}
-\label{secondgrabbag}
-(Compare Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure})
-For any $i,j\in\N$, each of the following families
-is straticlosed-r.e.-generic.
+\label{secondutilbagsmt}
+For any $i,j\in\omega$, each of the following families is straticlosed-r.e.-generic.
 \begin{enumerate}
-\item 1=secondutilbagdeduction part 1
-\item 2=secondutilbagdeduction part 2
-\item 3=secondutilbagdeduction part 3
-\item 4=secondutilbagvalidity part 1
-\item 5=secondutilbagvalidity part 2
-\item 6=secondutilbagvalidity part 3
-\item 7=secondutilbagintrospection part 1
-\item 8=secondutilbagintrospection part 2
-\item 9=secondutilbagarithmetic part 1
-\item 10=secondutilbagarithmetic part 2
 \item $[\mbox{$j$-SMT}]_i$ ($j\not=i$).
 \item $[S]_i$, where $S$ is: ($i$-Strati-SMT)
 $\ucl{\exists e\forall x(\Prr\alpha i\phi\leftrightarrow x\in W_e)}$
 when this is $i$-stratified, $e\not\in\FV(\phi)$.
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
-and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
-and $S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\not \succeq i$).
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-For unistratifiedness of 4--8, use Corollary \ref{hpreserversvalidity}.
-Unistratifiedness of the other families is clear.
-Recursive enumerability follows from the fact that $\prec$ is r.e.
+Unistratifiedness and recursive enumerability are clear.
 In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
 extending the family in question. For brevity, let $\M=\M_{\str\U}$.
 
-\item (1) secondutilbagdeduction part 1
-\item (2) secondutilbagdeduction part 2
-\item (3) secondutilbagdeduction part 3
-\item (4) secondutilbagvalidity part 1
-\item (5) secondutilbagvalidity part 2
-\item (6) secondutilbagvalidity part 3
-\item (7) secondutilbagintrospection part 1
-\item (8) secondutilbagintrospection part 2
-\item (9) secondutilbagarithmetic part 1
-\item (10)secondutilbagarithmetic part 2
-
 \item
-(11)
+(1)
 Let $I(i)$ be any computable stratifier-set above $i$.
 We must show $\M^{I(i)}\models\ucl{\exists e\forall x(\Pr j\phi \leftrightarrow
 x\in W_e)}$ for every $\LPA(\omega)$-formula $\phi$ with $e\not\in\FV(\phi)$.
 Let $s$ be an assignment and let $x_1,\ldots,x_k=\FV(\phi)\backslash \{x\}$.
-
 
 \item
 \case1
@@ -2060,7 +2030,52 @@ $\M\models \exists e\forall x(\Prr\alpha i\phi \leftrightarrow x\in W_e)[s]$.
 By Definition \ref{moduloidefn}, $\M$ and $\M^{I(i)}$ agree on $\Prr\alpha i$,
 so $\M^{I(i)}\models \exists e\forall x(\Prr\alpha i\phi \leftrightarrow x\in W_e)[s]$,
 as desired.
+\end{proof}
 
+\begin{lemma}
+\label{secondgrabbag}
+(Compare Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure})
+For any $i,j\in\N$, each of the following families
+is straticlosed-r.e.-generic.
+\begin{enumerate}
+\item 1=secondutilbagdeduction part 1
+\item 2=secondutilbagdeduction part 2
+\item 3=secondutilbagdeduction part 3
+\item 4=secondutilbagvalidity part 1
+\item 5=secondutilbagvalidity part 2
+\item 6=secondutilbagvalidity part 3
+\item 7=secondutilbagintrospection part 1
+\item 8=secondutilbagintrospection part 2
+\item 9=secondutilbagarithmetic part 1
+\item 10=secondutilbagarithmetic part 2
+\item 11=secondutilbagsmt part 1
+\item 12=secondutilbagsmt part 2
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
+and $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is straticlosed-r.e.-generic
+and $S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\not \succeq i$).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For unistratifiedness of 4--8, use Corollary \ref{hpreserversvalidity}.
+Unistratifiedness of the other families is clear.
+Recursive enumerability follows from the fact that $\prec$ is r.e.
+In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
+extending the family in question. For brevity, let $\M=\M_{\str\U}$.
+
+\item (1) secondutilbagdeduction part 1
+\item (2) secondutilbagdeduction part 2
+\item (3) secondutilbagdeduction part 3
+\item (4) secondutilbagvalidity part 1
+\item (5) secondutilbagvalidity part 2
+\item (6) secondutilbagvalidity part 3
+\item (7) secondutilbagintrospection part 1
+\item (8) secondutilbagintrospection part 2
+\item (9) secondutilbagarithmetic part 1
+\item (10)secondutilbagarithmetic part 2
+\item (11)secondutilbagsmt part 1
+\item (12)secondutilbagsmt part 2
 
 \item
 (13)
