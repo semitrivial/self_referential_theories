@@ -416,6 +416,7 @@ whole reason for the ``closed'' in ``closed-r.e.-generic'', and part 7 is
 part of the reason for the ``r.e.''.
 
 \begin{lemma}
+\label{firstutilbagdeduction}
 For any $i,j\in\omega$, the following family is closed-r.e.-generic:
 \begin{itemize}
     \item
@@ -439,6 +440,7 @@ $\M_{\U}\models \psi[s]$.
 \end{proof}
 
 \begin{lemma}
+\label{firstutilbagvalidity}
 For any $i,j\in\omega$, the following families are closed-r.e.-generic:
 \begin{enumerate}
     \item
@@ -476,37 +478,24 @@ by definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
 \end{proof}
 
 \begin{lemma}
-\label{firstgrabbag}
-For any $i,j\in \omega$,
-each of the following families is closed-r.e.-generic.
-\begin{enumerate}
-\item Obsoleted.
-\item Obsoleted.
-\item Obsoleted.
-\item $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup [\mbox{$j$-Deduction}]_j\cup [S]_i$ where $S$ is:
+\label{firstutilbagintrospection}
+For any $i,j\in\omega$, the following family is closed-r.e.-generic:
+\begin{itemize}
+\item $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup
+[\mbox{$j$-Deduction}]_j\cup [S]_i$ where $S$ is:
 \[\mbox{($j$-Introspection) the schema $\ucl{\Pr j\phi\rightarrow\Pr j\Pr j\phi}$.}\]
-\item $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
-\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
-\item $[S]_i$ where $S$ is: ($j$-SMT) (See \cite{carlson2000} and \cite{reinhardt}) $\ucl{\exists e\forall x(\Pr 
-j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
-\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is closed-r.e.-generic and $S$ is the schema $\Pr j\phi$ ($\phi\in T_j$).
-\end{enumerate}
+\end{itemize}
 \end{lemma}
 
-
 \begin{proof}
-\item (1) Obsoleted.
-\item (2) Obsoleted.
-\item (3) Obsoleted.
-
-\item
-(4)
 Recursive enumerability is by Theorem \ref{completecompact}.
 Let $\U=(U_k)_{k\in\omega}$ be any closed r.e.~family
 of $\LPA(\omega)$-theories such that $U_j$ contains Assigned Validity, $j$-Validity and $j$-Deduction,
 and $U_i$ contains $j$-Introspection.
-That $\M_{\U}$ satisfies Assigned Validity and $j$-Validity is as in (3).
-By (1), $\M_{\U}$ satisfies $j$-Deduction.
+That $\M_{\U}$ satisfies Assigned Validity and $j$-Validity is as in
+Lemma \ref{firstutilbagvalidity} (Part 2).
+By Lemma \ref{firstutilbagdeduction},
+$\M_{\U}$ satisfies $j$-Deduction.
 For $j$-Introspection, let $s$ be an assignment and assume
 $\M_{\U}\models \Pr j\phi[s]$, we will show $\M_{\U}\models\Pr j\Pr j\phi[s]$.
 Since $\M_{\U}\models \Pr j\phi[s]$, $U_j\models\phi^s$.
@@ -520,6 +509,31 @@ $U_j\models \Pr j\sigma_1\rightarrow\cdots\rightarrow\Pr j\sigma_n\rightarrow \P
 Since $\U$ is closed, $U_j$ is $\Pr j$-closed and
 so contains $\Pr j\sigma_1,\ldots,\Pr j\sigma_n$.
 So $U_j\models (\Pr j\phi)^s$ and $\M_{\U}\models \Pr j\Pr j\phi[s]$.
+\end{proof}
+
+\begin{lemma}
+\label{firstgrabbag}
+For any $i,j\in \omega$,
+each of the following families is closed-r.e.-generic.
+\begin{enumerate}
+\item Obsoleted.
+\item Obsoleted.
+\item Obsoleted.
+\item Obsoleted.
+\item $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
+\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
+\item $[S]_i$ where $S$ is: ($j$-SMT) (See \cite{carlson2000} and \cite{reinhardt}) $\ucl{\exists e\forall x(\Pr 
+j\phi\leftrightarrow x\in W_e)}$, $e\not\in\FV(\phi)$.
+\item $\T\cup [S]_i$ where $\T=(T_k)_{k\in\omega}$ is closed-r.e.-generic and $S$ is the schema $\Pr j\phi$ ($\phi\in T_j$).
+\end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+\item (1) Obsoleted. firstutilbagdeduction
+\item (2) Obsoleted. firstutilbagvalidity part 1
+\item (3) Obsoleted. firstutilbagvalidity part 2
+\item (4) Obsoleted.
 
 \item
 (5)
