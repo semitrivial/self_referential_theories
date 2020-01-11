@@ -368,7 +368,7 @@ $\{(\phi,i)\,:\,\phi\in T_i\}$ is r.e.
 \end{definition}
 
 \section{Generic Axioms}
-
+\label{genericaxiomssection}
 
 If $\T$ is a family of
 theories whose truth was in doubt,
@@ -1674,11 +1674,21 @@ Lemma \ref{structurecollapsingmagic}.  The following are equivalent.
 \end{align*}
 \end{proof}
 
-\section[Second Consistency Result: Prioritizing Self-Truth]{Second Consistency Result:\\Prioritizing Self-Truth}
+\section{Generic Stratified Axioms}
 
-In this section
-we fulfil the second promise from the introduction.
-Throughout, $\prec$ is an r.e.~well-founded partial-order of $\omega$.
+We now enough technical machinery to fulfil the second promise from the
+Introduction, for any particular background theory of provability.
+For the sake of generality, we will fulfil it in a more general
+way, essentially saying: ``The theories in question, whose
+truth were in doubt, are true together with any background theory of
+provability such that...'' Just like in Section \ref{genericaxiomssection},
+we do this by introducing a notion of genericness.
+Throughout this section, $\prec$ is an r.e.\ well-founded partial-order
+of $\omega$.
+
+% In this section
+% we fulfil the second promise from the introduction.
+% Throughout, $\prec$ is an r.e.~well-founded partial-order of $\omega$.
 
 \begin{definition}
 If $i\in\omega$, we say that a stratifier-set $I$ is \emph{above $i$}
@@ -1708,6 +1718,8 @@ of straticlosed-r.e.-generic families, then $\T$ is straticlosed-r.e.-generic.
 \begin{proof}
 Straightforward.
 \end{proof}
+
+\subsection{Straticlosed-r.e.-generic Building Blocks}
 
 \begin{lemma}
 \label{secondutilbagdeduction}
@@ -1992,7 +2004,7 @@ $\LPA(\indset)$ that are $i$-stratified.
 
 \begin{proof}
 \item
-(9)
+(1)
 Unistratifiedness and recursive enumerability are clear.
 Let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
 extending $[S]_i$.
@@ -2001,7 +2013,7 @@ by substitution. By Lemma \ref{extendedpalemma}, $\M^{I(i)}_{\str\U}$ satisfies 
 of Peano Arithmetic for $\LPA(\indset)$, as desired.
 
 \item
-(10)
+(2)
 Trivial.
 \end{proof}
 
@@ -2142,6 +2154,13 @@ Since $I(i)$ is above $i$ and $j\not\succeq i$, $\M$ and $\M^{I(i)}$
 agree on $\Pr j$, so $\M^{I(i)}\models \Pr j\phi^-[s]$, as desired.
 \end{proof}
 
+\subsection{Stratifiable-r.e.-generic Building Blocks}
+
+We have established some straticlosed-r.e.-generic building blocks, but
+the goal of this paper is to better understand the structure of non-stratified
+theories---stratification is only a means to an end.
+Therefore, we introduce a corresponding non-stratified building-block notion.
+
 \begin{definition}
 If $\T^0=(T^0_i)_{i\in\omega}$ where each $T^0_i$ is an $\LPA(\omega)$-theory,
 we say $\T^0$ is \emph{stratifiable-r.e.-generic} if there is
@@ -2150,6 +2169,21 @@ $\LPA(\indset)$-theories such that
 each $T^-_i=T^0_i$.
 \end{definition}
 
+\begin{lemma}
+If $\T=(T_i)_{i\in\omega}$ is any straticlosed-r.e.-generic family of
+$\LPA(\indset)$-theories,
+then $\T^-=(T^-_i)_{i\on\omega}$ is a stratifiable-r.e.-generic family of
+$\LPA(\omega)$-theories.
+\end{lemma}
+
+\begin{proof}
+    Straightforward.
+\end{proof}
+
+\section[Second Consistency Result: Prioritizing Self-Truth]{Second Consistency Result:\\Prioritizing Self-Truth}
+
+In this section, we continue to fix an r.e.\ well-founded partial-order $\prec$
+of $\omega$.
 The following theorem will satisfy the second promise from the introduction:
 it will exhibit true theories $(T_i)_{i\in\omega}$ such that $T_i$ expresses 
 a G\"odel number of $T_j$ ($j\prec i$) and the truth of $T_j$ ($j\preceq 
