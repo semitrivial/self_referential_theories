@@ -551,17 +551,12 @@ presence, nor the absense, of general arithmetical infrastructure.
 
 \begin{lemma}
 \label{firstutilbagarithmetic}
-For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
-\begin{enumerate}
-\item $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
-\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
-\end{enumerate}
+For any $i\in\omega$, $[S]_i$ is closed-r.e.-generic,
+where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
 \end{lemma}
 
 \begin{proof}
-\item (1) Follows from Lemma \ref{extendedpalemma}.
-
-\item (2) Trivial.
+By Lemmas \ref{raisingMtotheIpreservesintent} and \ref{extendedpalemma}.
 \end{proof}
 
 Carlson proved \cite{carlson2000} that it is consistent for an idealized
@@ -636,8 +631,6 @@ For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
     \cup [\mbox{$j$-Deduction}]_j \cup [\mbox{$j$-Introspection}]_i$.
     \item
     $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
-    \item
-    $[S]_i$ where $S$ is any r.e.\ set of true arithmetic sentences.
     \item
     $[\mbox{$j$-SMT}]_i$.
     \item $\T\cup [S]_i$, for any closed-r.e.-generic $\T$,
@@ -2034,27 +2027,18 @@ and thus so does $\M^{I(i)}$ since it agrees with $\M$ on $\Prr\beta i$.
 
 \begin{lemma}
 \label{secondutilbagarithmetic}
-For any $i\in\omega$, each of the following families is straticlosed-r.e.-generic.
-\begin{enumerate}
-\item $[S]_i$ where $S$ is the set of those axioms of Peano arithmetic for
+For any $i\in\omega$, $[S]_i$ is straticlosed-r.e.-generic,
+where $S$ is the set of those axioms of Peano arithmetic for
 $\LPA(\indset)$ that are $i$-stratified.
-\item $[S]_i$ where $S$ is any r.e.~set of true arithmetic sentences.
-\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-\item
-(1)
 Unistratifiedness and recursive enumerability are clear.
 Let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
 extending $[S]_i$.
 By Lemma \ref{raisingMtotheIpreservesintent}, $\M^{I(i)}_{\str\U}$ interprets formulas
 by substitution. By Lemma \ref{extendedpalemma}, $\M^{I(i)}_{\str\U}$ satisfies the axioms
 of Peano Arithmetic for $\LPA(\indset)$, as desired.
-
-\item
-(2)
-Trivial.
 \end{proof}
 
 \begin{lemma}
@@ -2235,7 +2219,6 @@ is stratifiable-r.e.-generic.
         \cup [\mbox{$i$-Deduction}]_i
         \cup [\mbox{$i$-Introspection}]_j$.
     \item $[S]_i$ where $S$ is the axioms of Peano Arithmetic for $\LPA(\omega)$.
-    \item $[S]_i$ where $S$ is any r.e.\ set of true arithmetic sentences.
     \item $[\mbox{$j$-SMT}]_i$.
     \item (If $j\not\succ i$) $\T\cup [S]_i$, for any stratifiable-r.e.-generic $\T$,
     where $S$ is the schema: $\Pr j\phi$ ($\phi\in T_j$).
