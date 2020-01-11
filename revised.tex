@@ -622,6 +622,7 @@ We gather Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure}
 together into the following summary.
 
 \begin{corollary}
+\label{closedregenericsummary}
 For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
 \begin{enumerate}
     \item
@@ -2221,6 +2222,7 @@ $\LPA(\omega)$-theories.
 \end{proof}
 
 \begin{corollary}
+\label{stratifiableregenericsummary}
 For all $i,j\in\omega$, each of the following families of $\LPA(\omega)$-theories
 is stratifiable-r.e.-generic.
 \begin{enumerate}
@@ -2247,18 +2249,31 @@ For parts involving validity, Lemma \ref{stratifiersrespectvalidity} can be
 used to provide valid stratified counterparts of valid non-stratified formulas.
 \end{proof}
 
-Comparing the above-mentioned statifiable-r.e.-generic families with the
-families from Section \ref{closedregenericblocks}, we see that the
+Comparing Corollaries \ref{stratifiableregenericsummary}
+and \ref{closedregenericsummary},
+we see that the
 stratifiable-r.e.-generic families we exhibited are weaker in exactly two ways:
 \begin{enumerate}
     \item They do not
     allow $T_i$ to state full $j$-Deduction for $T_j$ when
     $i\prec j$, instead allowing what we called Weak $j$-Deduction.
-    (Contrast Lemmas
-    \ref{secondutilbagdeduction} and \ref{firstutilbagdeduction})
-    \item (Finish this)
+    \item Their closure property is more restricted:
+    if $\T^1=(T^1_k)_{k\in\omega}$ is closed-r.e.-generic
+    and $\T^2=(T^2_k)_{k\in\omega}$ is stratifible-r.e.-generic,
+    and if $S_1$ is the schema $\Pr j \phi$ ($\phi\in T^1_j$),
+    and if $S_2$ is the schema $\Pr j \phi$ ($\phi\in T^2_j$),
+    then Corollary \ref{closedregenericsummary} says
+    $\T^1\cup [S_1]_i$ is closed-r.e.-generic with no restrictions on $j$,
+    whereas Corollary \ref{stratifiableregenericsummary} only says
+    that $\T^2\cup [S_2]_i$ is stratifiable-r.e.-generic if $j\not\succ i$.
 \end{enumerate}
-For now, it is an open question whether ...
+For now, we leave it an open question to what
+extent Corollary \ref{stratifiableregenericsummary} could be further
+strengthened. Our motivation in choosing which building blocks to exhibit was
+to provide enough building blocks so as to be flexible enough as to accomodate
+construction of the particular background theory of provability which Carlson
+used in \cite{carlson2000}. Corollary \ref{stratifiableregenericsummary} is
+sufficient for that purpose.
 
 \section[Second Consistency Result: Prioritizing Self-Truth]{Second Consistency Result:\\Prioritizing Self-Truth}
 
