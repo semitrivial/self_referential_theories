@@ -2867,10 +2867,11 @@ an $\LPA$-formula $F_\U(\phi)$ as follows:
     or $\forall x F_\U(\phi_0)$, respectively.
     \item
     Suppose $\phi$ is $\Pr i \psi$ and $\FV(\psi)=\{x_1,\ldots,x_k\}$.
-    Let $f:\mathbb N^k\to\mathbb N$ be a computable function such that
+    Let $f:\mathbb N^k\to\mathbb N$ be the computable function such that
     for all $m_1,\ldots,m_k\in\mathbb N$,
-    $f(m_1,\ldots,m_k)$ is a G\"odel number of
-    the sentence $\psi(x_1|\overline{m_1})\cdots (x_k|\overline{m_k})$.
+    $f(m_1,\ldots,m_k)
+    =
+    \ulcorner\psi(x_1|\overline{m_1})\cdots (x_k|\overline{m_k})\urcorner$.
     Let $F_\U(\phi)$ be: ``$U_i$ proves
     the sentence with G\"odel number $f(x_1,\ldots,x_k)$''
     (so $\FV(F_\U(\phi))=\{x_1,\ldots,x_k\}$).
