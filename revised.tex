@@ -563,7 +563,8 @@ For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
 \item (2) Trivial.
 \end{proof}
 
-Carlson proved that it is consistent for an idealized knowing machine to know
+Carlson proved \cite{carlson2000} that it is consistent for an idealized
+knowing machine to know
 ``I am a machine'' (without knowing which specific machine it is).
 The following lemma sheds additional light: not only is it consistent for a
 knowing machine to know ``I am a machine'', in fact that knowledge is
@@ -615,6 +616,15 @@ $\phi\equiv\phi^s$ and thus
 $T_j\models\phi^s$.  Since $U_j\supseteq T_j$, $U_j\models\phi^s$.
 By definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
 \end{proof}
+
+The above building blocks are not exhaustive. In choosing which blocks to include
+in this paper, a primary concern was to provide enough blocks to suffice for creation
+of background provability theories at least as strong as the axioms of knowledge and
+arithmetic chosen in Carlson's paper \cite{carlson2000}. It would be interesting to
+investigate questions about whether the above building-blocks are minimal. For example,
+in Lemma \ref{firstutilbagintrospection}, is it really necessary to bundle
+$j$-Introspection with all three other schemas? For now, we will leave those questions
+for future work.
 
 \section{First Consistency Result: Prioritizing Exact Codes}
 
@@ -833,9 +843,6 @@ contain axioms declaring, essentially, the G\"odel number of
 $T_j$. This G\"odel number would be hardcoded into such axioms,
 and thus there would be no hope of such axioms remaining true if
 $T_j$ were changed.
-% This is perhaps best understood by an
-% aphorism: ``When a man is enlightened, his friends still know the unenlightened
-% man.''
 
 \subsection{Stratification Formal Details}
 \label{StratificationDetailsSection}
