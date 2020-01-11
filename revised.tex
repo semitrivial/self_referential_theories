@@ -408,12 +408,30 @@ we write $[T]_j$ for the family $\T=(T_i)_{i\in I}$
 where $T_j=T$ and $T_i=\emptyset$ for all $i\not=j$.
 \end{definition}
 
+\subsection{Closed-r.e.-generic Building Blocks}
 
-The following lemma provides building blocks
-that can be combined in diverse ways, via Lemma \ref{genericclosedreunion}, to
-form background theories of provability.  In the following lemma, part 4 is the
-whole reason for the ``closed'' in ``closed-r.e.-generic'', and part 7 is
-part of the reason for the ``r.e.''.
+In this subsection, we will exhibit some examples of closed-r.e.-generic families.
+They can be combined in diverse ways, via Lemma \ref{genericclosedreunion}, to
+form background theories of provability. This will allow us to state
+Theorem \ref{onethreethree} below in a generalized way, essentially saying
+that a certain doubted theory is consistent with \emph{any} background theory
+of provability made up of closed-r.e.-generic building blocks.
+The alternative would be for us to arbitrarily choose one such background
+theory and build it directly into Theorem \ref{onethreethree}, which would
+cause the core details in the proof of Theorem \ref{onethreethree} to get
+jumbled up with unimportant distractions.
+
+%In the following lemma, part 4 is the
+%whole reason for the ``closed'' in ``closed-r.e.-generic'', and part 7 is
+%part of the reason for the ``r.e.''.
+
+It is common for a theory to state its own
+closure under modus ponens. When there are multiple theories, it
+is less clear whether each individual theory should only state its
+own MP-closure, or the MP-closure
+of all the other theories, or of some subset thereof.
+With the following lemma, we avoid arbitrarily
+imposing a decision along these lines.
 
 \begin{lemma}
 \label{firstutilbagdeduction}
@@ -438,6 +456,15 @@ $U_j\models \phi^s$.  Clearly $(\phi\rightarrow\psi)^s\equiv
 \phi^s\rightarrow\psi^s$ so by modus ponens $U_j\models\psi^s$, that is,
 $\M_{\U}\models \psi[s]$.
 \end{proof}
+
+It might not be controversial to require that a theory express its own
+ability to prove valid sentences, but in a multi-theory context, should
+we require each theory to express that much about all its fellow theories?
+The following lemma allows us to avoid arbitrarily declaring the right
+answer to that question. Part 2 of this lemma illustrates an interesting combinatorial
+property of closed-r.e.-generic building blocks. Some schemas would not be
+valid building blocks by themselves, but when paired with other schemas,
+the combination can become a valid building block.
 
 \begin{lemma}
 \label{firstutilbagvalidity}
@@ -477,6 +504,12 @@ Since $U_j$ contains Assigned Validity, $U_j\models\phi^s$, so
 by definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
 \end{proof}
 
+In modal logic, wars are fought over the so-called \emph{positive introspection
+axiom} (or \emph{KK axiom}). Rather than join either side,
+we prefer instead to study the combinatorial
+structure of the axiom, asking: are there other schemas we can add to
+it to make the combination closed-r.e.-generic?
+
 \begin{lemma}
 \label{firstutilbagintrospection}
 For any $i,j\in\omega$, the following family is closed-r.e.-generic:
@@ -511,6 +544,10 @@ so contains $\Pr j\sigma_1,\ldots,\Pr j\sigma_n$.
 So $U_j\models (\Pr j\phi)^s$ and $\M_{\U}\models \Pr j\Pr j\phi[s]$.
 \end{proof}
 
+By handling arithmetic as in the following lemma, we make it clear that
+the result in the following section is in no way contingent on either the
+presence, nor the absense, of general arithmetical infrastructure.
+
 \begin{lemma}
 \label{firstutilbagarithmetic}
 For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
@@ -525,6 +562,13 @@ For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
 
 \item (2) Trivial.
 \end{proof}
+
+Carlson proved that it is consistent for an idealized knowing machine to know
+``I am a machine'' (without knowing which specific machine it is).
+The following lemma sheds additional light: not only is it consistent for a
+knowing machine to know ``I am a machine'', in fact that knowledge is
+highly generic. Carlson's result is not contingent on specific arbitrary
+decisions about the background theory of provability.
 
 \begin{lemma}
 \label{firstutilbagsmt}
@@ -549,6 +593,10 @@ such that $W_n=\{m\,:\,U_j\models \phi(x|\overline{m})(x_1|\overline{s(x_1)})
 standard first-order part, it follows that
 $\M_{\U}\models \forall x(\Pr j \phi\leftrightarrow x\in W_e)[s(e|n)]$.
 \end{proof}
+
+Finally, the following lemma offers a way to obtain new building blocks from old.
+This can be combined with Lemma \ref{firstutilbagsmt} to obtain
+to advance from ``I am a machine'' to ``I know I am a machine''.
 
 \begin{lemma}
 \label{firstutilbagclosure}
