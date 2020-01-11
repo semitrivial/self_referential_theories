@@ -618,6 +618,32 @@ $T_j\models\phi^s$.  Since $U_j\supseteq T_j$, $U_j\models\phi^s$.
 By definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
 \end{proof}
 
+We gather Lemmas \ref{firstutilbagdeduction}--\ref{firstutilbagclosure}
+together into the following summary.
+
+\begin{corollary}
+For any $i,j\in\omega$, each of the following families is closed-r.e.-generic.
+\begin{enumerate}
+    \item
+    $[\mbox{$j$-Deduction}_i]$.
+    \item
+    $[\mbox{Assigned Validity}]_i$.
+    \item
+    $[\mbox{Assigned Validity}]_j \cup [\mbox{$j$-Validity}]_i$.
+    \item
+    $[\mbox{Assigned Validity}]_j \cup [\mbox{$j$-Validity}]_j
+    \cup [\mbox{$j$-Deduction}]_j \cup [\mbox{$j$-Introspection}]_i$.
+    \item
+    $[S]_i$ where $S$ is the set of axioms of Peano arithmetic for $\LPA(\omega)$.
+    \item
+    $[S]_i$ where $S$ is any r.e.\ set of true arithmetic sentences.
+    \item
+    $[\mbox{$j$-SMT}]_i$.
+    \item $\T\cup [S]_i$, for any closed-r.e.-generic $\T$,
+    where $S$ is the schema: $\Pr j\phi$ ($\phi\in T_j$).
+\end{enumerate}
+\end{corollary}
+
 The above building blocks are not exhaustive. In choosing which blocks to include
 in this paper, a primary concern was to provide enough blocks to suffice for creation
 of background provability theories at least as strong as the axioms of knowledge and
@@ -2194,11 +2220,32 @@ $\LPA(\omega)$-theories.
     Straightforward.
 \end{proof}
 
-Combining Lemma \ref{trivialsourceofstratifiableregenericfamilies} with
-Lemmas \ref{secondutilbagdeduction}--\ref{secondutilbagclosure} yields
-some examples of stratifiable-r.e.-generic families, usable as building
-blocks for background theories of provability appropriate for proving
-results that rely on stratification machinery.
+\begin{corollary}
+For all $i,j\in\omega$, each of the following families of $\LPA(\omega)$-theories
+is stratifiable-r.e.-generic.
+\begin{enumerate}
+    \item $[\mbox{$j$-Deduction}]_i$ (if $i\not\prec j$).
+    \item $[\mbox{Weak $j$-Deduction}]_i$ (if $i\prec j$).
+    \item $[\mbox{Assigned Validity}]_i$.
+    \item $[\mbox{Assigned Validity}]_i \cup [\mbox{$i$-Validity}]_j$.
+    \item $[\mbox{Assigned Validity}]_i
+        \cup [\mbox{$i$-Validity}]_i
+        \cup [\mbox{$i$-Deduction}]_i
+        \cup [\mbox{$i$-Introspection}]_j$.
+    \item $[S]_i$ where $S$ is the axioms of Peano Arithmetic for $\LPA(\omega)$.
+    \item $[S]_i$ where $S$ is any r.e.\ set of true arithmetic sentences.
+    \item $[\mbox{$j$-SMT}]_i$.
+    \item (If $j\not\succ i$) $\T\cup [S]_i$, for any stratifiable-r.e.-generic $\T$,
+    where $S$ is the schema: $\Pr j\phi$ ($\phi\in T_j$).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+By combining Lemma \ref{trivialsourceofstratifiableregenericfamilies} with
+Lemmas \ref{secondutilbagdeduction}--\ref{secondutilbagclosure}.
+For parts involving validity, Lemma \ref{stratifiersrespectvalidity} can be
+used to provide valid stratified counterparts of valid non-stratified formulas.
+\end{proof}
 
 Comparing the above-mentioned statifiable-r.e.-generic families with the
 families from Section \ref{closedregenericblocks}, we see that the
