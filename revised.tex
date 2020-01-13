@@ -979,11 +979,11 @@ Suppose $X\subseteq\epom$ and $h:X\to \epom$ is order preserving.
 For each $\LPA(\indset)$-formula $\phi$,
 define an $\LPA(\indset)$-formula $h(\phi)$ inductively as follows:
 \begin{enumerate}
-    \item If $\phi$ is atomic, $\neg\phi_0$, $\phi_1\rightarrow\phi_2$, or
+    \item If $\phi$ is $\neg\phi_0$, $\phi_1\rightarrow\phi_2$, or
     $\forall x\phi_0$, then $h(\phi)$ is
-    $\phi$, $\neg h(\phi_0)$, $h(\phi_1)\rightarrow h(\phi_2)$, or
+    $\neg h(\phi_0)$, $h(\phi_1)\rightarrow h(\phi_2)$, or
     $\forall x h(\phi_0)$, respectively.
-    \item If $\phi$ is $\Pr i\phi_0$, then $h(\phi)\equiv \phi$.
+    \item If $\phi$ is atomic or $\Pr i\phi_0$, then $h(\phi)\equiv \phi$.
     \item If $\phi$ is $\Prr\alpha i\phi_0$ where $\alpha\in X$, then
     $h(\phi)\equiv \Prr{h(\alpha)}i h(\phi_0)$.
     \item If $\phi$ is $\Prr\alpha i\phi_0$ where $\alpha\not\in X$,
