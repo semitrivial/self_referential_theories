@@ -977,10 +977,24 @@ Straightforward.
 \label{applyinghtophi}
 Suppose $X\subseteq\epom$ and $h:X\to \epom$ is order preserving.
 For each $\LPA(\indset)$-formula $\phi$,
-let $h(\phi)$ be the $\LPA(\indset)$-formula obtained by applying $h$
-to every superscript in $\phi$
-that is in $X$.
+define an $\LPA(\indset)$-formula $h(\phi)$ inductively as follows:
+\begin{enumerate}
+    \item If $\phi$ is atomic, $\neg\phi_0$, $\phi_1\rightarrow\phi_2$, or
+    $\forall x\phi_0$, then $h(\phi)$ is
+    $\phi$, $\neg h(\phi_0)$, $h(\phi_1)\rightarrow h(\phi_2)$, or
+    $\forall x h(\phi_0)$, respectively.
+    \item If $\phi$ is $\Pr i\phi_0$, then $h(\phi)\equiv \phi$.
+    \item If $\phi$ is $\Prr\alpha i\phi_0$ where $\alpha\in X$, then
+    $h(\phi)\equiv \Prr{h(\alpha)}i h(\phi_0)$.
+    \item If $\phi$ is $\Prr\alpha i\phi_0$ where $\alpha\not\in X$,
+    then $h(\phi)\equiv \Prr\alpha i h(\phi_0)$.
+\end{enumerate}
 \end{definition}
+
+In practice, we will mainly be interested in $\phi$ when $\phi$ is $i$-stratified
+for some $i$, in which case $\Prr\alpha j$ cannot occur within the scope of $\Pr k$
+in $\phi$ for any $k,j$. For such $\phi$, $h(\phi)$ is simply the result of applying
+$h$ to every superscript in $\phi$ that is in $X$.
 
 For example if $X=\{1,\omega\}$, $h(1)=0$, and $h(\omega)=\omega\cdot 2+1$,
 then
