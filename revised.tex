@@ -475,8 +475,8 @@ For any $i,j\in\omega$, the following families are closed-r.e.-generic:
     $[S]_i$ where $S$ is: (Assigned Validity) the schema $\phi^s$ ($\phi$ valid,
     $s$ an assignment).
     \item
-    $[\mbox{Assigned Validity}]_j\cup [S]_i$
-    where $S$ is: ($j$-Validity) $\ucl{\Pr j \phi}$ for $\phi$ valid.
+    $[\mbox{Assigned Validity}]_i\cup [S]_j$
+    where $S$ is: ($i$-Validity) $\ucl{\Pr i \phi}$ for $\phi$ valid.
 \end{enumerate}
 \end{lemma}
 
@@ -494,13 +494,13 @@ By Lemma \ref{howintendedworks}, $\M_{\U}\models \phi^s_0$.
 \item
 (2)
 Let $\U=(U_k)_{k\in \omega}$ be any closed r.e.~family
-of $\LPA(\omega)$-theories such that $U_j$ contains Assigned Validity
-and $U_i$ contains $j$-Validity.
+of $\LPA(\omega)$-theories such that $U_i$ contains Assigned Validity
+and $U_j$ contains $i$-Validity.
 By (1), $\M_\U$ satisfies Assigned Validity.
-It remains to show $\M_{\U}$ satisfies $j$-Validity.
+It remains to show $\M_{\U}$ satisfies $i$-Validity.
 Let $\phi$ be valid and $s$ an assignment.
-Since $U_j$ contains Assigned Validity, $U_j\models\phi^s$, so
-by definition of $\M_{\U}$, $\M_{\U}\models \Pr j\phi[s]$.
+Since $U_i$ contains Assigned Validity, $U_i\models\phi^s$, so
+by definition of $\M_{\U}$, $\M_{\U}\models \Pr i\phi[s]$.
 \end{proof}
 
 In modal logic, some papers treat the so-called \emph{positive introspection axiom}
