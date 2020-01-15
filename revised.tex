@@ -515,34 +515,34 @@ it to make the combination closed-r.e.-generic?
 \label{firstutilbagintrospection}
 For any $i,j\in\omega$, the following family is closed-r.e.-generic:
 \begin{itemize}
-\item $[\mbox{Assigned Validity}]_j\cup[\mbox{$j$-Validity}]_j\cup
-[\mbox{$j$-Deduction}]_j\cup [S]_i$ where $S$ is:
-\[\mbox{($j$-Introspection) the schema $\ucl{\Pr j\phi\rightarrow\Pr j\Pr j\phi}$.}\]
+\item $[\mbox{Assigned Validity}]_i\cup[\mbox{$i$-Validity}]_i\cup
+[\mbox{$i$-Deduction}]_i\cup [S]_j$ where $S$ is:
+\[\mbox{($i$-Introspection) the schema $\ucl{\Pr i\phi\rightarrow\Pr i\Pr i\phi}$.}\]
 \end{itemize}
 \end{lemma}
 
 \begin{proof}
 Recursive enumerability is by Theorem \ref{completecompact}.
 Let $\U=(U_k)_{k\in\omega}$ be any closed r.e.~family
-of $\LPA(\omega)$-theories such that $U_j$ contains Assigned Validity, $j$-Validity and $j$-Deduction,
-and $U_i$ contains $j$-Introspection.
-Then $\M_{\U}$ satisfies Assigned Validity and $j$-Validity by
+of $\LPA(\omega)$-theories such that $U_i$ contains Assigned Validity, $i$-Validity and $i$-Deduction,
+and $U_j$ contains $i$-Introspection.
+Then $\M_{\U}$ satisfies Assigned Validity and $i$-Validity by
 Lemma \ref{firstutilbagvalidity}.
 By Lemma \ref{firstutilbagdeduction},
-$\M_{\U}$ satisfies $j$-Deduction.
-For $j$-Introspection, let $s$ be an assignment and assume
-$\M_{\U}\models \Pr j\phi[s]$, we will show $\M_{\U}\models\Pr j\Pr j\phi[s]$.
-Since $\M_{\U}\models \Pr j\phi[s]$, $U_j\models\phi^s$.
-By Theorem \ref{completecompact}, there are $\sigma_1,\ldots,\sigma_n\in U_j$
+$\M_{\U}$ satisfies $i$-Deduction.
+For $i$-Introspection, let $s$ be an assignment and assume
+$\M_{\U}\models \Pr i\phi[s]$, we will show $\M_{\U}\models\Pr i\Pr i\phi[s]$.
+Since $\M_{\U}\models \Pr i\phi[s]$, $U_i\models\phi^s$.
+By Theorem \ref{completecompact}, there are $\sigma_1,\ldots,\sigma_n\in U_i$
 such that $\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s$
 is valid.
-Since $U_j$ contains $j$-Validity,
-$U_j\models \Pr j(\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s)$.
-By repeated applications of $j$-Deduction contained in $U_j$,
-$U_j\models \Pr j\sigma_1\rightarrow\cdots\rightarrow\Pr j\sigma_n\rightarrow \Pr j(\phi^s)$.
-Since $\U$ is closed, $U_j$ is $\Pr j$-closed and
-so contains $\Pr j\sigma_1,\ldots,\Pr j\sigma_n$.
-So $U_j\models (\Pr j\phi)^s$ and $\M_{\U}\models \Pr j\Pr j\phi[s]$.
+Since $U_i$ contains $i$-Validity,
+$U_i\models \Pr i(\sigma_1\rightarrow\cdots\rightarrow\sigma_n\rightarrow\phi^s)$.
+By repeated applications of $i$-Deduction contained in $U_i$,
+$U_i\models \Pr i\sigma_1\rightarrow\cdots\rightarrow\Pr i\sigma_n\rightarrow \Pr i(\phi^s)$.
+Since $\U$ is closed, $U_i$ is $\Pr i$-closed and
+so contains $\Pr i\sigma_1,\ldots,\Pr i\sigma_n$.
+So $U_i\models (\Pr i\phi)^s$ and $\M_{\U}\models \Pr i\Pr i\phi[s]$.
 \end{proof}
 
 The following lemma shows that arithmetic is generic, which will enable us
