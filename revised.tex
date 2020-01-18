@@ -2821,17 +2821,16 @@ $\T(n)$ is true, where $\T(n)$ is as in Theorem \ref{generalizedtwoonethree}.
 
 \begin{proof}
 We prove (1), (2) is similar.
-Assume $\neg$(1).  If $\prec$ is any r.e.~partial order on $\omega$,
-then, combining $\neg(1)$ with Theorem \ref{onethreethree},
-$\prec$ is well founded if and only if Theorem \ref{onethreethree}
-(minus the requirement that $\prec$ be well-founded)
-holds for $\prec$.
-We will argue that this means it is possible to define $\mathrm{WF}$ in
-$\LPA\cup\{\Tr\}$, which would be absurd and thus would conclude the proof.
+Assume $\neg(1)$.
+For any r.e.\ partial order $\prec$ on $\omega$, let $S(\prec)$ be
+the statement of Theorem \ref{onethreethree} minus the requirement
+that $\prec$ be well founded. Combining $\neg(1)$ with Theorem
+\ref{onethreethree}, $\prec$ is well founded if and only if
+$S(\prec)$ is true. We will argue that $S(\prec)$ is expressible in
+$\LPA\cup\{\Tr\}$, which is absurd because that would mean it is
+possible to define $\mathrm{WF}$ in $\LPA\cup\{\Tr\}$.
 
-For any (G\"odel number of an) r.e.\ partial order $\prec$
-on $\omega$, the statement of Theorem \ref{onethreethree} (minus the requirement
-that $\prec$ be well-founded) is equivalent to the following:
+$S(\prec)$ is equivalent to the following:
 \begin{itemize}
     \item
     For any (G\"odel number of an) r.e.\ family $\T^0=(T^0_i)_{i\in\omega}$,
