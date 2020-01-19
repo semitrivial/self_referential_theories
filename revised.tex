@@ -2807,15 +2807,15 @@ in $\LPA\cup\{\Tr\}$.
 (Ill-Foundedness of True Self-Referential Theories)
 \begin{enumerate}
 \item
-For any closed-r.e.-generic $\T^0=(T^0_i)_{i\in\omega}$,
-there is an r.e., ill-founded partial order $\prec$ on $\omega$
-and an $n\in\N$
-such that $\T(n)$ is true,
+There exists an r.e., ill-founded partial order $\prec$ on $\omega$
+such that for every closed-r.e.-generic $\T^0=(T^0_i)_{i\in\omega}$
+there is an $n\in\N$ such that $\T(n)$ is true,
 where $\T(n)$ is as in Theorem \ref{onethreethree}.
 \item
-For any stratifiable-r.e.-generic $\T^0=(T^0_i)_{i\in\omega}$, there is an 
-r.e., ill-founded partial order $\prec$ on $\omega$ and an $n\in\N$ such that
-$\T(n)$ is true, where $\T(n)$ is as in Theorem \ref{generalizedtwoonethree}.
+There exists an r.e., ill-founded partial order $\prec$ on $\omega$
+such that for every $\prec$-stratifiable-r.e.-generic $\T^0=(T^0_i)_{i\in\omega}$
+there is an $n\in\N$ such that $\T(n)$ is true,
+where $\T(n)$ is as in Theorem \ref{generalizedtwoonethree}.
 \end{enumerate}
 \end{theorem}
 
@@ -2823,7 +2823,8 @@ $\T(n)$ is true, where $\T(n)$ is as in Theorem \ref{generalizedtwoonethree}.
 We prove (1), (2) is similar.
 Assume $\neg(1)$.
 For each r.e.\ partial order $\prec$ on $\omega$, let $S(\prec)$ be
-the statement of Theorem \ref{onethreethree} for $\prec$, minus the requirement
+the statement of Theorem \ref{onethreethree} for $\prec$,
+minus the requirement
 that $\prec$ be well founded. Combining $\neg(1)$ with Theorem
 \ref{onethreethree}, $\prec$ is well founded if and only if
 $S(\prec)$ is true. We will argue that $S(\prec)$ is expressible in
@@ -2833,7 +2834,8 @@ possible to define $\mathrm{WF}$ in $\LPA\cup\{\Tr\}$.
 $S(\prec)$ is equivalent to the following:
 \begin{itemize}
     \item
-    For any (G\"odel number of an) r.e.\ family $\T^0=(T^0_i)_{i\in\omega}$,
+    For any (G\"odel number of an) r.e.\ family $\T^0=(T^0_i)_{i\in\omega}$
+    of $\LPA(\omega$)-theories,
     if $\T^0$ is closed-r.e.-generic
     (i.e., if $\M_\U\models\T^0$ for every closed r.e.\ family $\U\supseteq\T^0$
     of $\LPA(\omega)$-theories), then there is some $n\in\mathbb N$
@@ -2884,7 +2886,7 @@ In particular, for every $\LPA(\omega)$-sentence $\phi$, $\M_\U\models\phi$
 if and only if $\mathbb N\models F_\U(\phi)$. Thus,
 the clause $\M_\U\models \T^0$ can be expressed
 in $\LPA\cup\{\Tr\}$ as follows:
-$\forall \phi(\phi\in \T^0\rightarrow \Tr(\ulcorner F_\U(\phi)\urcorner))$.
+$\forall i\forall x(x\in T^0_i\rightarrow \Tr(\ulcorner F_\U(x)\urcorner))$.
 \end{proof}
 
 The way we prove Theorem \ref{illfoundednesstheorem} by referring to the
