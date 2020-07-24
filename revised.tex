@@ -1766,8 +1766,7 @@ $[\mbox{$i$-Deduction}]_i$ is not $i$-stratified.
 For any $i,j\in\omega$, each of the following families is straticlosed-r.e.-generic.
 \begin{enumerate}
 \item $[\mbox{$i$-Stratideduction}]_i$.
-\item $[\mbox{$j$-Deduction}]_i$ (if $j\prec i$) (or if $j\not\succeq i$, provided
-$\prec$ is computable).
+\item $[\mbox{$j$-Deduction}]_i$ (if $j\prec i$).
 \item $[S]_i$ (if $i\prec j$) where $S$ is the following schema ($\phi,\psi$
     range over $\LPA(\omega)$-formulas):
 \[
@@ -1782,8 +1781,7 @@ $\prec$ is computable).
 
 \begin{proof}
 Clearly these families are unistratified.
-Recursive enumerability follows from the fact that $\prec$ is r.e.\ (or possibly from
-the fact that $\prec$ is computable).
+Recursive enumerability follows from the fact that $\prec$ is r.e.
 In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
 extending the family in question.
 For brevity, let $\M=\M_{\str\U}$.
@@ -2171,15 +2169,12 @@ Then each of the following families is straticlosed-r.e.-generic.
 \item $\T\cup [S]_i$ where
 $S$ is the schema $\Prr\alpha i\phi$ ($\phi\in T_i$ such that this is $i$-stratified).
 \item $\T\cup [S]_i$ where
-$S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, all $j\prec i$---or even
-all $j\not \succeq i$,
-provided $\prec$ is computable).
+$S$ is the schema $\Pr j\phi^-$ ($\phi\in T_j$, $j\prec i$).
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-Unistratifiedness and recursive enumerability are clear (this is the reason we limit
-(2) if $\prec$ is merely r.e.\ but not computable).
+Unistratifiedness and recursive enumerability are clear.
 In each case below, let $\U=(U_k)_{k\in\omega}$ be a straticlosed r.e.~family
 extending the family in question. For brevity, let $\M=\M_{\str\U}$.
 
@@ -2255,8 +2250,7 @@ $\LPA(\omega)$-theories.
 For all $i,j\in\omega$, each of the following families of $\LPA(\omega)$-theories
 is stratifiable-r.e.-generic.
 \begin{enumerate}
-    \item $[\mbox{$j$-Deduction}]_i$ (if $j\preceq i$---or even if $i\not\prec j$, provided
-    $\prec$ is computable).
+    \item $[\mbox{$j$-Deduction}]_i$ (if $j\preceq i$).
     \item $[\mbox{Modified $j$-Deduction}]_i$ (if $i\prec j$).
     \item $[\mbox{Assigned Validity}]_i$.
     \item $[\mbox{Assigned Validity}]_i \cup [\mbox{$i$-Validity}]_j$.
@@ -2266,7 +2260,7 @@ is stratifiable-r.e.-generic.
         \cup [\mbox{$i$-Introspection}]_j$.
     \item $[S]_i$ where $S$ is the axioms of Peano Arithmetic for $\LPA(\omega)$.
     \item $[\mbox{$j$-SMT}]_i$.
-    \item (If $j\preceq i$---or even if $i\not\prec j$, provided $\prec$ is computable)
+    \item (If $j\preceq i$)
     $\T\cup [S]_i$, for any stratifiable-r.e.-generic
     $\T=(T_k)_{k\in\omega}$,
     where $S$ is the schema: $\Pr j\phi$ ($\phi\in T_j$).
@@ -2298,8 +2292,7 @@ exactly two ways:
     then Corollary \ref{closedregenericsummary} says
     $\T^1\cup [S_1]_i$ is closed-r.e.-generic with no restrictions on $j$,
     whereas Corollary \ref{stratifiableregenericsummary} only says
-    that $\T^2\cup [S_2]_i$ is stratifiable-r.e.-generic if $j\prec i$ (or $i\not\prec j$,
-    if $\prec$ is computable).
+    that $\T^2\cup [S_2]_i$ is stratifiable-r.e.-generic if $j\prec i$.
 \end{enumerate}
 We leave it an open question to what
 extent Corollary \ref{stratifiableregenericsummary} could be further
