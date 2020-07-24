@@ -1769,8 +1769,9 @@ For any $i,j\in\omega$, each of the following families is straticlosed-r.e.-gene
     range over $\LPA(\omega)$-formulas):
 \[
   \mbox{
-    (Weak $j$-Deduction) $\ucl{\Pr j(\phi\rightarrow\psi)\rightarrow\Pr j\phi\rightarrow \Pr 
-    j(\psi\wedge(\phi\vee\neg\phi))}$.
+    (Modified $j$-Deduction)
+    $\ucl{\Pr j(\phi\rightarrow\psi)\rightarrow\Pr j\phi\rightarrow
+    \Pr j(\psi\wedge\phi)}$.
   }
 \]
 \end{enumerate}
@@ -1821,7 +1822,8 @@ $\M\models \Pr j\psi[s]$ and thus so does $\M^{I(i)}$.
 \item
 (3) Let $I(i)$ be any computable stratifier-set above $i$,
 we must show
-$\M^{I(i)}\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow \Pr j\phi\rightarrow \Pr j(\psi\wedge(\phi\vee\neg\phi))}$.
+$\M^{I(i)}\models \ucl{\Pr j(\phi\rightarrow\psi)\rightarrow
+    \Pr j\phi\rightarrow \Pr j(\psi\wedge\phi)}$.
 Let $s$ be an assignment and assume $\M^{I(i)}\models \Pr j(\phi\rightarrow\psi)[s]$
 and $\M^{I(i)}\models\Pr j\phi[s]$.
 If $j\not\in\indices(I(i))$, then $\M^{I(i)}$ and $\M$
@@ -1831,21 +1833,22 @@ computable $j$-stratifier, and Lemma \ref{decomposingMtotheI} ensures that
 $\M^{I(i)}$ and $\M^+$ agree on $\Pr j$.
 By definition of $\M^+$, $\M\models(\Pr j(\phi\rightarrow\psi))^+[s]$
 and $\M\models(\Pr j\phi)^+[s]$.
-Let $\alpha,\beta\in\epom$ be such that $(\Pr j(\phi\rightarrow\psi))^+\equiv\Prr\alpha j(\phi^+\rightarrow\psi^+)$
+Let $\alpha,\beta\in\epom$ be such that
+$(\Pr j(\phi\rightarrow\psi))^+\equiv\Prr\alpha j(\phi^+\rightarrow\psi^+)$
 and $(\Pr j\phi)^+\equiv\Prr\beta j\phi^+$.
 Then
 $\M\models\Prr\alpha j (\phi^+\rightarrow\psi^+)[s]$ and $\M\models\Prr\beta j\phi^+[s]$.
-This means $U_j\cap\alpha\models(\phi^+\rightarrow\psi^+)^s$ and $U_j\cap\beta\models(\phi^+)^s$.
+This means
+$U_j\cap\alpha\models(\phi^+\rightarrow\psi^+)^s$ and $U_j\cap\beta\models(\phi^+)^s$.
 Since $\phi$ is a subformula of $\phi\rightarrow\psi$, it follows $\beta\leq\alpha$, thus
-$U_j\cap\alpha\models (\psi^+)^s$, and by tautology,
-$U_j\cap\alpha\models(\psi^+\wedge(\phi^+\vee\neg\phi^+))^s$.
-So $\M\models\Prr\alpha j(\psi^+\wedge(\phi^+\vee\neg\phi^+))[s]$.
+$U_j\cap\alpha\models (\psi^+ \wedge \phi^+)^s$.
+So $\M\models\Prr\alpha j(\psi^+\wedge\phi^+)[s]$.
 By Definition \ref{stratifierdefn},
 \[
-\Prr\alpha j(\psi^+\wedge(\phi^+\vee\neg\phi^+)) \,\equiv\, (\Pr j(\psi\wedge(\phi\vee\neg\phi)))^+
+\Prr\alpha j(\psi^+\wedge\phi^+) \,\equiv\, (\Pr j(\psi\wedge\phi))^+
 \]
-(this is the reason for the $\phi\vee\neg\phi$ clause)
-and finally $\M^+\models \Pr j(\psi\wedge(\phi\vee\neg\phi))[s]$.
+(this is the reason for the $\psi\wedge\phi$ clause)
+and finally $\M^+\models \Pr j(\psi\wedge\phi)[s]$.
 \end{proof}
 
 In Lemma \ref{firstutilbagvalidity}, we introduced Assigned Validity as a single schema
@@ -1940,9 +1943,9 @@ Since $\M^{J(j)}$ and $\M^+$ agree on $\Pr i$,
 $\M^{J(j)}\models\Pr i\phi[s]$.
 \end{proof}
 
-In Lemma \ref{secondutilbagdeduction} above, we had to weaken what $T_i$
+In Lemma \ref{secondutilbagdeduction} above, we had to modify what $T_i$
 says about $j$-Deduction for
-$j\succ i$. No such weakening is needed in the following lemma. This is
+$j\succ i$. No such modification is needed in the following lemma. This is
 interesting because in modal logic, positive introspection is generally
 considered much more controversial and demanding than basic deduction.
 
@@ -2246,7 +2249,7 @@ For all $i,j\in\omega$, each of the following families of $\LPA(\omega)$-theorie
 is stratifiable-r.e.-generic.
 \begin{enumerate}
     \item $[\mbox{$j$-Deduction}]_i$ (if $i\not\prec j$).
-    \item $[\mbox{Weak $j$-Deduction}]_i$ (if $i\prec j$).
+    \item $[\mbox{Modified $j$-Deduction}]_i$ (if $i\prec j$).
     \item $[\mbox{Assigned Validity}]_i$.
     \item $[\mbox{Assigned Validity}]_i \cup [\mbox{$i$-Validity}]_j$.
     \item $[\mbox{Assigned Validity}]_i
@@ -2276,8 +2279,8 @@ we see that the stratifiable-r.e.-generic families are weaker in
 exactly two ways:
 \begin{enumerate}
     \item They do not
-    allow $T_i$ to state full $j$-Deduction for $T_j$ when
-    $i\prec j$, instead allowing what we called Weak $j$-Deduction.
+    allow $T_i$ to state $j$-Deduction for $T_j$ when
+    $i\prec j$, instead allowing what we called Modified $j$-Deduction.
     \item Their closure property is more restricted:
     if $\T^1=(T^1_k)_{k\in\omega}$ is closed-r.e.-generic
     and $\T^2=(T^2_k)_{k\in\omega}$ is stratifible-r.e.-generic,
